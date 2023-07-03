@@ -1,0 +1,13 @@
+====== Bash guide on Greg's wiki  ======
+
+---- dataentry tutorial ----
+type         : tutorial
+title        : Bash guide on Greg's wiki
+website_urls : http://wooledge.org:8000/BashGuide
+contact      : Lhunath
+recindex     : 90
+----
+
+===== Details =====
+
+This guide teaches modern stuff and good practises. I recommend to learn from it. It was written by the guys in #bashIRC channel on Freenode (mainly lhunath), because there are so many bad tutorials out there.

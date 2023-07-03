@@ -1,0 +1,3 @@
+====== Syntax ======
+
+{{indexmenu>:syntax#10#sort+title}}

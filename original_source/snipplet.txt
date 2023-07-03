@@ -1,0 +1,25 @@
+~~NOTOC~~
+~~DISCUSSION:off~~
+
+====== Small code snipplets ======
+
+{{keywords>bash shell scripting code download snipplet example}}
+
+These snipplets are **not** meant as HowTo or Tutorial or FAQ. Mostly they are only a line of code and a short comment.
+
+See it more like an initial idea to give you a start.
+
+===== List of snipplets =====
+
+  * [[snipplets:start|reset filter]]
+
+---- datacloud snipplet ----
+field: snipplet_tags
+----
+
+
+---- datatable snipplet ----
+cols    : %pageid%, LastUpdate_dt
+headers : Snipplet, Last updated
+sort    : %pageid%
+----

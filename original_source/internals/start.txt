@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <title>internals:start [Bash Hackers Wiki]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="/lib/tpl/bootstrap3/images/favicon.ico" />
+<link rel="apple-touch-icon" href="/lib/tpl/bootstrap3/images/apple-touch-icon.png" />
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="noindex,follow"/>
+<meta name="keywords" content="internals,start"/>
+<link type="text/css" rel="stylesheet" href="/lib/tpl/bootstrap3/assets/bootstrap/default/bootstrap.min.css"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/lib/exe/opensearch.php" title="Bash Hackers Wiki"/>
+<link rel="start" href="/"/>
+<link rel="contents" href="/internals/start?do=index" title="Sitemap"/>
+<link rel="manifest" href="/lib/exe/manifest.php"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="/feed.php?mode=list&amp;ns=internals"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="/_export/xhtml/internals/start"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/_export/raw/internals/start"/>
+<link rel="stylesheet" type="text/css" href="/lib/exe/css.php?t=bootstrap3&amp;tseed=54923c3deda180f2db5bd755cd8fbf1a"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='internals';var JSINFO = {"updatable":1,"userreplace":1,"default_macro_string":"","plugins":{"edittable":{"default columnwidth":""}},"move_renameokay":false,"isadmin":0,"isauth":0,"bootstrap3":{"mode":"show","toc":[],"config":{"collapsibleSections":0,"fixedTopNavbar":1,"showSemanticPopup":0,"sidebarOnNavbar":0,"tagsOnTop":1,"tocAffix":1,"tocCollapseOnScroll":1,"tocCollapsed":0,"tocLayout":"default","useAnchorJS":1,"useAlternativeToolbarIcons":1}},"id":"internals:start","namespace":"internals","ACT":"show","useHeadingNavigation":1,"useHeadingContent":1};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="/lib/exe/js.php?t=bootstrap3&amp;tseed=54923c3deda180f2db5bd755cd8fbf1a"></script>
+<script type="text/javascript" charset="utf-8">/*<![CDATA[*/NS = "internals";var toolbar = [{"type":"format","title":"Bold Text","icon":"bold.png","key":"b","open":"**","close":"**","block":false},{"type":"format","title":"Italic Text","icon":"italic.png","key":"i","open":"\/\/","close":"\/\/","block":false},{"type":"format","title":"Underlined Text","icon":"underline.png","key":"u","open":"__","close":"__","block":false},{"type":"format","title":"Monospaced Text","icon":"mono.png","key":"m","open":"''","close":"''","block":false},{"type":"format","title":"Strike-through Text","icon":"strike.png","key":"d","open":"<del>","close":"<\/del>","block":false},{"type":"autohead","title":"Same Level Headline","icon":"hequal.png","key":"8","text":"Headline","mod":0,"block":true},{"type":"autohead","title":"Lower Headline","icon":"hminus.png","key":"9","text":"Headline","mod":1,"block":true},{"type":"autohead","title":"Higher Headline","icon":"hplus.png","key":"0","text":"Headline","mod":-1,"block":true},{"type":"picker","title":"Select Headline","icon":"h.png","class":"pk_hl","list":[{"type":"format","title":"Level 1 Headline","icon":"h1.png","key":"1","open":"====== ","close":" ======\\n"},{"type":"format","title":"Level 2 Headline","icon":"h2.png","key":"2","open":"===== ","close":" =====\\n"},{"type":"format","title":"Level 3 Headline","icon":"h3.png","key":"3","open":"==== ","close":" ====\\n"},{"type":"format","title":"Level 4 Headline","icon":"h4.png","key":"4","open":"=== ","close":" ===\\n"},{"type":"format","title":"Level 5 Headline","icon":"h5.png","key":"5","open":"== ","close":" ==\\n"}],"block":true},{"type":"format","title":"External Link","icon":"linkextern.png","open":"[[","close":"]]","sample":"http:\/\/example.com|External Link","block":false},{"type":"formatln","title":"Ordered List Item","icon":"ol.png","open":"  - ","close":"","key":"-","block":true},{"type":"formatln","title":"Unordered List Item","icon":"ul.png","open":"  * ","close":"","key":".","block":true},{"type":"insert","title":"Horizontal Rule","icon":"hr.png","insert":"\\n----\\n","block":true},{"type":"picker","title":"Smileys","icon":"smiley.png","list":{"8-)":"icon_cool.gif","8-O":"icon_eek.gif","8-o":"icon_eek.gif",":-(":"icon_sad.gif",":-)":"icon_smile.gif","=)":"icon_smile2.gif",":-\/":"icon_doubt.gif",":-\\":"icon_doubt2.gif",":-?":"icon_confused.gif",":-D":"icon_biggrin.gif",":-P":"icon_razz.gif",":-o":"icon_surprised.gif",":-O":"icon_surprised.gif",":-x":"icon_silenced.gif",":-X":"icon_silenced.gif",":-|":"icon_neutral.gif",";-)":"icon_wink.gif","m(":"facepalm.gif","^_^":"icon_fun.gif",":?:":"icon_question.gif",":!:":"icon_exclaim.gif","LOL":"icon_lol.gif","FIXME":"fixme.gif","DELETEME":"delete.gif",":UPDATE:":"update.gif",":NEW:":"new.gif",":V4:":"v4logo_short.gif"},"icobase":"smileys","block":false},{"type":"picker","title":"Special Chars","icon":"chars.png","list":["\u00c0","\u00e0","\u00c1","\u00e1","\u00c2","\u00e2","\u00c3","\u00e3","\u00c4","\u00e4","\u01cd","\u01ce","\u0102","\u0103","\u00c5","\u00e5","\u0100","\u0101","\u0104","\u0105","\u00c6","\u00e6","\u0106","\u0107","\u00c7","\u00e7","\u010c","\u010d","\u0108","\u0109","\u010a","\u010b","\u00d0","\u0111","\u00f0","\u010e","\u010f","\u00c8","\u00e8","\u00c9","\u00e9","\u00ca","\u00ea","\u00cb","\u00eb","\u011a","\u011b","\u0112","\u0113","\u0116","\u0117","\u0118","\u0119","\u0122","\u0123","\u011c","\u011d","\u011e","\u011f","\u0120","\u0121","\u0124","\u0125","\u00cc","\u00ec","\u00cd","\u00ed","\u00ce","\u00ee","\u00cf","\u00ef","\u01cf","\u01d0","\u012a","\u012b","\u0130","\u0131","\u012e","\u012f","\u0134","\u0135","\u0136","\u0137","\u0139","\u013a","\u013b","\u013c","\u013d","\u013e","\u0141","\u0142","\u013f","\u0140","\u0143","\u0144","\u00d1","\u00f1","\u0145","\u0146","\u0147","\u0148","\u00d2","\u00f2","\u00d3","\u00f3","\u00d4","\u00f4","\u00d5","\u00f5","\u00d6","\u00f6","\u01d1","\u01d2","\u014c","\u014d","\u0150","\u0151","\u0152","\u0153","\u00d8","\u00f8","\u0154","\u0155","\u0156","\u0157","\u0158","\u0159","\u015a","\u015b","\u015e","\u015f","\u0160","\u0161","\u015c","\u015d","\u0162","\u0163","\u0164","\u0165","\u00d9","\u00f9","\u00da","\u00fa","\u00db","\u00fb","\u00dc","\u00fc","\u01d3","\u01d4","\u016c","\u016d","\u016a","\u016b","\u016e","\u016f","\u01d6","\u01d8","\u01da","\u01dc","\u0172","\u0173","\u0170","\u0171","\u0174","\u0175","\u00dd","\u00fd","\u0178","\u00ff","\u0176","\u0177","\u0179","\u017a","\u017d","\u017e","\u017b","\u017c","\u00de","\u00fe","\u00df","\u0126","\u0127","\u00bf","\u00a1","\u00a2","\u00a3","\u00a4","\u00a5","\u20ac","\u00a6","\u00a7","\u00aa","\u00ac","\u00af","\u00b0","\u00b1","\u00f7","\u2030","\u00bc","\u00bd","\u00be","\u00b9","\u00b2","\u00b3","\u00b5","\u00b6","\u2020","\u2021","\u00b7","\u2022","\u00ba","\u2200","\u2202","\u2203","\u018f","\u0259","\u2205","\u2207","\u2208","\u2209","\u220b","\u220f","\u2211","\u203e","\u2212","\u2217","\u00d7","\u2044","\u221a","\u221d","\u221e","\u2220","\u2227","\u2228","\u2229","\u222a","\u222b","\u2234","\u223c","\u2245","\u2248","\u2260","\u2261","\u2264","\u2265","\u2282","\u2283","\u2284","\u2286","\u2287","\u2295","\u2297","\u22a5","\u22c5","\u25ca","\u2118","\u2111","\u211c","\u2135","\u2660","\u2663","\u2665","\u2666","\u03b1","\u03b2","\u0393","\u03b3","\u0394","\u03b4","\u03b5","\u03b6","\u03b7","\u0398","\u03b8","\u03b9","\u03ba","\u039b","\u03bb","\u03bc","\u039e","\u03be","\u03a0","\u03c0","\u03c1","\u03a3","\u03c3","\u03a4","\u03c4","\u03c5","\u03a6","\u03c6","\u03c7","\u03a8","\u03c8","\u03a9","\u03c9","\u2605","\u2606","\u260e","\u261a","\u261b","\u261c","\u261d","\u261e","\u261f","\u2639","\u263a","\u2714","\u2718","\u201e","\u201c","\u201d","\u201a","\u2018","\u2019","\u00ab","\u00bb","\u2039","\u203a","\u2014","\u2013","\u2026","\u2190","\u2191","\u2192","\u2193","\u2194","\u21d0","\u21d1","\u21d2","\u21d3","\u21d4","\u00a9","\u2122","\u00ae","\u2032","\u2033","[","]","{","}","~","(",")","%","\u00a7","$","#","|","@"],"block":false},{"type":"format","title":"Mark text as key press","icon":"..\/..\/plugins\/keyboard\/keyboard.png","open":"<key>","close":"<\/key>"},{"type":"picker","title":"Wrap Plugin","icon":"..\/..\/plugins\/wrap\/images\/toolbar\/picker.png","list":[{"type":"format","title":"columns","icon":"..\/..\/plugins\/wrap\/images\/toolbar\/column.png","open":"<WRAP group>\\n<WRAP half column>\\n","close":"\\n<\/WRAP>\\n\\n<WRAP half column>\\n\\n<\/WRAP>\\n<\/WRAP>\\n"},{"type":"format","title":"simple centered box","icon":"..\/..\/plugins\/wrap\/images\/toolbar\/box.png","open":"<WRAP center round box 60%>\\n","close":"\\n<\/WRAP>\\n"},{"type":"format","title":"info box","icon":"..\/..\/plugins\/wrap\/images\/note\/16\/info.png","open":"<WRAP center round info 60%>\\n","close":"\\n<\/WRAP>\\n"},{"type":"format","title":"tip box","icon":"..\/..\/plugins\/wrap\/images\/note\/16\/tip.png","open":"<WRAP center round tip 60%>\\n","close":"\\n<\/WRAP>\\n"},{"type":"format","title":"important box","icon":"..\/..\/plugins\/wrap\/images\/note\/16\/important.png","open":"<WRAP center round important 60%>\\n","close":"\\n<\/WRAP>\\n"},{"type":"format","title":"alert box","icon":"..\/..\/plugins\/wrap\/images\/note\/16\/alert.png","open":"<WRAP center round alert 60%>\\n","close":"\\n<\/WRAP>\\n"},{"type":"format","title":"help box","icon":"..\/..\/plugins\/wrap\/images\/note\/16\/help.png","open":"<WRAP center round help 60%>\\n","close":"\\n<\/WRAP>\\n"},{"type":"format","title":"download box","icon":"..\/..\/plugins\/wrap\/images\/note\/16\/download.png","open":"<WRAP center round download 60%>\\n","close":"\\n<\/WRAP>\\n"},{"type":"format","title":"todo box","icon":"..\/..\/plugins\/wrap\/images\/note\/16\/todo.png","open":"<WRAP center round todo 60%>\\n","close":"\\n<\/WRAP>\\n"},{"type":"insert","title":"clear floats","icon":"..\/..\/plugins\/wrap\/images\/toolbar\/clear.png","insert":"<WRAP clear\/>\\n"},{"type":"format","title":"especially emphasised","icon":"..\/..\/plugins\/wrap\/images\/toolbar\/em.png","open":"<wrap em>","close":"<\/wrap>"},{"type":"format","title":"highlighted","icon":"..\/..\/plugins\/wrap\/images\/toolbar\/hi.png","open":"<wrap hi>","close":"<\/wrap>"},{"type":"format","title":"less significant","icon":"..\/..\/plugins\/wrap\/images\/toolbar\/lo.png","open":"<wrap lo>","close":"<\/wrap>"}]},{"type":"dialog","title":"PageQuery Cheatsheet","icon":"..\/..\/plugins\/pagequery\/images\/pagequery.png","html":"<div id=\"pq-dialog\" title=\"PageQuery Cheatsheet\" style=\"font-size:75%;\">\n<b>pagequery><\/b>&nbsp; * | .* | exclude ns: ^ |-ns: | include ns: @ | ns: | . | .. | text | regex<\/br>\n<b>fulltext<\/b>&nbsp; Full-text search of page content<\/br>\n<b>fullregex<\/b>&nbsp; Search the full page id using regex<\/br>\n<b>sort=column:direction<\/b>&nbsp; Keys to sort by, in order of sorting<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>a, ab, abc<\/b>&nbsp; By 1st letter, 2-letters, or 3-letters<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>name, pagename<\/b>&nbsp; By page name [not grouped]<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>title, heading<\/b>&nbsp; By page title (or 1st heading) [not grouped]<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>id, pageid<\/b>&nbsp; By full page id, including namespace [not grouped]<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>ns<\/b>&nbsp; By namespace (without page name)<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>mdate, cdate<\/b>&nbsp; By modified\/created dates (full) [not grouped]<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>m[year][month][day]<\/b>&nbsp; By [m]odified [year][month][day]<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>c[year][month][day]<\/b>&nbsp; By [c]reated [year][month][day]s<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>creator<\/b>&nbsp; By page author<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>contributor<\/b>&nbsp; By page contributor(s)\tsort=contributor:asc<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>link<\/b>&nbsp; Links on this page, delimited by spaces<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>backlinks<\/b>&nbsp; Links to this page, delimited by spaces<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>:asc|:a<\/b>&nbsp; Ascending, e.g. a \u2192 z, 1 \u2192 10<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>:desc|:d<\/b>&nbsp; Descending, e.g. z \u2192 a, 10 \u2192 1<\/br>\n<b>filter=regex|text|date<\/b>&nbsp; Filter the result list, using regex. =! mean exclude; , between options<\/br>\n<b>group<\/b>&nbsp; Show a group header for each change in sort keys<\/br>\n<b>limit=number<\/b>&nbsp; Maximum number of results to return<\/br>\n<b>spelldate<\/b>&nbsp; Use real month and day names instead of numeric dates<\/br>\n<b>cols=&lt;number&gt;<\/b>&nbsp; Number of columns in displayed list<\/br>\n<b>proper=name|header|both<\/b>&nbsp; Display page names and\/or namespaces in Proper Case<\/br>\n<b>border=none|inside|outside|both<\/b>&nbsp; Show a border around table columns<\/br>\n<b>hidestart<\/b>&nbsp; Ignore any default start pages in the namespace(s)<\/br>\n<b>display=&lt;text{meta}&gt;<\/b>&nbsp; How to display the page links, using page's metadata via replace strings in {}<\/br>\n<b>snippet=tooltip|inline|plain|quoted<\/b>&nbsp; Controls how the page snippet (preview) is displayed<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>e.g. snippet=&lt;format,count,extent&gt;<\/b>&nbsp; <\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>format<\/b>&nbsp; one of the formats listed above: inline, plain, quoted<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>count<\/b>&nbsp; to show 1st <count> items in list with an preview\tall<\/br>\n&nbsp;&nbsp;&nbsp;&nbsp;<b>extent<\/b>&nbsp; can be choice of [c]hars, [w]ords, [l]ines, or [~]<stop at><\/br>\n<b>maxns=&lt;number&gt;<\/b>&nbsp; The number of namespace levels to display.<\/br>\n<b>case<\/b>&nbsp; Honour case when sorting, i.e. a..z then A..Z<\/br>\n<b>natsort<\/b>&nbsp; Use PHP's natural sorting functions, e.g. 1,2,10,12 rather than 1,10,12,2<\/br>\n<b>underline<\/b>&nbsp; Show a faint underline between each link for clarity<\/br>\n<b>label=&lt;text&gt;<\/b>&nbsp; A label to be displayed at the top of the PageQuery list<\/br>\n<b>hidemsg<\/b>&nbsp; Hide any empty result messages<\/br>\n<b>hidejump<\/b>&nbsp; Hide the \u201cJump To Top\u201d link<\/br>\n<b>showcount<\/b>&nbsp; Show the total count of page links at bottom of list<\/br>\n<b>layout=table|column<\/b>&nbsp; Choose between table or CSS3 column layout<\/br>\n<b>fontsize=&lt;CSS-Unit&gt;<\/b>&nbsp; Set the base font size for the pagequery list. You can use any CSS size unit<\/br>\n<b>bullet=none|disc|circle|square<\/b>&nbsp; Bullet style for list items<\/br>\n<\/div>\n","block":false},{"type":"picker","title":"Notes","icon":"..\/..\/plugins\/note\/images\/note_picker.png","list":[{"type":"format","title":"Note","icon":"..\/..\/plugins\/note\/images\/tb_note.png","open":"<note>","close":"<\/note>"},{"type":"format","title":"Tip","icon":"..\/..\/plugins\/note\/images\/tb_tip.png","open":"<note tip>","close":"<\/note>"},{"type":"format","title":"Important","icon":"..\/..\/plugins\/note\/images\/tb_important.png","open":"<note important>","close":"<\/note>"},{"type":"format","title":"Warning","icon":"..\/..\/plugins\/note\/images\/tb_warning.png","open":"<note warning>","close":"<\/note>"}]}];
+
+/*!]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/if (typeof IconifyConfig == 'undefined') { var IconifyConfig = { 'defaultAPI' : '/lib/tpl/bootstrap3/iconify.php?prefix={prefix}&icons={icons}' } }
+/*!]]>*/</script>
+<script type="text/javascript" src="/lib/tpl/bootstrap3/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/lib/tpl/bootstrap3/assets/anchorjs/anchor.min.js"></script>
+<script type="text/javascript" src="/lib/tpl/bootstrap3/assets/typeahead/bootstrap3-typeahead.min.js"></script>
+<script type="text/javascript" src="/lib/tpl/bootstrap3/assets/iconify/iconify.min.js"></script>
+<script type="text/javascript" src="/lib/tpl/bootstrap3/assets/iconify/plugins/fa.js"></script>
+<!--<![endif]-->
+<style type="text/css">@media screen { body { margin-top: 65px; }  #dw__toc.affix { top: 55px; position: fixed !important; }  #dw__toc .nav .nav .nav { display: none; } }</style>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="default dokuwiki mode_show tpl_bootstrap3  notFound dw-page-on-panel dw-fluid-container" data-page-id="internals:start"><div class="dokuwiki">
+    <header id="dokuwiki__header" class="dw-container dokuwiki container-fluid mx-5">
+    <!-- navbar -->
+<nav id="dw__navbar" class="navbar navbar-fixed-top navbar-default" role="navigation">
+
+    <div class="dw-container container-fluid mx-5">
+
+        <div class="navbar-header">
+
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand d-flex align-items-center" href="/start" accesskey="h" title="Bash Hackers Wiki"><img id="dw__logo" class="pull-left h-100 mr-4" alt="Bash Hackers Wiki" src="/lib/tpl/bootstrap3/images/logo.png" /><div class="pull-right"><div id="dw__title">Bash Hackers Wiki</div></div></a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+
+            
+            
+            
+            <div class="navbar-right" id="dw__navbar_items">
+
+                
+<!-- navbar-searchform -->
+<form action="/internals/start" accept-charset="utf-8" class="navbar-form navbar-left search" id="dw__search" method="get" role="search">
+    <div class="input-group">
+        <input id="qsearch" autocomplete="off" type="search" placeholder="Search" value="" accesskey="f" name="q" class="form-control" title="[F]" />
+        <div class="input-group-btn">
+            <button  class="btn btn-default" type="submit" title="Search">
+                <span class="iconify"  data-icon="mdi:magnify"></span>            </button>
+        </div>
+
+    </div>
+    <input type="hidden" name="do" value="search" />
+</form>
+<!-- /navbar-searchform -->
+<!-- tools-menu -->
+<ul class="nav navbar-nav dw-action-icon" id="dw__tools">
+
+    
+    <li class="dropdown">
+
+        <a href="" class="dropdown-toggle" data-target="#" data-toggle="dropdown" title="" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="iconify"  data-icon="mdi:wrench"></span> <span class="hidden-lg hidden-md hidden-sm">Tools</span> <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu tools" role="menu">
+        
+            <li class="dropdown-header">
+                <span class="iconify"  data-icon="mdi:account"></span> User Tools            </li>
+
+            <li class="action"><a href="/internals/start?do=register" title="Register" rel="nofollow" class="menuitem register"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6 2a4 4 0 0 0 4-4 4 4 0 0 0-4-4 4 4 0 0 0-4 4 4 4 0 0 0 4 4z"/></svg><span>Register</span></a></li><li class="action"><a href="/internals/start?do=login&amp;sectok=" title="Log In" rel="nofollow" class="menuitem login"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 17.25V14H3v-4h7V6.75L15.25 12 10 17.25M8 2h9a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-4h2v4h9V4H8v4H6V4a2 2 0 0 1 2-2z"/></svg><span>Log In</span></a></li>
+                        <li class="divider" role="separator"></li>
+            
+        
+            <li class="dropdown-header">
+                <span class="iconify"  data-icon="mdi:toolbox"></span> Site Tools            </li>
+
+            <li class="action"><a href="/internals/start?do=recent" title="Recent Changes [r]" rel="nofollow" accesskey="r" class="menuitem recent"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15 13h1.5v2.82l2.44 1.41-.75 1.3L15 16.69V13m4-5H5v11h4.67c-.43-.91-.67-1.93-.67-3a7 7 0 0 1 7-7c1.07 0 2.09.24 3 .67V8M5 21a2 2 0 0 1-2-2V5c0-1.11.89-2 2-2h1V1h2v2h8V1h2v2h1a2 2 0 0 1 2 2v6.1c1.24 1.26 2 2.99 2 4.9a7 7 0 0 1-7 7c-1.91 0-3.64-.76-4.9-2H5m11-9.85A4.85 4.85 0 0 0 11.15 16c0 2.68 2.17 4.85 4.85 4.85A4.85 4.85 0 0 0 20.85 16c0-2.68-2.17-4.85-4.85-4.85z"/></svg><span>Recent Changes</span></a></li><li class="action"><a href="/internals/start?do=media&amp;ns=internals" title="Media Manager" rel="nofollow" class="menuitem media"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 15l4.5-6 3.5 4.5 2.5-3L21 15m1-11h-8l-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M2 6H0v14a2 2 0 0 0 2 2h18v-2H2V6z"/></svg><span>Media Manager</span></a></li><li class="action"><a href="/internals/start?do=index" title="Sitemap [x]" rel="nofollow" accesskey="x" class="menuitem index"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 3h6v4H3V3m12 7h6v4h-6v-4m0 7h6v4h-6v-4m-2-4H7v5h6v2H5V9h2v2h6v2z"/></svg><span>Sitemap</span></a></li>
+                        <li class="divider" role="separator"></li>
+            
+        
+            <li class="dropdown-header">
+                <span class="iconify"  data-icon="mdi:file-document-outline"></span> Page Tools            </li>
+
+            <li class="action"><a href="/internals/start?do=edit" title="Show pagesource [v]" rel="nofollow" accesskey="v" class="menuitem source"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0l-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg><span>Show pagesource</span></a></li><li class="action"><a href="/internals/start?do=revisions" title="Old revisions [o]" rel="nofollow" accesskey="o" class="menuitem revs"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11 7v5.11l4.71 2.79.79-1.28-4-2.37V7m0-5C8.97 2 5.91 3.92 4.27 6.77L2 4.5V11h6.5L5.75 8.25C6.96 5.73 9.5 4 12.5 4a7.5 7.5 0 0 1 7.5 7.5 7.5 7.5 0 0 1-7.5 7.5c-3.27 0-6.03-2.09-7.06-5h-2.1c1.1 4.03 4.77 7 9.16 7 5.24 0 9.5-4.25 9.5-9.5A9.5 9.5 0 0 0 12.5 2z"/></svg><span>Old revisions</span></a></li><li class="action"><a href="/internals/start?do=backlink" title="Backlinks" rel="nofollow" class="menuitem backlink"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"/></svg><span>Backlinks</span></a></li><li class="action"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t" class="menuitem top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg><span>Back to top</span></a></li>
+            
+                </ul>
+    </li>
+
+    
+</ul>
+<!-- /tools-menu -->
+
+                <ul class="nav navbar-nav">
+
+                    
+                                        <li>
+                        <span class="dw__actions dw-action-icon">
+                        <a href="/internals/start?do=register" title="Register" rel="nofollow" class="menuitem register btn btn-success navbar-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6 2a4 4 0 0 0 4-4 4 4 0 0 0-4-4 4 4 0 0 0-4 4 4 4 0 0 0 4 4z"/></svg><span class=""> Register</span></a><a href="/internals/start?do=login&amp;sectok=" title="Log In" rel="nofollow" class="menuitem login btn btn-default navbar-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 17.25V14H3v-4h7V6.75L15.25 12 10 17.25M8 2h9a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-4h2v4h9V4H8v4H6V4a2 2 0 0 1 2-2z"/></svg><span class=""> Log In</span></a>                        </span>
+                    </li>
+                    
+                </ul>
+
+                
+                
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+<!-- navbar -->
+<div align="center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BHORG_BOTTOM -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4658830517838678"
+     data-ad-slot="1603598940"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+    </header>
+
+    <a name="dokuwiki__top" id="dokuwiki__top"></a>
+
+    <main role="main" class="dw-container pb-5 dokuwiki container-fluid mx-5">
+
+        <div id="dokuwiki__pageheader">
+
+            
+            <!-- breadcrumbs -->
+<nav id="dw__breadcrumbs" class="small">
+
+    <hr/>
+
+        <div class="dw__youarehere">
+        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList"><li>You are here</li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="/start"   itemprop="item" title="start"><span itemprop="name"><span class="iconify"  data-icon="mdi:home"></span></span></a></li><li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name" ><a itemprop="item"  href="/internals/start" class="wikilink2" title="internals:start" rel="nofollow">internals</a></span></li></ol>    </div>
+    
+        <div class="dw__breadcrumbs hidden-print">
+        <ol class="breadcrumb"><li>Trace</li>    </div>
+    
+    <hr/>
+
+</nav>
+<!-- /breadcrumbs -->
+
+            <p class="text-right">
+                <span class="pageId ml-1 label label-primary">internals:start</span>            </p>
+
+            <div id="dw__msgarea" class="small">
+                            </div>
+
+        </div>
+
+        <div class="row">
+
+            
+            <article id="dokuwiki__content" class="col-sm-12 col-md-12 " itemscope itemtype="http://schema.org/Article" itemref="dw__license">
+
+                
+<!-- page-tools -->
+<nav id="dw__pagetools" class="hidden-print">
+    <div class="tools panel panel-default">
+        <ul class="nav nav-stacked nav-pills text-muted">
+            <li class="action"><a href="/internals/start?do=edit" title="Show pagesource [v]" rel="nofollow" accesskey="v" class="menuitem source"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0l-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg><span>Show pagesource</span></a></li><li class="action"><a href="/internals/start?do=revisions" title="Old revisions [o]" rel="nofollow" accesskey="o" class="menuitem revs"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11 7v5.11l4.71 2.79.79-1.28-4-2.37V7m0-5C8.97 2 5.91 3.92 4.27 6.77L2 4.5V11h6.5L5.75 8.25C6.96 5.73 9.5 4 12.5 4a7.5 7.5 0 0 1 7.5 7.5 7.5 7.5 0 0 1-7.5 7.5c-3.27 0-6.03-2.09-7.06-5h-2.1c1.1 4.03 4.77 7 9.16 7 5.24 0 9.5-4.25 9.5-9.5A9.5 9.5 0 0 0 12.5 2z"/></svg><span>Old revisions</span></a></li><li class="action"><a href="/internals/start?do=backlink" title="Backlinks" rel="nofollow" class="menuitem backlink"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.982 2.982 0 0 0 0-4.24 2.982 2.982 0 0 0-4.24 0l-3.53 3.53a2.982 2.982 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.982 2.982 0 0 0 0 4.24 2.982 2.982 0 0 0 4.24 0l3.53-3.53a2.982 2.982 0 0 0 0-4.24.973.973 0 0 1 0-1.42z"/></svg><span>Backlinks</span></a></li><li class="action"><a href="#dokuwiki__top" title="Back to top [t]" rel="nofollow" accesskey="t" class="menuitem top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg><span>Back to top</span></a></li>        </ul>
+    </div>
+</nav>
+<!-- /page-tools -->
+
+                <div class="panel panel-default px-3 py-2" itemprop="articleBody">
+                    <div class="page panel-body">
+
+                        <!-- page-icons -->
+<div class="dw-page-icons pull-right hidden-print">
+    <ul class="list-inline">
+    <li class="shareon dropdown"><a href="#" title="Share via" rel="nofollow" data-toggle="dropdown" data-remote="/internals/start" data-target="#" aria-haspopup="true" aria-expanded="true" class="menuitem dropdown-toggle shareon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-share-variant" width="24" height="24" viewBox="0 0 24 24"><path d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8C19.66,8 21,6.66 21,5C21,3.34 19.66,2 18,2C16.34,2 15,3.34 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9C4.34,9 3,10.34 3,12C3,13.66 4.34,15 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19C20.92,17.39 19.61,16.08 18,16.08Z" /></svg><span>Share via</span></a><ul class="dropdown-menu"><li class="dropdown-header"><span class="iconify"  data-icon="mdi:share-variant"></span> Share via...</li><li><a href="#" class="share share-twitter" title="Share via Twitter"><span class="iconify"  data-icon="mdi:twitter"></span> Twitter</a></li><li><a href="#" class="share share-linkedin" title="Share via LinkedIn"><span class="iconify"  data-icon="mdi:linkedin"></span> LinkedIn</a></li><li><a href="#" class="share share-facebook" title="Share via Facebook"><span class="iconify"  data-icon="mdi:facebook"></span> Facebook</a></li><li><a href="#" class="share share-pinterest" title="Share via Pinterest"><span class="iconify"  data-icon="mdi:pinterest"></span> Pinterest</a></li><li><a href="#" class="share share-telegram" title="Share via Telegram"><span class="iconify"  data-icon="mdi:telegram"></span> Telegram</a></li><li><a href="#" class="share share-whatsapp" title="Share via WhatsApp"><span class="iconify"  data-icon="mdi:whatsapp"></span> WhatsApp</a></li><li><a href="#" class="share share-yammer" title="Share via Yammer"><span class="iconify"  data-icon="mdi:yammer"></span> Yammer</a></li><li><a href="#" class="share share-reddit" title="Share via Reddit"><span class="iconify"  data-icon="mdi:reddit"></span> Reddit</a></li></ul></li><li class="feed"><a href="https://wiki.bash-hackers.org/feed.php?ns=internals" title="Recent Changes" rel="nofollow" target="_blank" class="menuitem feed"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-rss" width="24" height="24" viewBox="0 0 24 24"><path d="M6.18,15.64C7.38,15.64 8.36,16.62 8.36,17.82C8.36,19 7.38,20 6.18,20C5,20 4,19 4,17.82C4,16.62 4.98,15.64 6.18,15.64M4,4.44C12.59,4.44 19.56,11.41 19.56,20H16.73C16.73,12.97 11.03,7.27 4,7.27V4.44M4,10.1C9.47,10.1 13.9,14.53 13.9,20H11.07C11.07,16.1 7.9,12.93 4,12.93V10.1Z" /></svg><span>Recent Changes</span></a></li><li class="sendmail"><a href="#" title="Send via e-Mail" rel="nofollow" class="menuitem sendmail"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-email-plus" width="24" height="24" viewBox="0 0 24 24"><path d="M3,4C1.89,4 1,4.89 1,6V18C1,19.1 1.9,20 3,20H14.09C14.03,19.67 14,19.34 14,19C14,15.69 16.69,13 20,13C20.34,13 20.67,13.03 21,13.09V6C21,4.89 20.1,4 19,4H3M3,6L11,11L19,6V8L11,13L3,8V6M19,15V18H16V20H19V23H21V20H24V18H21V15H19Z" /></svg><span>Send via e-Mail</span></a></li><li class="printpage"><a href="#" title="Print" rel="nofollow" onclick="javascript:window.print()" class="menuitem printpage"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-printer" width="24" height="24" viewBox="0 0 24 24"><path d="M18,3H6V7H18M19,12C18.45,12 18,11.55 18,11C18,10.45 18.45,10 19,10C19.55,10 20,10.45 20,11C20,11.55 19.55,12 19,12M16,19H8V14H16M19,8H5C3.34,8 2,9.34 2,11V17H6V21H18V17H22V11C22,9.34 20.66,8 19,8Z" /></svg><span>Print</span></a></li><li class="permalink"><a href="https://wiki.bash-hackers.org/doku.php?id=internals:start&amp;rev=" title="Permalink" rel="nofollow" target="_blank" class="menuitem permalink"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-link" width="24" height="24" viewBox="0 0 24 24"><path d="M3.9,12C3.9,10.29 5.29,8.9 7,8.9H11V7H7C4.24,7 2,9.24 2,12C2,14.76 4.24,17 7,17H11V15.1H7C5.29,15.1 3.9,13.71 3.9,12M8,13H16V11H8V13M17,7H13V8.9H17C18.71,8.9 20.1,10.29 20.1,12C20.1,13.71 18.71,15.1 17,15.1H13V17H17C19.76,17 22,14.76 22,12C22,9.24 19.76,7 17,7Z" /></svg><span>Permalink</span></a></li>    </ul>
+</div>
+
+<span class="clearfix"></span>
+
+<!-- /page-icons -->
+
+<div class="help modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body px-5"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="dw-content-page "><!-- content --><div class="dw-content"><h1 class="sectionedit1 page-header pb-3 mb-4 mt-5" id="this_topic_does_not_exist_yet"><span class="iconify mr-2"  style="color:orange" data-icon="mdi:alert"></span>This topic does not exist yet</h1>
+<div class="level1">
+
+<p>
+You&#039;ve followed a link to a topic that doesn&#039;t exist yet. If permissions allow, you may create it by clicking on &quot;Create this page&quot;.
+</p>
+
+</div>
+<div class="cookielaw-banner cookielaw-bottom">This website uses cookies for visitor traffic analysis. By using the website, you agree with storing the cookies on your computer.<button>OK</button><a href="https://www.google.com/intl/en/policies/technologies/cookies/" target="_blank">More information</a></div>
+</div><!-- /content --></div>
+                    </div>
+                </div>
+
+                <div class="small text-right">
+
+                                        <span class="docInfo">
+                                            </span>
+                    
+                    
+                </div>
+
+            </article>
+
+            
+        </div>
+
+    </main>
+
+    <footer id="dw__footer" class="dw-container py-5 dokuwiki container-fluid">
+        <hr/>
+<div align="center">
+<h3><a target="_blank" href="http://www.performing-databases.com">This site is supported by Performing Databases - your experts for database administration</a></h3>
+</div>
+<hr/>
+<div align="center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- BHORG_BOTTOM -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4658830517838678"
+     data-ad-slot="1603598940"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<!-- footer -->
+<div class="dw-container small container-fluid mx-5">
+
+    
+    <div class="footer-dw-title">
+                <div class="media">
+            <div class="media-left">
+                <img src="/lib/tpl/bootstrap3/images/logo.png" alt="Bash Hackers Wiki" class="media-object" style="height:32px" />
+            </div>
+            <div class="media-body">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h4 class="media-heading">Bash Hackers Wiki</h4>
+                        <p>
+                                                    </p>
+                    </div>
+                    <div class="col-sm-10">
+                                            </div>
+                </div>
+            </div>
+        </div>
+                    </div>
+
+    <div class="footer-license row">
+        <hr/>
+        <div id="dw__license" class="col-sm-6">
+                        <p>
+                <a href="http://www.gnu.org/licenses/fdl-1.3.html" title="GNU Free Documentation License 1.3" target="" itemscope itemtype="http://schema.org/CreativeWork" itemprop="license" rel="license" class="license"><img src="/lib/tpl/bootstrap3/images/license/gnufdl.png" width="24" height="24" alt="gnufdl" /> </a>            </p>
+            <p class="small">
+                Except where otherwise noted, content on this wiki is licensed under the following license:<br/><a href="http://www.gnu.org/licenses/fdl-1.3.html" title="GNU Free Documentation License 1.3" target="" itemscope itemtype="http://schema.org/CreativeWork" itemprop="license" rel="license" class="license">GNU Free Documentation License 1.3</a>            </p>
+                    </div>
+
+        <div class="col-sm-6">
+                    </div>
+
+    </div>
+
+</div>
+<!-- /footer -->
+    </footer>
+
+    <a href="#dokuwiki__top" class="back-to-top hidden-print btn btn-default" title="skip to content" accesskey="t">
+        <span class="iconify"  data-icon="mdi:chevron-up"></span>    </a>
+
+    <div id="screen__mode">        <span class="visible-xs-block"></span>
+        <span class="visible-sm-block"></span>
+        <span class="visible-md-block"></span>
+        <span class="visible-lg-block"></span>
+    </div>
+
+    <img src="/lib/exe/indexer.php?id=internals%3Astart&amp;1688418967" width="2" height="1" alt="" />
+</div>
+
+</body>
+</html>

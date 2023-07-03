@@ -1,0 +1,3 @@
+====== Syntax: Expansions ======
+
+{{indexmenu>:syntax:expansion#10#sort+title}}

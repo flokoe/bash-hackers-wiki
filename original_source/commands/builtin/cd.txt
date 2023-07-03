@@ -1,0 +1,46 @@
+====== The cd builtin command ======
+
+===== Synopsis =====
+<code>cd [-L|-P] [DIRECTORY]</code>
+<code>cd -</code>
+
+===== Description =====
+The ''cd'' builtin command is used to change the current working directory
+  * to the given directory (''cd DIRECTORY'')
+  * to the previous working directory (''cd -'') as saved in the [[syntax:shellvars#OLDPWD|OLDPWD]] shell variable
+  * to the user's home directory as specified in the [[syntax:shellvars#HOME|HOME]] environment variable (when used without a ''DIRECTORY'' argument)
+
+The ''cd'' builtin command searches the directories listed in [[syntax:shellvars#CDPATH|CDPATH]] for a matching directory.
+
+The default behaviour is to follow symbolic links unless the ''-P'' option is given or the shell is configured to do so (see the ''-P'' option of [[commands:builtin:set|the set builtin command]]).
+
+==== Options ====
+
+^Option^Description^
+|''-L''  |Follow symbolic links (default)  |
+|''-P''  |Do not follow symbolic links  |
+|''-@''  |Browse a file's extended attributed, if supported  |
+
+==== Exit status ====
+
+  * true if the directory was changed successfully
+  * false if a change to the home directory was requested, but [[syntax:shellvars#HOME|HOME]] is unset
+  * false if anything else goes wrong
+
+===== Examples =====
+
+==== Change the working directory to the user's home directory ====
+
+<code>cd</code>
+
+==== Change the working directory to the previous directory ====
+
+<code>cd -</code>
+
+===== Portability considerations =====
+
+===== See also =====
+  * variable [[syntax:shellvars#CDPATH|CDPATH]]
+  * variable [[syntax:shellvars#HOME|HOME]]
+  * variable [[syntax:shellvars#OLDPWD|OLDPWD]]
+  * the ''-P'' option of [[commands:builtin:set|the set builtin command]]

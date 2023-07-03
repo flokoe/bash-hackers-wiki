@@ -1,6 +1,6 @@
 # Wiki Bash Hackers
 
-The popular [wiki.bash-hackers.org](https://wiki.bash-hackers.org) site had its DNS expire in April 2023. The owner seems unresponsive, see the [Reddit thread here](https://www.reddit.com/r/bash/comments/12klulf/bashhackersorg_is_now_a_parking_domain/). Fortunately, the web server behind wiki.bash-hackers.org is still running, so I crawled the entire wiki to archive the current versions of all pages.
+The popular [wiki.bash-hackers.org](https://wiki.bash-hackers.org) (original IP address: `83.243.40.67`) site had its DNS expire in April 2023. The owner seems unresponsive, see the [Reddit thread here](https://www.reddit.com/r/bash/comments/12klulf/bashhackersorg_is_now_a_parking_domain/). Fortunately, the web server behind wiki.bash-hackers.org is still running, so I crawled the entire wiki to archive the current versions of all pages.
 
 This repo tries to preserve and present all this valuable information in a modern way and format, just in case the original wiki won't come back.
 

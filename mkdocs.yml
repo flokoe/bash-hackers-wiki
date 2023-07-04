@@ -6,10 +6,12 @@ theme:
     - navigation.tabs
 
 plugins:
-  - tags
+  - tags:
+      tags_file: tags.md
 
 markdown_extensions:
   - admonition
 
 nav:
   - Start: index.md
+  - tags.md

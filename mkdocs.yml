@@ -1,13 +1,23 @@
 site_name: The Bash Hackers Wiki
 
+repo_url: https://github.com/flokoe/bash-hackers-wiki
+repo_name: flokoe/bash-hackers-wiki
+edit_uri: edit/main/docs/
+
 theme:
   name: material
   features:
     - navigation.tabs
+    - content.action.view
+    - content.action.edit
+  icon:
+    repo: fontawesome/brands/github
 
 plugins:
   - tags:
       tags_file: tags.md
+  - git-revision-date-localized:
+      enable_creation_date: true
 
 markdown_extensions:
   - admonition

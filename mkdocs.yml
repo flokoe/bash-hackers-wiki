@@ -1,3 +1,15 @@
-site_name: Wiki Bash Hackers
+site_name: The Bash Hackers Wiki
+
 theme:
   name: material
+  features:
+    - navigation.tabs
+
+plugins:
+  - tags
+
+markdown_extensions:
+  - admonition
+
+nav:
+  - Start: index.md

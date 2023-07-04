@@ -4,6 +4,15 @@ The popular [wiki.bash-hackers.org](https://wiki.bash-hackers.org) (original IP 
 
 This repo tries to preserve and present all this valuable information in a modern way and format, just in case the original wiki won't come back.
 
+## Development
+
+To edit and develop locally install the following packages and run the built in dev webserver:
+
+```bash
+pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
+mkdocs serve
+```
+
 ## LICENSE
 
 As per the original wiki.bash-hackers.org:

@@ -21,10 +21,7 @@ See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with this program.
 If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
 
-[What would YOU like to see here?](wishes) (outdated and locked, please use the discussions)
-
-**Stranger!** Feel free to comment or edit the contents on GitHub.
-There is a [Bash Hackers Wiki needs love page](/meta/need_love) that lists some things to do.
+**Stranger!** Feel free to comment or edit the contents on GitHub. Use GitHub Issues to submit bugs and GitHub Discussions for enhancements, requests and general feedback/discussion.
 
 ## Scripting and general information
 

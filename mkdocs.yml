@@ -6,10 +6,18 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides
   features:
+    - navigation.instant
+    - navigation.tracking
     - navigation.tabs
+    - navigation.sections
+    - navigation.top
     - content.action.view
     - content.action.edit
+    - search.suggest
+    - search.highlight
+    - content.code.copy
   icon:
     repo: fontawesome/brands/github
 
@@ -18,11 +26,23 @@ plugins:
       tags_file: tags.md
   - git-revision-date-localized:
       enable_creation_date: true
+  - search
+  - awesome-pages
+  - minify:
+      minify_html: true
+      minify_css: true
+      minify_js: true
+      htmlmin_opts:
+        remove_comments: true
+      cache_safe: true
 
 markdown_extensions:
   - admonition
 
 nav:
   - Start: index.md
-  - Snipplets: snipplets/index.md
+  - ... | regex=^(?!need_love\.md|bash4\.md|wishes\.md|tags\.md)
   - tags.md
+
+watch:
+  - overrides

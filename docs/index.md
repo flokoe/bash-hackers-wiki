@@ -9,6 +9,13 @@ tags:
 
 # The Bash Hackers Wiki
 
+!!! warning "Under construction"
+    This is an archive of the old [wiki.bash-hackers.org](https://wiki.bash-hackers.org) with the goal to preserve and imporove the content by the community in a modern way and format.
+
+    The most recent version of each page that had content was automatically converted to Markdown and can be found here.
+    Pandoc did its best, but there is still some work to do as not a all pages are formatted correctly.
+    So for everyone who is interested in helping out, feel free to open PRs. Any help is welcome.
+
 This wiki is intended to hold documentation of any kind about GNU Bash.
 The main motivation was to provide *human-readable documentation* and information so users aren't forced to read every bit of the Bash manpage - which can be difficult to understand.
 However, the docs here are **not** meant as a newbie tutorial.

@@ -49,6 +49,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.smartsymbols
   - footnotes
+  - toc:
+      permalink: true
 
 nav:
   - Start: index.md

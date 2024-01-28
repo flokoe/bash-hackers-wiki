@@ -9,7 +9,9 @@ This repo tries to preserve and present all this valuable information in a moder
 To edit and develop locally install the following packages and run the built in dev webserver:
 
 ```bash
-pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
+python3 -m venv env
+pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-awesome-pages-plugin mkdocs-minify-plugin
+source env/bin/activate
 mkdocs serve
 ```
 

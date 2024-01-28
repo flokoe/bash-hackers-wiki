@@ -32,86 +32,86 @@ If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
 
 ## Scripting and general information
 
-- [Bash v4 - a rough overview](bash4) (unmaintained, since Bash 4 is more or less standard)
-- [style](/scripting/style) – an assorted collection of style and optic hints
-- [basics](/scripting/basics)
-- [newbie_traps](/scripting/newbie_traps)
-- [bashbehaviour](/scripting/bashbehaviour)
-- [posparams](/scripting/posparams)
-- [processtree](/scripting/processtree)
-- [obsolete](/scripting/obsolete)
-- [nonportable](/scripting/nonportable)
-- [debuggingtips](/scripting/debuggingtips)
-- [terminalcodes](/scripting/terminalcodes)
-- [tutoriallist](/scripting/tutoriallist)
+- [Bash v4 - a rough overview](bash4.md) (unmaintained, since Bash 4 is more or less standard.md)
+- [style](scripting/style.md) – an assorted collection of style and optic hints
+- [basics](scripting/basics.md)
+- [newbie_traps](scripting/newbie_traps.md)
+- [bashbehaviour](scripting/bashbehaviour.md)
+- [posparams](scripting/posparams.md)
+- [processtree](scripting/processtree.md)
+- [obsolete](scripting/obsolete.md)
+- [nonportable](scripting/nonportable.md)
+- [debuggingtips](scripting/debuggingtips.md)
+- [terminalcodes](scripting/terminalcodes.md)
+- [tutoriallist](scripting/tutoriallist)
 
 ## Code snippets
 
-There is a [section that holds small code snippets](/snipplets/start).
+There is a [section that holds small code snippets](snipplets).
 
-See also [some Bash source code excerpts](/misc/readthesourceluke).
+See also [some Bash source code excerpts](misc/readthesourceluke.md).
 
 ## How to
 
-[Doing specific tasks: concepts, methods, ideas](/howto/start):
+[Doing specific tasks: concepts, methods, ideas](howto/start.md):
 
-- [Simple locking (against parallel run)](/howto/mutex)
-- [Rudimentary config files for your scripts](/howto/conffile)
-- [Editing files with ed](/howto/edit-ed)
-- [Collapsing Functions](/howto/collapsing_functions)
-- [Illustrated Redirection Tutorial](/howto/redirection_tutorial)
-- [Calculate with dc](/howto/calculate-dc)
-- [Introduction to pax - the POSIX archiver](/howto/pax)
-- [getopts_tutorial](/howto/getopts_tutorial) (*under construction!*)
-- [dissectabadoneliner](/howto/dissectabadoneliner) An example of a bad oneliner, breakdown and fix (by `kojoro`)
-- [Write tests for ./your-script.sh](/howto/testing-your-scripts) by using bashtest util
+- [Simple locking (against parallel run.md)](howto/mutex.md)
+- [Rudimentary config files for your scripts](howto/conffile.md)
+- [Editing files with ed](howto/edit-ed.md)
+- [Collapsing Functions](howto/collapsing_functions.md)
+- [Illustrated Redirection Tutorial](howto/redirection_tutorial.md)
+- [Calculate with dc](howto/calculate-dc.md)
+- [Introduction to pax - the POSIX archiver](howto/pax.md)
+- [getopts_tutorial](howto/getopts_tutorial.md) (*under construction!*)
+- [dissectabadoneliner](howto/dissectabadoneliner.md) An example of a bad oneliner, breakdown and fix (by `kojoro`)
+- [Write tests for ./your-script.sh](howto/testing-your-scripts.md) by using bashtest util
 
 ## Bash syntax and operations
 
-- [Bash features overview by version](/scripting/bashchanges)
-- [Basic grammar rules](/syntax/basicgrammar)
-- [Quoting and character escaping](/syntax/quoting)
-- [Parsing and execution](/syntax/grammar/parser_exec)
-- [Some words about words...](/syntax/words)
-- [Patterns and pattern matching](/syntax/pattern)
-- [Arithmetic expressions](/syntax/arith_expr)
-- [List of shell options](/internals/shell_options)
-- [Redirection](/syntax/redirection)
-- [Special parameters and shell variables](/syntax/shellvars)
-- [Arrays](/syntax/arrays)
+- [Bash features overview by version](scripting/bashchanges.md)
+- [Basic grammar rules](syntax/basicgrammar.md)
+- [Quoting and character escaping](syntax/quoting.md)
+- [Parsing and execution](syntax/grammar/parser_exec.md)
+- [Some words about words...](syntax/words.md)
+- [Patterns and pattern matching](syntax/pattern.md)
+- [Arithmetic expressions](syntax/arith_expr.md)
+- [List of shell options](internals/shell_options.md)
+- [Redirection](syntax/redirection.md)
+- [Special parameters and shell variables](syntax/shellvars.md)
+- [Arrays](syntax/arrays.md)
 
 ## Compound commands
 
-| [Compound commands overview](/syntax/ccmd/intro) |                                                                  |
+| [Compound commands overview](syntax/ccmd/intro.md) |                                                                  |
 | ------------------------------------------------ | ---------------------------------------------------------------- |
 | **Grouping**                                     |                                                                  |
-| `{ ...; }`                                       | [command grouping](/syntax/ccmd/grouping_plain)                  |
-| `( ... )`                                        | [command grouping in a subshell](/syntax/ccmd/grouping_subshell) |
+| `{ ...; }`                                       | [command grouping](syntax/ccmd/grouping_plain.md)                  |
+| `( ... .md)`                                        | [command grouping in a subshell](syntax/ccmd/grouping_subshell.md) |
 | **Conditionals**                                 |                                                                  |
-| `[[ ... ]]`                                      | [conditional expression](/syntax/ccmd/conditional_expression)    |
-| `if ...; then ...; fi`                           | [conditional branching](/syntax/ccmd/if_clause)                  |
-| `case ... esac`                                  | [pattern-based branching](/syntax/ccmd/case)                     |
+| `[[ ... ]]`                                      | [conditional expression](syntax/ccmd/conditional_expression.md)    |
+| `if ...; then ...; fi`                           | [conditional branching](syntax/ccmd/if_clause.md)                  |
+| `case ... esac`                                  | [pattern-based branching](syntax/ccmd/case.md)                     |
 | **Loops**                                        |                                                                  |
-| `for word in ...; do ...; done`                  | [classic for-loop](/syntax/ccmd/classic_for)                     |
-| `for ((x=1; x<=10; x++)); do ...; done`          | [C-style for-loop](/syntax/ccmd/c_for)                           |
-| `while ...; do ...; done`                        | [while loop](/syntax/ccmd/while_loop)                            |
-| `until ...; do ...; done`                        | [until loop](/syntax/ccmd/until_loop)                            |
+| `for word in ...; do ...; done`                  | [classic for-loop](syntax/ccmd/classic_for.md)                     |
+| `for ((x=1; x<=10; x++)); do ...; done`          | [C-style for-loop](syntax/ccmd/c_for.md)                           |
+| `while ...; do ...; done`                        | [while loop](syntax/ccmd/while_loop.md)                            |
+| `until ...; do ...; done`                        | [until loop](syntax/ccmd/until_loop.md)                            |
 | **Misc**                                         |                                                                  |
-| `(( ... ))`                                      | [arithmetic evaluation](/syntax/ccmd/arithmetic_eval)            |
-| `select word in ...; do ...; done`               | [user selections](/syntax/ccmd/user_select)                      |
+| `(( ... ))`                                      | [arithmetic evaluation](syntax/ccmd/arithmetic_eval.md)            |
+| `select word in ...; do ...; done`               | [user selections](syntax/ccmd/user_select.md)                      |
 
 ## Expansions and substitutions
 
-| [Introduction to expansions and substitutions](/syntax/expansion/intro) |                                                      |
+| [Introduction to expansions and substitutions](syntax/expansion/intro.md) |                                                      |
 | ------------------------------------------------------------------------| ---------------------------------------------------- |
-| `{A,B,C} {A..C}`                                                        | [Brace expansion](/syntax/expansion/brace)           |
-| `~/ ~root/`                                                             | [Tilde expansion](/syntax/expansion/tilde)           |
-| `$FOO ${BAR%.mp3}`                                                      | [Parameter expansion](/syntax/pe)                    |
-| `` `command` $(command) ``                                              | [Command substitution](/syntax/expansion/cmdsubst)   |
-| `<(command) >(command)`                                                 | [Process substitution](/syntax/expansion/proc_subst) |
-| `$((1 + 2 + 3)) $[4 + 5 + 6]`                                           | [Arithmetic expansion](/syntax/expansion/arith)      |
-| `Hello <---> Word!`                                                     | [Word splitting](/syntax/expansion/wordsplit)        |
-| `/data/*-av/*.mp?`                                                      | [Pathname expansion](/syntax/expansion/globs)        |
+| `{A,B,C} {A..C}`                                                        | [Brace expansion](syntax/expansion/brace.md)           |
+| `~/ ~root/`                                                             | [Tilde expansion](syntax/expansion/tilde.md)           |
+| `$FOO ${BAR%.mp3}`                                                      | [Parameter expansion](syntax/pe.md)                    |
+| `` `command` $(command) ``                                              | [Command substitution](syntax/expansion/cmdsubst.md)   |
+| `<(command.md) >(command)`                                                 | [Process substitution](syntax/expansion/proc_subst.md) |
+| `$((1 + 2 + 3)) $[4 + 5 + 6]`                                           | [Arithmetic expansion](syntax/expansion/arith.md)      |
+| `Hello <---> Word!`                                                     | [Word splitting](syntax/expansion/wordsplit.md)        |
+| `/data/*-av/*.mp?`                                                      | [Pathname expansion](syntax/expansion/globs.md)        |
 
 ## Builtin Commands
 
@@ -125,13 +125,13 @@ These are provided directly by the shell, rather than invoked as standalone exte
 
 | Command                                | Description                                                            | Alt          | Type            |
 | -------------------------------------- | ---------------------------------------------------------------------- | ------------ | --------------- |
-| [declare](/commands/builtin/declare)   | Display or set shell variables or functions along with attributes.     | `typeset`    | builtin         |
-| [export](/commands/builtin/export)     | Display or set shell variables, also giving them the export attribute. | `typeset -x` | special builtin |
-| [eval](/commands/builtin/eval)         | Evaluate arguments as shell code.                                      |              | special builtin |
-| [local](/commands/builtin/local)       | Declare variables as having function local scope.                      |              | builtin         |
-| [readonly](/commands/builtin/readonly) | Mark variables or functions as read-only.                              | `typeset -r` | special builtin |
-| [unset](/commands/builtin/unset)       | Unset variables and functions.                                         |              | special builtin |
-| [shift](/commands/builtin/shift)       | Shift positional parameters                                            |              | special builtin |
+| [declare](commands/builtin/declare.md)   | Display or set shell variables or functions along with attributes.     | `typeset`    | builtin         |
+| [export](commands/builtin/export.md)     | Display or set shell variables, also giving them the export attribute. | `typeset -x` | special builtin |
+| [eval](commands/builtin/eval.md)         | Evaluate arguments as shell code.                                      |              | special builtin |
+| [local](commands/builtin/local.md)       | Declare variables as having function local scope.                      |              | builtin         |
+| [readonly](commands/builtin/readonly.md) | Mark variables or functions as read-only.                              | `typeset -r` | special builtin |
+| [unset](commands/builtin/unset.md)       | Unset variables and functions.                                         |              | special builtin |
+| [shift](commands/builtin/shift.md)       | Shift positional parameters                                            |              | special builtin |
 
 ### IO
 
@@ -140,11 +140,11 @@ These are provided directly by the shell, rather than invoked as standalone exte
 
 | Command                              | Description                                                            | Alt         | Type     |
 | ------------------------------------ | ---------------------------------------------------------------------- | ----------- | ---------|
-| [coproc](/syntax/keywords/coproc)    | Co-processes: Run a command in the background with pipes for reading / writing its standard streams. |  | keyword |
-| [echo](/commands/builtin/echo)       | Create output from arguments.                                          |             | builtin  |
-| [mapfile](/commands/builtin/mapfile) | Read lines of input into an array.                                     | `readarray` | builtin  |
-| [printf](/commands/builtin/printf)   | "advanced `echo`"                                                      |             | builtin  |
-| [read](/commands/builtin/read)       | Read input into variables or arrays, or split strings into fields using delimiters. | | builtin |
+| [coproc](syntax/keywords/coproc.md)    | Co-processes: Run a command in the background with pipes for reading / writing its standard streams. |  | keyword |
+| [echo](commands/builtin/echo.md)       | Create output from arguments.                                          |             | builtin  |
+| [mapfile](commands/builtin/mapfile.md) | Read lines of input into an array.                                     | `readarray` | builtin  |
+| [printf](commands/builtin/printf.md)   | "advanced `echo`"                                                      |             | builtin  |
+| [read](commands/builtin/read.md)       | Read input into variables or arrays, or split strings into fields using delimiters. | | builtin |
 
 ### Configuration and Debugging
 
@@ -153,9 +153,9 @@ These are provided directly by the shell, rather than invoked as standalone exte
 
 | Command                            | Description                                                                   | Alt | Type            |
 | ---------------------------------- | ----------------------------------------------------------------------------- | --- | --------------- |
-| [caller](/commands/builtin/caller) | Identify/print execution frames.                                              |     | builtin         |
-| [set](/commands/builtin/set)       | Set the positional parameters and/or set options that affect shell behaviour. |     | special builtin |
-| [shopt](/commands/builtin/shopt)   | set/get some bash-specific shell options.                                     |     | builtin         |
+| [caller](commands/builtin/caller.md) | Identify/print execution frames.                                              |     | builtin         |
+| [set](commands/builtin/set.md)       | Set the positional parameters and/or set options that affect shell behaviour. |     | special builtin |
+| [shopt](commands/builtin/shopt.md)   | set/get some bash-specific shell options.                                     |     | builtin         |
 
 ### Control flow and data processing
 
@@ -164,13 +164,13 @@ These are provided directly by the shell, rather than invoked as standalone exte
 
 | Command                                             | Description                                          | Alt      | Type            |
 | --------------------------------------------------- | ---------------------------------------------------- | -------- | --------------- |
-| [colon](/commands/builtin/true)                     | "true" null command.                                 | `true`   | special builtin |
-| [dot](/commands/builtin/source)                     | Source external files.                               | `source` | special builtin |
-| [false](/commands/builtin/false)                    | Fail at doing nothing.                               |          | builtin         |
-| [continue / break](/commands/builtin/continueBreak) | continue with or break out of loops.                 |          | special builtin |
-| [let](/commands/builtin/let)                        | Arithmetic evaluation simple command.                |          | builtin         |
-| [return](/commands/builtin/return)                  | Return from a function with a specified exit status. |          | special builtin |
-| [[]](/commands/classictest)                         | The classic `test` simple command.                   | `test`   | builtin         |
+| [colon](commands/builtin/true.md)                     | "true" null command.                                 | `true`   | special builtin |
+| [dot](commands/builtin/source.md)                     | Source external files.                               | `source` | special builtin |
+| [false](commands/builtin/false.md)                    | Fail at doing nothing.                               |          | builtin         |
+| [continue / break](commands/builtin/continueBreak.md) | continue with or break out of loops.                 |          | special builtin |
+| [let](commands/builtin/let.md)                        | Arithmetic evaluation simple command.                |          | builtin         |
+| [return](commands/builtin/return.md)                  | Return from a function with a specified exit status. |          | special builtin |
+| [[]](commands/classictest.md)                         | The classic `test` simple command.                   | `test`   | builtin         |
 
 ### Process and Job control
 
@@ -179,16 +179,16 @@ These are provided directly by the shell, rather than invoked as standalone exte
 
 | Command                          | Description                                            | Alt | Type            |
 | -------------------------------- | ------------------------------------------------------ | --- | --------------- |
-| [exec](/commands/builtin/exec)   | Replace the current shell process or set redirections. |     | special builtin |
-| [exit](/commands/builtin/exit)   | Exit the shell.                                        |     | special builtin |
-| [trap](/commands/builtin/trap)   | Set signal handlers or output the current handlers.    |     | special builtin |
-| [kill](/commands/builtin/kill)   | Send a signal to specified process(es)                 |     | builtin         |
-| [times](/commands/builtin/times) | Display process times.                                 |     | special builtin |
-| [wait](/commands/builtin/wait)   | Wait for background jobs and asynchronous lists.       |     | builtin         |
+| [exec](commands/builtin/exec.md)   | Replace the current shell process or set redirections. |     | special builtin |
+| [exit](commands/builtin/exit.md)   | Exit the shell.                                        |     | special builtin |
+| [trap](commands/builtin/trap.md)   | Set signal handlers or output the current handlers.    |     | special builtin |
+| [kill](commands/builtin/kill.md)   | Send a signal to specified process(es.md)                 |     | builtin         |
+| [times](commands/builtin/times.md) | Display process times.                                 |     | special builtin |
+| [wait](commands/builtin/wait.md)   | Wait for background jobs and asynchronous lists.       |     | builtin         |
 
 ## Dictionary
 
-A list of expressions, words, and their meanings is [here](/dict/index).
+A list of expressions, words, and their meanings is [here](dict/index.md).
 
 ## Links
 
@@ -235,8 +235,8 @@ A list of expressions, words, and their meanings is [here](/dict/index).
 - [Kernighan on the Unix pipeline (computerphile video)](https://www.youtube.com/watch?v=bKzonnwoR2I)
 - Linux in general, with some shell related stuff: [nixCraft: Linux Tips, Hacks, Tutorials and Ideas](http://www.cyberciti.biz/)
 - Linux tutorials, guides and how-tos: [RoseHosting Blog](https://www.rosehosting.com/blog/), [bash script for installing WordPress](https://www.rosehosting.com/blog/script-install-wordpress-on-a-debianubuntu-vps/) and some [basic shell commands](https://www.rosehosting.com/blog/basic-shell-commands-after-putty-ssh-logon/)
-- [Bashphorism list from the Bash IRC channel on Freenode](/misc/bashphorisms)
-- [Some more or less funny commandline stuff](/misc/shell_humor)
+- [Bashphorism list from the Bash IRC channel on Freenode](misc/bashphorisms.md)
+- [Some more or less funny commandline stuff](misc/shell_humor.md)
 - [How to Enable SSH on Ubuntu Tutorial](https://thishosting.rocks/how-to-enable-ssh-on-ubuntu/)
 - [How To Make an Awesome Custom Shell with ZSH](https://linuxstans.com/how-to-make-an-awesome-custom-shell-with-zsh/)
 
@@ -253,7 +253,7 @@ Visit us in [ircs://irc.libera.chat:6697](ircs://irc.libera.chat:6697), channel 
 If you have critiques or suggestions, please feel free to send a mail using the contact form on the right.
 Note that there is a simple discussion option below every article.
 
-Please also see the [imprint](/user/thebonsai/imprint) if you have problems with the site and its contents (legality, ...)!
+Please also see the [imprint](user/thebonsai/imprint.md) if you have problems with the site and its contents (legality, ...)!
 
 It also would be nice to drop a line when
 

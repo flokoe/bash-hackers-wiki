@@ -28,4 +28,4 @@ except
 ## See also
 
 -   Scripting article, internal:
-    [getopts_tutorial](/howto/getopts_tutorial)
+    [getopts_tutorial](../howto/getopts_tutorial.md)

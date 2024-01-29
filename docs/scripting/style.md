@@ -33,7 +33,7 @@ many may prefer 4 spaces, see below in the discussion section):
 
 Speaking of hard-tabs: Avoid them if possible. They only make trouble. I
 can imagine one case where they\'re useful: Indenting
-[here-documents](/syntax/redirection#here_documents).
+[here-documents](../syntax/redirection.md#here_documents).
 
 ### Breaking up lines
 
@@ -55,7 +55,7 @@ supports the visual impression of \"these belong together\".
 
 ### Breaking compound commands
 
-[Compound commands](/syntax/ccmd/intro) form the structures that make a
+[Compound commands](../syntax/ccmd/intro.md) form the structures that make a
 shell script different from a stupid enumeration of commands. Usually
 they contain a kind of \"head\" and a \"body\" that contains command
 lists. This type of compound command is relatively easy to indent.
@@ -242,7 +242,7 @@ Bash, but is not a good idea.
 ### Command substitution
 
 As noted in [the article about command
-substitution](/syntax/expansion/cmdsubst), you should use the `$( ... )`
+substitution](../syntax/expansion/cmdsubst.md), you should use the `$( ... )`
 form.
 
 If portability is a concern, use the backquoted form `` ` ... ` ``.
@@ -279,7 +279,7 @@ The basic structure of a script simply reads:
 ### The shebang
 
 If possible (I know it\'s not always possible!), use [a
-shebang](/dict/terms/shebang).
+shebang](../dict/terms/shebang.md).
 
 Be careful with `/bin/sh`: The argument that \"on Linux `/bin/sh` is
 Bash\" **is a lie** (and technically irrelevant)
@@ -314,7 +314,7 @@ have to ensure they\'re in a specific order.
 
 The portable form of the function definition should be used, without the
 `function` keyword (here using the [grouping compound
-command](/syntax/ccmd/grouping_plain)):
+command](../syntax/ccmd/grouping_plain.md)):
 
     getargs() {
       ...
@@ -358,7 +358,7 @@ Example:
 
 ### Exit meaningfully
 
-The [exit code](/dict/terms/exit_status) is your only way to directly
+The [exit code](../dict/terms/exit_status.md) is your only way to directly
 communicate with the calling process without any special provisions.
 
 If your script exits, provide a meaningful exit code. That minimally
@@ -380,7 +380,7 @@ of their C programs.\"** *\-- Robert Firth*
 
 -   if the script is interactive, if it works for you and if you think
     this is a nice feature, you can try to [save the terminal content
-    and restore it](/snipplets/screen_saverestore) after execution
+    and restore it](../snipplets/screen_saverestore.md) after execution
 -   output clean and understandable screen messages
 -   if applicable, you can use colors or specific prefixes to tag error
     and warning messages

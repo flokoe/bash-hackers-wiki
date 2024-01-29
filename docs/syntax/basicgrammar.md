@@ -42,7 +42,7 @@ issue to report back to the calling program.
 **base** for all higher constructs. Everything you execute, from
 pipelines to functions, finally ends up in (many) simple commands.
 That\'s why Bash only has one method to [expand and execute a simple
-command](/syntax/grammar/parser_exec). \</wrap\>
+command](../syntax/grammar/parser_exec.md). \</wrap\>
 
 ## Pipelines
 
@@ -82,7 +82,7 @@ acts on) exit code 0 (TRUE) and the `then` part of the `if` stanza is
 executed. One could say we checked for
 \"`not grep "^root" /etc/passwd`\".
 
-The [set option pipefail](/commands/builtin/set#attributes) determines
+The [set option pipefail](../commands/builtin/set.md#attributes) determines
 the behavior of how bash reports the exit code of a pipeline. If it\'s
 set, then the exit code (`$?`) is the last command that exits with non
 zero status, if none fail, it\'s zero. If it\'s not set, then `$?`
@@ -111,7 +111,7 @@ syntax:
 
 FIXME Missing an additional article about list operators
 
-A list is a sequence of one or more [pipelines](basicgrammar#pipelines)
+A list is a sequence of one or more [pipelines](../basicgrammar.md#pipelines)
 separated by one of the operators `;`, `&`, `&&`, or `││`, and
 optionally terminated by one of `;`, `&`, or `<newline>`.
 
@@ -132,7 +132,7 @@ Your whole Bash script technically is one big single list!
 
 ## Compound Commands
 
-See also the [list of compound commands](/syntax/ccmd/intro).
+See also the [list of compound commands](../syntax/ccmd/intro.md).
 
 There are two forms of compound commands:
 
@@ -151,24 +151,24 @@ overview):
 
   Compound command syntax                                      Description
   ------------------------------------------------------------ ---------------------------------------------------------------------------------------------------------------------------------------------------------
-  `( <LIST> )`                                                 Execute `<LIST>` in an extra subshell =\> [article](/syntax/ccmd/grouping_subshell)
-  `{ <LIST> ; }`                                               Execute `<LIST>` as separate group (but not in a subshell) =\> [article](/syntax/ccmd/grouping_plain)
-  `(( <EXPRESSION> ))`                                         Evaluate the arithmetic expression `<EXPRESSION>` =\> [article](/syntax/ccmd/arithmetic_eval)
-  `[[ <EXPRESSION> ]]`                                         Evaluate the conditional expression `<EXPRESSION>` (aka \"the new test command\") =\> [article](/syntax/ccmd/conditional_expression)
-  `for <NAME> in <WORDS> ; do <LIST> ; done`                   Executes `<LIST>` while setting the variable `<NAME>` to one of `<WORDS>` on every iteration (classic for-loop) =\> [article](/syntax/ccmd/classic_for)
-  `for (( <EXPR1> ; <EXPR2> ; <EXPR3> )) ; do <LIST> ; done`   C-style for-loop (driven by arithmetic expressions) =\> [article](/syntax/ccmd/c_for)
-  `select <NAME> in <WORDS> ; do <LIST> ; done`                Provides simple menus =\> [article](/syntax/ccmd/user_select)
-  `case <WORD> in <PATTERN>) <LIST> ;; ... esac`               Decisions based on pattern matching - executing `<LIST>` on match =\> [article](/syntax/ccmd/case)
-  `if <LIST> ; then <LIST> ; else <LIST> ; fi`                 The if clause: makes decisions based on exit codes =\> [article](/syntax/ccmd/if_clause)
-  `while <LIST1> ; do <LIST2> ; done`                          Execute `<LIST2>` while `<LIST1>` returns TRUE (exit code) =\> [article](/syntax/ccmd/while_loop)
-  `until <LIST1> ; do <LIST2> ; done`                          Execute `<LIST2>` until `<LIST1>` returns TRUE (exit code) =\> [article](/syntax/ccmd/until_loop)
+  `( <LIST> )`                                                 Execute `<LIST>` in an extra subshell =\> [article](../syntax/ccmd/grouping_subshell.md)
+  `{ <LIST> ; }`                                               Execute `<LIST>` as separate group (but not in a subshell) =\> [article](../syntax/ccmd/grouping_plain.md)
+  `(( <EXPRESSION> ))`                                         Evaluate the arithmetic expression `<EXPRESSION>` =\> [article](../syntax/ccmd/arithmetic_eval.md)
+  `[[ <EXPRESSION> ]]`                                         Evaluate the conditional expression `<EXPRESSION>` (aka \"the new test command\") =\> [article](../syntax/ccmd/conditional_expression.md)
+  `for <NAME> in <WORDS> ; do <LIST> ; done`                   Executes `<LIST>` while setting the variable `<NAME>` to one of `<WORDS>` on every iteration (classic for-loop) =\> [article](../syntax/ccmd/classic_for.md)
+  `for (( <EXPR1> ; <EXPR2> ; <EXPR3> )) ; do <LIST> ; done`   C-style for-loop (driven by arithmetic expressions) =\> [article](../syntax/ccmd/c_for.md)
+  `select <NAME> in <WORDS> ; do <LIST> ; done`                Provides simple menus =\> [article](../syntax/ccmd/user_select.md)
+  `case <WORD> in <PATTERN>) <LIST> ;; ... esac`               Decisions based on pattern matching - executing `<LIST>` on match =\> [article](../syntax/ccmd/case.md)
+  `if <LIST> ; then <LIST> ; else <LIST> ; fi`                 The if clause: makes decisions based on exit codes =\> [article](../syntax/ccmd/if_clause.md)
+  `while <LIST1> ; do <LIST2> ; done`                          Execute `<LIST2>` while `<LIST1>` returns TRUE (exit code) =\> [article](../syntax/ccmd/while_loop.md)
+  `until <LIST1> ; do <LIST2> ; done`                          Execute `<LIST2>` until `<LIST1>` returns TRUE (exit code) =\> [article](../syntax/ccmd/until_loop.md)
 
 ## Shell Function Definitions
 
 FIXME Missing an additional article about shell functions
 
 A shell function definition makes a [compound
-command](basicgrammar#compound_commands) available via a new name. When
+command](../basicgrammar.md#compound_commands) available via a new name. When
 the function runs, it has its own \"private\" set of positional
 parameters and I/O descriptors. It acts like a script-within-the-script.
 Simply stated: **You\'ve created a new command.**
@@ -183,7 +183,7 @@ looks like:
     print_help() { echo "Sorry, no help available"; }
 
 As above, a function definition can have any [compound
-command](basicgrammar#compound_commands) as a body. Structures like
+command](../basicgrammar.md#compound_commands) as a body. Structures like
 
     countme() for ((x=1;x<=9;x++)); do echo $x; done
 
@@ -265,17 +265,17 @@ Weird function names should not be used. Quote from the maintainer:
 
 ## Grammar summary
 
--   a [simple command](basicgrammar#simple_commands) is just a command
+-   a [simple command](../basicgrammar.md#simple_commands) is just a command
     and its arguments
--   a [pipeline](basicgrammar#pipelines) is one or more [simple
-    command](basicgrammar#simple_commands) probably connected in a pipe
--   a [list](basicgrammar#lists) is one or more
-    [pipelines](basicgrammar#pipelines) connected by special operators
--   a [compound command](basicgrammar#compound_commands) is a
-    [list](basicgrammar#lists) or a special command that forms a new
+-   a [pipeline](../basicgrammar.md#pipelines) is one or more [simple
+    command](../basicgrammar.md#simple_commands) probably connected in a pipe
+-   a [list](../basicgrammar.md#lists) is one or more
+    [pipelines](../basicgrammar.md#pipelines) connected by special operators
+-   a [compound command](../basicgrammar.md#compound_commands) is a
+    [list](../basicgrammar.md#lists) or a special command that forms a new
     meta-command
--   a [function definition](basicgrammar#shell_function_definitions)
-    makes a [compound command](basicgrammar#compound_commands) available
+-   a [function definition](../basicgrammar.md#shell_function_definitions)
+    makes a [compound command](../basicgrammar.md#compound_commands) available
     under a new name, and a separate environment
 
 ## Examples for classification
@@ -304,12 +304,12 @@ FIXME more\...
       cp mymusic.mp3 /data/mp3
     fi
 
--   the [compound command](basicgrammar#compound_commands) for the `if`
+-   the [compound command](../basicgrammar.md#compound_commands) for the `if`
     clause
--   the [list](basicgrammar#lists) that `if` **checks** actually
-    contains the [simple command](basicgrammar#simple_commands)
+-   the [list](../basicgrammar.md#lists) that `if` **checks** actually
+    contains the [simple command](../basicgrammar.md#simple_commands)
     `[ -d /data/mp3 ]`
--   the [list](basicgrammar#lists) that `if` **executes** contains a
+-   the [list](../basicgrammar.md#lists) that `if` **executes** contains a
     simple command (`cp mymusic.mp3 /data/mp3`)
 
 Let\'s invert test command exit code, only one thing changes:
@@ -318,15 +318,15 @@ Let\'s invert test command exit code, only one thing changes:
       cp mymusic.mp3 /data/mp3
     fi
 
--   the [list](basicgrammar#lists) that `if` **checks** contains a
-    [pipeline](basicgrammar#pipelines) now (because of the `!`)
+-   the [list](../basicgrammar.md#lists) that `if` **checks** contains a
+    [pipeline](../basicgrammar.md#pipelines) now (because of the `!`)
 
 ## See also
 
--   Internal: [List of compound commands](/syntax/ccmd/intro)
+-   Internal: [List of compound commands](../syntax/ccmd/intro.md)
 -   Internal: [Parsing and execution of simple
-    commands](/syntax/grammar/parser_exec)
--   Internal: [Quoting and escaping](/syntax/quoting)
+    commands](../syntax/grammar/parser_exec.md)
+-   Internal: [Quoting and escaping](../syntax/quoting.md)
 -   Internal: [Introduction to expansions and
-    substitutions](/syntax/expansion/intro)
--   Internal: [Some words about words\...](/syntax/words)
+    substitutions](../syntax/expansion/intro.md)
+-   Internal: [Some words about words\...](../syntax/words.md)

@@ -67,11 +67,11 @@ rndstr()
 
 The remaining examples don\'t use quite the same tricks, which will
 hopefully be explained elsewhere eventually. See
-[unset](commands/builtin/unset#scope) for why doing assignments in this
+[unset](../commands/builtin/unset.md#scope) for why doing assignments in this
 way works well.
 
 This next example is a variation on
-[print_horizontal_line](/snipplets/print_horizontal_line). We\'re using
+[print_horizontal_line](../snipplets/print_horizontal_line.md). We\'re using
 the printf field width specifier to truncate the values of a
 `sequence expansion` to one character.
 
@@ -81,12 +81,12 @@ printf '%.1s' "${a[RANDOM%${#a[@]}]}"{0..9} $'\n'
 ```
 
 The extra detail that makes this work is to notice that in Bash, [brace
-expansion](syntax/expansion/brace) is usually the very first type of
+expansion](../syntax/expansion/brace.md) is usually the very first type of
 expansion to be processed, always before parameter expansion. Bash is
 unique in this respect \-- all other shells with a brace expansion
 feature perform it almost last, just before pathname expansion. First
 the sequence expansion generates ten parameters, then the parameters are
-expanded left-to-right causing the [arithmetic](/syntax/arith_expr) for
+expanded left-to-right causing the [arithmetic](../syntax/arith_expr.md) for
 each to be evaluated individually, resulting in independent selection of
 random element of `a`. To get ten of the same element, put the array
 selection inside the format string where it will only be evaluated once,

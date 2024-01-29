@@ -40,7 +40,7 @@ A positional parameter is denoted by a number other than `0` (zero).
 Positional parameters reflect the shell\'s arguments that are not given
 to the shell itself (in practise, the script arguments, also the
 function arguments). You can\'t directly assign to the positional
-parameters, however, [the set builtin command](/commands/builtin/set)
+parameters, however, [the set builtin command](../commands/builtin/set.md)
 can be used to indirectly set them.
 
 The first to ninth positional parameter is referenced by `$1` to `$9`.
@@ -50,7 +50,7 @@ by the number given in curly braces, i.e., `${10}` or `${432}`.
 Unlike popular belief, `$0` is *not a positional parameter*.
 
 See also the [scripting article about handling positional
-parameters](/scripting/posparams).
+parameters](../scripting/posparams.md).
 
 ## special parameters
 
@@ -58,10 +58,10 @@ There are a bunch of special parameters, which are set by the shell.
 Direct assignment to them is not possible. These parameter names are
 formed of one character.
 
-Please see [shellvars](/syntax/shellvars).
+Please see [shellvars](../syntax/shellvars.md).
 
 ## See also
 
--   Syntax article, internal: [pe](/syntax/pe)
--   Syntax article, internal: [shellvars](/syntax/shellvars)
--   Scripting article, internal: [posparams](/scripting/posparams)
+-   Syntax article, internal: [pe](../syntax/pe.md)
+-   Syntax article, internal: [shellvars](../syntax/shellvars.md)
+-   Scripting article, internal: [posparams](../scripting/posparams.md)

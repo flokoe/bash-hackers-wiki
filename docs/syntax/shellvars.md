@@ -5,23 +5,23 @@
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   parameter   character          expansion description
   ----------- ------------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `*`         asterisk           The positional parameters starting from the first. When used inside doublequotes (see [quoting](/syntax/quoting)), like `"$*"`, it expands to all positional parameters *as one word*, delimited by the first character of the `IFS` variable (a space in this example): `"$1 $2 $3 $4"`.\
+  `*`         asterisk           The positional parameters starting from the first. When used inside doublequotes (see [quoting](../syntax/quoting.md)), like `"$*"`, it expands to all positional parameters *as one word*, delimited by the first character of the `IFS` variable (a space in this example): `"$1 $2 $3 $4"`.\
                                  If `IFS` is unset, the delimiter used will be always a space, if `IFS` is NULL, the delimiter will be nothing, which effectively concatenates all the positional parameters without any delimiter.\
                                  When used unquoted, it will just expand to the strings, one by one, not preserving the word boundaries (i.e. word splitting will split the text again, if it contains `IFS` characters.\
-                                 See also the [scripting article about handling positional parameters](/scripting/posparams).
+                                 See also the [scripting article about handling positional parameters](../scripting/posparams.md).
 
-  `@`         at-sign            The positional parameters starting from the first. When used inside doublequotes (see [quoting](/syntax/quoting)), like `"$@"`, it expands all positional parameters *as separate words*: `"$1" "$2" "$3" "$4"`\
+  `@`         at-sign            The positional parameters starting from the first. When used inside doublequotes (see [quoting](../syntax/quoting.md)), like `"$@"`, it expands all positional parameters *as separate words*: `"$1" "$2" "$3" "$4"`\
                                  Without doublequotes, the behaviour is like the one of `*` without doublequotes.\
-                                 See also the [scripting article about handling positional parameters](/scripting/posparams).
+                                 See also the [scripting article about handling positional parameters](../scripting/posparams.md).
 
   `#`         hash mark          Number of positional parameters (decimal)\
-                                 See also the [scripting article about handling positional parameters](/scripting/posparams).
+                                 See also the [scripting article about handling positional parameters](../scripting/posparams.md).
 
   `?`         question mark      Status of the most recently executed foreground-pipeline (exit/return code)
 
-  `-`         dash               Current option flags set by the shell itself, on invocation, or using the [set builtin command](/commands/builtin/set). It\'s just a set of characters, like `himB` for `h`, `i`, `m` and `B`.
+  `-`         dash               Current option flags set by the shell itself, on invocation, or using the [set builtin command](../commands/builtin/set.md). It\'s just a set of characters, like `himB` for `h`, `i`, `m` and `B`.
 
-  `$`         dollar-sign        The process ID (PID) of the shell. In an [explicit subshell](/syntax/ccmd/grouping_subshell) it expands to the PID of the current \"main shell\", not the subshell. This is different from `$BASHPID`!
+  `$`         dollar-sign        The process ID (PID) of the shell. In an [explicit subshell](../syntax/ccmd/grouping_subshell.md) it expands to the PID of the current \"main shell\", not the subshell. This is different from `$BASHPID`!
 
   `!`         exclamation mark   The process ID (PID) of the most recently executed background pipeline (like started with `command &`)
 
@@ -54,7 +54,7 @@ Bash.
 A colon-separated list of enabled shell options.
 
 Each word in the list is a valid argument for the `-s` option to the
-[shopt builtin command](/commands/builtin/shopt). The options appearing
+[shopt builtin command](../commands/builtin/shopt.md). The options appearing
 in `BASHOPTS` are those reported as on by `shopt`. If this variable is
 in the environment when Bash starts up, each shell option in the list
 will be enabled before reading any startup files.
@@ -89,7 +89,7 @@ this array appear in the alias list; unsetting array elements cause
 aliases to be removed from the alias list.
 
 The associative key is the name of the alias as used with the [alias
-builtin command](/commands/builtin/alias).
+builtin command](../commands/builtin/alias.md).
 
 ### BASH_ARGC
 
@@ -103,7 +103,7 @@ frame of the current Bash execution call stack.
 
 The number of parameters to the current subroutine (shell function or
 script executed with [`.` or `source` builtin
-command](/commands/builtin/source)) is at the top of the stack. When a
+command](../commands/builtin/source.md)) is at the top of the stack. When a
 subroutine is executed, the number of parameters passed is pushed onto
 `BASH_ARGC`.
 
@@ -145,12 +145,12 @@ subsequently reset.
 
 An associative array variable whose members correspond to the internal
 hash table of commands as maintained by the [hash builtin
-command](/commands/builtin/hash). Elements added to this array appear in
+command](../commands/builtin/hash.md). Elements added to this array appear in
 the hash table; unsetting array elements cause commands to be removed
 from the hash table.
 
 The associative key is the name of the command as used with the[hash
-builtin command](/commands/builtin/hash).
+builtin command](../commands/builtin/hash.md).
 
 ### BASH_COMMAND
 
@@ -454,7 +454,7 @@ element of `FUNCNAME` has corresponding elements in `BASH_LINENO` and
 `BASH_SOURCE` to describe the call stack. For instance,
 `${FUNCNAME[$i]}` was called from the file `${BASH_SOURCE[$i+1]}` at
 line number `${BASH_LINENO[$i]}`. The [caller builtin
-command](/commands/builtin/caller) displays the current call stack using
+command](../commands/builtin/caller.md) displays the current call stack using
 this information.
 
 This variable exists only when a shell function is executing.
@@ -555,7 +555,7 @@ Example content:
   Set by Bash:   yes                     Default:     n/a
 
 An array variable created to hold the text read by the [mapfile builtin
-command](/commands/builtin/mapfile) when no variable name is supplied.
+command](../commands/builtin/mapfile.md) when no variable name is supplied.
 
 ### OLDPWD
 
@@ -574,7 +574,7 @@ The previous working directory as set by the cd command.
   Set by Bash:   yes               Default:     n/a
 
 The value of the last option argument processed by the [getopts builtin
-command](/commands/builtin/getopts).
+command](../commands/builtin/getopts.md).
 
 ### OPTIND
 
@@ -584,7 +584,7 @@ command](/commands/builtin/getopts).
   Set by Bash:   yes                Default:     n/a
 
 The index of the next argument to be processed by the [getopts builtin
-command](/commands/builtin/getopts).
+command](../commands/builtin/getopts.md).
 
 ### OSTYPE
 
@@ -628,7 +628,7 @@ The process ID of the shell\'s parent process.
   Set by Bash:   yes               Default:     n/a
 
 The current working directory as set by the [cd builtin
-command](/commands/builtin/cd).
+command](../commands/builtin/cd.md).
 
 ### RANDOM
 
@@ -668,10 +668,10 @@ with `bind -x`.
   Variable:      `REPLY`                                                      Since:       unknown
   -------------- ------------------------------------------------------------ ------------ ---------
   Type:          normal variable                                              Read-only:   no
-  Set by Bash:   only by the [read builtin command](/commands/builtin/read)   Default:     n/a
+  Set by Bash:   only by the [read builtin command](../commands/builtin/read.md)   Default:     n/a
 
 Set to the line of input read by the [read builtin
-command](/commands/builtin/read) when no arguments are supplied that
+command](../commands/builtin/read.md) when no arguments are supplied that
 name target variables.
 
 ### SECONDS
@@ -698,7 +698,7 @@ is subsequently reset.
 
 A colon-separated list of enabled shell options. Each word in the list
 is a valid argument for the `-o` option to the [set builtin
-command](/commands/builtin/set). The options appearing in `SHELLOPTS`
+command](../commands/builtin/set.md). The options appearing in `SHELLOPTS`
 are those reported as on by `set -o`.
 
 If this variable is in the environment when Bash starts up, each shell
@@ -736,9 +736,9 @@ If this parameter is set when Bash is executing a shell script, its
 value is interpreted as a filename containing commands to initialize the
 shell, as in `~/.bashrc`. The value of `BASH_ENV` is subjected to
 
--   [parameter expansion](/syntax/pe)
--   [command substitution](/syntax/expansion/cmdsubst)
--   [arithmetic expansion](/syntax/expansion/arith)
+-   [parameter expansion](../syntax/pe.md)
+-   [command substitution](../syntax/expansion/cmdsubst.md)
+-   [arithmetic expansion](../syntax/expansion/arith.md)
 
 before being interpreted as a file name.
 
@@ -770,7 +770,7 @@ unsetting it will result in the standard error being closed.
   Type:          normal variable   Read-only:   no
   Set by Bash:   no                Default:     n/a
 
-The search path for the [cd builtin command](/commands/builtin/cd).
+The search path for the [cd builtin command](../commands/builtin/cd.md).
 
 This is a colon-separated list of directories in which the shell looks
 for destination directories specified by the `cd` command.
@@ -828,7 +828,7 @@ Similar to `BASH_ENV`: Used when the shell is invoked in POSIX(r) mode.
   Type:          normal variable   Read-only:   no
   Set by Bash:   no                Default:     n/a
 
-The default editor for the [fc builtin command](/commands/builtin/fc).
+The default editor for the [fc builtin command](../commands/builtin/fc.md).
 
 ### FIGNORE
 
@@ -986,10 +986,10 @@ comment character to distinguish timestamps from other history lines.
 
 The home directory of the current user.
 
-The default argument for the [cd builtin command](/commands/builtin/cd).
+The default argument for the [cd builtin command](../commands/builtin/cd.md).
 
 The value of this variable is also used when performing [tilde
-expansion](/syntax/expansion/tilde).
+expansion](../syntax/expansion/tilde.md).
 
 ### HOSTFILE
 
@@ -1177,7 +1177,7 @@ Example content:
   Set by Bash:   yes               Default:     1 (set on startup)
 
 If set to the value 1, Bash displays error messages generated by the
-[getopts builtin command](/commands/builtin/getopts).
+[getopts builtin command](../commands/builtin/getopts.md).
 
 `OPTERR` is initialized to 1 each time the shell is invoked or a shell
 script is executed.
@@ -1368,9 +1368,9 @@ A trailing newline is added when the format string is displayed.
   Set by Bash:   no                Default:     n/a
 
 If set to a value greater than zero, `TMOUT` is treated as the default
-timeout for the [read builtin command](/commands/builtin/read).
+timeout for the [read builtin command](../commands/builtin/read.md).
 
-The [select command](/commands/builtin/select) terminates if input does
+The [select command](../commands/builtin/select.md) terminates if input does
 not arrive after `TMOUT` seconds when input is coming from a terminal.
 
 In an interactive shell, the value is interpreted as the number of

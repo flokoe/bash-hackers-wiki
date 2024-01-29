@@ -71,7 +71,7 @@ interpreter specified by the shebang. \</WRAP\>
 **Additional note:** When you specify `#!/bin/sh` as shebang and that\'s
 a link to a Bash, then Bash will run in POSIX(r) mode! See:
 
--   [Bash behaviour](/scripting/bashbehaviour).
+-   [Bash behaviour](../scripting/bashbehaviour.md).
 
 A common method is to specify a shebang like
 
@@ -113,7 +113,7 @@ When you write a script:
 To learn more about the standard filedescriptors, especially about
 redirection and piping, see:
 
--   [An illustrated redirection tutorial](/howto/redirection_tutorial)
+-   [An illustrated redirection tutorial](../howto/redirection_tutorial.md)
 
 ## Variable names
 
@@ -184,7 +184,7 @@ else
 fi
 ```
 
-Read more about [the test command](/commands/classictest)
+Read more about [the test command](../commands/classictest.md)
 
 A common exit code check method uses the \"`||`\" or \"`&&`\" operators.
 This lets you execute a command based on whether or not the previous
@@ -247,7 +247,7 @@ it, effectively, the entire block was ignored.
 
 The here-document-tag was quoted here **to avoid substitutions** in the
 \"commented\" text! Check [redirection with
-here-documents](/syntax/redirection#tag_heredoc) for more
+here-documents](../syntax/redirection.md#tag_heredoc) for more
 
 ## Variable scope
 
@@ -279,7 +279,7 @@ program\".
 for example a *subshell*, they will be set there, but you will **never**
 have access to them outside of that subshell. One way to create a
 subshell is the pipe. It\'s all mentioned in a small article about [Bash
-in the processtree](/scripting/processtree)!
+in the processtree](../scripting/processtree.md)!
 
 ### Local variables
 
@@ -352,6 +352,6 @@ export myvariable
 
 Remember that the *exported* variable is a **copy**. There is no
 provision to \"copy it back to the parent.\" See the article about [Bash
-in the process tree](/scripting/processtree)!
+in the process tree](../scripting/processtree.md)!
 
 [^1]: under specific circumstances, also by the shell itself

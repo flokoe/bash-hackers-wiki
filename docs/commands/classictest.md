@@ -61,7 +61,7 @@ fi
 As you definitely noted, the filename contains spaces.
 Since we call a normal ordinary command (`test` or `[`) the shell will word-split the expansion of the variable `mymusic`:
 You need to quote it when you don't want the `test`-command to complain about too many arguments for this test-type!
-If you didn't understand it, please read the [article about words\...](/syntax/words).
+If you didn't understand it, please read the [article about words\...](../syntax/words.md).
 
 Please also note that the file-tests want **one filename** to test.
 Don't give a glob (filename-wildcards) as it can expand to many filenames => **too many arguments!**
@@ -138,7 +138,7 @@ Since Bash 4.1, all tests related to permissions respect ACLs, if the underlying
 | <TEST1\> **-o** <TEST2\> | True, if either \<TEST1\> **or** <TEST2\> is true (OR).                                                                  |
 | **!** <TEST\>            | True, if <TEST\> is **false** (NOT).                                                                                     |
 | **(** <TEST\> **)**      | Group a test (for precedence). **Attention:** In normal shell-usage, the `(` and `)` must be escaped; use `\(` and `\)`! |
-| **-o** <OPTION_NAME\>    | True, if the [shell option](/internals/shell_options) <OPTION_NAME\> is set.                                             |
+| **-o** <OPTION_NAME\>    | True, if the [shell option](../internals/shell_options.md) <OPTION_NAME\> is set.                                             |
 | **-v** <VARIABLENAME\>   | True if the variable <VARIABLENAME\> has been set. Use `var[n]` for array elements.                                      |
 | **-R** <VARIABLENAME\>   | True if the variable <VARIABLENAME\> has been set and is a nameref variable (since 4.3-alpha)                            |
 
@@ -503,18 +503,18 @@ Some code snipplets follow, different ways of shell reaction is used.
 - **check if a variable is defined/non-NULL**
     - `test "$MYVAR"`
     - `[ "$MYVAR" ]`
-    - **Note:** There are possibilities to make a difference if a variable is *undefined* or *NULL* - see [Parameter Expansion - Using an alternate value](/syntax/pe#use_an_alternate_value)
+    - **Note:** There are possibilities to make a difference if a variable is *undefined* or *NULL* - see [Parameter Expansion - Using an alternate value](../syntax/pe.md#use_an_alternate_value)
 - **check if a directory exists, if not, create it**
     - `test ! -d /home/user/foo && mkdir /home/user/foo`
     - `[ ! -d /home/user/foo ] && mkdir /home/user/foo`
     - `if [ ! -d /home/user/foo ]; then mkdir /home/user/foo; fi`
 - **check if minimum one parameter was given, and that one is "Hello"**
     - `test $# -ge 1 -a "$1" = "Hello" || exit 1`
-    - `[ $# -ge 1 ] && [ "$1" = "Hello" ] || exit 1` (see [lists description](/syntax/basicgrammar#lists))
+    - `[ $# -ge 1 ] && [ "$1" = "Hello" ] || exit 1` (see [lists description](../syntax/basicgrammar.md#lists))
 
 ### Listing directories
 
-Using a [for-loop](/syntax/ccmd/classic_for) to iterate through all entries of a directory, if an entry is a directory (`[ -d "$fn" ]`), print its name:
+Using a [for-loop](../syntax/ccmd/classic_for.md) to iterate through all entries of a directory, if an entry is a directory (`[ -d "$fn" ]`), print its name:
 
 ```bash
 for fn in *; do
@@ -524,8 +524,8 @@ done
 
 ## See also
 
-- Internal: [conditional expression](/syntax/ccmd/conditional_expression) (aka "the new test command")
-- Internal: [the if-clause](/syntax/ccmd/if_clause)
+- Internal: [conditional expression](../syntax/ccmd/conditional_expression.md) (aka "the new test command")
+- Internal: [the if-clause](../syntax/ccmd/if_clause.md)
 
 [^1]: <rant\>Of course, one can wonder what is the use of including the
     parenthesis in the specification without defining the behaviour with

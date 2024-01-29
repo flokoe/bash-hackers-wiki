@@ -13,4 +13,4 @@ behaviour of the system shell and some utilities (commands).
 
 ## See also
 
--   Dictionary, internal: [shell](/dict/terms/shell)
+-   Dictionary, internal: [shell](../dict/terms/shell.md)

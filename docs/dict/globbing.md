@@ -23,9 +23,9 @@ which serves the same purpose.
 
 ## See also
 
--   [shell](/dict/terms/shell)
--   [hardlink](/dict/terms/hardlink)
+-   [shell](../dict/terms/shell.md)
+-   [hardlink](../dict/terms/hardlink.md)
 
 ## See also (article)
 
--   [pathname expansion](/syntax/expansion/globs)
+-   [pathname expansion](../syntax/expansion/globs.md)

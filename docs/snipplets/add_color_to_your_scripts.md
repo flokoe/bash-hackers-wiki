@@ -29,7 +29,7 @@ reset the color changes in bash. Like so \....
     echo -e "$COL_YELLOW This is yellow $COL_RESET"
 
 But also see the notes in [the article about using
-terminalcodes](/scripting/terminalcodes) about generating codes and
+terminalcodes](../scripting/terminalcodes.md) about generating codes and
 hardwiring codes.
 
 This snipplet sets up associative arrays for basic color codes using

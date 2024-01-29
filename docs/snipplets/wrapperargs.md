@@ -40,7 +40,7 @@ There are two (maybe more) easy options:
 
 -   writing out singlequoted strings and handle the embedded
     singlequotes
--   the [printf command](/commands/builtin/printf) knows the `%q` format
+-   the [printf command](../commands/builtin/printf.md) knows the `%q` format
     specification, which will print a string (like `%s` does), but with
     all shell special characters escaped
 

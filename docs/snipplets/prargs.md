@@ -13,7 +13,7 @@ Check this script (save it as script file or make a function):
 
     printf '"%b"\n' "$0" "$@" | nl -v0 -s": "
 
-It uses the [printf command](/commands/builtin/printf) to generate a
+It uses the [printf command](../commands/builtin/printf.md) to generate a
 list of arguments, even with escape sequences interpreted. This list is
 shown formatted by the nl(1) utility.
 

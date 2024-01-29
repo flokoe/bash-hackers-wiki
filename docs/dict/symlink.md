@@ -10,6 +10,6 @@ it can
 
 ## See also
 
--   [hardlink](/dict/terms/hardlink)
--   [filesystem](/dict/terms/filesystem)
--   [directory](/dict/terms/directory)
+-   [hardlink](../dict/terms/hardlink.md)
+-   [filesystem](../dict/terms/filesystem.md)
+-   [directory](../dict/terms/directory.md)

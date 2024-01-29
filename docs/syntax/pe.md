@@ -9,7 +9,7 @@ is an entity that stores values and is referenced by a **name**, a
 **number** or a **special symbol**.
 
 -   parameters referenced by a name are called **variables** (this also
-    applies to [arrays](/syntax/arrays))
+    applies to [arrays](../syntax/arrays.md))
 -   parameters referenced by a number are called **positional
     parameters** and reflect the arguments given to a shell
 -   parameters referenced by a **special symbol** are auto-set
@@ -25,10 +25,10 @@ check what it can be, try the overview section below!
 
 **Arrays** can be special cases for parameter expansion, every
 applicable description mentions arrays below. Please also see the
-[article about arrays](/syntax/arrays).
+[article about arrays](../syntax/arrays.md).
 
 For a more technical view what a parameter is and which types exist,
-[see the dictionary entry for \"parameter\"](/dict/terms/parameter).
+[see the dictionary entry for \"parameter\"](../dict/terms/parameter.md).
 
 ## Overview
 
@@ -113,7 +113,7 @@ positional parameters (arguments to a script) beyond `$9`:
 
 ### Simple usage: Arrays
 
-See also the [article about general array syntax](/syntax/arrays)
+See also the [article about general array syntax](../syntax/arrays.md)
 
 For arrays you always need the braces. The arrays are expanded by
 individual indexes or mass arguments. An individual index behaves like a
@@ -172,15 +172,15 @@ prefix to the parameter name. Specifically, indirection isn\'t possible
 on the `${!var@}`, `${!var*}`, `${!var[@]}`, `${!var[*]}`, and `${#var}`
 forms. This means the `!` prefix can\'t be used to retrieve the indices
 of an array, the length of a string, or number of elements in an array
-indirectly (see [syntax/arrays#indirection](syntax/arrays#indirection)
+indirectly (see [syntax/arrays#indirection](../syntax/arrays.md#indirection)
 for workarounds). Additionally, the `!`-prefixed parameter expansion
 conflicts with ksh-like shells which have the more powerful
 \"name-reference\" form of indirection, where the exact same syntax is
 used to expand to the name of the variable being referenced.
 
-Indirect references to [array names](/syntax/arrays) are also possible
+Indirect references to [array names](../syntax/arrays.md) are also possible
 since the Bash 3 series (exact version unknown), but undocumented. See
-[syntax/arrays#indirection](syntax/arrays#indirection) for details.
+[syntax/arrays#indirection](../syntax/arrays.md#indirection) for details.
 
 Chet has added an initial implementation of the ksh `nameref`
 declaration command to the git devel branch. (`declare -n`, `local -n`,
@@ -237,7 +237,7 @@ names or titles. Just assign it to an array:
 
 `declare -a title=(my hello world john smith)`
 
-For [array](/syntax/arrays) expansion, the case modification applies to
+For [array](../syntax/arrays.md) expansion, the case modification applies to
 **every expanded element, no matter if you expand an individual index or
 mass-expand** the whole array using `@` or `*` subscripts. Some
 examples:
@@ -275,7 +275,7 @@ This will show all defined variable names (not values!) beginning with
     $ echo ${!BASH*}
     BASH BASH_ARGC BASH_ARGV BASH_COMMAND BASH_LINENO BASH_SOURCE BASH_SUBSHELL BASH_VERSINFO BASH_VERSION
 
-This list will also include [array names](/syntax/arrays).
+This list will also include [array names](../syntax/arrays.md).
 
 ## Substring removal
 
@@ -290,7 +290,7 @@ This list will also include [array names](/syntax/arrays).
 This one can **expand only a part** of a parameter\'s value, **given a
 pattern to describe what to remove** from the string. The pattern is
 interpreted just like a pattern to describe a filename to match
-(globbing). See [Pattern matching](/syntax/pattern) for more.
+(globbing). See [Pattern matching](../syntax/pattern.md) for more.
 
 Example string (*just a quote from a big man*):
 
@@ -300,7 +300,7 @@ Example string (*just a quote from a big man*):
 
 `${PARAMETER#PATTERN}` and `${PARAMETER##PATTERN}`
 
-This form is to remove the described [pattern](/syntax/pattern) trying
+This form is to remove the described [pattern](../syntax/pattern.md) trying
 to **match it from the beginning of the string**. The operator \"`#`\"
 will try to remove the shortest text matching the pattern, while
 \"`##`\" tries to do it with the longest text matching. Look at the
@@ -353,7 +353,7 @@ on your needs, you might need to adjust shortest/longest match.
 ### Substring removal: Arrays
 
 As for most parameter expansion features, working on
-[arrays](/syntax/arrays) **will handle each expanded element**, for
+[arrays](../syntax/arrays.md) **will handle each expanded element**, for
 individual expansion and also for mass expansion.
 
 Simple example, removing a trailing `is` from all array elements (on
@@ -378,7 +378,7 @@ All other variants of this expansion behave the same.
 `${PARAMETER//PATTERN}`
 
 This one can substitute (*replace*) a substring [matched by a
-pattern](/syntax/pattern), on expansion time. The matched substring will
+pattern](../syntax/pattern.md), on expansion time. The matched substring will
 be entirely removed and the given string will be inserted. Again some
 example string for the tests:
 
@@ -438,7 +438,7 @@ specifying an empty replacement:
 
 ### Search and replace: Arrays
 
-This parameter expansion type applied to [arrays](/syntax/arrays)
+This parameter expansion type applied to [arrays](../syntax/arrays.md)
 **applies to all expanded elements**, no matter if an individual element
 is expanded, or all elements using the mass expansion syntaxes.
 
@@ -472,7 +472,7 @@ There\'s not much to say about it, mh?
 
 ### (String) length: Arrays
 
-For [arrays](/syntax/arrays), this expansion type has two meanings:
+For [arrays](../syntax/arrays.md), this expansion type has two meanings:
 
 -   For **individual** elements, it reports the string length of the
     element (as for every \"normal\" parameter)
@@ -507,7 +507,7 @@ is negative, it\'s taken as a second offset into the string, counting
 from the end of the string.
 
 `OFFSET` and `LENGTH` can be **any** [arithmetic
-expression](/syntax/arith_expr). **Take care:** The `OFFSET` starts at
+expression](../syntax/arith_expr.md). **Take care:** The `OFFSET` starts at
 0, not at 1!
 
 Example string (a quote from a big man):
@@ -544,7 +544,7 @@ the colon:
     ${MYSTRING:(-10):5}
 
 Why? Because it\'s interpreted as the parameter expansion syntax to [use
-a default value](/syntax/pe#use_a_default_value).
+a default value](../syntax/pe.md#use_a_default_value).
 
 ### Negative Length Value
 
@@ -558,11 +558,11 @@ then:
 `<del>Be liberal </del>in what you accept, and conservative<del> in what you send</del>`
 
 This works since Bash 4.2-alpha, see also
-[bashchanges](/scripting/bashchanges).
+[bashchanges](../scripting/bashchanges.md).
 
 ### Substring/Element expansion: Arrays
 
-For [arrays](/syntax/arrays), this expansion type has again 2 meanings:
+For [arrays](../syntax/arrays.md), this expansion type has again 2 meanings:
 
 -   For **individual** elements, it expands to the specified substring
     (as for every "normal" parameter)
@@ -609,7 +609,7 @@ gender. Note that the default value is **used on expansion time**, it is
 
 ### Use a default value: Arrays
 
-For [arrays](/syntax/arrays), the behaviour is very similar. Again, you
+For [arrays](../syntax/arrays.md), the behaviour is very similar. Again, you
 have to make a difference between expanding an individual element by a
 given index and mass-expanding the array using the `@` and `*`
 subscripts.
@@ -671,7 +671,7 @@ Example code (please try the example cases yourself):
 `${PARAMETER=WORD}`
 
 This one works like the [using default
-values](/syntax/pe#use_a_default_value), but the default text you give
+values](../syntax/pe.md#use_a_default_value), but the default text you give
 is not only expanded, but also **assigned** to the parameter, if it was
 unset or null. Equivalent to using a default value, when you omit the
 `:` (colon), as shown in the second form, the default value will only be
@@ -693,7 +693,7 @@ Let\'s change our code example from above:
 
 ### Assign a default value: Arrays
 
-For [arrays](/syntax/arrays) this expansion type is limited. For an
+For [arrays](../syntax/arrays.md) this expansion type is limited. For an
 individual index, it behaves like for a \"normal\" parameter, the
 default value is assigned to this one element. The mass-expansion
 subscripts `@` and `*` **can not be used here** because it\'s not
@@ -742,7 +742,7 @@ if variables you need (and that can be empty) are undefined:
 
 ### Use an alternate value: Arrays
 
-Similar to the cases for [arrays](/syntax/arrays) to expand to a default
+Similar to the cases for [arrays](../syntax/arrays.md) to expand to a default
 value, this expansion behaves like for a \"normal\" parameter when using
 individual array elements by index, but reacts differently when using
 the mass-expansion subscripts `@` and `*`:
@@ -819,8 +819,8 @@ Removing the first 6 characters from a text string:
     `${arr[@]}`, `$*`, and `${arr[*]}` when
     [IFS](http://mywiki.wooledge.org/IFS) is set to null. POSIX is
     unclear about the expected behavior. A null IFS causes both [word
-    splitting](/syntax/expansion/wordsplit) and [pathname
-    expansion](/syntax/expansion/globs) to behave randomly. Since there
+    splitting](../syntax/expansion/wordsplit.md) and [pathname
+    expansion](../syntax/expansion/globs.md) to behave randomly. Since there
     are few good reasons to leave `IFS` set to null for more than the
     duration of a command or two, and even fewer to expand `$@` and `$*`
     unquoted, this should be a rare issue. **Always quote
@@ -1051,6 +1051,6 @@ the difference may introduce a possible compatibility problem.
 ## See also
 
 -   Internal: [Introduction to expansion and
-    substitution](/syntax/expansion/intro)
--   Internal: [Arrays](/syntax/arrays)
--   Dictionary, internal: [parameter](/dict/terms/parameter)
+    substitution](../syntax/expansion/intro.md)
+-   Internal: [Arrays](../syntax/arrays.md)
+-   Dictionary, internal: [parameter](../dict/terms/parameter.md)

@@ -32,13 +32,13 @@ In fact, there is a POSIX(r)-compliant command to do this: `basename`
 The implementation here is suboptimal in several ways, but the only
 thing that\'s genuinely error-prone with this is \"`echo $i`\". Echoing
 an *unquoted* variable means
-[wordsplitting](/syntax/expansion/wordsplit) will take place, so any
+[wordsplitting](../syntax/expansion/wordsplit.md) will take place, so any
 whitespace in `$i` will essentially be normalized. In `sh` it is
 necessary to use an external command and a subshell to achieve the goal,
 but we can eliminate the pipe (subshells, external commands, and pipes
 carry extra overhead when they launch, so they can really hurt
 performance in a loop). Just for good measure, let\'s use the more
-readable, [modern](/syntax/expansion/cmdsubst) `$()` construct instead
+readable, [modern](../syntax/expansion/cmdsubst.md) `$()` construct instead
 of the old style backticks:
 
 ``` bash
@@ -47,7 +47,7 @@ sh $ for i in *.zip; do j=$(basename "$i" ".zip"); mkdir $j; cd $j; unzip ../$i;
 
 In Bash we don\'t need the subshell or the external basename command.
 See [Substring removal with parameter
-expansion](/syntax/pe#substring_removal):
+expansion](../syntax/pe.md#substring_removal):
 
 ``` bash
 bash $ for i in *.zip; do j="${i%.zip}"; mkdir $j; cd $j; unzip ../$i; cd ..; done
@@ -65,7 +65,7 @@ hurt: When a following command depends on the success of a previous
 command(s), check for success! You can do this with the \"`&&`\"
 conjunction, that way, if the previous command fails, bash will not try
 to execute the following command(s). It\'s fully POSIX(r). Oh, and
-remember what I said about [wordsplitting](/syntax/expansion/wordsplit)
+remember what I said about [wordsplitting](../syntax/expansion/wordsplit.md)
 in the previous step? Well, if you don\'t quote `$j`, wordsplitting can
 happen again.
 

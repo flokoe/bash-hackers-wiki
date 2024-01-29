@@ -653,7 +653,7 @@ recommendations:
 <!-- -->
 ```
 -   **Never** use the Csh `&>foo` and `>&foo` shorthand redirects. Use
-    the long form `>foo 2>&1`. (see: [obsolete](obsolete))
+    the long form `>foo 2>&1`. (see: [obsolete](../obsolete.md))
 
 ```{=html}
 <!-- -->
@@ -694,4 +694,4 @@ The last example comes from this post:
 
 # See also
 
--   Internal: [Redirection syntax overview](/syntax/redirection)
+-   Internal: [Redirection syntax overview](../syntax/redirection.md)

@@ -78,7 +78,7 @@ naturally, invisible. What you see is the dash, repeated 20 times.
 printf '%.0s-' {1..20}; echo
 ```
 
-If the 20 is variable, you can use [eval](/commands/builtin/eval) to
+If the 20 is variable, you can use [eval](../commands/builtin/eval.md) to
 insert the expansion (take care that using `eval` is potentially
 dangerous if you evaluate external data):
 
@@ -95,7 +95,7 @@ eval printf %.1s '-{1..'"${COLUMNS:-$(tput cols)}"\}; echo
 
 You can also do it the crazy ormaaj way™ following basically the same
 principle as this [string reverse
-example](/commands/builtin/eval#expansion_side-effects). It completely
+example](../commands/builtin/eval.md#expansion_side-effects). It completely
 depends on Bash due to its brace expansion evaluation order and array
 parameter parsing details. As above, the eval only inserts the COLUMNS
 expansion into the expression and isn\'t involved in the rest, other
@@ -132,4 +132,4 @@ hr() {
 
 ## Related articles
 
--   [printf](/commands/builtin/printf)
+-   [printf](../commands/builtin/printf.md)

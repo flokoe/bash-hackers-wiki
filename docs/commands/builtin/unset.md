@@ -175,7 +175,7 @@ using `unset`. Also, I prefer it as a matter of style.
 
 ## See also
 
--   [declare](/commands/builtin/declare)
--   [unset](/commands/builtin/unset)
+-   [declare](../../commands/builtin/declare.md)
+-   [unset](../../commands/builtin/unset.md)
 -   [POSIX `unset`
     utility](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_29)

@@ -19,7 +19,7 @@
 ## Description
 
 The C-style for-loop is a [compound
-command](syntax/basicgrammar#compound_commands) derived from the
+command](../../syntax/basicgrammar.md#compound_commands) derived from the
 equivalent ksh88 feature, which is in turn derived from the C \"for\"
 keyword. Its purpose is to provide a convenient way to evaluate
 arithmetic expressions in a loop, plus initialize any required
@@ -27,9 +27,9 @@ arithmetic variables. It is one of the main \"loop with a counter\"
 mechanisms available in the language.
 
 The `((;;))` syntax at the top of the loop is not an ordinary
-[arithmetic compound command](syntax/ccmd/arithmetic_eval), but is part
+[arithmetic compound command](../../syntax/ccmd/arithmetic_eval.md), but is part
 of the C-style for-loop\'s own syntax. The three sections separated by
-semicolons are [arithmetic expression](/syntax/arith_expr) contexts.
+semicolons are [arithmetic expression](../../syntax/arith_expr.md) contexts.
 Each time one of the sections is to be evaluated, the section is first
 processed for: brace, parameter, command, arithmetic, and process
 substitution/expansion as usual for arithmetic contexts. When the loop
@@ -51,16 +51,16 @@ behaves as if it would be 1 (**TRUE** in arithmetic context).
 :!: Like all loops (Both types of `for`-loop, `while` and `until`), this
 loop can be:
 
--   Terminated (broken) by the [break](commands/builtin/continuebreak)
+-   Terminated (broken) by the [break](../../commands/builtin/continuebreak.md)
     builtin, optionally as `break N` to break out of `N` levels of
     nested loops.
 -   Forced immediately to the next iteration using the
-    [continue](commands/builtin/continuebreak) builtin, optionally as
+    [continue](../../commands/builtin/continuebreak.md) builtin, optionally as
     the `continue N` analog to `break N`.
 
-The equivalent construct using a [while loop](syntax/ccmd/while_loop)
+The equivalent construct using a [while loop](../../syntax/ccmd/while_loop.md)
 and the [arithmetic expression compound
-command](/syntax/ccmd/arithmetic_eval) would be structured as:
+command](../../syntax/ccmd/arithmetic_eval.md) would be structured as:
 
     (( <EXPR1> ))
     while (( <EXPR2> )); do
@@ -70,7 +70,7 @@ command](/syntax/ccmd/arithmetic_eval) would be structured as:
 
 The equivalent `while` construct isn\'t exactly the same, because both,
 the `for` and the `while` loop behave differently in case you use the
-[continue](commands/builtin/continuebreak) command.
+[continue](../../commands/builtin/continuebreak.md) command.
 
 ### Alternate syntax
 
@@ -87,7 +87,7 @@ This syntax is **not documented** and shouldn\'t be used. I found the
 parser definitions for it in 1.x code, and in modern 4.x code. My guess
 is that it\'s there for compatibility reasons. Unlike the other
 aforementioned shells, Bash does not support the analogous syntax for
-[case..esac](syntax/ccmd/case#portability_considerations).
+[case..esac](../../syntax/ccmd/case.md#portability_considerations).
 
 ### Return status
 
@@ -234,6 +234,6 @@ variables.
 
 ## See also
 
--   Internal: [Arithmetic expressions](/syntax/arith_expr)
--   Internal: [The classic for-loop](/syntax/ccmd/classic_for)
--   Internal: [The while-loop](/syntax/ccmd/while_loop)
+-   Internal: [Arithmetic expressions](../../syntax/arith_expr.md)
+-   Internal: [The classic for-loop](../../syntax/ccmd/classic_for.md)
+-   Internal: [The while-loop](../../syntax/ccmd/while_loop.md)

@@ -40,7 +40,7 @@ instance, when embedded inside a for loop :
 `for i in $(eval echo {$a..$b})` This requires that the entire command
 be properly escaped to avoid unexpected expansions. If the sequence
 expansion is to be assigned to an array, another method is possible
-using [declaration commands](/commands/builtin/declare):
+using [declaration commands](../../commands/builtin/declare.md):
 `declare -a 'pics=(img{'"$a..$b"'}.png)'; mv "${pics[@]}" ../imgs` This
 is significantly safer, but one must still be careful to control the
 values of \$a and \$b. Both the exact quoting, and explicitly including
@@ -269,4 +269,4 @@ letter-ranges:
 ## See also
 
 -   [Introduction to expansion and
-    substitution](/syntax/expansion/intro)
+    substitution](../../syntax/expansion/intro.md)

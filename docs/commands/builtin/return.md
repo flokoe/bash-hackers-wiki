@@ -31,5 +31,5 @@ comes back, there was a problem in doing the return.
 
 ## See also
 
--   [The exit builtin command](/commands/builtin/exit)
--   [The exit status](/dict/terms/exit_status)
+-   [The exit builtin command](../../commands/builtin/exit.md)
+-   [The exit status](../../dict/terms/exit_status.md)

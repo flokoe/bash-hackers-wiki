@@ -28,7 +28,7 @@ When you use `shift 1`, they will be changed to:
   2   a
   3   test
 
-The [special parameter](/syntax/shellvars#special_parameters) `$#` will
+The [special parameter](../../syntax/shellvars.md#special_parameters) `$#` will
 reflect the final number of positional parameters.
 
 If the number given is 0, no changes are made to the positional
@@ -56,13 +56,13 @@ There are no options.
     than the number of positional parameters. **POSIX does not require
     that behavior**. Bash (even in POSIX mode) and Zsh return 1 when
     there are no args, and no error output is produced unless the
-    [shift_verbose](internals/shell_options#shift_verbose)
-    [shopt](commands/builtin/shopt) option is enabled. Ksh93, pdksh,
+    [shift_verbose](../../internals/shell_options.md#shift_verbose)
+    [shopt](../../commands/builtin/shopt.md) option is enabled. Ksh93, pdksh,
     posh, mksh, and dash, all throw useless fatal shell
     errors.`$ dash -c 'f() { if shift; then echo "$1"; else echo "no args"; fi; }; f'
     dash: 1: shift: can't shift that many
     ` In most shells, you can work around this problem using the
-    [command](/commands/builtin/command) builtin to suppress fatal
+    [command](../../commands/builtin/command.md) builtin to suppress fatal
     errors caused by *special builtins*. \<code\> \$ dash -c \'f() { if
     command shift 2\>/dev/null; then echo \"\$1\"; else echo \"no
     args\"; fi; }; f\'

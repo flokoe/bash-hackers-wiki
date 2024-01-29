@@ -18,7 +18,7 @@ a child process.
 ## Examples
 
 In this example, the literal text within the
-[here-document](/syntax/redirection#here_documents) is executed as Bash
+[here-document](../../syntax/redirection.md#here_documents) is executed as Bash
 code exactly as though it were to appear within the script in place of
 the `eval` command below it.
 
@@ -135,10 +135,10 @@ first example above is the same error as the second in all non-Bash
 shells, even those with compound assignment.
 
 In the case of `eval` it isn\'t recommended to use this behavior,
-because unlike e.g. [declare](commands/builtin/declare), the initial
+because unlike e.g. [declare](../../commands/builtin/declare.md), the initial
 expansion is still subject to all expansions including
-[word-splitting](syntax/expansion/wordsplit) and [pathname
-expansion](syntax/expansion/glob).
+[word-splitting](../../syntax/expansion/wordsplit.md) and [pathname
+expansion](../../syntax/expansion/glob.md).
 
      $ ( set -x; touch 'x+=(\[[123]\]=*)' 'x+=([3]=yo)'; eval x+=(*); echo "${x[@]}" )
     + touch 'x+=(\[[123]\]=*)' 'x+=([3]=yo)'
@@ -149,14 +149,14 @@ expansion](syntax/expansion/glob).
     [[123]]=* yo
 
 Other commands known to be affected by compound assignment arguments
-include: [let](commands/builtin/let),
-[declare](commands/builtin/declare),
-[typeset](commands/builtin/typeset), [local](commands/builtin/local),
-[export](commands/builtin/export), and
-[readonly](commands/builtin/readonly). More oddities below show both
+include: [let](../../commands/builtin/let.md),
+[declare](../../commands/builtin/declare.md),
+[typeset](../../commands/builtin/typeset.md), [local](../../commands/builtin/local.md),
+[export](../../commands/builtin/export.md), and
+[readonly](../../commands/builtin/readonly.md). More oddities below show both
 similarities and differences to commands like
-[declare](commands/builtin/declare). The rules for `eval` appear
-identical to those of [let](commands/builtin/let).
+[declare](../../commands/builtin/declare.md). The rules for `eval` appear
+identical to those of [let](../../commands/builtin/let.md).
 
 ## See also
 

@@ -7,27 +7,27 @@
 ## Description
 
 The `let` builtin command evaluates each supplied word from left to
-right as an [arithmetic expression](/syntax/arith_expr) and returns an
+right as an [arithmetic expression](../../syntax/arith_expr.md) and returns an
 exit code according to the truth value of the rightmost expression.
 
 -   0 (TRUE) when `arg` evaluated to not 0 (arithmetic \"true\")
 -   1 (FALSE) when `arg` evaluated to 0 (arithmetic \"false\")
 
 For this return code mapping, please see [this
-section](/syntax/arith_expr#arithmetic_expressions_and_return_codes).
+section](../../syntax/arith_expr.md#arithmetic_expressions_and_return_codes).
 They work in the same way as `((`.
 
 ## Examples
 
-`let` is very similar to [((](/syntax/ccmd/arithmetic_eval) - the only
+`let` is very similar to [((](../../syntax/ccmd/arithmetic_eval.md) - the only
 difference being `let` is a builtin (simple command), and `((` is a
 compound command. The arguments to `let` are therefore subject to all
 the same expansions and substitutions as any other simple command -
 requiring proper quoting and escaping - whereas the contents of `((`
-aren\'t subject to [word-splitting](/syntax/expansion/wordsplit) or
-[pathname expansion](/syntax/expansion/globs) (almost never desirable
+aren\'t subject to [word-splitting](../../syntax/expansion/wordsplit.md) or
+[pathname expansion](../../syntax/expansion/globs.md) (almost never desirable
 for arithmetic). For this reason, **the [arithmetic compound
-command](/syntax/ccmd/arithmetic_eval) should generally be preferred
+command](../../syntax/ccmd/arithmetic_eval.md) should generally be preferred
 over `let`**.
 
     $ let 'b = a' "(a += 3) + $((a = 1)), b++"
@@ -35,7 +35,7 @@ over `let`**.
     4 - 2 - 0
 
 Is equivalent to the [arithmetic evaluation compound
-command](/syntax/ccmd/arithmetic_eval):
+command](../../syntax/ccmd/arithmetic_eval.md):
 
     $ (( b = a, (a += 3) + $((a = 1)), b++ ))
     $ echo "$a - $b - $?"
@@ -78,14 +78,14 @@ needed.
     ` Aside from differences in supported arithmetic features, this
     should be identical to the Bash/Ksh `let`.
 -   It seems to be a common misunderstanding that `let` has some legacy
-    purpose. Both `let` and [[^1]](syntax/ccmd/arithmetic_eval) were
+    purpose. Both `let` and [[^1]](../../syntax/ccmd/arithmetic_eval.md) were
     ksh88 features and almost identical in terms of portability as
     everything that inherited one also tended to get the other. Don\'t
     choose `let` over `((` expecting it to work in more places.
 -   [expr(1)](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/expr.html#tag_20_42)
     is a command one is likely to come across sooner or later. While it
     is more \"standard\" than `let`, the above should always be
-    preferred. Both [arithmetic expansion](/syntax/arith_expr)s and the
+    preferred. Both [arithmetic expansion](../../syntax/arith_expr.md)s and the
     `[` test operator are specified by POSIX(r) and satisfy almost all
     of expr\'s use-cases. Unlike `let`, `expr` cannot assign directly to
     bash variables but instead returns a result on stdout. `expr` takes
@@ -96,16 +96,16 @@ needed.
     without generating any output other than a return code.
 -   For unknown reasons, `let` is one of the Bash commands with special
     parsing for arguments formatted like compound array assignments.
-    See: [eval](commands/builtin/eval#portability_considerations) for
+    See: [eval](../../commands/builtin/eval.md#portability_considerations) for
     details. There are no known practical uses for this. Parentheses are
     treated as grouping operators and compound assignment is not
     possible by arithmetic expressions.
 
 ## See also
 
--   Internal: [arithmetic expansion](/syntax/expansion/arith)
--   Internal: [arithmetic expressions](/syntax/arith_expr)
+-   Internal: [arithmetic expansion](../../syntax/expansion/arith.md)
+-   Internal: [arithmetic expressions](../../syntax/arith_expr.md)
 -   Internal: [arithmetic evaluation compound
-    command](/syntax/ccmd/arithmetic_eval)
+    command](../../syntax/ccmd/arithmetic_eval.md)
 
 [^1]: \...

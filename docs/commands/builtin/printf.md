@@ -10,7 +10,7 @@ nearly identical for an external command that follows POSIX(r).
 [GNU Awk](http://www.gnu.org/software/gawk/manual/gawk.html#Printf)
 expects a comma after the format string and between each of the
 arguments of a **printf** command. For examples, see: [code
-snippet](printf?&#using_printf_inside_of_awk). \</div\>
+snippet](../../printf?&.md#using_printf_inside_of_awk). \</div\>
 
 Unlike other documentations, I don\'t want to redirect you to the manual
 page for the `printf()` C function family. However, if you\'re more
@@ -68,8 +68,8 @@ this opens up the possibility of an easy code injection vulnerability.
 \...where the echo can of course be replaced with any arbitrary command.
 If you must, either specify a hard-coded format string or use \-- to
 signal the end of options. The exact same issue also applies to
-[read](commands/builtin/read), and a similar one to
-[mapfile](commands/builtin/mapfile), though performing expansions into
+[read](../../commands/builtin/read.md), and a similar one to
+[mapfile](../../commands/builtin/mapfile.md), though performing expansions into
 their arguments is less common. \</note\>
 
 ### Arguments
@@ -93,9 +93,9 @@ interpreted. If fewer format specifiers than arguments are present, then
 number-formats are set to zero, while string-formats are set to null
 (empty).
 
-Take care to avoid [word splitting](/syntax/expansion/wordsplit), as
+Take care to avoid [word splitting](../../syntax/expansion/wordsplit.md), as
 accidentally passing the wrong number of arguments can produce wildly
-different and unexpected results. See [this article](/syntax/words).
+different and unexpected results. See [this article](../../syntax/words.md).
 
 \<note warning\> [**Again, attention:**]{.underline} When a numerical
 format expects a number, the internal `printf`-command will use the
@@ -234,7 +234,7 @@ associated with a `%b` format:
     (POSIX specifies up to three).
 
 These are also respects in which `%b` differs from the escapes used by
-[\$\'\...\'](syntax/quoting#ansi_c_like_strings) style quoting.
+[\$\'\...\'](../../syntax/quoting.md#ansi_c_like_strings) style quoting.
 
 ## Examples
 
@@ -447,7 +447,7 @@ fmt++;
 
 -   The optional Bash loadable `print` may be useful for ksh
     compatibility and to overcome some of
-    [echo](commands/builtin/echo)\'s portability pitfalls. Bash, ksh93,
+    [echo](../../commands/builtin/echo.md)\'s portability pitfalls. Bash, ksh93,
     and zsh\'s `print` have an `-f` option which takes a `printf` format
     string and applies it to the remaining arguments. Bash lists the
     synopsis as:
@@ -461,7 +461,7 @@ fmt++;
 ```
 -   Assigning to variables: The `printf -v` way is slightly different to
     the way using command-substitution. [Command
-    substitution](/syntax/expansion/cmdsubst) removes trailing newlines
+    substitution](../../syntax/expansion/cmdsubst.md) removes trailing newlines
     before substituting the text, `printf -v` preserves all output.
 
 ## See also
@@ -471,6 +471,6 @@ fmt++;
     and [printf()
     function](http://pubs.opengroup.org/onlinepubs/9699919799/functions/printf.html)
 -   [Code snip: Print a horizontal
-    line](/snipplets/print_horizontal_line) uses some `printf` examples
+    line](../../snipplets/print_horizontal_line.md) uses some `printf` examples
 -   [Greg\'s BashFAQ 18: How can I use numbers with leading zeros in a
     loop, e.g., 01, 02?](BashFAQ>018)

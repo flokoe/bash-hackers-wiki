@@ -10,11 +10,11 @@ of a process (some sequence of commands) appear as a temporary file.
     >( <LIST> )
 
 Process substitution is performed **simultaneously** with [parameter
-expansion](/syntax/pe), [command
-substitution](/syntax/expansion/cmdsubst) and [arithmetic
-expansion](/syntax/expansion/arith).
+expansion](../../syntax/pe.md), [command
+substitution](../../syntax/expansion/cmdsubst.md) and [arithmetic
+expansion](../../syntax/expansion/arith.md).
 
-The [command list](/syntax/basicgrammar#lists) `<LIST>` is executed and
+The [command list](../../syntax/basicgrammar.md#lists) `<LIST>` is executed and
 its
 
 -   standard output filedescriptor in the `<( ... )` form or
@@ -126,7 +126,7 @@ echo "$counter files"
 This is the normal input file redirection `< FILE`, just that the `FILE`
 in this case is the result of process substitution. It\'s important to
 note that the space is required in order to disambiguate the syntax from
-[here documents](/syntax/redirection#here_documents).
+[here documents](../../syntax/redirection.md#here_documents).
 
 ``` bash
 : < <(COMMAND) # Good.
@@ -158,7 +158,7 @@ See the above section on [#scope](#scope)
     not (yet) pdksh derivatives (mksh). Coprocesses may be used instead.
 -   Process substitution is supported only on systems that support
     either named pipes (FIFO - a [special
-    file](/dict/terms/special_file)) or the `/dev/fd/*` method for
+    file](../../dict/terms/special_file.md)) or the `/dev/fd/*` method for
     accessing open files. If the system doesn\'t support `/dev/fd/*`,
     Bash falls back to creating named pipes. Note that not all shells
     that support process substitution have that fallback.
@@ -178,7 +178,7 @@ ${dev[${dev='dev[1>(${dev[dev]})]'}]}
 ## See also
 
 -   Internal: [Introduction to expansion and
-    substitution](/syntax/expansion/intro)
--   Internal: [Bash in the process tree](/scripting/processtree)
+    substitution](../../syntax/expansion/intro.md)
+-   Internal: [Bash in the process tree](../../scripting/processtree.md)
     (subshells)
--   Internal: [Redirection](/syntax/redirection)
+-   Internal: [Redirection](../../syntax/redirection.md)

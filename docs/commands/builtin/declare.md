@@ -176,9 +176,9 @@ for details. ksh93 namerefs are much more powerful than Bash\'s.
 
 ## See also
 
--   [arrays](/syntax/arrays)
--   [readonly](/commands/builtin/readonly)
--   [unset](/commands/builtin/unset)
+-   [arrays](../../syntax/arrays.md)
+-   [readonly](../../commands/builtin/readonly.md)
+-   [unset](../../commands/builtin/unset.md)
 -   [declaration commands](http://austingroupbugs.net/view.php?id=351)
     will change the behavior of certain builtins such as `export` in the
     next version of POSIX.

@@ -42,7 +42,7 @@ Tilde expansion is also performed everytime a variable is assigned:
 I don\'t know yet, if this is a bug or intended. \</note\>
 
 This way you can correctly use the tilde expansion in your
-[PATH](/syntax/shellvars#PATH):
+[PATH](../../syntax/shellvars.md#PATH):
 
     PATH=~/mybins:~peter/mybins:$PATH
 
@@ -68,7 +68,7 @@ operating system for the associated home directory for `<NAME>`.
 To find the home directory of the current user (`~`), Bash has a
 precedence:
 
--   expand to the value of [HOME](/syntax/shellvars#HOME) if it\'s
+-   expand to the value of [HOME](../../syntax/shellvars.md#HOME) if it\'s
     defined
 -   expand to the home directory of the user executing the shell
     (operating system)
@@ -80,7 +80,7 @@ directory, at least regarding tilde expansion.
 
     ~+
 
-This expands to the value of the [PWD](/syntax/shellvars#PWD) variable,
+This expands to the value of the [PWD](../../syntax/shellvars.md#PWD) variable,
 which holds the currect working directory:
 
     echo "CWD is $PWD"
@@ -93,7 +93,7 @@ is equivalent to (note it **must** be a separate word!):
 
     ~-
 
-This expands to the value of the [OLDPWD](/syntax/shellvars#OLDPWD)
+This expands to the value of the [OLDPWD](../../syntax/shellvars.md#OLDPWD)
 variable, which holds the previous working directory (the one before the
 last `cd`). If `OLDPWD` is unset (never changed the directory), it is
 not expanded.
@@ -107,4 +107,4 @@ not expanded.
 ## See also
 
 -   Internal: [Introduction to expansion and
-    substitution](/syntax/expansion/intro)
+    substitution](../../syntax/expansion/intro.md)

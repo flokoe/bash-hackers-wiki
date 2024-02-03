@@ -5,9 +5,9 @@ FIXME to be continued!
 Word splitting occurs once any of the following expansions are done (and
 only then!)
 
--   [Parameter expansion](/syntax/pe)
--   [Command substitution](/syntax/expansion/cmdsubst)
--   [Arithmetic expansion](/syntax/expansion/arith)
+-   [Parameter expansion](../../syntax/pe.md)
+-   [Command substitution](../../syntax/expansion/cmdsubst.md)
+-   [Arithmetic expansion](../../syntax/expansion/arith.md)
 
 Bash will scan the results of these expansions for special `IFS`
 characters that mark word boundaries. This is only done on results that
@@ -44,8 +44,8 @@ is solely responsible.
 ## See also
 
 -   [Introduction to expansion and
-    substitution](/syntax/expansion/intro)
--   [Quoting and escaping](/syntax/quoting)
+    substitution](../../syntax/expansion/intro.md)
+-   [Quoting and escaping](../../syntax/quoting.md)
 -   [WordSplitting](http://mywiki.wooledge.org/WordSplitting),
     [IFS](http://mywiki.wooledge.org/IFS), and
     [DontReadLinesWithFor](http://mywiki.wooledge.org/DontReadLinesWithFor) -

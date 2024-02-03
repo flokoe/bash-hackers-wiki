@@ -12,7 +12,7 @@ If `N` is given, the return code to the parent process is set to `N`. If
 not, the returned status the the status of the most recently executed
 command (i.e. `$?`).
 
-A [trap](/commands/builtin/trap) on `EXIT` is executed before the shell
+A [trap](../../commands/builtin/trap.md) on `EXIT` is executed before the shell
 exits, except the executed `exit` command is part of an already running
 trap.
 
@@ -42,5 +42,5 @@ executed the `exit` command, because the shell exits.
 
 ## See also
 
--   [The trap builtin command](/commands/builtin/trap)
--   [The exit status](/dict/terms/exit_status)
+-   [The trap builtin command](../../commands/builtin/trap.md)
+-   [The exit status](../../dict/terms/exit_status.md)

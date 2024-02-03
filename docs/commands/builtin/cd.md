@@ -12,17 +12,17 @@ The `cd` builtin command is used to change the current working directory
 
 -   to the given directory (`cd DIRECTORY`)
 -   to the previous working directory (`cd -`) as saved in the
-    [OLDPWD](/syntax/shellvars#OLDPWD) shell variable
+    [OLDPWD](../../syntax/shellvars.md#OLDPWD) shell variable
 -   to the user\'s home directory as specified in the
-    [HOME](/syntax/shellvars#HOME) environment variable (when used
+    [HOME](../../syntax/shellvars.md#HOME) environment variable (when used
     without a `DIRECTORY` argument)
 
 The `cd` builtin command searches the directories listed in
-[CDPATH](/syntax/shellvars#CDPATH) for a matching directory.
+[CDPATH](../../syntax/shellvars.md#CDPATH) for a matching directory.
 
 The default behaviour is to follow symbolic links unless the `-P` option
 is given or the shell is configured to do so (see the `-P` option of
-[the set builtin command](/commands/builtin/set)).
+[the set builtin command](../../commands/builtin/set.md)).
 
 ### Options
 
@@ -36,7 +36,7 @@ is given or the shell is configured to do so (see the `-P` option of
 
 -   true if the directory was changed successfully
 -   false if a change to the home directory was requested, but
-    [HOME](/syntax/shellvars#HOME) is unset
+    [HOME](../../syntax/shellvars.md#HOME) is unset
 -   false if anything else goes wrong
 
 ## Examples
@@ -53,7 +53,7 @@ is given or the shell is configured to do so (see the `-P` option of
 
 ## See also
 
--   variable [CDPATH](/syntax/shellvars#CDPATH)
--   variable [HOME](/syntax/shellvars#HOME)
--   variable [OLDPWD](/syntax/shellvars#OLDPWD)
--   the `-P` option of [the set builtin command](/commands/builtin/set)
+-   variable [CDPATH](../../syntax/shellvars.md#CDPATH)
+-   variable [HOME](../../syntax/shellvars.md#HOME)
+-   variable [OLDPWD](../../syntax/shellvars.md#OLDPWD)
+-   the `-P` option of [the set builtin command](../../commands/builtin/set.md)

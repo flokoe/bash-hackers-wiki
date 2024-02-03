@@ -18,7 +18,7 @@ The process ID of the shell spawned to execute the coprocess is
 available through the value of the variable named by `NAME` followed by
 a `_PID` suffix. For example, the variable name used to store the PID of
 a coproc started with no `NAME` given would be `COPROC_PID` (because
-`COPROC` is the default `NAME`). [wait](/commands/builtin/wait) may be
+`COPROC` is the default `NAME`). [wait](../../commands/builtin/wait.md) may be
 used to wait for the coprocess to terminate. Additionally, coprocesses
 may be manipulated through their `jobspec`.
 

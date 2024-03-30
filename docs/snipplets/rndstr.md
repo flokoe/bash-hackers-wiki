@@ -103,7 +103,7 @@ a=(one two three four five six seven eight nine ten)
 printf '%.*s ' $(printf '%s ' "${#a[x=RANDOM%${#a[@]}]} ${a[x]}"{1..10})
 ```
 
-This generates each parameter and it\'s length in pairs. The \'\*\'
+This generates each parameter and it's length in pairs. The \'\*\'
 modifier instructs printf to use the value preceding each parameter as
 the field width. Note the space between the parameters. This example
 unfortunately relies upon the unquoted command substitution to perform

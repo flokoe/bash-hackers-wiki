@@ -23,7 +23,7 @@ The tilde expansion is used to expand to several specific pathnames:
 Tilde expansion is only performed, when the tilde-construct is at the
 beginning of a word, or a separate word.
 
-If there\'s nothing to expand, i.e., in case of a wrong username or any
+If there's nothing to expand, i.e., in case of a wrong username or any
 other error condition, the tilde construct is not replaced, it stays
 what it is.
 
@@ -34,7 +34,7 @@ Tilde expansion is also performed everytime a variable is assigned:
     `TARGET=file:~moonman/share`
 
 \<note info\> As of now (Bash 4.3-alpha) the following constructs
-**also** works, though it\'s not a variable assignment:
+**also** works, though it's not a variable assignment:
 
     echo foo=~
     echo foo=:~
@@ -68,7 +68,7 @@ operating system for the associated home directory for `<NAME>`.
 To find the home directory of the current user (`~`), Bash has a
 precedence:
 
--   expand to the value of [HOME](../../syntax/shellvars.md#HOME) if it\'s
+-   expand to the value of [HOME](../../syntax/shellvars.md#HOME) if it's
     defined
 -   expand to the home directory of the user executing the shell
     (operating system)

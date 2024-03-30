@@ -15,7 +15,7 @@ hardlink.
 
 The difference between a [symbolic link](../dict/terms/symlink.md) and a hard
 link is that there is no easy way to differentiate between a \'real\'
-file and a hard link, let\'s take a look at the example:
+file and a hard link, let's take a look at the example:
 
 \* create an empty file
 

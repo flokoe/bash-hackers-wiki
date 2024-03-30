@@ -53,7 +53,7 @@ for x in 1 2 3
 
 This syntax is **not documented** and should not be used. I found the
 parser definitions for it in 1.x code, and in modern 4.x code. My guess
-is that it\'s there for compatiblity reasons. This syntax is not
+is that it's there for compatiblity reasons. This syntax is not
 specified by POSIX(r).
 
 ### Return status
@@ -137,13 +137,13 @@ done
 
 This is just an example. In *general*
 
--   it\'s not a good idea to parse `ls(1)` output
+-   it's not a good idea to parse `ls(1)` output
 -   the [while loop](../../syntax/ccmd/while_loop.md) (using the `read` command)
     is a better joice to iterate over lines
 
 ### Nested for-loops
 
-It\'s of course possible to use another for-loop as `<LIST>`. Here,
+It's of course possible to use another for-loop as `<LIST>`. Here,
 counting from 0 to 99 in a weird way:
 
 ``` bash

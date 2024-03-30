@@ -48,7 +48,7 @@ way, and takes all the same options, with 3 exceptions:
     variables follow roughly
     [lexical-scoping](http://community.schemewiki.org/?lexical-scope),
     except that functions themselves don\'t have scope, just like Bash.
-    This means that even functions defined within a \"function\'s
+    This means that even functions defined within a \"function's
     scope\" don\'t have access to non-local variables except through
     `namerefs`.
 

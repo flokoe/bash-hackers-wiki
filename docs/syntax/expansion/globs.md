@@ -47,7 +47,7 @@ other `IFS`-characters they contain.
     recursively get all `*.c` filenames.
 -   when the shell option `globasciiranges` is set, the bracket-range
     globs (e.g. `[A-Z]`) use C locale order rather than the configured
-    locale\'s order (i.e. `ABC...abc...` instead of e.g. `AaBbCc...`) -
+    locale's order (i.e. `ABC...abc...` instead of e.g. `AaBbCc...`) -
     since 4.3-alpha
 -   the variable [GLOBIGNORE](../../syntax/shellvars.md#GLOBIGNORE) can be set
     to a colon-separated list of patterns to be removed from the list

@@ -38,9 +38,9 @@ In these cases the portable syntax should be preferred.
 ## Portability rationale
 
 Here is some assorted portability information. Take it as a small guide
-to make your scripts a bit more portable. It\'s not complete (it never
-will be!) and it\'s not very detailed (e.g. you won\'t find information
-about how which shell technically forks off which subshell). It\'s just
+to make your scripts a bit more portable. It's not complete (it never
+will be!) and it's not very detailed (e.g. you won\'t find information
+about how which shell technically forks off which subshell). It's just
 an assorted small set of portability guidelines. *-Thebonsai*
 
 FIXME UNIX shell gurus out there, please be patient with a newbie like
@@ -54,7 +54,7 @@ there are two possibilities:
 The *new value* is seen by subsequent programs
 
 -   without any special action (e.g. Bash)
--   only after an explicit export with `export VARIABLE` (e.g. Sun\'s
+-   only after an explicit export with `export VARIABLE` (e.g. Sun's
     `/bin/sh`)
 
 Since an extra `export` doesn\'t hurt, the safest and most portable way
@@ -64,7 +64,7 @@ subsequent processes.
 ### Arithmetics
 
 Bash has a special compound command to do arithmetic without expansion.
-However, POSIX has no such command. In the table at the top, there\'s
+However, POSIX has no such command. In the table at the top, there's
 the `: $((MATH))` construct mentioned as possible alternative. Regarding
 the exit code, a 100% equivalent construct would be:
 
@@ -153,7 +153,7 @@ Find another method.
 ### Check for a command in PATH
 
 The [PATH](../syntax/shellvars.md#PATH) variable is a colon-delimited list of
-directory names, so it\'s basically possible to run a loop and check
+directory names, so it's basically possible to run a loop and check
 every `PATH` component for the command you\'re looking for and for
 executability.
 
@@ -199,6 +199,6 @@ accessible by `PATH`:
       echo "sed is available"
     fi
 
-[^1]: \"portable\" doesn\'t necessarily mean it\'s POSIX, it can also
-    mean it\'s \"widely used and accepted\", and thus maybe more
+[^1]: \"portable\" doesn\'t necessarily mean it's POSIX, it can also
+    mean it's \"widely used and accepted\", and thus maybe more
     portable than POSIX(r

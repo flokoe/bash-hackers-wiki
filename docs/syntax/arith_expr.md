@@ -20,7 +20,7 @@ from the C programming language.
 
 This article describes the theory of the used syntax and the behaviour.
 To get practical examples without big explanations, see [this page on
-Greg\'s
+Greg's
 wiki](http://mywiki.wooledge.org/BashGuide/CompoundCommands#Arithmetic_Evaluation).
 
 ## Constants
@@ -72,7 +72,7 @@ specified base greater than 10, characters other than 0 to 9 are needed
 -   `@`
 -   `_`
 
-Let\'s quickly invent a new number system with base 43 to show what I
+Let's quickly invent a new number system with base 43 to show what I
 mean:
 
     $ echo $((43#1))
@@ -260,7 +260,7 @@ first.
 
 ## Arithmetic expressions and return codes
 
-Bash\'s overall language construct is based on exit codes or return
+Bash's overall language construct is based on exit codes or return
 codes of commands or functions to be executed. `if` statements, `while`
 loops, etc., they all take the return codes of commands as conditions.
 
@@ -269,7 +269,7 @@ not 0 means \"FALSE\" or \"FAILURE\") don\'t correspond to the meaning
 of the result of an arithmetic expression (0 means \"FALSE\", not 0
 means \"TRUE\").
 
-That\'s why all commands and keywords that do arithmetic operations
+That's why all commands and keywords that do arithmetic operations
 attempt to **translate** the arithmetical meaning into an equivalent
 return code. This simply means:
 

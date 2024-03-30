@@ -13,7 +13,7 @@ The `cd` builtin command is used to change the current working directory
 -   to the given directory (`cd DIRECTORY`)
 -   to the previous working directory (`cd -`) as saved in the
     [OLDPWD](../../syntax/shellvars.md#OLDPWD) shell variable
--   to the user\'s home directory as specified in the
+-   to the user's home directory as specified in the
     [HOME](../../syntax/shellvars.md#HOME) environment variable (when used
     without a `DIRECTORY` argument)
 
@@ -30,7 +30,7 @@ is given or the shell is configured to do so (see the `-P` option of
   -------- ----------------------------------------------------
   `-L`     Follow symbolic links (default)
   `-P`     Do not follow symbolic links
-  `-@`     Browse a file\'s extended attributed, if supported
+  `-@`     Browse a file's extended attributed, if supported
 
 ### Exit status
 
@@ -41,7 +41,7 @@ is given or the shell is configured to do so (see the `-P` option of
 
 ## Examples
 
-### Change the working directory to the user\'s home directory
+### Change the working directory to the user's home directory
 
     cd
 

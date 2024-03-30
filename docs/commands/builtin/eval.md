@@ -168,7 +168,7 @@ identical to those of [let](../../commands/builtin/let.md).
     eval](http://mywiki.wooledge.org/BashFAQ/006#Assigning_indirect.2BAC8-reference_variables)
 -   [More indirection via
     eval](http://fvue.nl/wiki/Bash:_Passing_variables_by_reference)
--   [Martin Väth\'s \"push\"](https://github.com/vaeth/push) \--
+-   [Martin Väth's \"push\"](https://github.com/vaeth/push) \--
     `printf %q` work-alike for POSIX.
 -   [The \"magic alias\"
     hack](http://www.chiark.greenend.org.uk/~sgtatham/aliases.html)

@@ -20,7 +20,7 @@ Why `ed`?
 -   last but not least: standard `ed` has very good editing and
     addressing possibilities, compared to standard `sed`
 
-Don\'t get me wrong, this is **not** meant as anti-`sed` article! It\'s
+Don\'t get me wrong, this is **not** meant as anti-`sed` article! It's
 just meant to show you another way to do the job.
 
 ## Commanding ed
@@ -127,7 +127,7 @@ which defines an address range for the first to the last line, `,p` thus
 means print the whole file, after it has been modified. When your script
 runs sucessfully, you only have to replace the `,p` by a `w`.
 
-Of course, even if the file is not modified by the `p` command, **it\'s
+Of course, even if the file is not modified by the `p` command, **it's
 always a good idea to have a backup copy!**
 
 ## Editing your files
@@ -139,7 +139,7 @@ that can\'t be done in `sed` or can only be done with very complex code.
 
 Like `sed`, `ed` also knows the common `s/FROM/TO/` command, and it can
 also take line-addresses. **If no substitution is made on the addressed
-lines, it\'s considered an error.**
+lines, it's considered an error.**
 
 #### Substitutions through the whole file
 
@@ -219,7 +219,7 @@ prints the result to stdout - `,p`):
 
     ed -s FILE1 <<< $'$-1 r FILE2\n,p'
 
-To compare, here\'s a possible `sed` solution which must use Bash
+To compare, here's a possible `sed` solution which must use Bash
 arithmetic and the external program `wc`:
 
     sed "$(($(wc -l < FILE1)-1))r FILE2" FILE1
@@ -260,10 +260,10 @@ about it with the g (global) command:
 
 **\_\_ an error stops the script \_\_**
 
-You might think that it\'s not a problem and that the same thing happens
+You might think that it's not a problem and that the same thing happens
 with sed and you\'re right, with the exception that if ed does not find
-a pattern it\'s an error, while sed just continues with the next line.
-For instance, let\'s say that you want to change foo to bar on the first
+a pattern it's an error, while sed just continues with the next line.
+For instance, let's say that you want to change foo to bar on the first
 line of the file and add something after the next line, ed will stop if
 it cannot find foo on the first line, sed will continue.
 
@@ -289,7 +289,7 @@ attempt the substitution on all non blank lines
 **\_\_ shell parameters are expanded \_\_**
 
 If you don\'t quote the delimiter, \$ has a special meaning. This sounds
-obvious but it\'s easy to forget this fact when you use addresses like
+obvious but it's easy to forget this fact when you use addresses like
 \$-1 or commands like \$a. Either quote the \$ or the delimiter:
 
     #fails
@@ -355,7 +355,7 @@ number of lines of the file:
 
 ### cat
 
-Yea, it\'s a joke\...
+Yea, it's a joke\...
 
     ed -s file <<< $',p'
 

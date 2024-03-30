@@ -5,7 +5,7 @@
 ## What is a \"Collapsing Function\"?
 
 A collapsing function is a function whose behavior changes depending
-upon the circumstances under which it\'s run. Function collapsing is
+upon the circumstances under which it's run. Function collapsing is
 useful when you find yourself repeatedly checking a variable whose value
 never changes.
 

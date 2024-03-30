@@ -16,7 +16,7 @@ A shebang will typically look like
     #!/bin/bash
 
 Since the line starting with `#` is a comment for the shell (and some
-other scripting languages), it\'s ignored.
+other scripting languages), it's ignored.
 
 Regarding the shebang, there are various, differences between operating
 systems, including:
@@ -26,7 +26,7 @@ systems, including:
 -   may be able to take arguments for the interpreter
 -   \...
 
-POSIX(r) doesn\'t specify the shebang, though in general it\'s commonly
+POSIX(r) doesn\'t specify the shebang, though in general it's commonly
 supported by operating systems.
 
 ## See also

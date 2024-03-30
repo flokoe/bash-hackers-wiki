@@ -201,7 +201,7 @@ So you got a copy of this descriptor:
                       ---       +-----------------------+
 
 Internally each of these is represented by a file descriptor opened by
-the operating system\'s `fopen` calls, and is likely just a pointer to
+the operating system's `fopen` calls, and is likely just a pointer to
 the file which has been opened for reading (`stdin` or file descriptor
 `0`) or writing (`stdout` /`stderr`).
 
@@ -214,8 +214,8 @@ Similarly for output file descriptors, writing a line to file descriptor
 descriptor `t`.
 
 \<note tip\>The syntax is somewhat confusing in that you would think
-that the arrow would point in the direction of the copy, but it\'s
-reversed. So it\'s `target>&source` effectively.\</note\>
+that the arrow would point in the direction of the copy, but it's
+reversed. So it's `target>&source` effectively.\</note\>
 
 So, as a simple example (albeit slightly contrived), is the following:
 
@@ -233,7 +233,7 @@ line, their order does matter. They are set up from left to right.
 -   `2>&1 >file`
 
 A common error, is to do `command 2>&1 > file` to redirect both `stderr`
-and `stdout` to `file`. Let\'s see what\'s going on. First we type the
+and `stdout` to `file`. Let's see what's going on. First we type the
 command in our terminal, the descriptors look like this:
 
                       ---       +-----------------------+
@@ -263,7 +263,7 @@ descriptor look like this:
     standard error   ( 2 ) ---->| /dev/pts/5            |
                       ---       +-----------------------+
 
-That\'s right, nothing has changed, 2 was already pointing to the same
+That's right, nothing has changed, 2 was already pointing to the same
 place as 1. Now Bash sees `> file` and thus changes `stdout`:
 
                       ---       +-----------------------+
@@ -278,11 +278,11 @@ place as 1. Now Bash sees `> file` and thus changes `stdout`:
     standard error   ( 2 ) ---->| /dev/pts/5            |
                       ---       +-----------------------+
 
-And that\'s not what we want.
+And that's not what we want.
 
 -   `>file 2>&1`
 
-Now let\'s look at the correct `command >file 2>&1`. We start as in the
+Now let's look at the correct `command >file 2>&1`. We start as in the
 previous example, and Bash sees `> file`:
 
                       ---       +-----------------------+
@@ -313,7 +313,7 @@ Then it sees our duplication `2>&1`:
 
 And voila, both `1` and `2` are redirected to file.
 
-## Why sed \'s/foo/bar/\' file \>file Doesn\'t Work
+## Why sed 's/foo/bar/\' file \>file Doesn\'t Work
 
 This is a common error, we want to modify a file using something that
 reads from a file and writes the result to `stdout`. To do this, we
@@ -356,7 +356,7 @@ script and ran `myscript 2>file`.
 commands in your script produce, just add `exec 2>myscript.errors` at
 the beginning of your script.
 
-Let\'s see another use case. We want to read a file line by line, this
+Let's see another use case. We want to read a file line by line, this
 is easy, we just do:
 
      while read -r line;do echo "$line";done < file
@@ -386,7 +386,7 @@ and our read inherits these descriptors, and our command
 and not from our terminal.
 
 A quick look at `help read` tells us that we can specify a file
-descriptor from which `read` should read. Cool. Now let\'s use `exec` to
+descriptor from which `read` should read. Cool. Now let's use `exec` to
 get another descriptor:
 
      exec 3<file
@@ -415,7 +415,7 @@ and it works.
 ## Closing The File Descriptors
 
 Closing a file through a file descriptor is easy, just make it a
-duplicate of -. For instance, let\'s close `stdin <&-` and
+duplicate of -. For instance, let's close `stdin <&-` and
 `stderr 2>&-`:
 
      bash -c '{ lsof -a -p $$ -d0,1,2 ;} <&- 2>&-'
@@ -427,7 +427,7 @@ we see that inside the `{}` that only `1` is still here.
 Though the OS will probably clean up the mess, it is perhaps a good idea
 to close the file descriptors you open. For instance, if you open a file
 descriptor with `exec 3>file`, all the commands afterwards will inherit
-it. It\'s probably better to do something like:
+it. It's probably better to do something like:
 
     exec 3>file
     .....
@@ -462,7 +462,7 @@ on the comp.unix.shell group:
 The redirections are processed from left to right, but as the file
 descriptors are inherited we will also have to work from the outer to
 the inner contexts. We will assume that we run this command in a
-terminal. Let\'s start with the outer `{ } 3>&2 4>&1`.
+terminal. Let's start with the outer `{ } 3>&2 4>&1`.
 
      ---       +-------------+    ---       +-------------+
     ( 0 ) ---->| /dev/pts/5  |   ( 3 ) ---->| /dev/pts/5  |
@@ -482,7 +482,7 @@ and thus `1` and `2` go to the terminal. As an exercise, you can start
 with `1` pointing to `file.stdout` and 2 pointing to `file.stderr`, you
 will see why these redirections are very nice.
 
-Let\'s continue with the right part of the second pipe:
+Let's continue with the right part of the second pipe:
 `| cmd3 3>&- 4>&-`
 
      ---       +-------------+
@@ -516,7 +516,7 @@ pipe for reading. Now for the left part of the second pipe
 First, The file descriptor `1` is connected to the pipe (`|`), then `2`
 is made a copy of `1` and thus is made an fd to the pipe (`2>&1`), then
 `1` is made a copy of `4` (`>&4`), then `4` is closed. These are the
-file descriptors of the inner `{}`. Lcet\'s go inside and have a look at
+file descriptors of the inner `{}`. Lcet's go inside and have a look at
 the right part of the first pipe: `| cmd2 2>&3 3>&-`
 
      ---       +-------------+
@@ -599,7 +599,7 @@ help you, a redirection is always like the following:
 
 -   `lhs` is always a file description, i.e., a number:
     -   Either we want to open, duplicate, move or we want to close. If
-        the op is `<` then there is an implicit 0, if it\'s `>` or `>>`,
+        the op is `<` then there is an implicit 0, if it's `>` or `>>`,
         there is an implicit 1.
 
 ```{=html}

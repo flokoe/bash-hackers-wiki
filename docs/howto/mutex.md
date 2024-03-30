@@ -4,14 +4,14 @@
 
 ## Why lock?
 
-Sometimes there\'s a need to ensure only one copy of a script runs, i.e
+Sometimes there's a need to ensure only one copy of a script runs, i.e
 prevent two or more copies running simultaneously. Imagine an important
 cronjob doing something very important, which will fail or corrupt data
 if two copies of the called program were to run at the same time. To
 prevent this, a form of `MUTEX` (**mutual exclusion**) lock is needed.
 
 The basic procedure is simple: The script checks if a specific condition
-(locking) is present at startup, if yes, it\'s locked - the scipt
+(locking) is present at startup, if yes, it's locked - the scipt
 doesn\'t start.
 
 This article describes locking with common UNIX(r) tools. There are
@@ -44,8 +44,8 @@ in the filesystem that can be used as locking indicator:
 To create a file or set a file timestamp, usually the command touch is
 used. The following problem is implied: A locking mechanism checks for
 the existance of the lockfile, if no lockfile exists, it creates one and
-continues. Those are **two separate steps**! That means it\'s **not an
-atomic operation**. There\'s a small amount of time between checking and
+continues. Those are **two separate steps**! That means it's **not an
+atomic operation**. There's a small amount of time between checking and
 creating, where another instance of the same script could perform
 locking (because when it checked, the lockfile wasn\'t there)! In that
 case you would have 2 instances of the script running, both thinking
@@ -87,13 +87,13 @@ trapped. I am sure there there is a better solution than this
 suggestion* \-\-- *[sn18](sunny_delhi18@yahoo.com) 2009/12/19 08:24*
 
 **Note:** While perusing the Internet, I found some people asking if the
-`mkdir` method works \"on all filesystems\". Well, let\'s say it should.
+`mkdir` method works \"on all filesystems\". Well, let's say it should.
 The syscall under `mkdir` is guarenteed to work atomicly in all cases,
 at least on Unices. Two examples of problems are NFS filesystems and
 filesystems on cluster servers. With those two scenarios, dependencies
 exist related to the mount options and implementation. However, I
 successfully use this simple method on an Oracle OCFS2 filesystem in a
-4-node cluster environment. So let\'s just say \"it should work under
+4-node cluster environment. So let's just say \"it should work under
 normal conditions\".
 
 Another atomic method is setting the `noclobber` shell option

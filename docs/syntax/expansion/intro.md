@@ -15,7 +15,7 @@ The most simple example of this behaviour is a referenced variable:
     echo "$mystring"
 
 The `echo` program definitely doesn\'t care about what a shell variable
-is. It is Bash\'s job to deal with the variable. Bash **expands** the
+is. It is Bash's job to deal with the variable. Bash **expands** the
 string \"`$mystring`\" to \"`Hello world`\", so that `echo` will only
 see `Hello world`, not the variable or anything else!
 
@@ -27,7 +27,7 @@ is called **quote-removal**.
 
 ## Overview
 
-Saw a possible expansion syntax but don\'t know what it is? Here\'s a
+Saw a possible expansion syntax but don\'t know what it is? Here's a
 small list.
 
 -   [Parameter expansion](../../syntax/pe.md) (it has its own [overview

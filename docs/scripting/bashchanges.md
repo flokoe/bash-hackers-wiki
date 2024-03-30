@@ -163,7 +163,7 @@ For this topic, see also
   `read`                  `read` checks first variable argument for validity before trying to read inout                                                               4.3-beta                   
   `help`                  attempts substring matching (as it did through bash-4.2) if exact string matching fails                                                      4.3-beta2                  
   `fc`                    interprets option `-0` (zero) as the current command line                                                                                    4.3-beta2                  
-  `cd`                    new option `-@` to browse a file\'s extended attributes (on systems that support `O_XATTR`)                                                  4.3-rc1                    
+  `cd`                    new option `-@` to browse a file's extended attributes (on systems that support `O_XATTR`)                                                  4.3-rc1                    
   `kill`                  new option `-L` (upper case ell) to list signals like the normal lowercase option `-l` (compatiblity with some standalone `kill` commands)   4.4-beta                   
   `mapfile`               new option `-d`                                                                                                                              4.4-alpha                  
   `wait`                  new option `-f`                                                                                                                              5.0-alpha                  

@@ -43,7 +43,7 @@ line is read). That means the timeout can occur during input, too.
   ---------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   `-a <ARRAY>`     read the data word-wise into the specified array `<ARRAY>` instead of normal variables
   `-d <DELIM>`     recognize `<DELIM>` as data-end, rather than `<newline>`
-  `-e`             on interactive shells: use Bash\'s readline interface to read the data. Since version 5.1-alpha, this can also be used on specified file descriptors using `-u`
+  `-e`             on interactive shells: use Bash's readline interface to read the data. Since version 5.1-alpha, this can also be used on specified file descriptors using `-u`
   `-i <STRING>`    preloads the input buffer with text from `<STRING>`, only works when Readline (`-e`) is used
   `-n <NCHARS>`    reads `<NCHARS>` characters of input, then quits
   `-N <NCHARS>`    reads `<NCHARS>` characters of input, *ignoring any delimiter*, then quits
@@ -56,7 +56,7 @@ line is read). That means the timeout can occur during input, too.
 When both, `-a <ARRAY>` and a variable name `<NAME>` is given, then the
 array is set, but not the variable.
 
-Of course it\'s valid to set individual array elements without using
+Of course it's valid to set individual array elements without using
 `-a`:
 
     read MYARRAY[5]
@@ -99,7 +99,7 @@ array name and index:
 Essentially all you need to know about `-r` is to **ALWAYS** use it. The
 exact behavior you get without `-r` is completely useless even for weird
 purposes. It basically allows the escaping of input which matches
-something in IFS, and also escapes line continuations. It\'s explained
+something in IFS, and also escapes line continuations. It's explained
 pretty well in the [POSIX
 read](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/read.html#tag_20_109)
 spec.
@@ -141,7 +141,7 @@ some baskslash-escapes or switches (like `-n`).
 
 ### Press any key\...
 
-Remember the MSDOS `pause` command? Here\'s something similar:
+Remember the MSDOS `pause` command? Here's something similar:
 
     pause() {
       local dummy

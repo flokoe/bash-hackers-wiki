@@ -31,7 +31,7 @@ The input and output **filedescriptors** are cumulative:
 
 This compound command also usually is the body of a [function
 definition](../../syntax/basicgrammar.md#shell_function_definitions), though not
-the only compound command that\'s valid there:
+the only compound command that's valid there:
 
     print_help() {
       echo "Options:"

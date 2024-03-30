@@ -8,14 +8,14 @@
 (`--myoption`) nor XF86-style long options (`-myoption`). So, when you
 want to parse command line arguments in a professional ;-) way,
 `getopts` may or may not work for you. Unlike its older brother `getopt`
-(note the missing *s*!), it\'s a shell builtin command. The advantages
+(note the missing *s*!), it's a shell builtin command. The advantages
 are:
 
 -   No need to pass the positional parameters through to an external
     program.
 -   Being a builtin, `getopts` can set shell variables to use for
     parsing (impossible for an *external* process!)
--   There\'s no need to argue with several `getopt` implementations
+-   There's no need to argue with several `getopt` implementations
     which had buggy concepts in the past (whitespace, \...)
 -   `getopts` is defined in POSIX(r).
 
@@ -27,7 +27,7 @@ parameters](../scripting/posparams.md).
 
 ### Terminology
 
-It\'s useful to know what we\'re talking about here, so let\'s see\...
+It's useful to know what we\'re talking about here, so let's see\...
 Consider the following command line:
 
     mybackup -x -f /etc/mybackup.conf -r ./foo.txt ./bar.txt
@@ -43,7 +43,7 @@ several logical groups:
     itself, but that isn\'t mandatory. Joining the option and option
     argument into a single argument `-f/etc/mybackup.conf` is valid.
 -   `-r` depends on the configuration. In this example, `-r` doesn\'t
-    take arguments so it\'s a standalone option like `-x`.
+    take arguments so it's a standalone option like `-x`.
 -   `./foo.txt` and `./bar.txt` are remaining arguments without any
     associated options. These are often used as **mass-arguments**. For
     example, the filenames specified for `cp(1)`, or arguments that
@@ -58,7 +58,7 @@ line is equivalent to:
 which is complex to parse without the help of `getopts`.
 
 The option flags can be **upper- and lowercase** characters, or
-**digits**. It may recognize other characters, but that\'s not
+**digits**. It may recognize other characters, but that's not
 recommended (usability and maybe problems with special characters).
 
 ### How it works
@@ -71,8 +71,8 @@ parameters. If you want to shift them, it must be done manually:
     shift $((OPTIND-1))
     # now do something with $@
 
-Since `getopts` sets an exit status of *FALSE* when there\'s nothing
-left to parse, it\'s easy to use in a while-loop:
+Since `getopts` sets an exit status of *FALSE* when there's nothing
+left to parse, it's easy to use in a while-loop:
 
     while getopts ...; do
       ...
@@ -124,7 +124,7 @@ an argument (i.e. to become `-A SOMETHING`) just do:
     getopts fA:x VARNAME
 
 If the **very first character** of the option-string is a `:` (colon),
-which would normally be nonsense because there\'s no option letter
+which would normally be nonsense because there's no option letter
 preceding it, `getopts` switches to \"**silent error reporting mode**\".
 In productive scripts, this is usually what you want because it allows
 you to handle errors yourself without being disturbed by annoying
@@ -161,7 +161,7 @@ Regarding error-reporting, there are two modes `getopts` can run in:
 
 For productive scripts I recommend to use the silent mode, since
 everything looks more professional, when you don\'t see annoying
-standard messages. Also it\'s easier to handle, since the failure cases
+standard messages. Also it's easier to handle, since the failure cases
 are indicated in an easier way.
 
 #### Verbose Mode
@@ -182,7 +182,7 @@ are indicated in an easier way.
 
 Enough said - action!
 
-Let\'s play with a very simple case: only one option (`-a`) expected,
+Let's play with a very simple case: only one option (`-a`) expected,
 without any arguments. Also we disable the *verbose error handling* by
 preceding the whole option string with a colon (`:`):
 
@@ -204,7 +204,7 @@ done
 I put that into a file named `go_test.sh`, which is the name you\'ll see
 below in the examples.
 
-Let\'s do some tests:
+Let's do some tests:
 
 #### Calling it without any arguments
 
@@ -228,7 +228,7 @@ The arguments given to your script are of course accessible as `$1` -
 
 #### Calling it with option-arguments
 
-Now let\'s trigger `getopts`: Provide options.
+Now let's trigger `getopts`: Provide options.
 
 First, an **invalid** one:
 
@@ -249,7 +249,7 @@ Now, a **valid** one (`-a`):
 You see, the detection works perfectly. The `a` was put into the
 variable `$opt` for our case statement.
 
-Of course it\'s possible to **mix valid and invalid** options when
+Of course it's possible to **mix valid and invalid** options when
 calling:
 
     $ ./go_test.sh -a -x -b -c
@@ -259,7 +259,7 @@ calling:
     Invalid option: -c
     $ 
 
-Finally, it\'s of course possible, to give our option **multiple
+Finally, it's of course possible, to give our option **multiple
 times**:
 
     $ ./go_test.sh -a -a -a -a
@@ -278,7 +278,7 @@ The last examples lead us to some points you may consider:
 
 ### An option with argument
 
-Let\'s extend our example from above. Just a little bit:
+Let's extend our example from above. Just a little bit:
 
 -   `-a` now takes an argument
 -   on an error, the parsing exits with `exit 1`
@@ -303,7 +303,7 @@ while getopts ":a:" opt; do
 done
 ```
 
-Let\'s do the very same tests we did in the last example:
+Let's do the very same tests we did in the last example:
 
 #### Calling it without any arguments
 
@@ -338,7 +338,7 @@ like programmed.
 
 The option was okay, but there is an argument missing.
 
-Let\'s provide **the argument**:
+Let's provide **the argument**:
 
     $ ./go_test.sh -a /etc/passwd
     -a was triggered, Parameter: /etc/passwd

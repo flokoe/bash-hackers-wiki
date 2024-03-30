@@ -44,8 +44,8 @@ command](../../syntax/ccmd/arithmetic_eval.md):
 \<WRAP info\> Remember that inside arithmetic evaluation contexts, all
 other expansions are processed as usual (from left-to-right), and the
 resulting text is evaluated as an arithmetic expression. Arithmetic
-already has a way to control precedence using parentheses, so it\'s very
-rare to need to nest arithmetic expansions within one another. It\'s
+already has a way to control precedence using parentheses, so it's very
+rare to need to nest arithmetic expansions within one another. It's
 used above only to illustrate how this precedence works. \</WRAP\>
 
 Unlike `((`, being a simple command `let` has its own environment. In
@@ -87,10 +87,10 @@ needed.
     is more \"standard\" than `let`, the above should always be
     preferred. Both [arithmetic expansion](../../syntax/arith_expr.md)s and the
     `[` test operator are specified by POSIX(r) and satisfy almost all
-    of expr\'s use-cases. Unlike `let`, `expr` cannot assign directly to
+    of expr's use-cases. Unlike `let`, `expr` cannot assign directly to
     bash variables but instead returns a result on stdout. `expr` takes
     each operator it recognizes as a separate word and then concatenates
-    them into a single expression that\'s evaluated according to it\'s
+    them into a single expression that's evaluated according to it's
     own rules (which differ from shell arithmetic). `let` parses each
     word it recieves on its own and evaluates it as an expression
     without generating any output other than a return code.

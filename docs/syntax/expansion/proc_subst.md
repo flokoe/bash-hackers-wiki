@@ -52,7 +52,7 @@ the caller when the callee returns.
 
 In essence, process substitutions expanded to variables within functions
 remain open until the function in which the process substitution occured
-returns - even when assigned to locals that were set by a function\'s
+returns - even when assigned to locals that were set by a function's
 caller. Dynamic scope doesn\'t protect them from closing.
 
 ## Examples
@@ -87,7 +87,7 @@ where those files are written to and destroyed automatically.
 
 \<WRAP center round info 60%\> See Also:
 [BashFAQ/024](http://mywiki.wooledge.org/BashFAQ/024) \-- *I set
-variables in a loop that\'s in a pipeline. Why do they disappear after
+variables in a loop that's in a pipeline. Why do they disappear after
 the loop terminates? Or, why can\'t I pipe data to read?* \</WRAP\>
 
 One of the most common uses for process substitutions is to avoid the
@@ -124,7 +124,7 @@ echo "$counter files"
 ```
 
 This is the normal input file redirection `< FILE`, just that the `FILE`
-in this case is the result of process substitution. It\'s important to
+in this case is the result of process substitution. It's important to
 note that the space is required in order to disambiguate the syntax from
 [here documents](../../syntax/redirection.md#here_documents).
 
@@ -138,7 +138,7 @@ note that the space is required in order to disambiguate the syntax from
 
 This example demonstrates how process substitutions can be made to
 resemble \"passable\" objects. This results in converting the output of
-`f`\'s argument to uppercase.
+`f`'s argument to uppercase.
 
 ``` bash
 f() {

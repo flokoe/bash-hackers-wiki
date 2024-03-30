@@ -17,10 +17,10 @@ Brace expansion is used to generate arbitrary strings. The specified
 strings are used to generate **all possible combinations** with the
 optional surrounding prefixes and suffixes.
 
-Usually it\'s used to generate mass-arguments for a command, that follow
+Usually it's used to generate mass-arguments for a command, that follow
 a specific naming-scheme.
 
-:!: It is the very first step in expansion-handling, it\'s important to
+:!: It is the very first step in expansion-handling, it's important to
 understand that. When you use
 
     echo {a,b}$PATH
@@ -32,7 +32,7 @@ in a **later step**. Brace expansion just makes it being:
 
 Another common pitfall is to assume that a range like `{1..200}` can be
 expressed with variables using `{$a..$b}`. Due to what I described
-above, it **simply is not possible**, because it\'s the very first step
+above, it **simply is not possible**, because it's the very first step
 in doing expansions. A possible way to achieve this, if you really
 can\'t handle this in another way, is using the `eval` command, which
 basically evaluates a commandline twice: `eval echo {$a..$b}` For
@@ -79,7 +79,7 @@ With prefix or suffix strings, the result is a space-separated list of
 The brace expansion is only performed, if the given string list is
 really a **list of strings**, i.e., if there is a minimum of one \"`,`\"
 (comma)! Something like `{money}` doesn\'t expand to something special,
-it\'s really only the text \"`{money}`\".
+it's really only the text \"`{money}`\".
 
 ## Ranges
 
@@ -112,7 +112,7 @@ generated range is zero padded, too:
     $ echo {01..10}
     01 02 03 04 05 06 07 08 09 10
 
-There\'s a chapter of Bash 4 brace expansion changes at [the end of this
+There's a chapter of Bash 4 brace expansion changes at [the end of this
 article](#new_in_bash_4.0).
 
 Similar to the expansion using stringlists, you can add prefix and
@@ -127,7 +127,7 @@ suffix strings:
 ## Combining and nesting
 
 When you combine more brace expansions, you effectively use a brace
-expansion as prefix or suffix for another one. Let\'s generate all
+expansion as prefix or suffix for another one. Let's generate all
 possible combinations of uppercase letters and digits:
 
     $ echo {A..Z}{0..9}
@@ -147,7 +147,7 @@ Hey.. that **saves you writing** 260 strings!
 Brace expansions can be nested, but too much of it usually makes you
 losing overview a bit ;-)
 
-Here\'s a sample to generate the alphabet, first the uppercase letters,
+Here's a sample to generate the alphabet, first the uppercase letters,
 then the lowercase ones:
 
     $ echo {{A..Z},{a..z}}
@@ -165,13 +165,13 @@ download.
 
     wget http://docs.example.com/documentation/slides_part{1,2,3,4,5,6}.html
 
-Of course it\'s possible, and even easier, to do that with a sequence:
+Of course it's possible, and even easier, to do that with a sequence:
 
     wget http://docs.example.com/documentation/slides_part{1..6}.html
 
 ### Generate a subdirectory structure
 
-Your life is hard? Let\'s ease it a bit - that\'s what shells are here
+Your life is hard? Let's ease it a bit - that's what shells are here
 for.
 
     mkdir /home/bash/test/{foo,bar,baz,cat,dog}
@@ -214,7 +214,7 @@ Can be written as
 #### More fun
 
 The most optimal possible brace expansion to expand n arguments of
-course consists of n\'s prime factors. We can use the \"factor\" program
+course consists of n's prime factors. We can use the \"factor\" program
 bundled with GNU coreutils to emit a brace expansion that will expand
 any number of arguments.
 

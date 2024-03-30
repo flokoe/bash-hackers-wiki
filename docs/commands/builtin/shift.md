@@ -77,7 +77,7 @@ maintainer refuses to change either the `shift` or `command` builtins.~~
 [Fixed](https://github.com/MirBSD/mksh/commit/996e05548ab82f7ef2dea61f109cc7b6d13837fa).
 (Thanks!)
 
--   Perhaps almost as bad as the above, busybox sh\'s `shift` always
+-   Perhaps almost as bad as the above, busybox sh's `shift` always
     returns success, even when attempting to shift beyond the final
     argument. \<code\> \$ bb -c \'f() { if shift; then echo \"\$1\";
     else echo \"no args\"; fi; }; f\'

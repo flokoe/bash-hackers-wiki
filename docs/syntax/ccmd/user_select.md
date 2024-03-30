@@ -46,7 +46,7 @@ loop body in `{...}` instead of `do ... done`:
 
 This syntax is **not documented** and should not be used. I found the
 parser definitions for it in 1.x code, and in modern 4.x code. My guess
-is that it\'s there for compatiblity reasons. This syntax is not
+is that it's there for compatiblity reasons. This syntax is not
 specified by POSIX(R).
 
 ## Examples

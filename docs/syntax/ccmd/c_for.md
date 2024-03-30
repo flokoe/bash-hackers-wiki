@@ -28,7 +28,7 @@ mechanisms available in the language.
 
 The `((;;))` syntax at the top of the loop is not an ordinary
 [arithmetic compound command](../../syntax/ccmd/arithmetic_eval.md), but is part
-of the C-style for-loop\'s own syntax. The three sections separated by
+of the C-style for-loop's own syntax. The three sections separated by
 semicolons are [arithmetic expression](../../syntax/arith_expr.md) contexts.
 Each time one of the sections is to be evaluated, the section is first
 processed for: brace, parameter, command, arithmetic, and process
@@ -85,7 +85,7 @@ Bash, Ksh93, Mksh, and Zsh also provide an alternate syntax for the
 
 This syntax is **not documented** and shouldn\'t be used. I found the
 parser definitions for it in 1.x code, and in modern 4.x code. My guess
-is that it\'s there for compatibility reasons. Unlike the other
+is that it's there for compatibility reasons. Unlike the other
 aforementioned shells, Bash does not support the analogous syntax for
 [case..esac](../../syntax/ccmd/case.md#portability_considerations).
 
@@ -176,7 +176,7 @@ value (8 bits).
 \</div\>
 
 Why that one begins at 128 (highest value, on the left) and not 1
-(lowest value, on the right)? It\'s easier to print from left to
+(lowest value, on the right)? It's easier to print from left to
 right\...
 
 We arrive at 128 for `n` through the recursive arithmetic expression
@@ -227,7 +227,7 @@ variables.
 ## Bugs
 
 -   *Fixed in 4.3*. ~~There appears to be a bug as of Bash 4.2p10 in
-    which command lists can\'t be distinguished from the for loop\'s
+    which command lists can\'t be distinguished from the for loop's
     arithmetic argument delimiter (both semicolons), so command
     substitutions within the C-style for loop expression can\'t contain
     more than one command.~~

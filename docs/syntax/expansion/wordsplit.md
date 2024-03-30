@@ -49,4 +49,4 @@ is solely responsible.
 -   [WordSplitting](http://mywiki.wooledge.org/WordSplitting),
     [IFS](http://mywiki.wooledge.org/IFS), and
     [DontReadLinesWithFor](http://mywiki.wooledge.org/DontReadLinesWithFor) -
-    Greg\'s wiki
+    Greg's wiki

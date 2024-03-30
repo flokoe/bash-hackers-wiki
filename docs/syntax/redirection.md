@@ -2,7 +2,7 @@
 
 \<wrap left todo\>Fix me: To be continued\</wrap\>\
 Redirection makes it possible to control where the output of a command
-goes to, and where the input of a command comes from. It\'s a mighty
+goes to, and where the input of a command comes from. It's a mighty
 tool that, together with pipelines, makes the shell powerful. The
 redirection operators are checked whenever a [simple command is about to
 be executed](../syntax/grammar/parser_exec.md).
@@ -99,11 +99,11 @@ truncated** before writing starts.
     >& TARGET
 
 This special syntax redirects both, `stdout` and `stderr` to the
-specified target. It\'s **equivalent** to
+specified target. It's **equivalent** to
 
     > TARGET 2>&1
 
-Since Bash4, there\'s `&>>TARGET`, which is equivalent to
+Since Bash4, there's `&>>TARGET`, which is equivalent to
 `>> TARGET 2>&1`.
 
 \<wrap center important\>This syntax is deprecated and should not be
@@ -146,7 +146,7 @@ omitted, filedescriptor 0 (`stdin`) is assumed.
 
 A here-document is an input redirection using source data specified
 directly at the command line (or in the script), no \"external\" source.
-The redirection-operator `<<` is used together with a tag `TAG` that\'s
+The redirection-operator `<<` is used together with a tag `TAG` that's
 used to mark the end of input later:
 
     # display help
@@ -214,7 +214,7 @@ to hide it), this is **the wrong way**:
 Why? Relatively easy:
 
 -   initially, `stdout` points to your terminal (you read it)
--   same applies to `stderr`, it\'s connected to your terminal
+-   same applies to `stderr`, it's connected to your terminal
 -   `2>&1` redirects `stderr` away from the terminal to the target for
     `stdout`: **the terminal** (again\...)
 -   `1>/dev/null` redirects `stdout` away from your terminal to the file

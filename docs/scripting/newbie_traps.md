@@ -32,8 +32,8 @@ See also:
 
 Give it another name. The executable `test` already exists.
 
-In Bash it\'s a builtin. With other shells, it might be an executable
-file. Either way, it\'s bad name choice!
+In Bash it's a builtin. With other shells, it might be an executable
+file. Either way, it's bad name choice!
 
 Workaround: You can call it using the pathname:
 
@@ -135,14 +135,14 @@ assigned value**:
 
 ### Expanding (using) variables
 
-A typical beginner\'s trap is quoting.
+A typical beginner's trap is quoting.
 
 As noted above, when you want to **expand** a variable i.e. \"get the
 content\", the variable name needs to be prefixed with a dollar-sign.
 But, since Bash knows various ways to quote and does word-splitting, the
 result isn\'t always the same.
 
-Let\'s define an example variable containing text with spaces:
+Let's define an example variable containing text with spaces:
 
     example="Hello world"
 
@@ -237,8 +237,8 @@ Or, simpler yet:
 grep ^root: /etc/passwd >/dev/null 2>&1 || echo "root was not found - check the pub at the corner"
 ```
 
-If you need the specific value of `$?`, there\'s no other choice. But if
-you need only a \"true/false\" exit indication, there\'s no need for
+If you need the specific value of `$?`, there's no other choice. But if
+you need only a \"true/false\" exit indication, there's no need for
 `$?`.
 
 See also:
@@ -247,11 +247,11 @@ See also:
 
 ### Output vs. Return Value
 
-It\'s important to remember the different ways to run a child command,
+It's important to remember the different ways to run a child command,
 and whether you want the output, the return value, or neither.
 
 When you want to run a command (or a pipeline) and save (or print) the
-**output**, whether as a string or an array, you use Bash\'s
+**output**, whether as a string or an array, you use Bash's
 `$(command)` syntax:
 
     $(ls -l /tmp)

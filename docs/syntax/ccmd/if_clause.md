@@ -22,7 +22,7 @@
 
 ## Description
 
-The `if`-clause can control the script\'s flow (what\'s executed) by
+The `if`-clause can control the script's flow (what's executed) by
 looking at the exit codes of other commands.
 
 All commandsets `<LIST>` are interpreted as [command
@@ -65,19 +65,19 @@ commands of the condition that succeeded.
 
 **Multiple commands as condition**
 
-It\'s perfectly valid to do:
+It's perfectly valid to do:
 
     if echo "I'm testing!"; [ -e /some/file ]; then
       ...
     fi
 
-The exit code that dictates the condition\'s value is the exit code of
+The exit code that dictates the condition's value is the exit code of
 the very last command executed in the condition-list (here: The
 `[ -e /some/file ]`)
 
 **A complete pipe as condition**
 
-A complete pipe can also be used as condition. It\'s very similar to the
+A complete pipe can also be used as condition. It's very similar to the
 example above (multiple commands):
 
     if echo "Hello world!" | grep -i hello >/dev/null 2>&1; then

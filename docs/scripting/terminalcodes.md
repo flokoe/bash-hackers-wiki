@@ -14,12 +14,12 @@ won\'t display the character-sequence, but will perform some action. You
 can print the codes with a simple `echo` command.
 
 [**Note:**]{.underline} I see codes referenced as \"Bash colors\"
-sometimes (several \"Bash tutorials\" etc\...): That\'s a completely
+sometimes (several \"Bash tutorials\" etc\...): That's a completely
 incorrect definition.
 
 ## The tput command
 
-Because there\'s a large number of different terminal control languages,
+Because there's a large number of different terminal control languages,
 usually a system has an intermediate communication layer. The real codes
 are looked up in a database **for the currently detected terminal type**
 and you give standardized requests to an API or (from the shell) to a
@@ -40,7 +40,7 @@ is unclear! Also the `tput` acronyms are usually the ones dedicated for
 ANSI escapes!
 
 I listed only the most relevant codes, of course, any ANSI terminal
-understands many more! But let\'s keep the discussion centered on common
+understands many more! But let's keep the discussion centered on common
 shell scripting ;-)
 
 If I couldn\'t find a matching ANSI escape, you\'ll see a :?: as the
@@ -51,7 +51,7 @@ The ANSI codes always start with the ESC character. (ASCII 0x1B or octal
 codes directly - use the `tput` command!**
 
 All codes that can be used with `tput` can be found in terminfo(5). (on
-OpenBSD at least) See [OpenBSD\'s
+OpenBSD at least) See [OpenBSD's
 terminfo(5)](http://www.openbsd.org/cgi-bin/man.cgi?query=terminfo&apropos=0&sektion=5&manpath=OpenBSD+Current&arch=i386&format=html)
 under the [Capabilities]{.underline} section. The *cap-name* is the code
 to use with tput. A description of each code is also provided.
@@ -293,7 +293,7 @@ switch to, to get the other 8 colors.
 
 ### Mandelbrot set
 
-This is a slightly modified version of Charles Cooke\'s colorful
+This is a slightly modified version of Charles Cooke's colorful
 Mandelbrot plot scripts ([original w/
 screenshot](http://earth.gkhs.net/ccooke/shell.html)) \-- ungolfed,
 optimized a bit, and without hard-coded terminal escapes. The `colorBox`

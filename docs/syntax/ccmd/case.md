@@ -18,7 +18,7 @@ against every pattern `<PATTERNn>` and on a match, the associated
 [list](../../syntax/basicgrammar.md#lists) `<LISTn>` is executed. Every
 commandlist is terminated by `;;`. This rule is optional for the very
 last commandlist (i.e., you can omit the `;;` before the `esac`). Every
-`<PATTERNn>` is separated from it\'s associated `<LISTn>` by a `)`, and
+`<PATTERNn>` is separated from it's associated `<LISTn>` by a `)`, and
 is optionally preceded by a `(`.
 
 Bash 4 introduces two new action terminators. The classic behavior using
@@ -81,10 +81,10 @@ Another one of my stupid examples\...
             echo "Unknown fruit - sure it isn't toxic?"
     esac
 
-Here\'s a practical example showing a common pattern involving a `case`
+Here's a practical example showing a common pattern involving a `case`
 statement. If the first argument is one of a valid set of alternatives,
 then perform some sysfs operations under Linux to control a video
-card\'s power profile. Otherwise, show a usage synopsis, and print the
+card's power profile. Otherwise, show a usage synopsis, and print the
 current power profile and GPU temperature.
 
 ``` bash
@@ -146,7 +146,7 @@ f a b c
 ## Portability considerations
 
 -   Only the `;;` delimiter is specified by POSIX.
--   zsh and mksh use the `;|` control operator instead of Bash\'s `;;&`.
+-   zsh and mksh use the `;|` control operator instead of Bash's `;;&`.
     Mksh has `;;&` for Bash compatability (undocumented).
 -   ksh93 has the `;&` operator, but no `;;&` or equivalent.
 -   ksh93, mksh, zsh, and posh support a historical syntax where open

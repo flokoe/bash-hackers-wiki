@@ -140,10 +140,10 @@ command `f`. The stack remains unchanged:
     1
 
 Note how the first element that will be popped from the stack is printed
-first, if you are used to an HP calculator, it\'s the reverse.
+first, if you are used to an HP calculator, it's the reverse.
 
 Don\'t hesitate to put `f` in the examples of this tutorial, it doesn\'t
-change the result, and it\'s a good way to see what\'s going on.
+change the result, and it's a good way to see what's going on.
 
 ## Registers
 
@@ -184,7 +184,7 @@ enclosed in `[]`. You can print it with `p`: `dc <<< '[Hello World!]p'`
 and you can evalute it with x: `dc <<< '[1 2+]xp'`.
 
 This is not that interesting until combined with registers. First,
-let\'s say we want to calculate the square of a number (don\'t forget to
+let's say we want to calculate the square of a number (don\'t forget to
 include `f` if you get lost!):
 
     dc << EOF
@@ -256,7 +256,7 @@ remove all those extra spaces newlines and comments:
     dc <<< '[lip1-si0li>L]sL10silLx' 
     dc <<< '[p1-d0<L]sL10lLx' # use the stack instead of a register
 
-I\'ll let you figure out the second example, it\'s not hard, it uses the
+I\'ll let you figure out the second example, it's not hard, it uses the
 stack instead of a register for the index.
 
 ## Next

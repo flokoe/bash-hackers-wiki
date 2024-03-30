@@ -77,7 +77,7 @@ The `read` builtin command has some interesting new features.
 The `-t` option to specify a timeout value has been slightly tuned. It
 now accepts fractional values and the special value 0 (zero). When
 `-t 0` is specified, `read` immediately returns with an exit status
-indicating if there\'s data waiting or not. However, when a timeout is
+indicating if there's data waiting or not. However, when a timeout is
 given, and the `read` builtin times out, any partial data recieved up to
 the timeout is stored in the given variable, rather than lost. When a
 timeout is hit, `read` exits with a code greater than 128.

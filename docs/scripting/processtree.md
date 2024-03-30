@@ -13,7 +13,7 @@ needed to run the process) i.e. [**The environment**]{.underline}.
 
 Every process has its **own** environment space.
 
-The environment stores, among other things, data that\'s useful to us,
+The environment stores, among other things, data that's useful to us,
 the **environment variables**. These are strings in common `NAME=VALUE`
 form, but they are not related to shell variables. A variable named
 `LANG`, for example, is used by every program that looks it up in its
@@ -33,10 +33,10 @@ set by login scripts or programs).
 ## Executing programs
 
 All the diagrams of the process tree use names like \"`xterm`\" or
-\"`bash`\", but that\'s just to make it easier to understand what\'s
+\"`bash`\", but that's just to make it easier to understand what's
 going on, it doesn\'t mean those processes are actually executed.
 
-Let\'s take a short look at what happens when you \"execute a program\"
+Let's take a short look at what happens when you \"execute a program\"
 from the Bash prompt, a program like \"ls\":
 
     $ ls
@@ -100,7 +100,7 @@ into a variable. We run it in a loop here to count input lines:
     cat /etc/passwd | while read; do ((counter++)); done
     echo "Lines: $counter"
 
-What? It\'s 0? Yes! The number of lines might not be 0, but the variable
+What? It's 0? Yes! The number of lines might not be 0, but the variable
 `$counter` still is 0. Why? Remember the diagram from above? Rewriting
 it a bit, we have:
 
@@ -123,7 +123,7 @@ that sets the counter must be the \"main shell\". For example:
     while read; do ((counter++)); done </etc/passwd
     echo "Lines: $counter"
 
-It\'s nearly self-explanatory. The `while` loop runs in the **current
+It's nearly self-explanatory. The `while` loop runs in the **current
 shell**, the counter is incremented in the **current shell**, everything
 vital happens in the **current shell**, also the `read` command sets the
 variable `REPLY` (the default if nothing is given), though we don\'t use
@@ -137,14 +137,14 @@ performs:
 ### Executing commands
 
 As shown above, Bash will create subprocesses everytime it executes
-commands. That\'s nothing new.
+commands. That's nothing new.
 
 But if your command is a subprocess that sets variables you want to use
 in your main script, that won\'t work.
 
-For exactly this purpose, there\'s the `source` command (also: the *dot*
+For exactly this purpose, there's the `source` command (also: the *dot*
 `.` command). Source doesn\'t execute the script, it imports the other
-script\'s code into the current shell:
+script's code into the current shell:
 
     source ./myvariables.sh
     # equivalent to:

@@ -1,4 +1,4 @@
-# Bash\'s behaviour
+# Bash's behaviour
 
 ![](keywords>bash shell scripting startup files dotfiles modes POSIX)
 
@@ -8,15 +8,15 @@ FIXME incomplete
 
 ### Login shell
 
-As a \"login shell\", Bash reads and sets (executes) the user\'s profile
+As a \"login shell\", Bash reads and sets (executes) the user's profile
 from `/etc/profile` and one of `~/.bash_profile`, `~/.bash_login`, or
-`~/.profile` (in that order, using the first one that\'s readable!).
+`~/.profile` (in that order, using the first one that's readable!).
 
 When a login shell exits, Bash reads and executes commands from the file
 `~/.bash_logout`, if it exists.
 
 Why an extra login shell mode? There are many actions and variable sets
-that only make sense for the initial user login. That\'s why all UNIX(r)
+that only make sense for the initial user login. That's why all UNIX(r)
 shells have (should have) a \"login\" mode.
 
 [**Methods to start Bash as a login shell:**]{.underline}
@@ -44,7 +44,7 @@ they\'re not inherited from the parent shell.
 The feature to have a system-wide `/etc/bash.bashrc` or a similar
 system-wide rc-file is specific to vendors and distributors that ship
 *their own, patched variant of Bash*. The classic way to have a
-system-wide rc file is to `source /etc/bashrc` from every user\'s
+system-wide rc file is to `source /etc/bashrc` from every user's
 `~/.bashrc`.
 
 [**Methods to test for interactive-shell mode:**]{.underline}
@@ -64,9 +64,9 @@ system-wide rc file is to `source /etc/bashrc` from every user\'s
 When Bash starts in SH compatiblity mode, it tries to mimic the startup
 behaviour of historical versions of `sh` as closely as possible, while
 conforming to the POSIX(r) standard as well. The profile files read are
-`/etc/profile` and `~/.profile`, if it\'s a login shell.
+`/etc/profile` and `~/.profile`, if it's a login shell.
 
-If it\'s not a login shell, the environment variable
+If it's not a login shell, the environment variable
 [ENV](../syntax/shellvars.md#ENV) is evaluated and the resulting filename is
 used as the name of the startup file.
 
@@ -117,7 +117,7 @@ read any startup files in POSIX(r) mode.
 ### POSIX run mode
 
 In POSIX(r) mode, Bash follows the POSIX(r) standard regarding behaviour
-and parsing (excerpt from a Bash maintainer\'s document):
+and parsing (excerpt from a Bash maintainer's document):
 
     Starting Bash with the `--posix' command-line option or executing `set
     -o posix' while Bash is running will cause Bash to conform more closely
@@ -311,7 +311,7 @@ FIXME help me to find out what breaks in POSIX(r) mode!
 
 ### Restricted shell
 
-In restricted mode, Bash sets up (and runs) a shell environment that\'s
+In restricted mode, Bash sets up (and runs) a shell environment that's
 far more controlled and limited than the standard shell mode. It acts
 like normal Bash with the following restrictions:
 

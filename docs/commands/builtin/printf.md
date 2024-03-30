@@ -23,7 +23,7 @@ POSIX(r) recommends that `printf` is preferred over `echo`.
 ## General
 
 The `printf` command provides a method to print preformatted text
-similar to the `printf()` system interface (C function). It\'s meant as
+similar to the `printf()` system interface (C function). It's meant as
 successor for `echo` and has far more features and possibilities.
 
 Beside other reasons, POSIX(r) has a very good argument to recommend it:
@@ -164,7 +164,7 @@ introductory `%` and the character that specifies the format:
 
   Field output format   
   --------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `<N>`                 **Any number**: Specifies a **minimum field width**, if the text to print is shorter, it\'s padded with spaces, if the text is longer, the field is expanded
+  `<N>`                 **Any number**: Specifies a **minimum field width**, if the text to print is shorter, it's padded with spaces, if the text is longer, the field is expanded
   `.`                   **The dot**: Together with a field width, the field is **not** expanded when the text is longer, the text is truncated instead. \"`%.s`\" is an undocumented equivalent for \"`%.0s`\", which will force a field width of zero, effectively hiding the field from output
   `*`                   **The asterisk**: the width is given as argument before the string or number. Usage (the \"`*`\" corresponds to the \"`20`\"): `printf "%*s\n" 20 "test string"`
   `#`                   \"Alternative format\" for numbers: see table below
@@ -178,8 +178,8 @@ introductory `%` and the character that specifies the format:
 
   Alternative Format                                 
   -------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `%#o`                                              The octal number is printed with a leading zero, unless it\'s zero itself
-  `%#x`, `%#X`                                       The hex number is printed with a leading \"`0x`\"/\"`0X`\", unless it\'s zero
+  `%#o`                                              The octal number is printed with a leading zero, unless it's zero itself
+  `%#x`, `%#X`                                       The hex number is printed with a leading \"`0x`\"/\"`0X`\", unless it's zero
   `%#g`, `%#G`                                       The float number is printed with **trailing zeros** until the number of digits for the current precision is reached (usually trailing zeros are not printed)
   all number formats except `%d`, `%o`, `%x`, `%X`   Always print a decimal point in the output, even if no digits follow it
 
@@ -382,7 +382,7 @@ readability.
     use `%c`, you\'re actually asking for the first byte of the
     argument. Likewise, the maximum field width modifier (dot) in
     combination with `%s` goes by bytes, not characters. This limits
-    some of printf\'s functionality to working with ascii only. ksh93\'s
+    some of printf's functionality to working with ascii only. ksh93's
     `printf` supports the `L` modifier with `%s` and `%c` (but so far
     not `%S` or `%C`) in order to treat precision as character width,
     not byte count. zsh appears to adjust itself dynamically based upon
@@ -409,7 +409,7 @@ fmt++;
 -   mksh has no built-in printf by default (usually). There is an
     unsupported compile-time option to include a very poor, basically
     unusable implementation. For the most part you must rely upon the
-    system\'s `/usr/bin/printf` or equivalent. The mksh maintainer
+    system's `/usr/bin/printf` or equivalent. The mksh maintainer
     recommends using `print`. The development version (post- R40f) adds
     a new parameter expansion in the form of `${name@Q}` which fills the
     role of `printf %q` \-- expanding in a shell-escaped format.
@@ -418,7 +418,7 @@ fmt++;
 <!-- -->
 ```
 -   ksh93 optimizes builtins run from within a command substitution and
-    which have no redirections to run in the shell\'s process. Therefore
+    which have no redirections to run in the shell's process. Therefore
     the `printf -v` functionality can be closely matched by
     `var=$(printf ...)` without a big performance hit.
 
@@ -447,8 +447,8 @@ fmt++;
 
 -   The optional Bash loadable `print` may be useful for ksh
     compatibility and to overcome some of
-    [echo](../../commands/builtin/echo.md)\'s portability pitfalls. Bash, ksh93,
-    and zsh\'s `print` have an `-f` option which takes a `printf` format
+    [echo](../../commands/builtin/echo.md)'s portability pitfalls. Bash, ksh93,
+    and zsh's `print` have an `-f` option which takes a `printf` format
     string and applies it to the remaining arguments. Bash lists the
     synopsis as:
     `print: print [-Rnprs] [-u unit] [-f format] [arguments]`. However,
@@ -472,5 +472,5 @@ fmt++;
     function](http://pubs.opengroup.org/onlinepubs/9699919799/functions/printf.html)
 -   [Code snip: Print a horizontal
     line](../../snipplets/print_horizontal_line.md) uses some `printf` examples
--   [Greg\'s BashFAQ 18: How can I use numbers with leading zeros in a
+-   [Greg's BashFAQ 18: How can I use numbers with leading zeros in a
     loop, e.g., 01, 02?](BashFAQ>018)

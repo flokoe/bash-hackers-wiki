@@ -90,7 +90,7 @@ synonymous with referring to the array name without a subscript.
     hi hi hi
 
 The only exceptions to this rule are in a few cases where the array
-variable\'s name refers to the array as a whole. This is the case for
+variable's name refers to the array as a whole. This is the case for
 the `unset` builtin (see [destruction](#Destruction)) and when declaring
 an array without assigning any values (see [declaration](#Declaration)).
 
@@ -106,7 +106,7 @@ arrays:
   `declare -a ARRAY`   Declares an **indexed** array `ARRAY`. An existing array is not initialized.
   `declare -A ARRAY`   Declares an **associative** array `ARRAY`. This is the one and only way to create associative arrays.
 
-As an example, and for use below, let\'s declare our `NAMES` array as
+As an example, and for use below, let's declare our `NAMES` array as
 described [above](#purpose):
 
       declare -a NAMES=('Peter' 'Anna' 'Greg' 'Jan')
@@ -137,7 +137,7 @@ check the notes about arrays. \</note\>
 
   Syntax                                                                  Description
   ----------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `${ARRAY[N]}`                                                           Expands to the value of the index `N` in the **indexed** array `ARRAY`. If `N` is a negative number, it\'s treated as the offset from the maximum assigned index (can\'t be used for assignment) - 1
+  `${ARRAY[N]}`                                                           Expands to the value of the index `N` in the **indexed** array `ARRAY`. If `N` is a negative number, it's treated as the offset from the maximum assigned index (can\'t be used for assignment) - 1
   `${ARRAY[S]}`                                                           Expands to the value of the index `S` in the **associative** array `ARRAY`.
   `"${ARRAY[@]}" ${ARRAY[@]} "${ARRAY[*]}" ${ARRAY[*]}`                   Similar to [mass-expanding positional parameters](../scripting/posparams.md#mass_usage), this expands to all elements. If unquoted, both subscripts `*` and `@` expand to the same result, if quoted, `@` expands to all elements individually quoted, `*` expands to all elements quoted as a whole.
   `"${ARRAY[@]:N:M}" ${ARRAY[@]:N:M} "${ARRAY[*]:N:M}" ${ARRAY[*]:N:M}`   Similar to what this syntax does for the characters of a single string when doing [substring expansion](../syntax/pe.md#substring_expansion), this expands to `M` elements starting with element `N`. This way you can mass-expand individual indexes. The rules for quoting and the subscripts `*` and `@` are the same as above for the other mass-expansions.
@@ -146,7 +146,7 @@ For clarification: When you use the subscripts `@` or `*` for
 mass-expanding, then the behaviour is exactly what it is for `$@` and
 `$*` when [mass-expanding the positional
 parameters](../scripting/posparams.md#mass_usage). You should read this
-article to understand what\'s going on.
+article to understand what's going on.
 
 ### Metadata
 
@@ -217,13 +217,13 @@ less explain all the needed background theory.
 
 Now, some examples and comments for you.
 
-Let\'s say we have an array `sentence` which is initialized as follows:
+Let's say we have an array `sentence` which is initialized as follows:
 
     sentence=(Be liberal in what you accept, and conservative in what you send)
 
 Since no special code is there to prevent word splitting (no quotes),
 every word there will be assigned to an individual array element. When
-you count the words you see, you should get 12. Now let\'s see if Bash
+you count the words you see, you should get 12. Now let's see if Bash
 has the same opinion:
 
     $ echo ${#sentence[@]}
@@ -260,7 +260,7 @@ think you could just do
     $ for ((i = 0; i < ${#sentence[@]}; i++)); do  echo "Element $i: '${sentence[i]}'" ; done
     Element 0: 'NAMES'
 
-Obviously that\'s wrong. What about
+Obviously that's wrong. What about
 
     $ unset sentence ; declare -a sentence=${NAMES}
 
@@ -271,7 +271,7 @@ Obviously that\'s wrong. What about
     $ for ((i = 0; i < ${#sentence[@]}; i++)); do  echo "Element $i: '${sentence[i]}'" ; done
     Element 0: 'Peter'
 
-So what\'s the **right** way? The (slightly ugly) answer is, reuse the
+So what's the **right** way? The (slightly ugly) answer is, reuse the
 enumeration syntax:
 
     $ unset sentence ; declare -a sentence=("${NAMES[@]}")
@@ -563,9 +563,9 @@ dynamically calls a function whose name is resolved from the array.
 -   Assigning or referencing negative indexes in mksh causes
     wrap-around. The max index appears to be `UINT_MAX`, which would be
     addressed by `arr[-1]`.
--   So far, Bash\'s `-v var` test doesn\'t support individual array
+-   So far, Bash's `-v var` test doesn\'t support individual array
     subscripts. You may supply an array name to test whether an array is
-    defined, but can\'t check an element. ksh93\'s `-v` supports both.
+    defined, but can\'t check an element. ksh93's `-v` supports both.
     Other shells lack a `-v` test.
 
 ### Bugs
@@ -686,7 +686,7 @@ to generate these results.
     variables?](http://mywiki.wooledge.org/BashFAQ/005) - A very
     detailed discussion on arrays with many examples.
 -   [BashSheet - Arrays](http://mywiki.wooledge.org/BashSheet#Arrays) -
-    Bashsheet quick-reference on Greycat\'s wiki.
+    Bashsheet quick-reference on Greycat's wiki.
 
 \<div hide\> vim: set fenc=utf-8 ff=unix ts=4 sts=4 sw=4 ft=dokuwiki et
 wrap lbr: \</div\>

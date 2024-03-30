@@ -79,7 +79,7 @@ quoting:
     fi
 
 Compare that to the [classic test command](../../commands/classictest.md), where
-word splitting is done (because it\'s a normal command, not something
+word splitting is done (because it's a normal command, not something
 special):
 
     sentence="Be liberal in what you accept, and conservative in what you send"
@@ -178,7 +178,7 @@ both contains whitespace and is not the result of an expansion.
 
 ## Portability considerations
 
--   `[[ ... ]]` functionality isn\'t specified by POSIX(R), though it\'s
+-   `[[ ... ]]` functionality isn\'t specified by POSIX(R), though it's
     a reserved word
 -   Amongst the major \"POSIX-shell superset languages\" (for lack of a
     better term) which do have `[[`, the test expression compound
@@ -187,7 +187,7 @@ both contains whitespace and is not the result of an expansion.
     between Ksh88, Ksh93, mksh, Zsh, and Bash. Ksh93 also adds a large
     number of unique pattern matching features not supported by other
     shells including support for several different regex dialects, which
-    are invoked using a different syntax from Bash\'s `=~`, though `=~`
+    are invoked using a different syntax from Bash's `=~`, though `=~`
     is still supported by ksh and defaults to ERE.
 -   As an extension to POSIX ERE, most GNU software supports
     backreferences in ERE, including Bash. According to POSIX, only BRE
@@ -207,5 +207,5 @@ both contains whitespace and is not the result of an expansion.
 -   Internal: [the classic test command](../../commands/classictest.md)
 -   Internal: [the if-clause](../../syntax/ccmd/if_clause.md)
 -   [What is the difference between test, \[ and \[\[
-    ?](http://mywiki.wooledge.org/BashFAQ/031) - BashFAQ 31 - Greg\'s
+    ?](http://mywiki.wooledge.org/BashFAQ/031) - BashFAQ 31 - Greg's
     wiki.

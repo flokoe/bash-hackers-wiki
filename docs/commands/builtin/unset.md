@@ -54,7 +54,7 @@ property allows looking upwards through the stack as variable names are
 unset, so long as unset and the local it unsets aren\'t together in the
 same scope level.
 
-Here\'s a demonstration of this behavior.
+Here's a demonstration of this behavior.
 
     #!/usr/bin/env bash
 
@@ -121,8 +121,8 @@ output:
 Some things to observe:
 
 -   `unset2` is only really needed once. We remain 5 levels deep in
-    `f`\'s for the remaining `unset` calls, which peel away the outer
-    layers of `a`\'s.
+    `f`'s for the remaining `unset` calls, which peel away the outer
+    layers of `a`'s.
 -   Notice that the \"a\" is unset using an ordinary unset command at
     recursion depth 1, and subsequently calling unset reveals a again in
     the global scope, which has since been modified in a lower scope
@@ -145,7 +145,7 @@ expands its arguments.
      ~ $ ( a=({a..d}); unset 'a[2]'; declare -p a )
     declare -a a='([0]="a" [1]="b" [3]="d")'
 
-As usual in such cases, it\'s important to quote the args to avoid
+As usual in such cases, it's important to quote the args to avoid
 accidental results such as globbing.
 
      ~ $ ( a=({a..d}) b=a c=d d=1; set -x; unset "${b}["{2..3}-c\]; declare -p a )

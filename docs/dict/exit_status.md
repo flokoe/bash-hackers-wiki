@@ -38,7 +38,7 @@ purposes, like reporting a termination by a signal:
   1-255     failure (in general)
   126       the requested command (file) can\'t be executed (but was found)
   127       command (file) not found
-  128       according to ABS it\'s used to report an invalid argument to the exit builtin, but I wasn\'t able to verify that in the source code of Bash (see code 255)
+  128       according to ABS it's used to report an invalid argument to the exit builtin, but I wasn\'t able to verify that in the source code of Bash (see code 255)
   128 + N   the shell was terminated by the signal N (also used like this by various other programs)
   255       wrong argument to the exit builtin (see code 128)
 

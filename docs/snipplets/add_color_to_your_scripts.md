@@ -34,7 +34,7 @@ hardwiring codes.
 
 This snipplet sets up associative arrays for basic color codes using
 `tput` for Bash, ksh93 or zsh. You can pass it variable names to
-correspond with a collection of codes. There\'s a `main` function with
+correspond with a collection of codes. There's a `main` function with
 example usage.
 
 ``` bash

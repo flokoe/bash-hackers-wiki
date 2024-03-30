@@ -19,16 +19,16 @@ of course it helps others to read the code.
 
 ## Indentation guidelines
 
-Indentation is nothing that technically influences a script, it\'s only
+Indentation is nothing that technically influences a script, it's only
 for us humans.
 
 I\'m used to seeing/using indentation of *two space characters* (though
 many may prefer 4 spaces, see below in the discussion section):
 
--   it\'s easy and fast to type
--   it\'s not a hard-tab that\'s displayed differently in different
+-   it's easy and fast to type
+-   it's not a hard-tab that's displayed differently in different
     environments
--   it\'s wide enough to give a visual break and small enough to not
+-   it's wide enough to give a visual break and small enough to not
     waste too much space on the line
 
 Speaking of hard-tabs: Avoid them if possible. They only make trouble. I
@@ -145,7 +145,7 @@ Cryptic constructs, we all know them, we all love them. If they are not
 100% needed, avoid them, since nobody except you may be able to decipher
 them.
 
-It\'s - just like in C - the middle ground between smart, efficient and
+It's - just like in C - the middle ground between smart, efficient and
 readable.
 
 If you need to use a cryptic construct, include a comment that explains
@@ -179,12 +179,12 @@ loop counting variables, etc., \... (in the example: `file`)
 
 ### Variable initialization
 
-As in C, it\'s always a good idea to initialize your variables, though,
+As in C, it's always a good idea to initialize your variables, though,
 the shell will initialize fresh variables itself (better: Unset
 variables will generally behave like variables containing a null
 string).
 
-It\'s no problem to pass an **environment variable** to the script. If
+It's no problem to pass an **environment variable** to the script. If
 you blindly assume that all variables you use for the first time are
 **empty**, anybody can **inject** content into a variable by passing it
 via the environment.
@@ -278,7 +278,7 @@ The basic structure of a script simply reads:
 
 ### The shebang
 
-If possible (I know it\'s not always possible!), use [a
+If possible (I know it's not always possible!), use [a
 shebang](../dict/terms/shebang.md).
 
 Be careful with `/bin/sh`: The argument that \"on Linux `/bin/sh` is

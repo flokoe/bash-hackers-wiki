@@ -4,7 +4,7 @@
 
 FIXME This article needs a review, it covers two topics (command line
 splitting and word splitting) and mixes both a bit too much. But in
-general, it\'s still usable to help understand this behaviour, it\'s
+general, it's still usable to help understand this behaviour, it's
 \"wrong but not wrong\".
 
 One fundamental principle of Bash is to recognize words entered at the
@@ -31,7 +31,7 @@ In other words, something you do (and Bash does) everyday. The
 characters where Bash splits the command line (SPACE, TAB i.e. blanks)
 are recognized as delimiters. There is no null argument generated when
 you have 2 or more blanks in the command line. **A sequence of more
-blank characters is treated as a single blank.** Here\'s an example:
+blank characters is treated as a single blank.** Here's an example:
 
     $ echo Hello                little                  world
     Hello little world
@@ -46,7 +46,7 @@ ways to tell Bash not to treat them special: **Escaping** and
 **quoting**.
 
 Escaping a character means, to **take away its special meaning**. Bash
-will use an escaped character as text, even if it\'s a special one.
+will use an escaped character as text, even if it's a special one.
 Escaping is done by preceeding the character with a backslash:
 
     $ echo Hello\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ little \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ world
@@ -93,7 +93,7 @@ For a more technical description, please read the [article about word
 splitting](../syntax/expansion/wordsplit.md)!
 
 The first kind of splitting is done to parse the command line into
-separate tokens. This is what was described above, it\'s a pure
+separate tokens. This is what was described above, it's a pure
 **command line parsing**.
 
 After the command line has been split into words, Bash will perform
@@ -122,7 +122,7 @@ word splitting:
 
 ## Example
 
-Let\'s follow an unquoted command through these steps, assuming that the
+Let's follow an unquoted command through these steps, assuming that the
 variable is set:
 
     MYFILE="THE FILE.TXT"
@@ -148,7 +148,7 @@ splitting](../syntax/expansion/wordsplit.md) on the results:
   Word 1                               Word 2   Word 3   Word 4   Word 5    Word 6   Word 7
   `echo`                               `The`    `file`   `is`     `named`   `THE`    `FILE.TXT`
 
-Now let\'s imagine we quoted `$MYFILE`, the command line now looks like:
+Now let's imagine we quoted `$MYFILE`, the command line now looks like:
 
     echo The file is named "$MYFILE"
 

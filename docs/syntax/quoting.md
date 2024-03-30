@@ -43,7 +43,7 @@ backslash:
 
     echo \$HOME is set to \"$HOME\"
 
--   `\$HOME` won\'t expand because it\'s not in variable-expansion
+-   `\$HOME` won\'t expand because it's not in variable-expansion
     syntax anymore
 -   The backslash changes the quotes into literals - otherwise Bash
     would interpret them
@@ -68,7 +68,7 @@ meaning to bash. [Exception:]{.underline} Inside a single-quoted string
 
 ## Weak quoting
 
-Inside a weak-quoted string there\'s **no special interpretion of**:
+Inside a weak-quoted string there's **no special interpretion of**:
 
 -   spaces as word-separators (on inital command line splitting and on
     [word splitting](../syntax/expansion/wordsplit.md)!)
@@ -88,7 +88,7 @@ unless you have a file named `*`, spit out an error.
 
     echo "Your PATH is: $PATH"
 
-Will work as expected. `$PATH` is expanded, because it\'s double (weak)
+Will work as expected. `$PATH` is expanded, because it's double (weak)
 quoted.
 
 If a backslash in double quotes (\"weak quoting\") occurs, there are 2
@@ -112,8 +112,8 @@ single-quote that closes the string.
 
     echo 'Your PATH is: $PATH'
 
-`$PATH` won\'t be expanded, it\'s interpreted as ordinary text because
-it\'s surrounded by strong quotes.
+`$PATH` won\'t be expanded, it's interpreted as ordinary text because
+it's surrounded by strong quotes.
 
 In practise that means, to produce a text like `Here's my test...` as a
 single-quoted string, you have to leave and re-enter the single quoting
@@ -222,7 +222,7 @@ is seen as **one word**. The for loop iterates exactly one time, with
 
 The command `test` or `[ ... ]` ([the classic test
 command](../commands/classictest.md)) is an ordinary command, so ordinary
-syntax rules apply. Let\'s take string comparison as an example:
+syntax rules apply. Let's take string comparison as an example:
 
     [ WORD = WORD ]
 
@@ -232,7 +232,7 @@ writing this as a test command it would be:
 
     test WORD = WORD
 
-When you compare variables, it\'s wise to quote them. Let\'s create a
+When you compare variables, it's wise to quote them. Let's create a
 test string with spaces:
 
     mystring="my string"

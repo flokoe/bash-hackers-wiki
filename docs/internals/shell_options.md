@@ -252,7 +252,7 @@ the only possible completions. This option is enabled by default.
 
 If set, range expressions used in pattern matching behave as if in the
 traditional C locale when performing comparisons. That is, the current
-locale\'s collating sequence is not taken into account, so b will not
+locale's collating sequence is not taken into account, so b will not
 collate between A and B, and upper-case and lower-case ASCII characters
 will collate together.
 

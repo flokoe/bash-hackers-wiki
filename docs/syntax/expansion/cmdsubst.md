@@ -23,7 +23,7 @@ results, quote the command substitution!**
 
 The second form `` `COMMAND` `` is more or less obsolete for Bash, since
 it has some trouble with nesting (\"inner\" backticks need to be
-escaped) and escaping characters. Use `$(COMMAND)`, it\'s also POSIX!
+escaped) and escaping characters. Use `$(COMMAND)`, it's also POSIX!
 
 When you [call an explicit subshell](../../syntax/ccmd/grouping_subshell.md)
 `(COMMAND)` inside the command substitution `$()`, then take care, this
@@ -51,8 +51,8 @@ command was `cat FILE`.
 
 ## A closer look at the two forms
 
-In general you really should only use the form `$()`, it\'s
-escaping-neutral, it\'s nestable, it\'s also POSIX. But take a look at
+In general you really should only use the form `$()`, it's
+escaping-neutral, it's nestable, it's also POSIX. But take a look at
 the following code snips to decide yourself which form you need under
 specific circumstances:
 
@@ -77,7 +77,7 @@ normal on a commandline. No special escaping of **nothing** is needed:
 
 **[Constructs you should avoid]{.underline}**
 
-It\'s not all shiny with `$()`, at least for my current Bash
+It's not all shiny with `$()`, at least for my current Bash
 (`3.1.17(1)-release`. :!: [**Update:** Fixed since `3.2-beta` together
 with a misinterpretion of \'))\' being recognized as arithmetic
 expansion \[by redduck666\]]{.underline}). This command seems to
@@ -101,10 +101,10 @@ uncommon ;-)) construct like:
 
 In general, the `$()` should be the preferred method:
 
--   it\'s clean syntax
--   it\'s intuitive syntax
--   it\'s more readable
--   it\'s nestable
+-   it's clean syntax
+-   it's intuitive syntax
+-   it's more readable
+-   it's nestable
 -   its inner parsing is separate
 
 ## Examples

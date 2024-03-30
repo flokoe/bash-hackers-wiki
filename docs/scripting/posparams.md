@@ -30,7 +30,7 @@ See also [the dictionary entry for
 ## The first argument
 
 The very first argument you can access is referenced as `$0`. It is
-usually set to the script\'s name exactly as called, and it\'s set on
+usually set to the script's name exactly as called, and it's set on
 shell initialization:
 
 [Testscript]{.underline} - it just echos `$0`:
@@ -52,9 +52,9 @@ However, this isn\'t true for login shells:
     > echo "$0"
     -bash
 
-In other terms, `$0` is not a positional parameter, it\'s a special
+In other terms, `$0` is not a positional parameter, it's a special
 parameter independent from the positional parameter list. It can be set
-to anything. In the **ideal** case it\'s the pathname of the script, but
+to anything. In the **ideal** case it's the pathname of the script, but
 since this gets set on invocation, the invoking program can easily
 influence it (the `login` program does that for login shells, by
 prefixing a dash, for example).
@@ -145,7 +145,7 @@ expands to something, using the [test command](../commands/classictest.md):
     done
 
 Looks nice, but has the disadvantage of stopping when `$1` is empty
-(null-string). Let\'s modify it to run as long as `$1` is defined (but
+(null-string). Let's modify it to run as long as `$1` is defined (but
 may be null), using [parameter expansion for an alternate
 value](../syntax/pe.md#use_an_alternate_value):
 
@@ -163,8 +163,8 @@ There is a [small tutorial dedicated to
 
 ### All Positional Parameters
 
-Sometimes it\'s necessary to just \"relay\" or \"pass\" given arguments
-to another program. It\'s very inefficient to do that in one of these
+Sometimes it's necessary to just \"relay\" or \"pass\" given arguments
+to another program. It's very inefficient to do that in one of these
 loops, as you will destroy integrity, most likely (spaces!).
 
 The shell developers created `$*` and `$@` for this purpose.
@@ -197,7 +197,7 @@ your positional parameters to **call another program** (for example in a
 wrapper-script), then this is the choice for you, use double quoted
 `"$@"`.
 
-Well, let\'s just say: **You almost always want a quoted `"$@"`!**
+Well, let's just say: **You almost always want a quoted `"$@"`!**
 
 ### Range Of Positional Parameters
 
@@ -251,7 +251,7 @@ inside the script or function:
     # $5: positional
     # $6: parameters
 
-It\'s wise to signal \"end of options\" when setting positional
+It's wise to signal \"end of options\" when setting positional
 parameters this way. If not, the dashes might be interpreted as an
 option switch by `set` itself:
 
@@ -274,7 +274,7 @@ To make your program accept options as standard command syntax:
 
 `COMMAND [options] <params>` \# Like \'cat -A file.txt\'
 
-See simple option parsing code below. It\'s not that flexible. It
+See simple option parsing code below. It's not that flexible. It
 doesn\'t auto-interpret combined options (-fu USER) but it works and is
 a good rudimentary way to parse your arguments.
 

@@ -16,7 +16,7 @@ key=\"value\" format, otherwise bash will try to interpret commands:
     echo "Config for the target host: $cool_host" >&2
 
 So, where do these variables come from? If everything works fine, they
-are defined in /etc/cool.cfg which is a file that\'s sourced into the
+are defined in /etc/cool.cfg which is a file that's sourced into the
 current script or shell. Note: this is **not** the same as executing
 this file as a script! The sourced file most likely contains something
 like:
@@ -40,8 +40,8 @@ usage of the dot is identical:
 
 ## Per-user configs
 
-There\'s also a way to provide a system-wide config file in /etc and a
-custom config in \~/(user\'s home) to override system-wide defaults. In
+There's also a way to provide a system-wide config file in /etc and a
+custom config in \~/(user's home) to override system-wide defaults. In
 the following example, the if/then construct is used to check for the
 existance of a user-specific config:
 

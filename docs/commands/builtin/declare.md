@@ -22,7 +22,7 @@ variable.
 When used in a function, `declare` makes `NAMEs` local variables, unless
 used with the `-g` option.
 
-Don\'t use it\'s synonym `typeset` when coding for Bash, since it\'s
+Don\'t use it's synonym `typeset` when coding for Bash, since it's
 tagged as obsolete.
 
 ### Options
@@ -52,7 +52,7 @@ Below, `[-+]X` indicates an attribute, use `-X` to set the attribute,
   `[-+]n`   make NAME a reference to the variable named by its value. Introduced in Bash 4.3-alpha.\
             \'\' \${!NAME}\'\' reveals the reference variable name, VALUE.\
             Use `unset -n NAME` to unset the variable. (`unset -v NAME` unsets the VALUE variable.)\
-            Use `[[ -R NAME ]]` to test if NAME has been set to a VALUE, another variable\'s name.
+            Use `[[ -R NAME ]]` to test if NAME has been set to a VALUE, another variable's name.
 
   `-p`      display the attributes and value of each NAME
 
@@ -156,9 +156,9 @@ a=(1 2 3); b=(6 5 4); c=(2 4 6) sum total a b c printf \'Final value of
 \"total\" is: %d\\n\' \"\$total\" \</div\>
 
 `typeset -n` is currently implemented in ksh93, mksh, and Bash 4.3. Bash
-and mksh\'s implementations are quite similar, but much different from
-ksh93\'s. See [Portability considerations](#portability_considerations)
-for details. ksh93 namerefs are much more powerful than Bash\'s.
+and mksh's implementations are quite similar, but much different from
+ksh93's. See [Portability considerations](#portability_considerations)
+for details. ksh93 namerefs are much more powerful than Bash's.
 
 ## Portability considerations
 

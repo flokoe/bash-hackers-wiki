@@ -84,7 +84,7 @@ Looking for a specific syntax you saw, without knowing the name?
 
 `${PARAMETER}`
 
-The easiest form is to just use a parameter\'s name within braces. This
+The easiest form is to just use a parameter's name within braces. This
 is identical to using `$FOO` like you see it everywhere, but has the
 advantage that it can be immediately followed by characters that would
 be interpreted as part of the parameter name otherwise. Compare these
@@ -287,7 +287,7 @@ This list will also include [array names](../syntax/arrays.md).
 
 `${PARAMETER%%PATTERN}`
 
-This one can **expand only a part** of a parameter\'s value, **given a
+This one can **expand only a part** of a parameter's value, **given a
 pattern to describe what to remove** from the string. The pattern is
 interpreted just like a pattern to describe a filename to match
 (globbing). See [Pattern matching](../syntax/pattern.md) for more.
@@ -392,7 +392,7 @@ The first one (*one slash*) is to only substitute **the first
 occurrence** of the given pattern, the second one (*two slashes*) is to
 substitute **all occurrences** of the pattern.
 
-First, let\'s try to say \"happy\" instead of \"conservative\" in our
+First, let's try to say \"happy\" instead of \"conservative\" in our
 example string:
 
     ${MYSTRING//conservative/happy}
@@ -403,8 +403,8 @@ example string:
 Since there is only one \"conservative\" in that example, it really
 doesn\'t matter which of the two forms we use.
 
-Let\'s play with the word \"in\", I don\'t know if it makes any sense,
-but let\'s substitute it with \"by\".
+Let's play with the word \"in\", I don\'t know if it makes any sense,
+but let's substitute it with \"by\".
 
 [**First form: Substitute first occurrence**]{.underline}
 
@@ -455,7 +455,7 @@ Assume: `array=(This is a text)`
 
 `${#PARAMETER}`
 
-When you use this form, the length of the parameter\'s value is
+When you use this form, the length of the parameter's value is
 expanded. Again, a quote from a big man, to have a test text:
 
     MYSTRING="Be liberal in what you accept, and conservative in what you send"
@@ -468,7 +468,7 @@ The length is reported in characters, not in bytes. Depending on your
 environment this may not always be the same (multibyte-characters, like
 in UTF8 encoding).
 
-There\'s not much to say about it, mh?
+There's not much to say about it, mh?
 
 ### (String) length: Arrays
 
@@ -500,10 +500,10 @@ number of elements!**
 
 `${PARAMETER:OFFSET:LENGTH}`
 
-This one can expand only a **part** of a parameter\'s value, given a
+This one can expand only a **part** of a parameter's value, given a
 **position to start** and maybe a **length**. If `LENGTH` is omitted,
 the parameter will be expanded up to the end of the string. If `LENGTH`
-is negative, it\'s taken as a second offset into the string, counting
+is negative, it's taken as a second offset into the string, counting
 from the end of the string.
 
 `OFFSET` and `LENGTH` can be **any** [arithmetic
@@ -534,7 +534,7 @@ In the second form we also give a length value:
 
 ### Negative Offset Value
 
-If the given offset is negative, it\'s counted from the end of the
+If the given offset is negative, it's counted from the end of the
 string, i.e. an offset of -1 is the last character. In that case, the
 length still counts forward, of course. One special thing is to do when
 using a negative offset: You need to separate the (negative) number from
@@ -543,12 +543,12 @@ the colon:
     ${MYSTRING: -10:5}
     ${MYSTRING:(-10):5}
 
-Why? Because it\'s interpreted as the parameter expansion syntax to [use
+Why? Because it's interpreted as the parameter expansion syntax to [use
 a default value](../syntax/pe.md#use_a_default_value).
 
 ### Negative Length Value
 
-If the `LENGTH` value is negative, it\'s used as offset from the end of
+If the `LENGTH` value is negative, it's used as offset from the end of
 the string. The expansion happens from the first to the second offset
 then:
 
@@ -614,7 +614,7 @@ have to make a difference between expanding an individual element by a
 given index and mass-expanding the array using the `@` and `*`
 subscripts.
 
--   For individual elements, it\'s the very same: If the expanded
+-   For individual elements, it's the very same: If the expanded
     element is `NULL` or unset (watch the `:-` and `-` variants), the
     default text is expanded
 -   For mass-expansion syntax, the default text is expanded if the array
@@ -683,7 +683,7 @@ assigned when the parameter was **unset**.
 After the first expansion here (`${HOME:=/home/$USER}`), `HOME` is set
 and usable.
 
-Let\'s change our code example from above:
+Let's change our code example from above:
 
     #!/bin/bash
 
@@ -696,7 +696,7 @@ Let\'s change our code example from above:
 For [arrays](../syntax/arrays.md) this expansion type is limited. For an
 individual index, it behaves like for a \"normal\" parameter, the
 default value is assigned to this one element. The mass-expansion
-subscripts `@` and `*` **can not be used here** because it\'s not
+subscripts `@` and `*` **can not be used here** because it's not
 possible to assign to them!
 
 ## Use an alternate value
@@ -706,7 +706,7 @@ possible to assign to them!
 `${PARAMETER+WORD}`
 
 This form expands to nothing if the parameter is unset or empty. If it
-is set, it does not expand to the parameter\'s value, **but to some text
+is set, it does not expand to the parameter's value, **but to some text
 you can specify**:
 
     echo "The Java application was installed and can be started.${JAVAPATH:+ NOTE: JAVAPATH seems to be set}"
@@ -900,7 +900,7 @@ Removing the first 6 characters from a text string:
 ```{=html}
 <!-- -->
 ```
--   Bash (and most other shells) don\'t allow .\'s in identifiers. In
+-   Bash (and most other shells) don\'t allow .'s in identifiers. In
     ksh93, dots in variable names are used to reference methods (i.e.
     \"Discipline Functions\"), attributes, special shell variables, and
     to define the \"real value\" of an instance of a class.
@@ -1030,7 +1030,7 @@ it. Bash will actually expand the command as one of these:
 To the best of my knowledge, ksh93 is the only shell that acts
 differently. Rather than forcing nested expansions into quoting, a quote
 at the beginning and end of the nested region will cause the quote state
-to reverse itself within the nested part. I have no idea whether it\'s
+to reverse itself within the nested part. I have no idea whether it's
 an intentional or documented effect, but it does solve the problem and
 consequently adds a lot of potential power to these expansions.
 

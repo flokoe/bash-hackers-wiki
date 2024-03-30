@@ -33,7 +33,7 @@ you don\'t have a space after the commas).
 Test:
 
 The `awk` command used for the CSV above just prints the fileds
-separated by `###` to see what\'s going on:
+separated by `###` to see what's going on:
 
     $ awk -v FS='", "|^"|"$' '{print $2"###"$3"###"$4}' data.csv
     first###second###last

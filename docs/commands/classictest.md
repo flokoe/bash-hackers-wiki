@@ -244,7 +244,7 @@ Let's say, we want to check the following two things (AND):
 1. if a string is null (empty)
 2. if a command produced an output
 
-Let\'s see:
+Let's see:
 
 ```bash
 if [ -z "false" -a -z "$(echo I am executed >&2)" ] ; then ... 

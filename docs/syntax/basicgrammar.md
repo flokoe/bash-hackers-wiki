@@ -33,7 +33,7 @@ to the environment of the `ls` program. It doesn\'t affect your current
 shell. This also works while calling functions, unless Bash runs in
 POSIX(r) mode (in which case it affects your current shell).
 
-Every command has an exit code. It\'s a type of return status. The shell
+Every command has an exit code. It's a type of return status. The shell
 can catch it and act on it. Exit code range is from 0 to 255, where 0
 means success, and the rest mean either something failed, or there is an
 issue to report back to the calling program.
@@ -41,7 +41,7 @@ issue to report back to the calling program.
 \<wrap center round info 90%\> The simple command construct is the
 **base** for all higher constructs. Everything you execute, from
 pipelines to functions, finally ends up in (many) simple commands.
-That\'s why Bash only has one method to [expand and execute a simple
+That's why Bash only has one method to [expand and execute a simple
 command](../syntax/grammar/parser_exec.md). \</wrap\>
 
 ## Pipelines
@@ -50,7 +50,7 @@ FIXME Missing an additional article about pipelines and pipelining
 
 `[time [-p]] [ ! ] command [ | command2 ... ]`
 
-**Don\'t get confused** about the name \"pipeline.\" It\'s a grammatic
+**Don\'t get confused** about the name \"pipeline.\" It's a grammatic
 name for a construct. Such a pipeline isn\'t necessarily a pair of
 commands where stdout/stdin is connected via a real pipe.
 
@@ -76,24 +76,24 @@ executed if the pattern \"\^root:\" is **not** found in `/etc/passwd`:
 
 Yes, this is also a pipeline (although there is no pipe!), because the
 **exclamation mark to invert the exit code** can only be used in a
-pipeline. If `grep`\'s exit code is 1 (FALSE) (the text was not found),
+pipeline. If `grep`'s exit code is 1 (FALSE) (the text was not found),
 the leading `!` will \"invert\" the exit code, and the shell sees (and
 acts on) exit code 0 (TRUE) and the `then` part of the `if` stanza is
 executed. One could say we checked for
 \"`not grep "^root" /etc/passwd`\".
 
 The [set option pipefail](../commands/builtin/set.md#attributes) determines
-the behavior of how bash reports the exit code of a pipeline. If it\'s
+the behavior of how bash reports the exit code of a pipeline. If it's
 set, then the exit code (`$?`) is the last command that exits with non
-zero status, if none fail, it\'s zero. If it\'s not set, then `$?`
+zero status, if none fail, it's zero. If it's not set, then `$?`
 always holds the exit code of the last command (as explained above).
 
 The shell option `lastpipe` will execute the last element in a pipeline
 construct in the current shell environment, i.e. not a subshell.
 
-There\'s also an array `PIPESTATUS[]` that is set after a foreground
+There's also an array `PIPESTATUS[]` that is set after a foreground
 pipeline is executed. Each element of `PIPESTATUS[]` reports the exit
-code of the respective command in the pipeline. Note: (1) it\'s only for
+code of the respective command in the pipeline. Note: (1) it's only for
 foreground pipe and (2) for higher level structure that is built up from
 a pipeline. Like list, `PIPESTATUS[]` holds the exit status of the last
 pipeline command executed.
@@ -115,7 +115,7 @@ A list is a sequence of one or more [pipelines](../basicgrammar.md#pipelines)
 separated by one of the operators `;`, `&`, `&&`, or `││`, and
 optionally terminated by one of `;`, `&`, or `<newline>`.
 
-=\> It\'s a group of **pipelines** separated or terminated by **tokens**
+=\> It's a group of **pipelines** separated or terminated by **tokens**
 that all have **different meanings** for Bash.
 
 Your whole Bash script technically is one big single list!
@@ -139,7 +139,7 @@ There are two forms of compound commands:
 -   form a new syntax element using a list as a \"body\"
 -   completly independant syntax elements
 
-Essentially, everything else that\'s not described in this article.
+Essentially, everything else that's not described in this article.
 Compound commands have the following characteristics:
 
 -   they **begin** and **end** with a specific keyword or operator (e.g.
@@ -208,7 +208,7 @@ Bash allows three equivalent forms of the function definition:
 The space between `NAME` and `()` is optional, usually you see it
 without the space.
 
-I suggest using the first form. It\'s specified in POSIX and all
+I suggest using the first form. It's specified in POSIX and all
 Bourne-like shells seem to support it.
 
 [**Note:**]{.underline} Before version `2.05-alpha1`, Bash only
@@ -312,7 +312,7 @@ FIXME more\...
 -   the [list](../basicgrammar.md#lists) that `if` **executes** contains a
     simple command (`cp mymusic.mp3 /data/mp3`)
 
-Let\'s invert test command exit code, only one thing changes:
+Let's invert test command exit code, only one thing changes:
 
     if ! [ -d /data/mp3 ]; then
       cp mymusic.mp3 /data/mp3

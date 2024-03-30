@@ -7,7 +7,7 @@ ccsalvesen, others type: snipplet
 ------------------------------------------------------------------------
 
 The purpose of this small code collection is to show some code that
-draws a horizontal line using as less external tools as possible (it\'s
+draws a horizontal line using as less external tools as possible (it's
 not a big deal to do it with AWK or Perl, but with pure or nearly-pure
 Bash it gets more interesting).
 
@@ -66,7 +66,7 @@ printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 This one is a bit tricky. The format for the `printf` command is `%.0s`,
 which specified a field with the **maximum** length of **zero**. After
 this field, `printf` is told to print a dash. You might remember that
-it\'s the nature of `printf` to repeat, if the number of conversion
+it's the nature of `printf` to repeat, if the number of conversion
 specifications is less than the number of given arguments. With brace
 expansion `{1..20}`, 20 arguments are given (you could easily write
 `1 2 3 4 ... 20`, of course!). Following happens: The **zero-length

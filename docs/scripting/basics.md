@@ -40,7 +40,7 @@ You can follow the process by using `echo` as a fake interpreter:
 
     #!/bin/echo
 
-We don\'t need a script body here, as the file will never be interpreted
+We don't need a script body here, as the file will never be interpreted
 and executed by \"`echo`\". You can see what the Operating System does,
 it calls \"`/bin/echo`\" with the name of the executable file and
 following arguments.
@@ -58,7 +58,7 @@ be is system-specific (see
 executes a file with a #!/bin/bash shebang, the shebang itself is
 ignored, since the first character is a hashmark \"#\", which indicates
 a comment. The shebang is for the operating system, not for the shell.
-Programs that don\'t ignore such lines, may not work as shebang driven
+Programs that don't ignore such lines, may not work as shebang driven
 interpreters.
 
 \<WRAP center round important 60%\> [**Attention:**]{.underline}When the
@@ -145,11 +145,11 @@ code is a number between 0 and 255. Values from 126 to 255 are reserved
 for use by the shell directly, or for special purposes, like reporting a
 termination by a signal:
 
--   **126**: the requested command (file) was found, but can\'t be
+-   **126**: the requested command (file) was found, but can't be
     executed
 -   **127**: command (file) not found
 -   **128**: according to ABS it's used to report an invalid argument
-    to the exit builtin, but I wasn\'t able to verify that in the source
+    to the exit builtin, but I wasn't able to verify that in the source
     code of Bash (see code 255)
 -   **128 + N**: the shell was terminated by the signal N
 -   **255**: wrong argument to the exit builtin (see code 128)
@@ -242,7 +242,7 @@ SOMEWORD
 ```
 
 What happened? The `:` pseudo command was given some input by
-redirection (a here-document) - the pseudo command didn\'t care about
+redirection (a here-document) - the pseudo command didn't care about
 it, effectively, the entire block was ignored.
 
 The here-document-tag was quoted here **to avoid substitutions** in the

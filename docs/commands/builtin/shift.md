@@ -67,8 +67,8 @@ There are no options.
     command shift 2\>/dev/null; then echo \"\$1\"; else echo \"no
     args\"; fi; }; f\'
 
-no args \</code\> While, POSIX requires this behavior, it isn\'t very
-obvious and some shells don\'t do it correctly. To work around this, you
+no args \</code\> While, POSIX requires this behavior, it isn't very
+obvious and some shells don't do it correctly. To work around this, you
 can use something like:
 
 \<code\> \$ mksh -c \'f() { if ! \${1+false} && shift; then echo

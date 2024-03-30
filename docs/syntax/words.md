@@ -22,7 +22,7 @@ by a space. When you enter an echo command at the Bash prompt, Bash will
 look for those special characters, and use them to separate the
 parameters.
 
-You don\'t know what I\'m talking about? I\'m talking about this:
+You don't know what I\'m talking about? I\'m talking about this:
 
     $ echo Hello little world
     Hello little world
@@ -40,7 +40,7 @@ Bash splits the command line at the blanks into words, then it calls
 echo with **each word as an argument**. In this example, echo is called
 with three arguments: \"`Hello`\", \"`little`\" and \"`world`\"!
 
-[Does that mean we can\'t echo more than one Space?]{.underline} Of
+[Does that mean we can't echo more than one Space?]{.underline} Of
 course not! Bash treats blanks as special characters, but there are two
 ways to tell Bash not to treat them special: **Escaping** and
 **quoting**.
@@ -56,7 +56,7 @@ None of the escaped spaces will be used to perform word splitting. Thus,
 echo is called with one argument: \"`Hello little world`\".
 
 Bash has a mechanism to \"escape\" an entire string: **Quoting**. In the
-context of command-splitting, which this section is about, it doesn\'t
+context of command-splitting, which this section is about, it doesn't
 matter which kind of quoting you use: weak quoting or strong quoting,
 both cause Bash to not treat spaces as special characters:
 

@@ -17,7 +17,7 @@ only an introduction.
 
 This article is based on the debianized Berkeley implementation of
 `pax`, but implementation-specific things should be tagged as such.
-Unfortunately, the Debian package doesn\'t seem to be maintained
+Unfortunately, the Debian package doesn't seem to be maintained
 anymore.
 
 ## Overview
@@ -71,7 +71,7 @@ options, e.g. rewriting groups) to another location.
 
 ### Archive data
 
-When you don\'t specify anything special, `pax` will attempt to read
+When you don't specify anything special, `pax` will attempt to read
 archive data from standard input (read/list modes) and write archive
 data to standard output (write mode). This ensures `pax` can be easily
 used as part of a shell pipe construct, e.g. to read a compressed
@@ -170,7 +170,7 @@ customized to include permissions, timestamps, etc. with the
 specification is strongly derived from the `printf(3)` format
 specification.
 
-**Unfortunately** the `pax` utility delivered with Debian doesn\'t seem
+**Unfortunately** the `pax` utility delivered with Debian doesn't seem
 to support these extended listing formats.
 
 However, `pax` lists archive members in a `ls -l`-like format, when you
@@ -238,7 +238,7 @@ The same, but with an archive, can be accomplished by:
 
     pax -w -T 0000 -f /n/mybackups/$(date +%A)
 
-In this case, the day-name is an archive-file (you don\'t need a
+In this case, the day-name is an archive-file (you don't need a
 filename extension like `.tar` but you can add one, if desired).
 
 ### Changing filenames while archiving
@@ -292,7 +292,7 @@ that you want to extract only the \"usr\" directory:
 
 Like `cpio`, pax can read filenames from standard input (`stdin`). This
 provides great flexibility - for example, a `find(1)` command may select
-files/directories in ways pax can\'t do itself. In **write** mode
+files/directories in ways pax can't do itself. In **write** mode
 (creating an archive) or **copy** mode, when no filenames are given, pax
 expects to read filenames from standard input. For example:
 

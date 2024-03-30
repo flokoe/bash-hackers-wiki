@@ -10,7 +10,7 @@
 newline. The return status is always `0`. If the
 [shopt](../../commands/builtin/shopt.md) option `xpg_echo` is set, Bash
 dynamically determines whether echo should expand escape characters
-(listed below) by default based on the current platform. `echo` doesn\'t
+(listed below) by default based on the current platform. `echo` doesn't
 interpret `--` as the end of options, and will simply print this string
 if given.
 

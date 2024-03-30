@@ -25,9 +25,9 @@ Bash 4 introduces two new action terminators. The classic behavior using
 `;;` is to execute only the list associated with the first matching
 pattern, then break out of the `case` block. The `;&` terminator causes
 `case` to also execute the next block without testing its pattern. The
-`;;&` operator is like `;;`, except the case statement doesn\'t
+`;;&` operator is like `;;`, except the case statement doesn't
 terminate after executing the associated list - Bash just continues
-testing the next pattern as though the previous pattern didn\'t match.
+testing the next pattern as though the previous pattern didn't match.
 Using these terminators, a `case` statement can be configured to test
 against all patterns, or to share code between blocks, for example.
 
@@ -74,7 +74,7 @@ Another one of my stupid examples\...
             echo 'Hm, a bit awry, no?'
             ;;
         orange|tangerine)
-            echo $'Eeeks! I don\'t like those!\nGo away!'
+            echo $'Eeeks! I don't like those!\nGo away!'
             exit 1
             ;;
         *)
@@ -153,7 +153,7 @@ f a b c
     and close braces may be used in place of `in` and `esac`:
     `case word { x) ...; };`. This is similar to the alternate form Bash
     supports for its [for loops](../../syntax/ccmd/classic_for.md), but Bash
-    doesn\'t support this syntax for `case..esac`.
+    doesn't support this syntax for `case..esac`.
 
 ## See also
 

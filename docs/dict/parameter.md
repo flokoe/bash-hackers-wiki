@@ -39,7 +39,7 @@ A positional parameter is denoted by a number other than `0` (zero).
 
 Positional parameters reflect the shell's arguments that are not given
 to the shell itself (in practise, the script arguments, also the
-function arguments). You can\'t directly assign to the positional
+function arguments). You can't directly assign to the positional
 parameters, however, [the set builtin command](../commands/builtin/set.md)
 can be used to indirectly set them.
 

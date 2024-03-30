@@ -24,8 +24,8 @@ is connected to a FIFO or a file in `/dev/fd/`. The filename (where the
 filedescriptor is connected) is then used as a substitution for the
 `<(...)`-construct.
 
-That, for example, allows to give data to a command that can\'t be
-reached by pipelining (that doesn\'t expect its data from `stdin` but
+That, for example, allows to give data to a command that can't be
+reached by pipelining (that doesn't expect its data from `stdin` but
 from a file).
 
 ### Scope
@@ -53,7 +53,7 @@ the caller when the callee returns.
 In essence, process substitutions expanded to variables within functions
 remain open until the function in which the process substitution occured
 returns - even when assigned to locals that were set by a function's
-caller. Dynamic scope doesn\'t protect them from closing.
+caller. Dynamic scope doesn't protect them from closing.
 
 ## Examples
 
@@ -74,7 +74,7 @@ diff <(ls "$first_directory") <(ls "$second_directory")
 ```
 
 This will compare the contents of each directory. In this command, each
-*process* is *substituted* for a *file*, and diff doesn\'t see \<(bla),
+*process* is *substituted* for a *file*, and diff doesn't see \<(bla),
 it sees two files, so the effective command is something like
 
 ``` bash
@@ -88,7 +88,7 @@ where those files are written to and destroyed automatically.
 \<WRAP center round info 60%\> See Also:
 [BashFAQ/024](http://mywiki.wooledge.org/BashFAQ/024) \-- *I set
 variables in a loop that's in a pipeline. Why do they disappear after
-the loop terminates? Or, why can\'t I pipe data to read?* \</WRAP\>
+the loop terminates? Or, why can't I pipe data to read?* \</WRAP\>
 
 One of the most common uses for process substitutions is to avoid the
 final subshell that results from executing a pipeline. The following is
@@ -159,7 +159,7 @@ See the above section on [#scope](#scope)
 -   Process substitution is supported only on systems that support
     either named pipes (FIFO - a [special
     file](../../dict/terms/special_file.md)) or the `/dev/fd/*` method for
-    accessing open files. If the system doesn\'t support `/dev/fd/*`,
+    accessing open files. If the system doesn't support `/dev/fd/*`,
     Bash falls back to creating named pipes. Note that not all shells
     that support process substitution have that fallback.
 -   Bash evaluates process substitutions within array indices, but not

@@ -4,7 +4,7 @@
 
 ## General
 
-For this task, you don\'t have to write large parser routines (unless
+For this task, you don't have to write large parser routines (unless
 you want it 100% secure or you want a special file syntax) - you can use
 the Bash source command. The file to be sourced should be formated in
 key=\"value\" format, otherwise bash will try to interpret commands:
@@ -74,10 +74,10 @@ malicious code:
     echo rm -fr ~/*
     mailto=netadmin@example.com
 
-You don\'t want these `echo`-commands (which could be any other
+You don't want these `echo`-commands (which could be any other
 commands!) to be executed. One way to be a bit safer is to filter only
 the constructs you want, write the filtered results to a new file and
-source the new file. We also need to be sure something nefarious hasn\'t
+source the new file. We also need to be sure something nefarious hasn't
 been added to the end of one of our name=value parameters, perhaps using
 ; or && command separators. In those cases, perhaps it is simplest to
 just ignore the line entirely. Egrep (`grep -E`) will help us here, it
@@ -99,11 +99,11 @@ filters by description:
     source "$configfile"
 
 **[To make clear what it does:]{.underline}** egrep checks if the file
-contains something we don\'t want, if yes, egrep filters the file and
+contains something we don't want, if yes, egrep filters the file and
 writes the filtered contents to a new file. If done, the original file
 name is changed to the name stored in the variable `configfile`. The
 file named by that variable is sourced, as if it were the original file.
 
 This filter allows only `NAME=VALUE` and comments in the file, but it
-doesn\'t prevent all methods of code execution. I will address that
+doesn't prevent all methods of code execution. I will address that
 later.

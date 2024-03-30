@@ -29,13 +29,13 @@ given array `ARRAY` is set readonly.
   `-t`            Remove any trailing newline from a line read, before it is assigned to an array element.
   `-u FD`         Read from filedescriptor `FD` rather than standard input.
 
-While `mapfile` isn\'t a common or portable shell feature, it's
+While `mapfile` isn't a common or portable shell feature, it's
 functionality will be familiar to many programmers. Almost all
 programming languages (aside from shells) with support for compound
 datatypes like arrays, and which handle open file objects in the
 traditional way, have some analogous shortcut for easily reading all
 lines of some input as a standard feature. In Bash, `mapfile` in itself
-can\'t do anything that couldn\'t already be done using read and a loop,
+can't do anything that couldn't already be done using read and a loop,
 and if portability is even a slight concern, should never be used.
 However, it does *significantly* outperform a read loop, and can make
 for shorter and cleaner code - especially convenient for interactive
@@ -62,7 +62,7 @@ Note the use of command grouping to keep the emerge command inside the
 pipe's subshell and within the scope of \"args\". Also note the unusual
 redirection. This is because the -a flag makes emerge interactive,
 asking the user for confirmation before continuing, and checking with
-isatty(3) to abort if stdin isn\'t pointed at a terminal. Since stdin of
+isatty(3) to abort if stdin isn't pointed at a terminal. Since stdin of
 the entire command group is still coming from the pipe even though
 mapfile has read all available input, we just borrow FD 1 as it just so
 happens to be pointing where we want it. More on this over at greycat's
@@ -216,6 +216,6 @@ each subsequent 2 iterations. The RETURN trap is unimportant.
 ## See also
 
 -   [arrays](../../syntax/arrays.md)
--   [read](../../commands/builtin/read.md) - If you don\'t know about this yet,
+-   [read](../../commands/builtin/read.md) - If you don't know about this yet,
     why are you reading this page?
 -   <http://mywiki.wooledge.org/BashFAQ/001> - It's FAQ 1 for a reason.

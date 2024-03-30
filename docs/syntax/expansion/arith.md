@@ -26,7 +26,7 @@ function printSum {
 }
 ```
 
-**Note** that in Bash you don\'t need the arithmetic expansion to check
+**Note** that in Bash you don't need the arithmetic expansion to check
 for the boolean value of an arithmetic expression. This can be done
 using the [arithmetic evaluation compound
 command](../../syntax/ccmd/arithmetic_eval.md):
@@ -58,7 +58,7 @@ echo $(($x[0]))   # Error. This expands to $((1[0])), an invalid expression.
 
 ## Bugs and Portability considerations
 
--   The original Bourne shell doesn\'t have arithmetic expansions. You
+-   The original Bourne shell doesn't have arithmetic expansions. You
     have to use something like `expr(1)` within backticks instead. Since
     `expr` is horrible (as are backticks), and arithmetic expansion is
     required by POSIX, you should not worry about this, and preferably

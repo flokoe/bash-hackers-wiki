@@ -90,7 +90,7 @@ See [read](commands/builtin/read.md)
 
 ### Changes to the "help" builtin
 
-The builtin itself didn\'t change much, but the data displayed is more
+The builtin itself didn't change much, but the data displayed is more
 structured now. The help texts are in a better format, much easier to
 read.
 

@@ -227,7 +227,7 @@ So, as a simple example (albeit slightly contrived), is the following:
 
 ## Order Of Redirection, i.e., \"\> file 2\>&1\" vs. \"2\>&1 \>file\"
 
-While it doesn\'t matter where the redirections appears on the command
+While it doesn't matter where the redirections appears on the command
 line, their order does matter. They are set up from left to right.
 
 -   `2>&1 >file`
@@ -313,7 +313,7 @@ Then it sees our duplication `2>&1`:
 
 And voila, both `1` and `2` are redirected to file.
 
-## Why sed 's/foo/bar/\' file \>file Doesn\'t Work
+## Why sed 's/foo/bar/\' file \>file Doesn't Work
 
 This is a common error, we want to modify a file using something that
 reads from a file and writes the result to `stdout`. To do this, we
@@ -329,7 +329,7 @@ truncated. When `sed` starts to read the file, it contains nothing.
 
 In Bash the `exec` built-in replaces the shell with the specified
 program. So what does this have to do with redirection? `exec` also
-allow us to manipulate the file descriptors. If you don\'t specify a
+allow us to manipulate the file descriptors. If you don't specify a
 program, the redirection after `exec` modifies the file descriptors of
 the current shell.
 
@@ -366,7 +366,7 @@ user to press a key:
 
      while read -r line;do echo "$line"; read -p "Press any key" -n 1;done < file
 
-And, surprise this doesn\'t work. Why? because the shell descriptor of
+And, surprise this doesn't work. Why? because the shell descriptor of
 the while loop looks like:
 
                       ---       +-----------------------+

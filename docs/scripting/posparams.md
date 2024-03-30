@@ -47,7 +47,7 @@ is the prompt\...):
     > /usr/bin/testscript
     /usr/bin/testscript
 
-However, this isn\'t true for login shells:
+However, this isn't true for login shells:
 
     > echo "$0"
     -bash
@@ -135,7 +135,7 @@ a given wordlist. The loop uses the positional parameters as a wordlist:
 ------------------------------------------------------------------------
 
 The next method is similar to the first example (the `for` loop), but it
-doesn\'t test for reaching `$#`. It shifts and checks if `$1` still
+doesn't test for reaching `$#`. It shifts and checks if `$1` still
 expands to something, using the [test command](../commands/classictest.md):
 
     while [ "$1" ]
@@ -275,7 +275,7 @@ To make your program accept options as standard command syntax:
 `COMMAND [options] <params>` \# Like \'cat -A file.txt\'
 
 See simple option parsing code below. It's not that flexible. It
-doesn\'t auto-interpret combined options (-fu USER) but it works and is
+doesn't auto-interpret combined options (-fu USER) but it works and is
 a good rudimentary way to parse your arguments.
 
     #!/bin/sh
@@ -335,7 +335,7 @@ This simple wrapper enables filtering unwanted options (here: `-a` and
 `--all` for `ls`) out of the command line. It reads the positional
 parameters and builds a filtered array consisting of them, then calls
 `ls` with the new option set. It also respects the `--` as \"end of
-options\" for `ls` and doesn\'t change anything after it:
+options\" for `ls` and doesn't change anything after it:
 
     #!/bin/bash
 

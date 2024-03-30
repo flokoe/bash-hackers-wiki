@@ -883,7 +883,7 @@ the history list:
 
   --------------- ------------------------------------------------------------------------------------------------------------
   `ignorespace`   lines which begin with a space character are not saved in the history list
-  `ignoredups`    don\'t save lines matching the previous history entry
+  `ignoredups`    don't save lines matching the previous history entry
   `ignoreboth`    short for `ignorespace:ignoredups`
   `erasedups`     remove all previous lines matching the current line from the history list before the current line is saved
   --------------- ------------------------------------------------------------------------------------------------------------

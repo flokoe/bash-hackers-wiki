@@ -8,7 +8,7 @@ type : snipplet
 
 Make your scripts output more readable using bash colors. Simply add
 these variables to your script, and you will be able to echo in color.
-(I haven\'t added all the colors available, just some basics)
+(I haven't added all the colors available, just some basics)
 
     # Colors
     ESC_SEQ="\x1b["

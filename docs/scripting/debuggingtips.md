@@ -9,16 +9,16 @@ but as hints and comments about debugging a Bash script.
 
 Do **not** name your script `test`, for example! *Why?* `test` is the
 name of a UNIX(r)-command, and [most likely built into your
-shell]{.underline} (it's a built-in in Bash) - so you won\'t be able to
+shell]{.underline} (it's a built-in in Bash) - so you won't be able to
 run a script with the name `test` in a normal way.
 
-**Don\'t laugh!** This is a classic mistake :-)
+**Don't laugh!** This is a classic mistake :-)
 
 ## Read the error messages
 
 Many people come into IRC and ask something like *\"Why does my script
 fail? I get an error!\"*. And when you ask them what the error message
-is, they don\'t even know. Beautiful.
+is, they don't even know. Beautiful.
 
 Reading and interpreting error messages is 50% of your job as debugger!
 Error messages actually **mean** something. At the very least, they can
@@ -329,11 +329,11 @@ carriage return character!):
 
 Here's what happens because of the `#!/bin/bash^M` in our shebang:
 
--   the file `/bin/bash^M` doesn\'t exist (hopefully)
+-   the file `/bin/bash^M` doesn't exist (hopefully)
 -   So Bash prints an error message which (depending on the terminal,
     the Bash version, or custom patches!) may or may not expose the
     problem.
--   the script can\'t be executed
+-   the script can't be executed
 
 The error message can vary. If you\'re lucky, you\'ll get:
 

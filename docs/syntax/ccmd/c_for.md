@@ -68,7 +68,7 @@ command](../../syntax/ccmd/arithmetic_eval.md) would be structured as:
       (( <EXPR3> ))
     done
 
-The equivalent `while` construct isn\'t exactly the same, because both,
+The equivalent `while` construct isn't exactly the same, because both,
 the `for` and the `while` loop behave differently in case you use the
 [continue](../../commands/builtin/continuebreak.md) command.
 
@@ -83,7 +83,7 @@ Bash, Ksh93, Mksh, and Zsh also provide an alternate syntax for the
       echo $x
     }
 
-This syntax is **not documented** and shouldn\'t be used. I found the
+This syntax is **not documented** and shouldn't be used. I found the
 parser definitions for it in 1.x code, and in modern 4.x code. My guess
 is that it's there for compatibility reasons. Unlike the other
 aforementioned shells, Bash does not support the analogous syntax for
@@ -220,16 +220,16 @@ variables.
 
 ## Portability considerations
 
--   C-style for loops aren\'t POSIX. They are available in Bash, ksh93,
+-   C-style for loops aren't POSIX. They are available in Bash, ksh93,
     and zsh. All 3 have essentially the same syntax and behavior.
--   C-style for loops aren\'t available in mksh.
+-   C-style for loops aren't available in mksh.
 
 ## Bugs
 
 -   *Fixed in 4.3*. ~~There appears to be a bug as of Bash 4.2p10 in
-    which command lists can\'t be distinguished from the for loop's
+    which command lists can't be distinguished from the for loop's
     arithmetic argument delimiter (both semicolons), so command
-    substitutions within the C-style for loop expression can\'t contain
+    substitutions within the C-style for loop expression can't contain
     more than one command.~~
 
 ## See also

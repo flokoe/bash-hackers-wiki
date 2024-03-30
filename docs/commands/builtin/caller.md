@@ -60,7 +60,7 @@ f3
 ## Notes
 
 -   `caller` produces no output unless used within a script that's run
-    from a real file. It isn\'t particularly useful for interactive use,
+    from a real file. It isn't particularly useful for interactive use,
     but can be used to create a decent `die` function to track down
     errors in moderately complex scripts.
     `{ bash /dev/stdin; } <<<$'f(){ g; }\ng(){ h; }\nh(){ while caller $((n++)); do :; done; }\nf'`

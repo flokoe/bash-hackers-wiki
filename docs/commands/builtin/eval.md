@@ -33,7 +33,7 @@ the `eval` command below it.
 
 Frequently, `eval` is used to cause side-effects by performing a pass of
 expansion on the code before executing the resulting string. This allows
-for things that otherwise wouldn\'t be possible with ordinary Bash
+for things that otherwise wouldn't be possible with ordinary Bash
 syntax. This also, of course, makes `eval` the most powerful command in
 all of shell programming (and in most other languages for that matter).
 
@@ -106,7 +106,7 @@ controlled carefully by the caller is a good way to use it.
     of eval will leak out into the surrounding environment. It is
     possible to work around this limitation by prefixing special
     builtins with the `command` regular builtin, but current versions of
-    ~~ksh93~~ and zsh don\'t do this properly
+    ~~ksh93~~ and zsh don't do this properly
     ([fixed](http://article.gmane.org/gmane.comp.programming.tools.ast.devel/686)
     in ksh 93v- 2012-10-24 alpha). Earlier versions of zsh work (with
     `setopt POSIX_BUILTINS` \-- looks like a regression). This works
@@ -129,12 +129,12 @@ controlled carefully by the caller is a good way to use it.
      $ ( x=a; eval "$x"'=( a b\ c d )'; printf '<%s> ' "${a[@]}"; echo ) # Proper quoting then gives us the expected results.
     <a> <b c> <d>
 
-We don\'t know why Bash does this. Since parentheses are metacharacters,
+We don't know why Bash does this. Since parentheses are metacharacters,
 they must ordinary be quoted or escaped when used as arguments. The
 first example above is the same error as the second in all non-Bash
 shells, even those with compound assignment.
 
-In the case of `eval` it isn\'t recommended to use this behavior,
+In the case of `eval` it isn't recommended to use this behavior,
 because unlike e.g. [declare](../../commands/builtin/declare.md), the initial
 expansion is still subject to all expansions including
 [word-splitting](../../syntax/expansion/wordsplit.md) and [pathname

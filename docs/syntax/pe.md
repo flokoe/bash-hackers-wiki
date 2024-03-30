@@ -168,9 +168,9 @@ It was an unfortunate design decision to use the `!` prefix for
 indirection, as it introduces parsing ambiguity with other parameter
 expansions that begin with `!`. Indirection is not possible in
 combination with any parameter expansion whose modifier requires a
-prefix to the parameter name. Specifically, indirection isn\'t possible
+prefix to the parameter name. Specifically, indirection isn't possible
 on the `${!var@}`, `${!var*}`, `${!var[@]}`, `${!var[*]}`, and `${#var}`
-forms. This means the `!` prefix can\'t be used to retrieve the indices
+forms. This means the `!` prefix can't be used to retrieve the indices
 of an array, the length of a string, or number of elements in an array
 indirectly (see [syntax/arrays#indirection](../syntax/arrays.md#indirection)
 for workarounds). Additionally, the `!`-prefixed parameter expansion
@@ -401,9 +401,9 @@ example string:
 `Be liberal in what you accept, and conservativehappy in what you send`
 
 Since there is only one \"conservative\" in that example, it really
-doesn\'t matter which of the two forms we use.
+doesn't matter which of the two forms we use.
 
-Let's play with the word \"in\", I don\'t know if it makes any sense,
+Let's play with the word \"in\", I don't know if it makes any sense,
 but let's substitute it with \"by\".
 
 [**First form: Substitute first occurrence**]{.underline}
@@ -491,7 +491,7 @@ Assume: `array=(This is a text)`
 [**Attention:**]{.underline} The number of used elements does not need
 to conform to the highest index. Sparse arrays are possible in Bash,
 that means you can have 4 elements, but with indexes 1, 7, 20, 31. **You
-can\'t loop through such an array with a counter loop based on the
+can't loop through such an array with a counter loop based on the
 number of elements!**
 
 ## Substring expansion
@@ -603,7 +603,7 @@ useful, you need to put that parameter syntax in.
     read -p "Enter your gender (just press ENTER to not tell us): " GENDER
     echo "Your gender is ${GENDER:-a secret}."
 
-It will print \"Your gender is a secret.\" when you don\'t enter the
+It will print \"Your gender is a secret.\" when you don't enter the
 gender. Note that the default value is **used on expansion time**, it is
 **not assigned to the parameter**.
 
@@ -802,7 +802,7 @@ Removing the first 6 characters from a text string:
 
 -   **Fixed in 4.2.36**
     ([patch](ftp://ftp.cwru.edu/pub/bash/bash-4.2-patches/bash42-036)).
-    Bash doesn\'t follow either POSIX or its own documentation when
+    Bash doesn't follow either POSIX or its own documentation when
     expanding either a quoted `"$@"` or `"${arr[@]}"` with an adjacent
     expansion. `"$@$x"` expands in the same way as `"$*$x"` - i.e. all
     parameters plus the adjacent expansion are concatenated into a
@@ -857,7 +857,7 @@ Removing the first 6 characters from a text string:
     `When `IFS` is set to a non-null value, or unset, all shells behave
     the same - first expanding into separate args, then applying
     pathname expansion and word-splitting to the results, except for
-    zsh, which doesn\'t do pathname expansion in its default mode.
+    zsh, which doesn't do pathname expansion in its default mode.
 
 ```{=html}
 <!-- -->
@@ -884,7 +884,7 @@ Removing the first 6 characters from a text string:
     ksh : <a> <b> <ca> <b> <c> <a b c>
     zsh : <a> <b> <ca> <b> <c> <a-b-c>
     `ksh93 and mksh can additionally achieve this side effect (and
-    others) via the `${ cmds;}` expansion. I haven\'t yet tested every
+    others) via the `${ cmds;}` expansion. I haven't yet tested every
     possible side-effect that can affect expansion halfway through
     expansion that way.
 
@@ -900,7 +900,7 @@ Removing the first 6 characters from a text string:
 ```{=html}
 <!-- -->
 ```
--   Bash (and most other shells) don\'t allow .'s in identifiers. In
+-   Bash (and most other shells) don't allow .'s in identifiers. In
     ksh93, dots in variable names are used to reference methods (i.e.
     \"Discipline Functions\"), attributes, special shell variables, and
     to define the \"real value\" of an instance of a class.
@@ -920,7 +920,7 @@ Removing the first 6 characters from a text string:
 -   Bash only evaluates the subscripts of the slice expansion
     (`${x:y:z}`) if the parameter is set (for both nested expansions and
     arithmetic). For ranges, Bash evaluates as little as possible, i.e.,
-    if the first part is out of range, the second won\'t be evaluated.
+    if the first part is out of range, the second won't be evaluated.
     ksh93 and mksh always evaluate the subscript parts even if the
     parameter is unset.
     ` $ bash -c 'n="y[\$(printf yo >&2)1]" m="y[\$(printf jo >&2)1]"; x=(); echo "${x[@]:n,6:m}"' # No output

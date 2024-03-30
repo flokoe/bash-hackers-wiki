@@ -49,7 +49,7 @@ line is read). That means the timeout can occur during input, too.
   `-N <NCHARS>`    reads `<NCHARS>` characters of input, *ignoring any delimiter*, then quits
   `-p <PROMPT>`    the prompt string `<PROMPT>` is output (without a trailing automatic newline) before the read is performed
   `-r`             raw input - **disables** interpretion of **backslash escapes** and **line-continuation** in the read data
-  `-s`             secure input - don\'t echo input if on a terminal (passwords!)
+  `-s`             secure input - don't echo input if on a terminal (passwords!)
   `-t <TIMEOUT>`   wait for data `<TIMEOUT>` seconds, then quit (exit code 1). Fractional seconds (\"5.33\") are allowed since Bash 4. A value of 0 immediately returns and indicates if data is waiting in the exit code. Timeout is indicated by an exit code greater than 128. If timeout arrives before data is read completely (before end-of-line), the partial data is saved.
   `-u <FD>`        use the filedescriptor number `<FD>` rather than `stdin` (0)
 
@@ -254,9 +254,9 @@ date/time string are recognized correctly.
 
 -   POSIX(r) only specified the `-r` option (raw read); `-r` is not only
     POSIX, you can find it in earlier Bourne source code
--   POSIX(r) doesn\'t support arrays
+-   POSIX(r) doesn't support arrays
 -   `REPLY` is not POSIX(r), you need to set `IFS` to the empty string
-    to get the whole line for shells that don\'t know `REPLY`.
+    to get the whole line for shells that don't know `REPLY`.
     `while IFS= read -r line; do
       ...
     done < text.txt

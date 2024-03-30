@@ -51,7 +51,7 @@ variable has been set, then the variable of the same name in the
 next-outermost scope becomes visible to its scope and all children - as
 if the variable that was unset was never set to begin with. This
 property allows looking upwards through the stack as variable names are
-unset, so long as unset and the local it unsets aren\'t together in the
+unset, so long as unset and the local it unsets aren't together in the
 same scope level.
 
 Here's a demonstration of this behavior.
@@ -130,7 +130,7 @@ Some things to observe:
 -   Declaring a global with declare -g bypasses all locals and sets or
     modifies the variable of the global scope (outside of all
     functions). It has no affect on the visibility of the global.
--   This doesn\'t apply to individual array elements. If two local
+-   This doesn't apply to individual array elements. If two local
     arrays of the same name appear in different scopes, the entire array
     of the inner scope needs to be unset before any elements of the
     outer array become visible. This makes \"unset\" and \"unset2\"

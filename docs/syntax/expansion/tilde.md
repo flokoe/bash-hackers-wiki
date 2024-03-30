@@ -39,7 +39,7 @@ Tilde expansion is also performed everytime a variable is assigned:
     echo foo=~
     echo foo=:~
 
-I don\'t know yet, if this is a bug or intended. \</note\>
+I don't know yet, if this is a bug or intended. \</note\>
 
 This way you can correctly use the tilde expansion in your
 [PATH](../../syntax/shellvars.md#PATH):
@@ -60,8 +60,8 @@ This way you can correctly use the tilde expansion in your
 This form expands to the home-directory of the current user (`~`) or the
 home directory of the given user (`~<NAME>`).
 
-If the given user doesn\'t exist (or if his home directory isn\'t
-determinable, for some reason), it doesn\'t expand to something else, it
+If the given user doesn't exist (or if his home directory isn't
+determinable, for some reason), it doesn't expand to something else, it
 stays what it is. The requested home directory is found by asking the
 operating system for the associated home directory for `<NAME>`.
 

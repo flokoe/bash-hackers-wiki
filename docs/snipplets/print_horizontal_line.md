@@ -98,7 +98,7 @@ principle as this [string reverse
 example](../commands/builtin/eval.md#expansion_side-effects). It completely
 depends on Bash due to its brace expansion evaluation order and array
 parameter parsing details. As above, the eval only inserts the COLUMNS
-expansion into the expression and isn\'t involved in the rest, other
+expansion into the expression and isn't involved in the rest, other
 than to put the `_` value into the environment of the `_[0]` expansion.
 This works well since we\'re not creating one set of arguments and then
 editing or deleting them to create another as in the previous examples.

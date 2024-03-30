@@ -31,14 +31,14 @@ The results of the expansions mentioned above are scanned for
 `IFS`-characters. If **one or more** (in a sequence) of them is found,
 the expansion result is split at these positions into multiple words.
 
-This doesn\'t happen when the expansion results were **double-quoted**.
+This doesn't happen when the expansion results were **double-quoted**.
 
 When a null-string (e.g., something that before expanded to
 \>\>nothing\<\<) is found, it is removed, unless it is quoted (`''` or
 `""`).
 
 [**Again note:**]{.underline} Without any expansion beforehand, Bash
-won\'t perform word splitting! In this case, the initial token parsing
+won't perform word splitting! In this case, the initial token parsing
 is solely responsible.
 
 ## See also

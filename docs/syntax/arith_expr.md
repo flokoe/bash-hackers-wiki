@@ -91,7 +91,7 @@ mean:
     bash: 43#H: value too great for base (error token is "43#H")
 
 If you have no clue what a base is and why there might be other bases,
-and what numbers are and how they are built, then you don\'t need
+and what numbers are and how they are built, then you don't need
 different bases.
 
 If you want to convert between the usual bases (octal, decimal, hex),
@@ -103,7 +103,7 @@ strings.
 Shell variables can of course be used as operands, even when the integer
 attribute is not turned on (by `declare -i <NAME>`). If the variable is
 empty (null) or unset, its reference evaluates to 0. If the variable
-doesn\'t hold a value that looks like a valid expression (numbers or
+doesn't hold a value that looks like a valid expression (numbers or
 operations), the expression is re-used to reference, for example, the
 named parameters, e.g.:
 
@@ -265,7 +265,7 @@ codes of commands or functions to be executed. `if` statements, `while`
 loops, etc., they all take the return codes of commands as conditions.
 
 Now the problem is: The return codes (0 means \"TRUE\" or \"SUCCESS\",
-not 0 means \"FALSE\" or \"FAILURE\") don\'t correspond to the meaning
+not 0 means \"FALSE\" or \"FAILURE\") don't correspond to the meaning
 of the result of an arithmetic expression (0 means \"FALSE\", not 0
 means \"TRUE\").
 

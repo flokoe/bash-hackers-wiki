@@ -31,7 +31,7 @@ You will get something like this:
     ./bg_kill1.sh: line 11:  3413 Killed                  sleep 300
     Yes, we killed it
 
-This is more or less a normal message. And it can\'t be easily
+This is more or less a normal message. And it can't be easily
 redirected since it's the shell itself that yells this message, not the
 command `kill` or something else. You would have to redirect the whole
 script's output.

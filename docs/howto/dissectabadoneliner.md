@@ -45,7 +45,7 @@ of the old style backticks:
 sh $ for i in *.zip; do j=$(basename "$i" ".zip"); mkdir $j; cd $j; unzip ../$i; cd ..; done
 ```
 
-In Bash we don\'t need the subshell or the external basename command.
+In Bash we don't need the subshell or the external basename command.
 See [Substring removal with parameter
 expansion](../syntax/pe.md#substring_removal):
 
@@ -66,7 +66,7 @@ command(s), check for success! You can do this with the \"`&&`\"
 conjunction, that way, if the previous command fails, bash will not try
 to execute the following command(s). It's fully POSIX(r). Oh, and
 remember what I said about [wordsplitting](../syntax/expansion/wordsplit.md)
-in the previous step? Well, if you don\'t quote `$j`, wordsplitting can
+in the previous step? Well, if you don't quote `$j`, wordsplitting can
 happen again.
 
 ``` bash
@@ -106,7 +106,7 @@ mkdir "$j" && cd "$j" && unzip ../$i && cd -
 
 Well, besides word splitting, there's nothing terribly wrong with this.
 Still, did it occur to you that unzip might already be able to target a
-directory? There isn\'t a standard for the `unzip` command, but all the
+directory? There isn't a standard for the `unzip` command, but all the
 implementations I\'ve seen can do it with the -d flag. So we can drop
 the cd commands entirely:
 

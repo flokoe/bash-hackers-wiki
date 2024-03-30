@@ -100,7 +100,7 @@ nothing read
 ```
 
 Even though this example is the same as the first `awk` example, the
-`read` doesn\'t return because the output is waiting in a buffer.
+`read` doesn't return because the output is waiting in a buffer.
 
 See [this faq entry on Greg's
 wiki](http://mywiki.wooledge.org/BashFAQ/009) for some workarounds and
@@ -147,7 +147,7 @@ Here, fd 3 is inherited.
 
 ### Anonymous Coprocess
 
-Unlike ksh, Bash doesn\'t have true anonymous coprocesses. Instead, Bash
+Unlike ksh, Bash doesn't have true anonymous coprocesses. Instead, Bash
 assigns FDs to a default array named `COPROC` if no `NAME` is supplied.
 Here's an example:
 
@@ -171,7 +171,7 @@ $ IFS= read -ru ${COPROC[0]} x; printf '%s\n' "$x"
 foobar
 ```
 
-When we don\'t need our command anymore, we can kill it via its pid:
+When we don't need our command anymore, we can kill it via its pid:
 
     $ kill $COPROC_PID
     $
@@ -229,7 +229,7 @@ added to the language which runs the preceding *pipeline* as a coprocess
 (This is another reason not to use the special `|&` pipe operator in
 Bash \-- its syntax is conflicting). The `-p` option to the `read` and
 `print` builtins can then be used to read and write to the pipe of the
-coprocess (whose FD isn\'t yet known). Special redirects are added to
+coprocess (whose FD isn't yet known). Special redirects are added to
 move the last spawned coprocess to a different FD: `<&p` and `>&p`, at
 which point it can be accessed at the new FD using ordinary redirection,
 and another coprocess may then be started, again using `|&`.

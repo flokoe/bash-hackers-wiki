@@ -8,7 +8,7 @@ LastUpdate_dt: 2010-07-31 Contributors: Jan Schampera
 Applies at least to `openssh`.
 
 To get the hostkeys for a server, and write them to `known_hosts`-file
-(to avoid that yes/no query when the key isn\'t known), you can do:
+(to avoid that yes/no query when the key isn't known), you can do:
 
     ssh-keyscan -t rsa foo foo.example.com 1.2.3.4 >> ~/.ssh/known_host
 

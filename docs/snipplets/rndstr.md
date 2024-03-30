@@ -65,7 +65,7 @@ rndstr()
 
 \</div\>
 
-The remaining examples don\'t use quite the same tricks, which will
+The remaining examples don't use quite the same tricks, which will
 hopefully be explained elsewhere eventually. See
 [unset](../commands/builtin/unset.md#scope) for why doing assignments in this
 way works well.
@@ -108,10 +108,10 @@ modifier instructs printf to use the value preceding each parameter as
 the field width. Note the space between the parameters. This example
 unfortunately relies upon the unquoted command substitution to perform
 unsafe wordsplitting so that the outer printf gets each argument. Values
-in the array can\'t contain characters in IFS, or anything that might be
+in the array can't contain characters in IFS, or anything that might be
 interpreted as a pattern without using `set -f`.
 
-Lastly, empty brace expansions can be used which don\'t generate any
+Lastly, empty brace expansions can be used which don't generate any
 output that would need to be filtered. The disadvantage of course is
 that you must construct the brace expansion syntax to add up to the
 number of arguments to be generated, where the most optimal solution is

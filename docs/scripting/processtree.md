@@ -8,7 +8,7 @@ The processes in UNIX(r) are - unlike other systems - **organized as a
 tree**. Every process has a parent process that started, or is
 responsible, for it. Every process has its own **context memory** (Not
 the memory where the process stores its data, rather, the memory where
-data is stored that doesn\'t directly belong to the process, but is
+data is stored that doesn't directly belong to the process, but is
 needed to run the process) i.e. [**The environment**]{.underline}.
 
 Every process has its **own** environment space.
@@ -34,7 +34,7 @@ set by login scripts or programs).
 
 All the diagrams of the process tree use names like \"`xterm`\" or
 \"`bash`\", but that's just to make it easier to understand what's
-going on, it doesn\'t mean those processes are actually executed.
+going on, it doesn't mean those processes are actually executed.
 
 Let's take a short look at what happens when you \"execute a program\"
 from the Bash prompt, a program like \"ls\":
@@ -65,7 +65,7 @@ The copy of the environment from the first step (forking) becomes the
 environment for the final running program (in this case, `ls`).
 
 [**What is so important about it?**]{.underline} In our example, what
-the program `ls` does inside its own environment, it can\'t affect the
+the program `ls` does inside its own environment, it can't affect the
 environment of its parent process (in this case, `bash`). The
 environment was copied when ls was executed. Nothing is \"copied back\"
 to the parent environment when `ls` terminates.
@@ -73,7 +73,7 @@ to the parent environment when `ls` terminates.
 ## Bash playing with pipes
 
 Pipes are a very powerful tool. You can connect the output of one
-process to the input of another process. We won\'t delve into piping at
+process to the input of another process. We won't delve into piping at
 this point, we just want to see how it looks in the process tree. Again,
 we execute some commands, this time, we\'ll run `ls` and `grep`:
 
@@ -85,8 +85,8 @@ It results in a tree like this:
     xterm ----- bash --|
                        +-- grep
 
-Note once again, `ls` can\'t influence the `grep` environment, `grep`
-can\'t influence the `ls` environment, and neither `grep` nor `ls` can
+Note once again, `ls` can't influence the `grep` environment, `grep`
+can't influence the `ls` environment, and neither `grep` nor `ls` can
 influence the `bash` environment.
 
 [**How is that related to shell programming?!?**]{.underline}
@@ -112,10 +112,10 @@ See the relationship? The forked Bash process will count the lines like
 a charm. It will also set the variable `counter` as directed. But if
 everything ends, this extra process will be terminated - **your
 \"counter\" variable is gone.** You see a 0 because in the main shell it
-was 0, and wasn\'t changed by the child process!
+was 0, and wasn't changed by the child process!
 
 [**So, how do we count the lines?**]{.underline} Easy: **Avoid the
-subshell.** The details don\'t matter, the important thing is the shell
+subshell.** The details don't matter, the important thing is the shell
 that sets the counter must be the \"main shell\". For example:
 
     counter=0
@@ -126,7 +126,7 @@ that sets the counter must be the \"main shell\". For example:
 It's nearly self-explanatory. The `while` loop runs in the **current
 shell**, the counter is incremented in the **current shell**, everything
 vital happens in the **current shell**, also the `read` command sets the
-variable `REPLY` (the default if nothing is given), though we don\'t use
+variable `REPLY` (the default if nothing is given), though we don't use
 it here.
 
 ## Actions that create a subshell
@@ -140,10 +140,10 @@ As shown above, Bash will create subprocesses everytime it executes
 commands. That's nothing new.
 
 But if your command is a subprocess that sets variables you want to use
-in your main script, that won\'t work.
+in your main script, that won't work.
 
 For exactly this purpose, there's the `source` command (also: the *dot*
-`.` command). Source doesn\'t execute the script, it imports the other
+`.` command). Source doesn't execute the script, it imports the other
 script's code into the current shell:
 
     source ./myvariables.sh

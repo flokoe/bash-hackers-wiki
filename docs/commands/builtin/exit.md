@@ -22,7 +22,7 @@ There are no options.
 
 ### Exit status
 
-Naturally, you can\'t ask for the exit status from within the shell that
+Naturally, you can't ask for the exit status from within the shell that
 executed the `exit` command, because the shell exits.
 
   Status   Reason

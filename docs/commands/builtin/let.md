@@ -24,7 +24,7 @@ difference being `let` is a builtin (simple command), and `((` is a
 compound command. The arguments to `let` are therefore subject to all
 the same expansions and substitutions as any other simple command -
 requiring proper quoting and escaping - whereas the contents of `((`
-aren\'t subject to [word-splitting](../../syntax/expansion/wordsplit.md) or
+aren't subject to [word-splitting](../../syntax/expansion/wordsplit.md) or
 [pathname expansion](../../syntax/expansion/globs.md) (almost never desirable
 for arithmetic). For this reason, **the [arithmetic compound
 command](../../syntax/ccmd/arithmetic_eval.md) should generally be preferred
@@ -80,7 +80,7 @@ needed.
 -   It seems to be a common misunderstanding that `let` has some legacy
     purpose. Both `let` and [[^1]](../../syntax/ccmd/arithmetic_eval.md) were
     ksh88 features and almost identical in terms of portability as
-    everything that inherited one also tended to get the other. Don\'t
+    everything that inherited one also tended to get the other. Don't
     choose `let` over `((` expecting it to work in more places.
 -   [expr(1)](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/expr.html#tag_20_42)
     is a command one is likely to come across sooner or later. While it

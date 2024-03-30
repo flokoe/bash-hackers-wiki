@@ -8,7 +8,7 @@
 
 The conditional expression is meant as the modern variant of the
 [classic test command](../../commands/classictest.md). Since it is **not** a
-normal command, Bash doesn\'t need to apply the normal commandline
+normal command, Bash doesn't need to apply the normal commandline
 parsing rules like recognizing `&&` as [command
 list](../../syntax/basicgrammar.md#lists) operator.
 
@@ -153,7 +153,7 @@ Example:
 
 As of Bash 4.1 alpha, the test primaries \'\<\' and \'\>\' (compare
 strings lexicographically) use the current locale settings, while the
-same primitives for the builtin test command don\'t. This leads to the
+same primitives for the builtin test command don't. This leads to the
 following situation where they behave differently:
 
     $ ./cond.sh
@@ -162,7 +162,7 @@ following situation where they behave differently:
     [ ' 4' \< '1' ]         --> exit 0
     [ 'step+' \< 'step-' ]  --> exit 0
 
-It won\'t be aligned. The conditional expression continues to respect
+It won't be aligned. The conditional expression continues to respect
 the locate, as introduced with 4.1-alpha, the builtin `test`/`[` command
 continues to behave differently.
 
@@ -178,7 +178,7 @@ both contains whitespace and is not the result of an expansion.
 
 ## Portability considerations
 
--   `[[ ... ]]` functionality isn\'t specified by POSIX(R), though it's
+-   `[[ ... ]]` functionality isn't specified by POSIX(R), though it's
     a reserved word
 -   Amongst the major \"POSIX-shell superset languages\" (for lack of a
     better term) which do have `[[`, the test expression compound
@@ -192,7 +192,7 @@ both contains whitespace and is not the result of an expansion.
 -   As an extension to POSIX ERE, most GNU software supports
     backreferences in ERE, including Bash. According to POSIX, only BRE
     is supposed to support them. This requires Bash to be linked against
-    glibc, so it won\'t necessarily work on all platforms. For example,
+    glibc, so it won't necessarily work on all platforms. For example,
     `$(m='(abc(def))(\1)(\2)'; [[ abcdefabcdefdef =~ $m ]]; printf '<%s> ' $? "${BASH_REMATCH[@]}" )`
     will give `<0> <abcdefabcdefdef> <abcdef> <def> <abcdef> <def>`.
 -   the `=~` (regex) operator was introduced in Bash 3.0, and its

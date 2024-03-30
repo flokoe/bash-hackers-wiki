@@ -34,7 +34,7 @@ Another common pitfall is to assume that a range like `{1..200}` can be
 expressed with variables using `{$a..$b}`. Due to what I described
 above, it **simply is not possible**, because it's the very first step
 in doing expansions. A possible way to achieve this, if you really
-can\'t handle this in another way, is using the `eval` command, which
+can't handle this in another way, is using the `eval` command, which
 basically evaluates a commandline twice: `eval echo {$a..$b}` For
 instance, when embedded inside a for loop :
 `for i in $(eval echo {$a..$b})` This requires that the entire command
@@ -78,7 +78,7 @@ With prefix or suffix strings, the result is a space-separated list of
 
 The brace expansion is only performed, if the given string list is
 really a **list of strings**, i.e., if there is a minimum of one \"`,`\"
-(comma)! Something like `{money}` doesn\'t expand to something special,
+(comma)! Something like `{money}` doesn't expand to something special,
 it's really only the text \"`{money}`\".
 
 ## Ranges
@@ -160,7 +160,7 @@ then the lowercase ones:
 In this example, `wget` is used to download documentation that is split
 over several numbered webpages.
 
-`wget` won\'t see your braces. It will see **6 different URLs** to
+`wget` won't see your braces. It will see **6 different URLs** to
 download.
 
     wget http://docs.example.com/documentation/slides_part{1,2,3,4,5,6}.html

@@ -26,7 +26,7 @@ systems, including:
 -   may be able to take arguments for the interpreter
 -   \...
 
-POSIX(r) doesn\'t specify the shebang, though in general it's commonly
+POSIX(r) doesn't specify the shebang, though in general it's commonly
 supported by operating systems.
 
 ## See also

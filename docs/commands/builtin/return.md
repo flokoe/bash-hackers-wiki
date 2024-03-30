@@ -18,7 +18,7 @@ There are no options.
 
 ### Exit status
 
-If everything is okay, the `return` command doesn\'t come back. If it
+If everything is okay, the `return` command doesn't come back. If it
 comes back, there was a problem in doing the return.
 
   Status   Reason

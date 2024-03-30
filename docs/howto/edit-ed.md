@@ -13,14 +13,14 @@ that, e.g. editing active and open files, the lack of GNU, or other
 
 Why `ed`?
 
--   maybe your `sed` doesn\'t support in-place edit
+-   maybe your `sed` doesn't support in-place edit
 -   maybe you need to be as portable as possible
 -   maybe you need to really edit in-file (and not create a new file
     like GNU `sed`)
 -   last but not least: standard `ed` has very good editing and
     addressing possibilities, compared to standard `sed`
 
-Don\'t get me wrong, this is **not** meant as anti-`sed` article! It's
+Don't get me wrong, this is **not** meant as anti-`sed` article! It's
 just meant to show you another way to do the job.
 
 ## Commanding ed
@@ -133,7 +133,7 @@ always a good idea to have a backup copy!**
 ## Editing your files
 
 Most of these things can be done with `sed`. But there are also things
-that can\'t be done in `sed` or can only be done with very complex code.
+that can't be done in `sed` or can only be done with very complex code.
 
 ### Simple word substitutions
 
@@ -179,7 +179,7 @@ regexp
 
 \...using the `m` command: `<ADDRESS> m <TARGET-ADDRESS>`
 
-This is definitely something that can\'t be done easily with sed.
+This is definitely something that can't be done easily with sed.
 
     # moving lines 5-9 to the end of the file
     ed -s test.txt <<< $'5,9m$\nw'
@@ -206,7 +206,7 @@ command: `j` (join).
 
     ed -s file <<< $'1,$j\nw'
 
-Compared with two other methods (using `tr` or `sed`), you don\'t have
+Compared with two other methods (using `tr` or `sed`), you don't have
 to delete all newlines and manually add one at the end.
 
 ### File operations
@@ -288,7 +288,7 @@ attempt the substitution on all non blank lines
 
 **\_\_ shell parameters are expanded \_\_**
 
-If you don\'t quote the delimiter, \$ has a special meaning. This sounds
+If you don't quote the delimiter, \$ has a special meaning. This sounds
 obvious but it's easy to forget this fact when you use addresses like
 \$-1 or commands like \$a. Either quote the \$ or the delimiter:
 

@@ -7,7 +7,7 @@ code you see everywhere, the code you use, is based on those rules.
 However, **this is a very theoretical view**, but if you\'re interested,
 it may help you understand why things look the way they look.
 
-If you don\'t know the commands used in the following examples, just
+If you don't know the commands used in the following examples, just
 trust the explanation.
 
 ## Simple Commands
@@ -29,7 +29,7 @@ Every complex Bash operation can be split into simple commands:
     LC_ALL=C ls
 
 The last one might not be familiar. That one simply adds \"`LC_ALL=C`\"
-to the environment of the `ls` program. It doesn\'t affect your current
+to the environment of the `ls` program. It doesn't affect your current
 shell. This also works while calling functions, unless Bash runs in
 POSIX(r) mode (in which case it affects your current shell).
 
@@ -50,8 +50,8 @@ FIXME Missing an additional article about pipelines and pipelining
 
 `[time [-p]] [ ! ] command [ | command2 ... ]`
 
-**Don\'t get confused** about the name \"pipeline.\" It's a grammatic
-name for a construct. Such a pipeline isn\'t necessarily a pair of
+**Don't get confused** about the name \"pipeline.\" It's a grammatic
+name for a construct. Such a pipeline isn't necessarily a pair of
 commands where stdout/stdin is connected via a real pipe.
 
 Pipelines are one or more [simple
@@ -254,14 +254,14 @@ It is possible to create function names containing slashes:
       echo LS FAKE
     }
 
-The elements of this name aren\'t subject to a path search.
+The elements of this name aren't subject to a path search.
 
 Weird function names should not be used. Quote from the maintainer:
 
 -   * It was a mistake to allow such characters in function names
-    (\`unset\' doesn\'t work to unset them without forcing -f, for
+    (\`unset\' doesn't work to unset them without forcing -f, for
     instance). We\'re stuck with them for backwards compatibility, but I
-    don\'t have to encourage their use. *
+    don't have to encourage their use. *
 
 ## Grammar summary
 

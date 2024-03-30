@@ -14,7 +14,7 @@ data fields that can contain the delimiter.
     "fir,st", "second", "last"
     "firtst one", "sec,ond field", "final,ly"
 
-Simply using the comma as separator for `awk` won\'t work here, of
+Simply using the comma as separator for `awk` won't work here, of
 course.
 
 Solution: Use the field separator `", "|^"|"$` for `awk`.
@@ -28,7 +28,7 @@ This is an OR-ed list of 3 possible separators:
   -------- -----------------------------------------------
 
 You can tune these delimiters if you have other needs (for example if
-you don\'t have a space after the commas).
+you don't have a space after the commas).
 
 Test:
 

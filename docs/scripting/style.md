@@ -10,8 +10,8 @@ it\".
 This is not a bible, of course. But I have seen so much ugly and
 terrible code (not only in shell) during all the years, that I\'m 100%
 convinced there needs to be *some* code layout and style. No matter
-which one you use, use it throughout your code (at least don\'t change
-it within the same shellscript file); don\'t change your code layout
+which one you use, use it throughout your code (at least don't change
+it within the same shellscript file); don't change your code layout
 with your mood.
 
 Some good code layout helps you to read your own code after a while. And
@@ -203,7 +203,7 @@ in-code documentation for them.
 Unless you are really sure what you\'re doing, **quote every parameter
 expansion**.
 
-There are some cases where this isn\'t needed from a technical point of
+There are some cases where this isn't needed from a technical point of
 view, e.g.
 
 -   inside `[[ ... ]]` (other than the RHS of the `==`, `!=`, and `=~`
@@ -214,7 +214,7 @@ view, e.g.
 But quoting these is never a mistake. If you quote every parameter
 expansion, you\'ll be safe.
 
-If you need to parse a parameter as a list of words, you can\'t quote,
+If you need to parse a parameter as a list of words, you can't quote,
 of course, e.g.
 
     list="one two three"
@@ -260,7 +260,7 @@ Avoid it, unless absolutely neccesary:
 -   `eval` can be your neckshot
 -   there are most likely other ways to achieve what you want
 -   if possible, re-think the way your script works, if it seems you
-    can\'t avoid `eval` with your current method
+    can't avoid `eval` with your current method
 -   if you really, really, have to use it, then take care, and be sure
     about what you\'re doing
 
@@ -309,7 +309,7 @@ declared before the main script code runs. This gives a far better
 overview and ensures that all function names are known before they are
 used.
 
-Since a function isn\'t parsed before it is executed, you usually don\'t
+Since a function isn't parsed before it is executed, you usually don't
 have to ensure they\'re in a specific order.
 
 The portable form of the function definition should be used, without the
@@ -321,7 +321,7 @@ command](../syntax/ccmd/grouping_plain.md)):
     }
 
 Speaking about the command grouping in function definitions using
-`{ ...; }`: If you don\'t have a good reason to use another compound
+`{ ...; }`: If you don't have a good reason to use another compound
 command directly, you should always use this one.
 
 ## Behaviour and robustness

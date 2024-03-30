@@ -113,7 +113,7 @@ As of Bash Version 4, when a command search fails, the shell executes a
 shell function named `command_not_found_handle()` using the failed
 command as arguments. This can be used to provide user friendly messages
 or install software packages etc. Since this function runs in a separate
-execution environment, you can\'t really influence the main shell with
+execution environment, you can't really influence the main shell with
 it (changing directory, setting variables).
 
 FIXME to be continued

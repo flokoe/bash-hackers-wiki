@@ -12,11 +12,11 @@ prevent this, a form of `MUTEX` (**mutual exclusion**) lock is needed.
 
 The basic procedure is simple: The script checks if a specific condition
 (locking) is present at startup, if yes, it's locked - the scipt
-doesn\'t start.
+doesn't start.
 
 This article describes locking with common UNIX(r) tools. There are
 other special locking tools available, But they\'re not standardized, or
-worse yet, you can\'t be sure they\'re present when you want to run your
+worse yet, you can't be sure they\'re present when you want to run your
 scripts. **A tool designed for specifically for this purpose does the
 job much better than general purpose code.**
 
@@ -32,7 +32,7 @@ limits.
 ## Choose the locking method
 
 The best way to set a global lock condition is the UNIX(r) filesystem.
-Variables aren\'t enough, as each process has its own private variable
+Variables aren't enough, as each process has its own private variable
 space, but the filesystem is global to all processes (yes, I know about
 chroots, namespaces, \... special case). You can \"set\" several things
 in the filesystem that can be used as locking indicator:
@@ -47,7 +47,7 @@ the existance of the lockfile, if no lockfile exists, it creates one and
 continues. Those are **two separate steps**! That means it's **not an
 atomic operation**. There's a small amount of time between checking and
 creating, where another instance of the same script could perform
-locking (because when it checked, the lockfile wasn\'t there)! In that
+locking (because when it checked, the lockfile wasn't there)! In that
 case you would have 2 instances of the script running, both thinking
 they are succesfully locked, and can operate without colliding. Setting
 the timestamp is similar: One step to check the timespamp, a second step
@@ -129,7 +129,7 @@ differences compared to the very simple example above:
 -   traps are created to automatically remove the lock when the script
     terminates, or is killed
 
-Details on how the script is killed aren\'t given, only code relevant to
+Details on how the script is killed aren't given, only code relevant to
 the locking process is shown:
 
 ``` bash

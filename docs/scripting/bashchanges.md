@@ -154,7 +154,7 @@ For this topic, see also
   `echo`                  `\uNNNN` and `\UNNNNNNNN` escape sequences                                                                                                   4.2-alpha                  for: `printf`, `echo -e`, `$'...'`
   `exec`                  option `-a` to give a `argv[0]` string                                                                                                       4.2-alpha                  
   `time`                  allowed as a command by itself to display timing values of the shell and its children                                                        4.2-alpha                  POSIX change
-  `help`                  `help` now searches exact topic-strings (i.e. `help read` won\'t find `readonly` anymore)                                                    4.3-alpha                  
+  `help`                  `help` now searches exact topic-strings (i.e. `help read` won't find `readonly` anymore)                                                    4.3-alpha                  
   `return`                accept negative values as return value (e.g. `return -1` will show as (8 bit) 255 in the caller)                                             4.3-alpha                  
   `exit`                  accept negative values as return value (e.g. `return -1` will show as (8 bit) 255 in the caller)                                             4.3-alpha                  
   `read`                  `read` skips `NUL` (ASCII Code 0) in input                                                                                                   4.3-alpha                  

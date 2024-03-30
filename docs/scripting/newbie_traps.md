@@ -28,7 +28,7 @@ See also:
 -   [Bash startup mode: SH mode](../scripting/bashbehaviour.md#sh_mode)
 -   [Bash run mode: POSIX mode](../scripting/bashbehaviour.md#posix_run_mode)
 
-### Your script named \"test\" doesn\'t execute
+### Your script named \"test\" doesn't execute
 
 Give it another name. The executable `test` already exists.
 
@@ -59,7 +59,7 @@ text formed by the prefix, the postfix and the braces themselves are
 generated. In the example, these are only two: `-i*.vob` and `-i`. The
 filename expansion happens **after** that, so there is a chance that
 `-i*.vob` is expanded to a filename - if you have files like
-`-ihello.vob`. But it definitely doesn\'t do what you expected.
+`-ihello.vob`. But it definitely doesn't do what you expected.
 
 Please see:
 
@@ -90,7 +90,7 @@ variable! Bash is not PHP!
 
 A variable name preceeded with a dollar-sign always means that the
 variable gets **expanded**. In the example above, it might expand to
-nothing (because it wasn\'t set), effectively resulting in\...
+nothing (because it wasn't set), effectively resulting in\...
 
     ="Hello world!"
 
@@ -140,7 +140,7 @@ A typical beginner's trap is quoting.
 As noted above, when you want to **expand** a variable i.e. \"get the
 content\", the variable name needs to be prefixed with a dollar-sign.
 But, since Bash knows various ways to quote and does word-splitting, the
-result isn\'t always the same.
+result isn't always the same.
 
 Let's define an example variable containing text with spaces:
 
@@ -195,7 +195,7 @@ process you execute to start that script `./script.sh`):
 
 Exporting is one-way. The direction is from parent process to child
 process, not the reverse. The above example **will** work, when you
-don\'t execute the script, but include (\"source\") it:
+don't execute the script, but include (\"source\") it:
 
     $ source ./script.sh
     $ echo $hello
@@ -213,7 +213,7 @@ Please see:
 ### Reacting to exit codes
 
 If you just want to react to an exit code, regardless of its specific
-value, you **don\'t need** to use `$?` in a test command like this:
+value, you **don't need** to use `$?` in a test command like this:
 
 ``` bash
 grep ^root: /etc/passwd >/dev/null 2>&1

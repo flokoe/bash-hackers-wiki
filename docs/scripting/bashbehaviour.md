@@ -76,7 +76,7 @@ mode (for running, not for starting!)](#posix_run_mode).
 [**Bash starts in `sh` compatiblity mode when:**]{.underline}
 
 -   the base filename in `argv[0]` is `sh` (:!: NB: `/bin/sh` may be
-    linked to `/bin/bash`, but that doesn\'t mean it acts like
+    linked to `/bin/bash`, but that doesn't mean it acts like
     `/bin/bash` :!:)
 
 ### POSIX mode
@@ -85,7 +85,7 @@ When Bash is started in POSIX(r) mode, it follows the POSIX(r) standard
 for startup files. In this mode, **interactive shells** expand the
 [ENV](../syntax/shellvars.md#ENV) variable and commands are read and executed
 from the file whose name is the expanded value.\
-No other startup files are read. Hence, a non-interactive shell doesn\'t
+No other startup files are read. Hence, a non-interactive shell doesn't
 read any startup files in POSIX(r) mode.
 
 [**Bash starts in POSIX(r) mode when:**]{.underline}
@@ -315,29 +315,29 @@ In restricted mode, Bash sets up (and runs) a shell environment that's
 far more controlled and limited than the standard shell mode. It acts
 like normal Bash with the following restrictions:
 
--   the `cd` command can\'t be used to change directories
+-   the `cd` command can't be used to change directories
 -   the variables [SHELL](../syntax/shellvars.md#SHELL),
     [PATH](../syntax/shellvars.md#PATH), [ENV](../syntax/shellvars.md#ENV) and
-    [BASH_ENV](../syntax/shellvars.md#BASH_ENV) can\'t be set or unset
--   command names that contain a `/` (slash) can\'t be called (hence
+    [BASH_ENV](../syntax/shellvars.md#BASH_ENV) can't be set or unset
+-   command names that contain a `/` (slash) can't be called (hence
     you\'re limited to `PATH`)
--   filenames containing a `/` (slash) can\'t be specified as argument
+-   filenames containing a `/` (slash) can't be specified as argument
     to the `source` or `.` builtin command
--   filenames containing a `/` (slash) can\'t be specified as argument
+-   filenames containing a `/` (slash) can't be specified as argument
     to the `-p` option of the `hash` builtin command
 -   function definitions are not inherited from the environment at shell
     startup
 -   the environment variable [SHELLOPTS](../syntax/shellvars.md#SHELLOPTS) is
     ignored at startup
 -   redirecting output using the `>`, `>|`, `<>`, `>&`, `&>`, and `>>`
-    redirection operators isn\'t allowed
--   the `exec` builtin command can\'t replace the shell with another
+    redirection operators isn't allowed
+-   the `exec` builtin command can't replace the shell with another
     process
 -   adding or deleting builtin commands with the `-f` and `-d` options
     to the enable builtin command is forbidden
 -   using the `enable` builtin command to enable disabled shell builtins
-    doesn\'t work
--   the `-p` option to the `command` builtin command doesn\'t work
+    doesn't work
+-   the `-p` option to the `command` builtin command doesn't work
 -   turning off restricted mode with `set +r` or `set +o restricted` is
     (of course) forbidden
 

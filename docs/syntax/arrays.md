@@ -43,7 +43,7 @@ Bash supports two different types of ksh-like one-dimensional arrays.
     arrays allow you to look up a value from a table based upon its
     corresponding string label. **Associative arrays are always
     unordered**, they merely *associate* key-value pairs. If you
-    retrieve multiple values from the array at once, you can\'t count on
+    retrieve multiple values from the array at once, you can't count on
     them coming out in the same order you put them in. Associative
     arrays always carry the `-A` attribute, and unlike indexed arrays,
     Bash requires that they always be declared explicitly (as indexed
@@ -127,7 +127,7 @@ variables.
   `ARRAY+=(E1\ E2\ ...)`            Append to ARRAY.
   `ARRAY=("${ANOTHER_ARRAY[@]}")`   Copy ANOTHER_ARRAY to ARRAY, copying each element.
 
-As of now, arrays can\'t be exported.
+As of now, arrays can't be exported.
 
 ### Getting values
 
@@ -137,7 +137,7 @@ check the notes about arrays. \</note\>
 
   Syntax                                                                  Description
   ----------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `${ARRAY[N]}`                                                           Expands to the value of the index `N` in the **indexed** array `ARRAY`. If `N` is a negative number, it's treated as the offset from the maximum assigned index (can\'t be used for assignment) - 1
+  `${ARRAY[N]}`                                                           Expands to the value of the index `N` in the **indexed** array `ARRAY`. If `N` is a negative number, it's treated as the offset from the maximum assigned index (can't be used for assignment) - 1
   `${ARRAY[S]}`                                                           Expands to the value of the index `S` in the **associative** array `ARRAY`.
   `"${ARRAY[@]}" ${ARRAY[@]} "${ARRAY[*]}" ${ARRAY[*]}`                   Similar to [mass-expanding positional parameters](../scripting/posparams.md#mass_usage), this expands to all elements. If unquoted, both subscripts `*` and `@` expand to the same result, if quoted, `@` expands to all elements individually quoted, `*` expands to all elements quoted as a whole.
   `"${ARRAY[@]:N:M}" ${ARRAY[@]:N:M} "${ARRAY[*]:N:M}" ${ARRAY[*]:N:M}`   Similar to what this syntax does for the characters of a single string when doing [substring expansion](../syntax/pe.md#substring_expansion), this expands to `M` elements starting with element `N`. This way you can mass-expand individual indexes. The rules for quoting and the subscripts `*` and `@` are the same as above for the other mass-expansions.
@@ -246,7 +246,7 @@ sometimes. Please understand that **numerical array indexing begins at 0
 The method above, walking through an array by just knowing its number of
 elements, only works for arrays where all elements are set, of course.
 If one element in the middle is removed, then the calculation is
-nonsense, because the number of elements doesn\'t correspond to the
+nonsense, because the number of elements doesn't correspond to the
 highest used index anymore (we call them \"*sparse arrays*\").
 
 Now, suppose that you want to replace your array `sentence` with the
@@ -297,7 +297,7 @@ starting at zero) just is replaced with an arbitrary string:
     sentence[End]='in what you send'
     sentence['Very end']=...
 
-[**Beware:**]{.underline} don\'t rely on the fact that the elements are
+[**Beware:**]{.underline} don't rely on the fact that the elements are
 ordered in memory like they were declared, it could look like this:
 
     # output from 'set' command
@@ -305,7 +305,7 @@ ordered in memory like they were declared, it could look like this:
 
 This effectively means, you can get the data back with
 `"${sentence[@]}"`, of course (just like with numerical indexing), but
-you can\'t rely on a specific order. If you want to store ordered data,
+you can't rely on a specific order. If you want to store ordered data,
 or re-order data, go with numerical indexes. For associative arrays, you
 usually query known index values:
 
@@ -479,7 +479,7 @@ dynamically calls a function whose name is resolved from the array.
     prior to assignment. In order to preserve attributes, you must use
     the `+=` operator. However, declaring an associative array, then
     attempting an `a=(...)` style compound assignment without specifying
-    indexes is an error. I can\'t explain this
+    indexes is an error. I can't explain this
     inconsistency.` $ ksh -c 'function f { typeset -a a; a=([0]=foo [1]=bar); typeset -p a; }; f' # Attribute is lost, and since subscripts are given, we default to associative.
     typeset -A a=([0]=foo [1]=bar)
      $ ksh -c 'function f { typeset -a a; a+=([0]=foo [1]=bar); typeset -p a; }; f' # Now using += gives us the expected results.
@@ -490,7 +490,7 @@ dynamically calls a function whose name is resolved from the array.
 -   Only Bash and mksh support compound assignment with mixed explicit
     subscripts and automatically incrementing subscripts. In ksh93, in
     order to specify individual subscripts within a compound assignment,
-    all subscripts must be given (or none). Zsh doesn\'t support
+    all subscripts must be given (or none). Zsh doesn't support
     specifying individual subscripts at all.
 -   Appending to a compound assignment is a fairly portable way to
     append elements after the last index of an array. In Bash, this also
@@ -526,7 +526,7 @@ dynamically calls a function whose name is resolved from the array.
     portability.
 -   Zsh and mksh do not support compound assignment arguments to
     `typeset`.
--   Ksh88 didn\'t support modern compound array assignment syntax. The
+-   Ksh88 didn't support modern compound array assignment syntax. The
     original (and most portable) way to assign multiple elements is to
     use the `set -A name arg1 arg2 ...` syntax. This is supported by
     almost all shells that support ksh-like arrays except for Bash.
@@ -563,9 +563,9 @@ dynamically calls a function whose name is resolved from the array.
 -   Assigning or referencing negative indexes in mksh causes
     wrap-around. The max index appears to be `UINT_MAX`, which would be
     addressed by `arr[-1]`.
--   So far, Bash's `-v var` test doesn\'t support individual array
+-   So far, Bash's `-v var` test doesn't support individual array
     subscripts. You may supply an array name to test whether an array is
-    defined, but can\'t check an element. ksh93's `-v` supports both.
+    defined, but can't check an element. ksh93's `-v` supports both.
     Other shells lack a `-v` test.
 
 ### Bugs
@@ -608,7 +608,7 @@ dynamically calls a function whose name is resolved from the array.
     <a b cfoo>
     `
 -   **Fixed in 4.3** Process substitutions are evaluated within array
-    indexes. Zsh and ksh don\'t do this in any arithmetic context.
+    indexes. Zsh and ksh don't do this in any arithmetic context.
     `# print "moo"
     dev=fd=1 _[1<(echo moo >&2)]=
 

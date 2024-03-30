@@ -12,7 +12,7 @@ expects a comma after the format string and between each of the
 arguments of a **printf** command. For examples, see: [code
 snippet](../../printf?&.md#using_printf_inside_of_awk). \</div\>
 
-Unlike other documentations, I don\'t want to redirect you to the manual
+Unlike other documentations, I don't want to redirect you to the manual
 page for the `printf()` C function family. However, if you\'re more
 experienced, that should be the most detailed description for the format
 strings and modifiers.
@@ -54,7 +54,7 @@ argument!).
   `-v VAR`   If given, the output is assigned to the variable `VAR` instead of printed to `stdout` (comparable to `sprintf()` in some way)
   ---------- -------------------------------------------------------------------------------------------------------------------------------
 
-The `-v` Option can\'t assign directly to array indexes in Bash versions
+The `-v` Option can't assign directly to array indexes in Bash versions
 older than Bash 4.1.
 
 \<note warning\> In versions newer than 4.1, one must be careful when
@@ -84,8 +84,8 @@ recognized to give a number-argument to `printf`:
   `0N`            An octal number
   `0xN`           A hexadecimal number
   `0XN`           A hexadecimal number
-  `"X`            (a literal double-quote infront of a character): interpreted as number (underlying codeset) **don\'t forget escaping**
-  `'X`            (a literal single-quote infront of a character): interpreted as number (underlying codeset) **don\'t forget escaping**
+  `"X`            (a literal double-quote infront of a character): interpreted as number (underlying codeset) **don't forget escaping**
+  `'X`            (a literal single-quote infront of a character): interpreted as number (underlying codeset) **don't forget escaping**
 
 [**If more arguments than format specifiers**]{.underline} are present,
 then the format string is re-used until the last argument is
@@ -143,7 +143,7 @@ all mean the same: A placeholder for data with a specified format:
   `%G`           Same as `%g`, but print it like `%E`
   `%c`           Interprets the associated argument as **char**: only the first character of a given argument is printed
   `%s`           Interprets the associated argument literally as string
-  `%n`           Assigns the number of characters printed so far to the variable named in the corresponding argument. Can\'t specify an array index. If the given name is already an array, the value is assigned to the zeroth element.
+  `%n`           Assigns the number of characters printed so far to the variable named in the corresponding argument. Can't specify an array index. If the given name is already an array, the value is assigned to the zeroth element.
   `%a`           Interprets the associated argument as **double**, and prints it in the form of a C99 [hexadecimal floating-point literal](http://www.exploringbinary.com/hexadecimal-floating-point-constants/).
   `%A`           Same as `%a`, but print it like `%E`
   `%(FORMAT)T`   output the date-time string resulting from using `FORMAT` as a format string for `strftime(3)`. The associated argument is the number of seconds since Epoch, or `-1` (current time) or `-2` (shell startup time). If no corresponding argument is supplies, the current time is used as default
@@ -192,7 +192,7 @@ that precedes the number to print, like (prints 4,3000000000):
 
     printf "%.*f\n" 10 4,3
 
-The format `.*N` to specify the N\'th argument for precision does not
+The format `.*N` to specify the N'th argument for precision does not
 work in Bash.
 
 For strings, the precision specifies the maximum number of characters to
@@ -364,7 +364,7 @@ correct awk syntax.
 
 With appropriate metacharacter escaping the bash printf can be called
 from inside awk (as from perl and other languages that support shell
-callout) as long as you don\'t care about program efficiency or
+callout) as long as you don't care about program efficiency or
 readability.
 
     echo "Foo" | awk '{ system( "printf \"%s\\n \" \"" $1 "\""  ) }'
@@ -453,7 +453,7 @@ fmt++;
     synopsis as:
     `print: print [-Rnprs] [-u unit] [-f format] [arguments]`. However,
     only `-Rrnfu` are actually functional. Internally, `-p` is a noop
-    (it doesn\'t tie in with Bash coprocs at all), and `-s` only sets a
+    (it doesn't tie in with Bash coprocs at all), and `-s` only sets a
     flag but has no effect. `-Cev` are unimplemented.
 
 ```{=html}

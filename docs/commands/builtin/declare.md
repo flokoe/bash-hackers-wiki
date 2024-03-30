@@ -22,7 +22,7 @@ variable.
 When used in a function, `declare` makes `NAMEs` local variables, unless
 used with the `-g` option.
 
-Don\'t use it's synonym `typeset` when coding for Bash, since it's
+Don't use it's synonym `typeset` when coding for Bash, since it's
 tagged as obsolete.
 
 ### Options
@@ -167,7 +167,7 @@ for details. ksh93 namerefs are much more powerful than Bash's.
     possible exception of Zsh in Bash compatibility mode. Bash marks the
     synonym `typeset` as obsolete, which in Bash behaves identically to
     `declare`. All other Korn-like shells use `typeset`, so it probably
-    isn\'t going away any time soon. Unfortunately, being a non-standard
+    isn't going away any time soon. Unfortunately, being a non-standard
     builtin, `typeset` differs significantly between shells. ksh93 also
     considers `typeset` a special builtin, while Bash does not - even in
     POSIX mode. If you use `typeset`, you should attempt to only use it

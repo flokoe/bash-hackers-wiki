@@ -43,7 +43,7 @@ backslash:
 
     echo \$HOME is set to \"$HOME\"
 
--   `\$HOME` won\'t expand because it's not in variable-expansion
+-   `\$HOME` won't expand because it's not in variable-expansion
     syntax anymore
 -   The backslash changes the quotes into literals - otherwise Bash
     would interpret them
@@ -112,7 +112,7 @@ single-quote that closes the string.
 
     echo 'Your PATH is: $PATH'
 
-`$PATH` won\'t be expanded, it's interpreted as ordinary text because
+`$PATH` won't be expanded, it's interpreted as ordinary text because
 it's surrounded by strong quotes.
 
 In practise that means, to produce a text like `Here's my test...` as a
@@ -259,8 +259,8 @@ Now the command has three parameters, which makes sense for a binary
 (two argument) operator.
 
 **[Hint:]{.underline}** Inside the [conditional
-expression](../syntax/ccmd/conditional_expression.md) (`[[ ]]`) Bash doesn\'t
-perform word splitting, and thus you don\'t need to quote your variable
+expression](../syntax/ccmd/conditional_expression.md) (`[[ ]]`) Bash doesn't
+perform word splitting, and thus you don't need to quote your variable
 references - they are always seen as \"one word\".
 
 ## See also

@@ -4,13 +4,13 @@
 
 Terminal (control) codes are used to issue specific commands to your
 terminal. This can be related to switching colors or positioning the
-cursor, i.e. anything that can\'t be done by the application itself.
+cursor, i.e. anything that can't be done by the application itself.
 
 ## How it technically works
 
 A terminal control code is a special sequence of characters that is
 printed (like any other text). If the terminal understands the code, it
-won\'t display the character-sequence, but will perform some action. You
+won't display the character-sequence, but will perform some action. You
 can print the codes with a simple `echo` command.
 
 [**Note:**]{.underline} I see codes referenced as \"Bash colors\"
@@ -43,11 +43,11 @@ I listed only the most relevant codes, of course, any ANSI terminal
 understands many more! But let's keep the discussion centered on common
 shell scripting ;-)
 
-If I couldn\'t find a matching ANSI escape, you\'ll see a :?: as the
+If I couldn't find a matching ANSI escape, you\'ll see a :?: as the
 code. Feel free to mail me or fix it.
 
 The ANSI codes always start with the ESC character. (ASCII 0x1B or octal
-033) This isn\'t part of the list, but **you should avoid using the ANSI
+033) This isn't part of the list, but **you should avoid using the ANSI
 codes directly - use the `tput` command!**
 
 All codes that can be used with `tput` can be found in terminfo(5). (on
@@ -178,7 +178,7 @@ termcap/terminfo. While `xterm` and most of its clones (`rxvt`, `urxvt`,
 etc) will support the instructions, your operating system may not
 include references to them in its default xterm profile. (FreeBSD, in
 particular, falls into this category.) If \`tput smcup\` appears to do
-nothing for you, and you don\'t want to modify your system
+nothing for you, and you don't want to modify your system
 termcap/terminfo data, and you KNOW that you are using a compatible
 xterm application, the following may work for you:
 
@@ -210,7 +210,7 @@ terminals](https://gist.github.com/XVilka/8346728#now-supporting-truecolour)
 also support full 24-bit colors, and any X11 color code can be written
 directly into a special escape sequence. ([More
 infos](https://gist.github.com/XVilka/8346728)) Only a few programs make
-use of anything beyond 256 colors, and tput doesn\'t know about them.
+use of anything beyond 256 colors, and tput doesn't know about them.
 Colors beyond 16 usually only apply to modern terminal emulators running
 in graphical environments.
 
@@ -304,7 +304,7 @@ at most 16, and reduces raw output by more than half. The `doBash`
 function uses integer arithmetic, but is still ksh93-compatible (run as
 e.g. `bash ./mandelbrot` to use it). The ksh93-only floating-point
 `doKsh` is almost 10x faster than `doBash` (thus the ksh shebang by
-default), but uses only features that don\'t make the Bash parser crash.
+default), but uses only features that don't make the Bash parser crash.
 
     #!/usr/bin/env ksh
 

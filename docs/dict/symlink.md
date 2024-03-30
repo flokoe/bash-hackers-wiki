@@ -5,7 +5,7 @@ to another filename. Since it really only points to another **filename**
 it can
 
 -   reference filenames on other filesystems
--   reference filenames that don\'t actually exist
+-   reference filenames that don't actually exist
 -   save a reference to the name of a directory
 
 ## See also

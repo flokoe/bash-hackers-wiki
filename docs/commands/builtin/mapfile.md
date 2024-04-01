@@ -121,7 +121,7 @@ illustrates the callback behavior:
 
 Since redirects are syntactically allowed anywhere in a command, we put
 it before the printf to stay out of the way of additional arguments.
-Rather than opening \"outfile\<n\>\" for appending on each call by
+Rather than opening \"outfile<n>\" for appending on each call by
 calculating the filename, open an FD for each first and calculate which
 FD to send output to by measuring the size of x mod 2. The zero-width
 format specification is used to absorb the index number argument.

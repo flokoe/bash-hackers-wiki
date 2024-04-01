@@ -55,23 +55,23 @@ Some simple examples using normal pattern matching:
 -   Pattern `"Hello world"` matches
     -   `Hello world`
 -   Pattern `[Hh]"ello world"` matches
-    -   =\> `Hello world`
-    -   =\> `hello world`
+    -   => `Hello world`
+    -   => `hello world`
 -   Pattern `Hello*` matches (for example)
-    -   =\> `Hello world`
-    -   =\> `Helloworld`
-    -   =\> `HelloWoRlD`
-    -   =\> `Hello`
+    -   => `Hello world`
+    -   => `Helloworld`
+    -   => `HelloWoRlD`
+    -   => `Hello`
 -   Pattern `Hello world[[:punct:]]` matches (for example)
-    -   =\> `Hello world!`
-    -   =\> `Hello world.`
-    -   =\> `Hello world+`
-    -   =\> `Hello world?`
+    -   => `Hello world!`
+    -   => `Hello world.`
+    -   => `Hello world+`
+    -   => `Hello world?`
 -   Pattern
     `[[.backslash.]]Hello[[.vertical-line.]]world[[.exclamation-mark.]]`
     matches (using [collation
     symbols](https://pubs.opengroup.org/onlinepubs/009696899/basedefs/xbd_chap07.html#tag_07_03_02_04))
-    -   =\> `\Hello|world!`
+    -   => `\Hello|world!`
 
 ## Extended pattern language
 

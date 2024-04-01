@@ -73,7 +73,7 @@ happen again.
 $ mkdir "$j" && cd "$j" && ... && cd ..
 ```
 
-That's almost right, but there's one problem \-- what happens if `$j`
+That's almost right, but there's one problem -- what happens if `$j`
 contains a slash? Then `cd ..` will not return to the original
 directory. That's wrong! `cd -` causes cd to return to the previous
 working directory, so it's a much better choice:

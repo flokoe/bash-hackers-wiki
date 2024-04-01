@@ -1,6 +1,6 @@
 # Kill a background job without a message
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: kill, process
+---- dataentry snipplet ---- snipplet_tags: kill, process
 management, jobs LastUpdate_dt: 2010-07-31 Contributors: Jan Schampera
 type: snipplet
 

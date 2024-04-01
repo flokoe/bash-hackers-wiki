@@ -41,7 +41,7 @@ set flags (true for most commands on UNIX(r)).
   `-v`   `verbose`                                                  Print shell input lines as they are read - useful for debugging.
   `-x`   `xtrace`                                                   Print commands just before execution - with all expansions and substitutions done, and words marked - useful for debugging.
   `-B`   `braceexpand`                                              The shell performs [brace expansion](../../syntax/expansion/brace.md) This is on by default.
-  `-C`   \<BOOKMARK:tag_noclobber\>`noclobber`                      Don't overwrite files on redirection operations. You can override that by specifying the `>|` redirection operator when needed. See [redirection](../../syntax/redirection.md)
+  `-C`   <BOOKMARK:tag_noclobber>`noclobber`                      Don't overwrite files on redirection operations. You can override that by specifying the `>|` redirection operator when needed. See [redirection](../../syntax/redirection.md)
   `-E`   `errtrace`                                                 `ERR`-traps are inherited by by shell functions, command substitutions, and commands executed in a subshell environment.
   `-H`   `histexpand`                                               Enable `!`-style history expansion. Defaults to `on` for interactive shells.
   `-P`   `physical`                                                 Don't follow symlinks when changing directories - use the physical filesystem structure.

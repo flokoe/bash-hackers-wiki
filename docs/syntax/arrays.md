@@ -131,9 +131,9 @@ As of now, arrays can't be exported.
 
 ### Getting values
 
-\<note\> For completeness and details on several parameter expansion
+<note> For completeness and details on several parameter expansion
 variants, see the [article about parameter expansion](../syntax/pe.md) and
-check the notes about arrays. \</note\>
+check the notes about arrays. </note>
 
   Syntax                                                                  Description
   ----------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -185,7 +185,7 @@ It is best to [explicitly specify
 -v](../commands/builtin/unset.md#portability_considerations) when unsetting
 variables with unset.
 
-\<note warning\> Specifying unquoted array elements as arguments to any
+<note warning> Specifying unquoted array elements as arguments to any
 command, such as with the syntax above **may cause [pathname
 expansion](../syntax/expansion/globs.md) to occur** due to the presence of
 glob characters.
@@ -205,7 +205,7 @@ To avoid this, **always quote** the array name and index:
     unset -v 'x[1]'
 
 This applies generally to all commands which take variable names as
-arguments. Single quotes preferred. \</note\>
+arguments. Single quotes preferred. </note>
 
 ## Usage
 
@@ -369,13 +369,13 @@ strings would have been inserted into the integer array without
 evaluating the arithmetic. A special-case of this is shown in the next
 section.
 
-\<note\> Bash declaration commands are really keywords in disguise. They
+<note> Bash declaration commands are really keywords in disguise. They
 magically parse arguments to determine whether they are in the form of a
 valid assignment. If so, they are evaluated as assignments. If not, they
 are undergo normal argument expansion before being passed to the builtin
 which evaluates the resulting string as an assignment (somewhat like
 `eval`, but there are differences.) `'Todo:`\' Discuss this in detail.
-\</note\>
+</note>
 
 ### Indirection
 
@@ -688,5 +688,5 @@ to generate these results.
 -   [BashSheet - Arrays](http://mywiki.wooledge.org/BashSheet#Arrays) -
     Bashsheet quick-reference on Greycat's wiki.
 
-\<div hide\> vim: set fenc=utf-8 ff=unix ts=4 sts=4 sw=4 ft=dokuwiki et
-wrap lbr: \</div\>
+<div hide> vim: set fenc=utf-8 ff=unix ts=4 sts=4 sw=4 ft=dokuwiki et
+wrap lbr: </div>

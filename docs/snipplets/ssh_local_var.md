@@ -1,6 +1,6 @@
 # Run some bash commands with SSH remotely using local variables
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: ssh, variables
+---- dataentry snipplet ---- snipplet_tags: ssh, variables
 LastUpdate_dt: 2010-07-31 Contributors: cweiss type: snipplet
 
 ------------------------------------------------------------------------

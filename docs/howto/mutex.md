@@ -53,8 +53,8 @@ they are succesfully locked, and can operate without colliding. Setting
 the timestamp is similar: One step to check the timespamp, a second step
 to set the timestamp.
 
-\<WRAP center round tip 60%\> [**Conclusion:**]{.underline} We need an
-operation that does the check and the locking in one step. \</WRAP\>
+<WRAP center round tip 60%> [**Conclusion:**]{.underline} We need an
+operation that does the check and the locking in one step. </WRAP>
 
 A simple way to get that is to create a **lock directory** - with the
 mkdir command. It will:
@@ -84,7 +84,7 @@ atomic. Maybe a while loop checking continously for the existence of the
 lock in the background and sending a signal such as USR1, if the
 directory is not found, can be done. The signal would need to be
 trapped. I am sure there there is a better solution than this
-suggestion* \-\-- *[sn18](sunny_delhi18@yahoo.com) 2009/12/19 08:24*
+suggestion* --- *[sn18](sunny_delhi18@yahoo.com) 2009/12/19 08:24*
 
 **Note:** While perusing the Internet, I found some people asking if the
 `mkdir` method works \"on all filesystems\". Well, let's say it should.

@@ -1,6 +1,6 @@
 # Get largest file
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: directory, recursive,
+---- dataentry snipplet ---- snipplet_tags: directory, recursive,
 find, crawl LastUpdate_dt: 2013-03-23 Contributors: Dan Douglas type:
 snipplet
 

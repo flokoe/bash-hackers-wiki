@@ -1,6 +1,6 @@
 # Redirection
 
-\<wrap left todo\>Fix me: To be continued\</wrap\>\
+<wrap left todo>Fix me: To be continued</wrap>\
 Redirection makes it possible to control where the output of a command
 goes to, and where the input of a command comes from. It's a mighty
 tool that, together with pipelines, makes the shell powerful. The
@@ -16,9 +16,9 @@ file descriptors 0, 1 and 2, all connected to your terminal:
   `stdout`   1    standard output stream (e.g. monitor)
   `stderr`   2    standard error output stream (usually also on monitor)
 
-\<wrap center info\>The terms \"monitor\" and \"keyboard\" refer to the
+<wrap center info>The terms \"monitor\" and \"keyboard\" refer to the
 same device, the **terminal** here. Check your preferred UNIX(r)-FAQ for
-details, I\'m too lazy to explain what a terminal is ;-) \</wrap\>
+details, I\'m too lazy to explain what a terminal is ;-) </wrap>
 
 Both, `stdout` and `stderr` are output file descriptors. Their
 difference is the **convention** that a program outputs payload on
@@ -45,9 +45,9 @@ these examples are equivalent:
     cat >new.txt foo.txt bar.txt
     >new.txt cat foo.txt bar.txt
 
-\<wrap center important\>Every redirection operator takes one or two
+<wrap center important>Every redirection operator takes one or two
 words as operands. If you have to use operands (e.g. filenames to
-redirect to) that contain spaces you **must** quote them!\</wrap\>
+redirect to) that contain spaces you **must** quote them!</wrap>
 
 ## Valid redirection targets and sources
 
@@ -106,9 +106,9 @@ specified target. It's **equivalent** to
 Since Bash4, there's `&>>TARGET`, which is equivalent to
 `>> TARGET 2>&1`.
 
-\<wrap center important\>This syntax is deprecated and should not be
+<wrap center important>This syntax is deprecated and should not be
 used. See the page about [obsolete and deprecated
-syntax](../scripting/obsolete.md).\</wrap\>
+syntax](../scripting/obsolete.md).</wrap>
 
 ## Appending redirected output and error output
 
@@ -134,7 +134,7 @@ omitted, filedescriptor 0 (`stdin`) is assumed.
 
 ## Here documents
 
-\<BOOKMARK:tag_heredoc\>
+<BOOKMARK:tag_heredoc>
 
     <<TAG
     ...
@@ -178,11 +178,11 @@ here-documents.
 The tag you use **must** be the only word in the line, to be recognized
 as end-of-here-document marker.
 
-\<wrap center info\>It seems that here-documents (tested on versions
+<wrap center info>It seems that here-documents (tested on versions
 `1.14.7`, `2.05b` and `3.1.17`) are correctly terminated when there is
 an EOF before the end-of-here-document tag. The reason is unknown, but
 it seems to be done on purpose. Bash 4 introduced a warning message when
-end-of-file is seen before the tag is reached.\</wrap\>
+end-of-file is seen before the tag is reached.</wrap>
 
 ## Here strings
 

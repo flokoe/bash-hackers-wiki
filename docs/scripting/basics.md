@@ -61,12 +61,12 @@ a comment. The shebang is for the operating system, not for the shell.
 Programs that don't ignore such lines, may not work as shebang driven
 interpreters.
 
-\<WRAP center round important 60%\> [**Attention:**]{.underline}When the
+<WRAP center round important 60%> [**Attention:**]{.underline}When the
 specified interpreter is unavailable or not executable (permissions),
 you usually get a \"`bad interpreter`\" error message., If you get
 nothing and it fails, check the shebang. Older Bash versions will
 respond with a \"`no such file or directory`\" error for a nonexistant
-interpreter specified by the shebang. \</WRAP\>
+interpreter specified by the shebang. </WRAP>
 
 **Additional note:** When you specify `#!/bin/sh` as shebang and that's
 a link to a Bash, then Bash will run in POSIX(r) mode! See:

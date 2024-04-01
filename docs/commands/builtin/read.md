@@ -20,7 +20,7 @@ If `<NAME...>` is given, the line is word-split using
 `<NAME>`. The remaining words are all assigned to the last `<NAME>` if
 more words than variable names are present.
 
-\<WRAP center round info 90%\> If no `<NAME>` is given, the whole line
+<WRAP center round info 90%> If no `<NAME>` is given, the whole line
 read (without performing word-splitting!) is assigned to the shell
 variable [REPLY](../../syntax/shellvars.md#REPLY). Then, `REPLY` really contains
 the line as it was read, without stripping pre- and postfix spaces and
@@ -30,7 +30,7 @@ other things!
       printf '"%s"\n' "$REPLY"
     done <<<"  a line with prefix and postfix space  "
 
-\</WRAP\>
+</WRAP>
 
 If a timeout is given, or if the shell variable
 [TMOUT](../../syntax/shellvars.md#TMOUT) is set, it is counted from initially
@@ -61,7 +61,7 @@ Of course it's valid to set individual array elements without using
 
     read MYARRAY[5]
 
-\<WRAP center round important 90%\>
+<WRAP center round important 90%>
 
 Reading into array elements using the syntax above **may cause [pathname
 expansion](../../syntax/expansion/globs.md) to occur**.
@@ -81,7 +81,7 @@ array name and index:
 
     read 'x[1]'
 
-\</WRAP\>
+</WRAP>
 
 ### Return status
 
@@ -90,7 +90,7 @@ array name and index:
   0        no error
   0        error when assigning to a read-only variable [^1]
   2        invalid option
-  \>128    timeout (see `-t`)
+  >128    timeout (see `-t`)
   !=0      invalid filedescriptor supplied to `-u`
   !=0      end-of-file reached
 

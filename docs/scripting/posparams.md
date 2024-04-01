@@ -97,7 +97,7 @@ While useful in another situation, this way is lacks flexibility. The
 maximum number of arguments is a fixedvalue - which is a bad idea if you
 write a script that takes many filenames as arguments.
 
-=\> forget that one
+=> forget that one
 
 ### Loops
 

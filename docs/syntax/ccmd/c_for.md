@@ -96,15 +96,15 @@ The return status is that of the last command executed from `<LIST>`, or
 
 ## Alternatives and best practice
 
-\<div center round todo 60%\>TODO: Show some alternate usages involving
-functions and local variables for initialization.\</div\>
+<div center round todo 60%>TODO: Show some alternate usages involving
+functions and local variables for initialization.</div>
 
 ## Examples
 
 ### Simple counter
 
 A simple counter, the loop iterates 101 times (\"0\" to \"100\" are 101
-numbers -\> 101 runs!), and everytime the variable `x` is set to the
+numbers -> 101 runs!), and everytime the variable `x` is set to the
 current value.
 
 -   It **initializes** `x = 0`
@@ -132,7 +132,7 @@ will count from 0 to 100, but with a **step of 10**.
 
 This example loops through the bit-values of a Byte, beginning from 128,
 ending at 1. If that bit is set in the `testbyte`, it prints \"`1`\",
-else \"`0`\" =\> it prints the binary representation of the `testbyte`
+else \"`0`\" => it prints the binary representation of the `testbyte`
 value (8 bits).
 
     #!/usr/bin/env bash
@@ -161,7 +161,7 @@ value (8 bits).
 
     # vim: set fenc=utf-8 ff=unix ft=sh :
 
-\<div hide\>
+<div hide>
 
     testbyte=123
     for (( n = 128 ; n >= 1 ; n /= 2 )); do
@@ -173,7 +173,7 @@ value (8 bits).
     done
     echo
 
-\</div\>
+</div>
 
 Why that one begins at 128 (highest value, on the left) and not 1
 (lowest value, on the right)? It's easier to print from left to
@@ -196,7 +196,7 @@ variables.
         printf '%*s\n' "$((n+1))" "$n"
     done
 
-\<code\> \~ \$ bash \<(xclip -o) 1
+<code> \~ \$ bash <(xclip -o) 1
 
     2
      3
@@ -216,7 +216,7 @@ variables.
      3
     2
 
-1 \</code\>
+1 </code>
 
 ## Portability considerations
 

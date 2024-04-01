@@ -64,7 +64,7 @@ When no base is specified, the base 10 (decimal) is assumed, except when
 the prefixes as mentioned above (octals, hexadecimals) are present. The
 specified base can range from 2 to 64. To represent digits in a
 specified base greater than 10, characters other than 0 to 9 are needed
-(in this order, low =\> high):
+(in this order, low => high):
 
 -   `0 ... 9`
 -   `a ... z`
@@ -223,7 +223,7 @@ That means, the following `if`-clause will execute the `else`-thread:
   `-`                          unary minus
 
   `<EXPR> ? <EXPR> : <EXPR>`   conditional (ternary) operator\
-                               \<condition\> ? \<result-if-true\> : \<result-if-false\>
+                               <condition> ? <result-if-true> : <result-if-false>
 
   `<EXPR> , <EXPR>`            expression list
 
@@ -232,7 +232,7 @@ That means, the following `if`-clause will execute the `else`-thread:
 
 ## Precedence
 
-The operator precedence is as follows (highest -\> lowest):
+The operator precedence is as follows (highest -> lowest):
 
 -   Postfix (`id++`, `id--`)
 -   Prefix (`++id`, `--id`)
@@ -292,7 +292,7 @@ else
 fi
 ```
 
-\<WRAP center round important\> Beware that `set -e` can change the
+<WRAP center round important> Beware that `set -e` can change the
 runtime behavior of scripts. For example,
 
 This non-equivalence of code behavior deserves some attention. Consider
@@ -332,7 +332,7 @@ echo $?
 (\"SUCCESS\")
 
 This change in code behavior was discovered once the script was run
-under set -e. \</WRAP\>
+under set -e. </WRAP>
 
 ## Arithmetic expressions in Bash
 

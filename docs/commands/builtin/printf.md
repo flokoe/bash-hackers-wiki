@@ -1,16 +1,16 @@
 # The printf command
 
-\<div center round todo box 70%\> FIXME Stranger, this is a very big
+<div center round todo box 70%> FIXME Stranger, this is a very big
 topic that needs experience - please fill in missing information, extend
-the descriptions, and correct the details if you can! \</div\> \<div
-center round tip 70%\> [**Attention:**]{.underline} This is about the
+the descriptions, and correct the details if you can! </div> <div
+center round tip 70%> [**Attention:**]{.underline} This is about the
 Bash-builtin command `printf` - however, the description should be
 nearly identical for an external command that follows POSIX(r).
 
 [GNU Awk](http://www.gnu.org/software/gawk/manual/gawk.html#Printf)
 expects a comma after the format string and between each of the
 arguments of a **printf** command. For examples, see: [code
-snippet](../../printf?&.md#using_printf_inside_of_awk). \</div\>
+snippet](../../printf?&.md#using_printf_inside_of_awk). </div>
 
 Unlike other documentations, I don't want to redirect you to the manual
 page for the `printf()` C function family. However, if you\'re more
@@ -57,7 +57,7 @@ argument!).
 The `-v` Option can't assign directly to array indexes in Bash versions
 older than Bash 4.1.
 
-\<note warning\> In versions newer than 4.1, one must be careful when
+<note warning> In versions newer than 4.1, one must be careful when
 performing expansions into the first non-option argument of printf as
 this opens up the possibility of an easy code injection vulnerability.
 
@@ -66,11 +66,11 @@ this opens up the possibility of an easy code injection vulnerability.
     declare -a x='([0]="hi")'
 
 \...where the echo can of course be replaced with any arbitrary command.
-If you must, either specify a hard-coded format string or use \-- to
+If you must, either specify a hard-coded format string or use -- to
 signal the end of options. The exact same issue also applies to
 [read](../../commands/builtin/read.md), and a similar one to
 [mapfile](../../commands/builtin/mapfile.md), though performing expansions into
-their arguments is less common. \</note\>
+their arguments is less common. </note>
 
 ### Arguments
 
@@ -97,7 +97,7 @@ Take care to avoid [word splitting](../../syntax/expansion/wordsplit.md), as
 accidentally passing the wrong number of arguments can produce wildly
 different and unexpected results. See [this article](../../syntax/words.md).
 
-\<note warning\> [**Again, attention:**]{.underline} When a numerical
+<note warning> [**Again, attention:**]{.underline} When a numerical
 format expects a number, the internal `printf`-command will use the
 common Bash arithmetic rules regarding the base. A command like the
 following example **will** throw an error, since `08` is not a valid
@@ -105,7 +105,7 @@ octal number (`00` to `07`!):
 
     printf '%d\n' 08
 
-\</note\>
+</note>
 
 ### Format strings
 
@@ -216,8 +216,8 @@ argument corresponding to a `%b` format.
   `\v`             Prints a vertical tabulator
   `\"`             Prints a `'`
   `\?`             Prints a `?`
-  `\<NNN>`         Interprets `<NNN>` as **octal** number and prints the corresponding character from the character set
-  `\0<NNN>`        same as `\<NNN>`
+  `<NNN>`         Interprets `<NNN>` as **octal** number and prints the corresponding character from the character set
+  `\0<NNN>`        same as `<NNN>`
   `\x<NNN>`        Interprets `<NNN>` as **hexadecimal** number and prints the corresponding character from the character set (**3 digits**)
   `\u<NNNN>`       same as `\x<NNN>`, but **4 digits**
   `\U<NNNNNNNN>`   same as `\x<NNN>`, but **8 digits**
@@ -412,7 +412,7 @@ fmt++;
     system's `/usr/bin/printf` or equivalent. The mksh maintainer
     recommends using `print`. The development version (post- R40f) adds
     a new parameter expansion in the form of `${name@Q}` which fills the
-    role of `printf %q` \-- expanding in a shell-escaped format.
+    role of `printf %q` -- expanding in a shell-escaped format.
 
 ```{=html}
 <!-- -->

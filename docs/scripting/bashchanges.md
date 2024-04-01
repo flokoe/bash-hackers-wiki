@@ -39,7 +39,7 @@ For this topic, see also
   `gnu_errfmt`                      3.0-alpha                  
   `force_fignore`                   3.0-alpha                  
   `failglob`                        3.0-alpha                  
-  `extquote`                        3.0-alpha                  unsure \-- verify!
+  `extquote`                        3.0-alpha                  unsure -- verify!
   `extdebug`                        3.0-alpha                  
   `pipefail` (for `set -o`)         3.0                        
   `functrace` (for `set -o`)        3.0                        
@@ -108,7 +108,7 @@ For this topic, see also
   `[[...]]`: new                                                       2.02-alpha1                KSH93
   `[[...]]`: regex support (`=~`)                                      3.0-alpha                  
   `[[...]]`: quotable right-hand-side of `=~` forces string matching   3.2-alpha                  for consistency with pattern matching
-  `[[...]]`: `<` and `>` operators respect locale                      4.1-alpha                  for consistency, since 4.1-beta: ensure you have set compatiblity to \>4.0 (default)
+  `[[...]]`: `<` and `>` operators respect locale                      4.1-alpha                  for consistency, since 4.1-beta: ensure you have set compatiblity to >4.0 (default)
   `test`/`[`/`[[`: `-v`                                                4.2-alpha                  check if a variable is set
   `test`/`[`/`[[`: `-v`                                                4.2-alpha                  support array syntax to check for elements
   `test`/`[`/`[[`: `-N` accepts nanoseconds                            5.1-alpha                  

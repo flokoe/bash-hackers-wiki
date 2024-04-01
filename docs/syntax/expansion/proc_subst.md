@@ -30,7 +30,7 @@ from a file).
 
 ### Scope
 
-\<note important\> Note: According to multiple comments and sources, the
+<note important> Note: According to multiple comments and sources, the
 scope of process substitution file descriptors is **not** stable,
 guaranteed, or specified by bash. Newer versions of bash (5.0+) seem to
 have shorter scope, and substitutions scope seems to be shorter than
@@ -39,7 +39,7 @@ function scope. See
 and
 [stackoverflow](https://stackoverflow.com/questions/46660020/bash-what-is-the-scope-of-the-process-substitution);
 the latter discussion contains a script that can test the scoping
-behavior case-by-case \</note\>
+behavior case-by-case </note>
 
 If a process substitution is expanded as an argument to a function,
 expanded to an environment variable during calling of a function, or
@@ -74,7 +74,7 @@ diff <(ls "$first_directory") <(ls "$second_directory")
 ```
 
 This will compare the contents of each directory. In this command, each
-*process* is *substituted* for a *file*, and diff doesn't see \<(bla),
+*process* is *substituted* for a *file*, and diff doesn't see <(bla),
 it sees two files, so the effective command is something like
 
 ``` bash
@@ -85,10 +85,10 @@ where those files are written to and destroyed automatically.
 
 ### Avoiding subshells
 
-\<WRAP center round info 60%\> See Also:
-[BashFAQ/024](http://mywiki.wooledge.org/BashFAQ/024) \-- *I set
+<WRAP center round info 60%> See Also:
+[BashFAQ/024](http://mywiki.wooledge.org/BashFAQ/024) -- *I set
 variables in a loop that's in a pipeline. Why do they disappear after
-the loop terminates? Or, why can't I pipe data to read?* \</WRAP\>
+the loop terminates? Or, why can't I pipe data to read?* </WRAP>
 
 One of the most common uses for process substitutions is to avoid the
 final subshell that results from executing a pipeline. The following is

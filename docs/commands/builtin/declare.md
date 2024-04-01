@@ -138,7 +138,7 @@ RHS.
     sum total a b c
     printf 'Final value of "total" is: %d\n' "$total"
 
-\<div hide\> function sum {
+<div hide> function sum {
 
       typeset -n _result=$1
       shift
@@ -153,7 +153,7 @@ RHS.
 }
 
 a=(1 2 3); b=(6 5 4); c=(2 4 6) sum total a b c printf \'Final value of
-\"total\" is: %d\\n\' \"\$total\" \</div\>
+\"total\" is: %d\\n\' \"\$total\" </div>
 
 `typeset -n` is currently implemented in ksh93, mksh, and Bash 4.3. Bash
 and mksh's implementations are quite similar, but much different from

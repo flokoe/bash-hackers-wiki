@@ -52,7 +52,7 @@ When the operators `<` and `>` are used (string collation order), the
 test happens using the current locale when the `compat` level is greater
 than \"40\".
 
-Operator precedence (highest =\> lowest):
+Operator precedence (highest => lowest):
 
 -   `( <EXPRESSION> )`
 -   `! <EXPRESSION>`
@@ -151,7 +151,7 @@ Example:
 
 ### Behaviour differences compared to the builtin test command
 
-As of Bash 4.1 alpha, the test primaries \'\<\' and \'\>\' (compare
+As of Bash 4.1 alpha, the test primaries \'<\' and \'>\' (compare
 strings lexicographically) use the current locale settings, while the
 same primitives for the builtin test command don't. This leads to the
 following situation where they behave differently:
@@ -159,8 +159,8 @@ following situation where they behave differently:
     $ ./cond.sh
     [[ ' 4' < '1' ]]        --> exit 1
     [[ 'step+' < 'step-' ]] --> exit 1
-    [ ' 4' \< '1' ]         --> exit 0
-    [ 'step+' \< 'step-' ]  --> exit 0
+    [ ' 4' < '1' ]         --> exit 0
+    [ 'step+' < 'step-' ]  --> exit 0
 
 It won't be aligned. The conditional expression continues to respect
 the locate, as introduced with 4.1-alpha, the builtin `test`/`[` command

@@ -1,6 +1,6 @@
 # Add Color to your scripts
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags : terminal, color
+---- dataentry snipplet ---- snipplet_tags : terminal, color
 LastUpdate_dt : 2013-03-23 Contributors : Frank Lazzarini, Dan Douglas
 type : snipplet
 

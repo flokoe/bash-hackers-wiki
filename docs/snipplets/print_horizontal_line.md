@@ -1,6 +1,6 @@
 # Print a horizontal line
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: terminal, line
+---- dataentry snipplet ---- snipplet_tags: terminal, line
 LastUpdate_dt: 2010-07-31 Contributors: Jan Schampera, prince_jammys,
 ccsalvesen, others type: snipplet
 

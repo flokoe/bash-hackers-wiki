@@ -295,7 +295,7 @@ switch to, to get the other 8 colors.
 
 This is a slightly modified version of Charles Cooke's colorful
 Mandelbrot plot scripts ([original w/
-screenshot](http://earth.gkhs.net/ccooke/shell.html)) \-- ungolfed,
+screenshot](http://earth.gkhs.net/ccooke/shell.html)) -- ungolfed,
 optimized a bit, and without hard-coded terminal escapes. The `colorBox`
 function is [memoized](http://en.wikipedia.org/wiki/Memoization) to
 collect `tput` output only when required and output a new escape only

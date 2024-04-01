@@ -1,6 +1,6 @@
 # Generate code with own arguments properly quoted
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: arguments, quoting,
+---- dataentry snipplet ---- snipplet_tags: arguments, quoting,
 escaping, wrapper LastUpdate_dt: 2010-07-31 Contributors: Jan Schampera
 type: snipplet
 

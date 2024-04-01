@@ -104,11 +104,11 @@ read any startup files in POSIX(r) mode.
 
   Mode                    `/etc/profile`   `~/.bash_profile`   `~/.bash_login`   `~/.profile`   `~/.bashrc`   `${ENV}`
   ----------------------- ---------------- ------------------- ----------------- -------------- ------------- ----------
-  Login shell             X                X                   X                 X              \-            \-
-  Interactive shell       \-               \-                  \-                \-             X             \-
-  SH compatible login     X                \-                  \-                X              \-            \-
-  SH compatible           \-               \-                  \-                \-             \-            X
-  POSIX(r) compatiblity   \-               \-                  \-                \-             \-            X
+  Login shell             X                X                   X                 X              -            -
+  Interactive shell       -               -                  -                -             X             -
+  SH compatible login     X                -                  -                X              -            -
+  SH compatible           -               -                  -                -             -            X
+  POSIX(r) compatiblity   -               -                  -                -             -            X
 
 ## Bash run modes
 

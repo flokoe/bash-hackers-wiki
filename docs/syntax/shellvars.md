@@ -1273,7 +1273,7 @@ Prompt](https://www.gnu.org/software/bash/manual/bash.html#Controlling-the-Promp
   Variable:      `PS2`             Since:       unknown
   -------------- ----------------- ------------ -----------------
   Type:          normal variable   Read-only:   no
-  Set by Bash:   if unset          Default:     \"\'\'\> \'\'\"
+  Set by Bash:   if unset          Default:     \"\'\'> \'\'\"
 
 The value of this parameter is expanded as with PS1 and used as the
 secondary prompt string.

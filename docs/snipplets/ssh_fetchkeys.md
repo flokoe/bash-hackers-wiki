@@ -1,6 +1,6 @@
 # Fetching SSH hostkeys without interaction
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: ssh, ssh-keys
+---- dataentry snipplet ---- snipplet_tags: ssh, ssh-keys
 LastUpdate_dt: 2010-07-31 Contributors: Jan Schampera
 
 ------------------------------------------------------------------------

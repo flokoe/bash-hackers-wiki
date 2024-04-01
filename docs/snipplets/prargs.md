@@ -1,6 +1,6 @@
 # Print argument list for testing
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: debug, arguments
+---- dataentry snipplet ---- snipplet_tags: debug, arguments
 LastUpdate_dt: 2013-03-23 Contributors: Snappy (IRC), Dan Douglas type:
 snipplet
 

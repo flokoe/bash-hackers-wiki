@@ -38,11 +38,11 @@ can catch it and act on it. Exit code range is from 0 to 255, where 0
 means success, and the rest mean either something failed, or there is an
 issue to report back to the calling program.
 
-\<wrap center round info 90%\> The simple command construct is the
+<wrap center round info 90%> The simple command construct is the
 **base** for all higher constructs. Everything you execute, from
 pipelines to functions, finally ends up in (many) simple commands.
 That's why Bash only has one method to [expand and execute a simple
-command](../syntax/grammar/parser_exec.md). \</wrap\>
+command](../syntax/grammar/parser_exec.md). </wrap>
 
 ## Pipelines
 
@@ -115,7 +115,7 @@ A list is a sequence of one or more [pipelines](../basicgrammar.md#pipelines)
 separated by one of the operators `;`, `&`, `&&`, or `││`, and
 optionally terminated by one of `;`, `&`, or `<newline>`.
 
-=\> It's a group of **pipelines** separated or terminated by **tokens**
+=> It's a group of **pipelines** separated or terminated by **tokens**
 that all have **different meanings** for Bash.
 
 Your whole Bash script technically is one big single list!
@@ -151,17 +151,17 @@ overview):
 
   Compound command syntax                                      Description
   ------------------------------------------------------------ ---------------------------------------------------------------------------------------------------------------------------------------------------------
-  `( <LIST> )`                                                 Execute `<LIST>` in an extra subshell =\> [article](../syntax/ccmd/grouping_subshell.md)
-  `{ <LIST> ; }`                                               Execute `<LIST>` as separate group (but not in a subshell) =\> [article](../syntax/ccmd/grouping_plain.md)
-  `(( <EXPRESSION> ))`                                         Evaluate the arithmetic expression `<EXPRESSION>` =\> [article](../syntax/ccmd/arithmetic_eval.md)
-  `[[ <EXPRESSION> ]]`                                         Evaluate the conditional expression `<EXPRESSION>` (aka \"the new test command\") =\> [article](../syntax/ccmd/conditional_expression.md)
-  `for <NAME> in <WORDS> ; do <LIST> ; done`                   Executes `<LIST>` while setting the variable `<NAME>` to one of `<WORDS>` on every iteration (classic for-loop) =\> [article](../syntax/ccmd/classic_for.md)
-  `for (( <EXPR1> ; <EXPR2> ; <EXPR3> )) ; do <LIST> ; done`   C-style for-loop (driven by arithmetic expressions) =\> [article](../syntax/ccmd/c_for.md)
-  `select <NAME> in <WORDS> ; do <LIST> ; done`                Provides simple menus =\> [article](../syntax/ccmd/user_select.md)
-  `case <WORD> in <PATTERN>) <LIST> ;; ... esac`               Decisions based on pattern matching - executing `<LIST>` on match =\> [article](../syntax/ccmd/case.md)
-  `if <LIST> ; then <LIST> ; else <LIST> ; fi`                 The if clause: makes decisions based on exit codes =\> [article](../syntax/ccmd/if_clause.md)
-  `while <LIST1> ; do <LIST2> ; done`                          Execute `<LIST2>` while `<LIST1>` returns TRUE (exit code) =\> [article](../syntax/ccmd/while_loop.md)
-  `until <LIST1> ; do <LIST2> ; done`                          Execute `<LIST2>` until `<LIST1>` returns TRUE (exit code) =\> [article](../syntax/ccmd/until_loop.md)
+  `( <LIST> )`                                                 Execute `<LIST>` in an extra subshell => [article](../syntax/ccmd/grouping_subshell.md)
+  `{ <LIST> ; }`                                               Execute `<LIST>` as separate group (but not in a subshell) => [article](../syntax/ccmd/grouping_plain.md)
+  `(( <EXPRESSION> ))`                                         Evaluate the arithmetic expression `<EXPRESSION>` => [article](../syntax/ccmd/arithmetic_eval.md)
+  `[[ <EXPRESSION> ]]`                                         Evaluate the conditional expression `<EXPRESSION>` (aka \"the new test command\") => [article](../syntax/ccmd/conditional_expression.md)
+  `for <NAME> in <WORDS> ; do <LIST> ; done`                   Executes `<LIST>` while setting the variable `<NAME>` to one of `<WORDS>` on every iteration (classic for-loop) => [article](../syntax/ccmd/classic_for.md)
+  `for (( <EXPR1> ; <EXPR2> ; <EXPR3> )) ; do <LIST> ; done`   C-style for-loop (driven by arithmetic expressions) => [article](../syntax/ccmd/c_for.md)
+  `select <NAME> in <WORDS> ; do <LIST> ; done`                Provides simple menus => [article](../syntax/ccmd/user_select.md)
+  `case <WORD> in <PATTERN>) <LIST> ;; ... esac`               Decisions based on pattern matching - executing `<LIST>` on match => [article](../syntax/ccmd/case.md)
+  `if <LIST> ; then <LIST> ; else <LIST> ; fi`                 The if clause: makes decisions based on exit codes => [article](../syntax/ccmd/if_clause.md)
+  `while <LIST1> ; do <LIST2> ; done`                          Execute `<LIST2>` while `<LIST1>` returns TRUE (exit code) => [article](../syntax/ccmd/while_loop.md)
+  `until <LIST1> ; do <LIST2> ; done`                          Execute `<LIST2>` until `<LIST1>` returns TRUE (exit code) => [article](../syntax/ccmd/until_loop.md)
 
 ## Shell Function Definitions
 

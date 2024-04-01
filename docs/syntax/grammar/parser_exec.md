@@ -10,12 +10,12 @@ evaluate and execute is the simple command.
 
 ## Simple command expansion
 
-\<div center round info 60%\>
+<div center round info 60%>
 
 -   <http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00040.html>
 -   <http://lists.research.att.com/pipermail/ast-developers/2013q2/002456.html>
 
-\</div\>
+</div>
 
 This step happens after the initial command line splitting.
 
@@ -69,8 +69,8 @@ Otherwise, if a command name results:
         entire script to terminate*
 
 The behavior regarding the variable assignment errors can be tested:
-\<div center round info
-60%\><http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00054.html>\</div\>
+<div center round info
+60%><http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00054.html></div>
 
 **[This one exits the script completely]{.underline}**
 

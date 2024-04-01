@@ -1,6 +1,6 @@
 # Using `awk` to deal with CSV that uses quoted/unquoted delimiters
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags : awk, csv
+---- dataentry snipplet ---- snipplet_tags : awk, csv
 LastUpdate_dt : 2010-07-31 Contributors : SiegX (IRC) type : snipplet
 
 ------------------------------------------------------------------------

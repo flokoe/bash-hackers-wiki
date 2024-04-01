@@ -209,7 +209,7 @@ Can be written as
 
 \...which is a kind of a hack, but hey, it works.
 
-\<div round info\>
+<div round info>
 
 #### More fun
 
@@ -234,7 +234,7 @@ In this case, the output is:
 
     eval printf "$arg"{,,}{,,}{,,}{,,}{,,}{,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}
 
-\</div\>
+</div>
 
 ## New in Bash 4.0
 

@@ -208,14 +208,14 @@ The `^` operator modifies the first character to uppercase, the `,`
 operator to lowercase. When using the double-form (`^^` and `,,`), all
 characters are converted.
 
-\<wrap center round info 60%\>
+<wrap center round info 60%>
 
 The (**currently undocumented**) operators `~` and `~~` reverse the case
 of the given text (in `PARAMETER`).`~` reverses the case of first letter
 of words in the variable while `~~` reverses case for all. Thanks to
 `Bushmills` and `geirha` on the Freenode IRC channel for this finding.
 
-\</wrap\>
+</wrap>
 
 [**Example: Rename all `*.txt` filenames to lowercase**]{.underline}
 
@@ -245,13 +245,13 @@ examples:
 Assume: `array=(This is some Text)`
 
 -   `echo "${array[@],}"`
-    -   =\> `this is some text`
+    -   => `this is some text`
 -   `echo "${array[@],,}"`
-    -   =\> `this is some text`
+    -   => `this is some text`
 -   `echo "${array[@]^}"`
-    -   =\> `This Is Some Text`
+    -   => `This Is Some Text`
 -   `echo "${array[@]^^}"`
-    -   =\> `THIS IS SOME TEXT`
+    -   => `THIS IS SOME TEXT`
 
 ```{=html}
 <!-- -->
@@ -267,7 +267,7 @@ Assume: `array=(This is some Text)`
 
 This expands to a list of all set **variable names** beginning with the
 string `PREFIX`. The elements of the list are separated by the first
-character in the `IFS`-variable (\<space\> by default).
+character in the `IFS`-variable (<space> by default).
 
 This will show all defined variable names (not values!) beginning with
 \"BASH\":
@@ -336,16 +336,16 @@ filename**. Just look at the following list with examples:
 
 -   **Get name without extension**
     -   `${FILENAME%.*}`
-    -   =\> `bash_hackers.txt`
+    -   => `bash_hackers.txt`
 -   **Get extension**
     -   `${FILENAME##*.}`
-    -   =\> `bash_hackers.txt`
+    -   => `bash_hackers.txt`
 -   **Get directory name**
     -   `${PATHNAME%/*}`
-    -   =\> `/home/bash/bash_hackers.txt`
+    -   => `/home/bash/bash_hackers.txt`
 -   **Get filename**
     -   `${PATHNAME##*/}`
-    -   =\> `/home/bash/bash_hackers.txt`
+    -   => `/home/bash/bash_hackers.txt`
 
 These are the syntaxes for filenames with a single extension. Depending
 on your needs, you might need to adjust shortest/longest match.
@@ -362,7 +362,7 @@ expansion):
 Assume: `array=(This is a text)`
 
 -   `echo "${array[@]%is}"`
-    -   =\> `Th a text`
+    -   => `Th a text`
     -   (it was: `This is a text`)
 
 All other variants of this expansion behave the same.
@@ -397,7 +397,7 @@ example string:
 
     ${MYSTRING//conservative/happy}
 
-=\>
+=>
 `Be liberal in what you accept, and conservativehappy in what you send`
 
 Since there is only one \"conservative\" in that example, it really
@@ -410,13 +410,13 @@ but let's substitute it with \"by\".
 
     ${MYSTRING/in/by}
 
-=\> `Be liberal inby what you accept, and conservative in what you send`
+=> `Be liberal inby what you accept, and conservative in what you send`
 
 [**Second form: Substitute all occurrences**]{.underline}
 
     ${MYSTRING//in/by}
 
-=\>
+=>
 `Be liberal inby what you accept, and conservative inby what you send`
 
 [**Anchoring**]{.underline} Additionally you can \"anchor\" an
@@ -447,9 +447,9 @@ A simple example, changing the (lowercase) letter `t` to `d`:
 Assume: `array=(This is a text)`
 
 -   `echo "${array[@]/t/d}"`
-    -   =\> `This is a dext`
+    -   => `This is a dext`
 -   `echo "${array[@]//t/d}"`
-    -   =\> `This is a dexd`
+    -   => `This is a dexd`
 
 ## String length
 
@@ -462,7 +462,7 @@ expanded. Again, a quote from a big man, to have a test text:
 
 Using echo `${#MYSTRING}`\...
 
-=\> `64`
+=> `64`
 
 The length is reported in characters, not in bytes. Depending on your
 environment this may not always be the same (multibyte-characters, like
@@ -484,9 +484,9 @@ Example:
 Assume: `array=(This is a text)`
 
 -   `echo ${#array[1]}`
-    -   =\> 2 (the word \"is\" has a length of 2)
+    -   => 2 (the word \"is\" has a length of 2)
 -   `echo ${#array[@]}`
-    -   =\> 4 (the array contains 4 elements)
+    -   => 4 (the array contains 4 elements)
 
 [**Attention:**]{.underline} The number of used elements does not need
 to conform to the highest index. Sparse arrays are possible in Bash,
@@ -520,7 +520,7 @@ that the offset 0 is the first character:
 
     echo ${MYSTRING:35}
 
-=\>
+=>
 `<del>Be liberal in what you accept, and </del>conservative in what you send`
 
 ### Using Offset and Length
@@ -529,7 +529,7 @@ In the second form we also give a length value:
 
     echo ${MYSTRING:35:12}
 
-=\>
+=>
 `<del>Be liberal in what you accept, and </del>conservative<del> in what you send</del>`
 
 ### Negative Offset Value
@@ -554,7 +554,7 @@ then:
 
     echo "${MYSTRING:11:-17}"
 
-=\>
+=>
 `<del>Be liberal </del>in what you accept, and conservative<del> in what you send</del>`
 
 This works since Bash 4.2-alpha, see also
@@ -575,9 +575,9 @@ Example:
 Assume: `array=(This is a text)`
 
 -   `echo ${array[0]:2:2}`
-    -   =\> `is` (the \"is\" in \"This\", array element 0)
+    -   => `is` (the \"is\" in \"This\", array element 0)
 -   `echo ${array[@]:1:2}`
-    -   =\> `is a` (from element 1 inclusive, 2 elements are expanded,
+    -   => `is a` (from element 1 inclusive, 2 elements are expanded,
         i.e. element 1 and 2)
 
 ## Use a default value

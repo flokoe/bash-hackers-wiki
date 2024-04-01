@@ -48,7 +48,7 @@ backslash:
 -   The backslash changes the quotes into literals - otherwise Bash
     would interpret them
 
-The sequence `\<newline>` (an unquoted backslash, followed by a
+The sequence `<newline>` (an unquoted backslash, followed by a
 `<newline>` character) is interpreted as **line continuation**. It is
 removed from the input stream and thus effectively ignored. Use it to
 beautify your code:

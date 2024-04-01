@@ -341,8 +341,8 @@ read into memory.
     # equivalent
     ed -s file <<< 'g/foo/'
 
-The name `grep` is derived from the notaion `g/RE/p` (global =\> regular
-expression =\> print). ref
+The name `grep` is derived from the notaion `g/RE/p` (global => regular
+expression => print). ref
 <http://www.catb.org/~esr/jargon/html/G/grep.html>
 
 ### wc -l

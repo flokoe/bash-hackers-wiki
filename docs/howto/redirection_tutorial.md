@@ -44,7 +44,7 @@ connected to `/dev/pts/5`.
 
 # Simple Redirections
 
-## Output Redirection \"n\> file\"
+## Output Redirection \"n> file\"
 
 `>` is probably the simplest redirection.
 
@@ -97,7 +97,7 @@ pointing to `file`. The command will then start with:
 What will the command do with this descriptor? It depends. Often
 nothing. We will see later why we might want other file descriptors.
 
-## Input Redirection \"n\< file\"
+## Input Redirection \"n< file\"
 
 When you run a commandusing `command < file`, it changes the file
 descriptor `0` so that it looks like:
@@ -148,7 +148,7 @@ descriptors.
 
 # More On File Descriptors
 
-## Duplicating File Descriptor 2\>&1
+## Duplicating File Descriptor 2>&1
 
 We have seen how to open (or redirect) file descriptors. Let us see how
 to duplicate them, starting with the classic `2>&1`. What does this
@@ -213,9 +213,9 @@ Similarly for output file descriptors, writing a line to file descriptor
 `s` will append a line to a file as will writing a line to file
 descriptor `t`.
 
-\<note tip\>The syntax is somewhat confusing in that you would think
+<note tip>The syntax is somewhat confusing in that you would think
 that the arrow would point in the direction of the copy, but it's
-reversed. So it's `target>&source` effectively.\</note\>
+reversed. So it's `target>&source` effectively.</note>
 
 So, as a simple example (albeit slightly contrived), is the following:
 
@@ -225,7 +225,7 @@ So, as a simple example (albeit slightly contrived), is the following:
     exec 1>&3         # Copy 3 back into 1
     echo Done         # Output to original stdout
 
-## Order Of Redirection, i.e., \"\> file 2\>&1\" vs. \"2\>&1 \>file\"
+## Order Of Redirection, i.e., \"> file 2>&1\" vs. \"2>&1 >file\"
 
 While it doesn't matter where the redirections appears on the command
 line, their order does matter. They are set up from left to right.
@@ -313,7 +313,7 @@ Then it sees our duplication `2>&1`:
 
 And voila, both `1` and `2` are redirected to file.
 
-## Why sed 's/foo/bar/\' file \>file Doesn't Work
+## Why sed 's/foo/bar/\' file >file Doesn't Work
 
 This is a common error, we want to modify a file using something that
 reads from a file and writes the result to `stdout`. To do this, we
@@ -322,7 +322,7 @@ as we have seen, the redirections are setup before the command is
 actually executed.
 
 So **BEFORE** sed starts, standard output has already been redirected,
-with the additional side effect that, because we used \>, \"file\" gets
+with the additional side effect that, because we used >, \"file\" gets
 truncated. When `sed` starts to read the file, it contains nothing.
 
 ## exec
@@ -438,11 +438,11 @@ it. It's probably better to do something like:
     #we don't need 3 any more
 
 I\'ve seen some people using this as a way to discard, say stderr, using
-something like: command 2\>&-. Though it might work, I\'m not sure if
+something like: command 2>&-. Though it might work, I\'m not sure if
 you can expect all applications to behave correctly with a closed
 stderr.
 
-When in doubt, I use 2\>/dev/null.
+When in doubt, I use 2>/dev/null.
 
 # An Example
 
@@ -628,7 +628,7 @@ The shell is pretty loose about what it considers a valid redirect.
 While opinions probably differ, this author has some (strong)
 recommendations:
 
--   **Always** keep redirections \"tightly grouped\" \-- that is, **do
+-   **Always** keep redirections \"tightly grouped\" -- that is, **do
     not** include whitespace anywhere within the redirection syntax
     except within quotes if required on the RHS (e.g. a filename that
     contains a space). Since shells fundamentally use whitespace to

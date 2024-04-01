@@ -372,7 +372,7 @@ operation status of your script.
 
 You know: **\"One of the main causes of the fall of the Roman Empire was
 that, lacking zero, they had no way to indicate successful termination
-of their C programs.\"** *\-- Robert Firth*
+of their C programs.\"** *-- Robert Firth*
 
 ## Misc
 

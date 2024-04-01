@@ -227,7 +227,7 @@ which all do approximately the same thing. ksh93 and mksh have virtually
 identical syntax and semantics for coprocs. A *list* operator: `|&` is
 added to the language which runs the preceding *pipeline* as a coprocess
 (This is another reason not to use the special `|&` pipe operator in
-Bash \-- its syntax is conflicting). The `-p` option to the `read` and
+Bash -- its syntax is conflicting). The `-p` option to the `read` and
 `print` builtins can then be used to read and write to the pipe of the
 coprocess (whose FD isn't yet known). Special redirects are added to
 move the last spawned coprocess to a different FD: `<&p` and `>&p`, at
@@ -261,7 +261,7 @@ The ability to use multiple coprocesses in Bash is considered
 \"experimental\". Bash will throw an error if you attempt to start more
 than one. This may be overridden at compile-time with the
 `MULTIPLE_COPROCS` option. However, at this time there are still issues
-\-- see the above mailing list discussion.
+-- see the above mailing list discussion.
 
 ## See also
 

@@ -34,7 +34,7 @@ Option-switch parsing (e.g. `-h` for displaying help) is not performed
 at this point.
 
 See also [the dictionary entry for
-\"parameter\"](../dict/terms/parameter.md).
+\"parameter\"](../dict/parameter.md).
 
 ## The first argument
 
@@ -403,4 +403,4 @@ There is a [small tutorial dedicated to
 -   Internal: [Substring expansion on a
     parameter](../syntax/pe.md#substring_expansion) (for equivalent syntax
     for mass-expansion)
--   Dictionary, internal: [parameter](../dict/terms/parameter.md)
+-   Dictionary, internal: [parameter](../dict/parameter.md)

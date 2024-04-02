@@ -43,4 +43,4 @@ executed the `exit` command, because the shell exits.
 ## See also
 
 -   [The trap builtin command](../../commands/builtin/trap.md)
--   [The exit status](../../dict/terms/exit_status.md)
+-   [The exit status](../../dict/exit_status.md)

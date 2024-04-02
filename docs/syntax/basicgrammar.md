@@ -119,7 +119,7 @@ syntax:
 
 FIXME Missing an additional article about list operators
 
-A list is a sequence of one or more [pipelines](../basicgrammar.md#pipelines)
+A list is a sequence of one or more [pipelines](#pipelines)
 separated by one of the operators `;`, `&`, `&&`, or `││`, and
 optionally terminated by one of `;`, `&`, or `<newline>`.
 
@@ -176,7 +176,7 @@ overview):
 FIXME Missing an additional article about shell functions
 
 A shell function definition makes a [compound
-command](../basicgrammar.md#compound_commands) available via a new name. When
+command](#compound_commands) available via a new name. When
 the function runs, it has its own \"private\" set of positional
 parameters and I/O descriptors. It acts like a script-within-the-script.
 Simply stated: **You\'ve created a new command.**
@@ -191,7 +191,7 @@ looks like:
     print_help() { echo "Sorry, no help available"; }
 
 As above, a function definition can have any [compound
-command](../basicgrammar.md#compound_commands) as a body. Structures like
+command](#compound_commands) as a body. Structures like
 
     countme() for ((x=1;x<=9;x++)); do echo $x; done
 
@@ -273,17 +273,17 @@ Weird function names should not be used. Quote from the maintainer:
 
 ## Grammar summary
 
--   a [simple command](../basicgrammar.md#simple_commands) is just a command
+-   a [simple command](#simple_commands) is just a command
     and its arguments
--   a [pipeline](../basicgrammar.md#pipelines) is one or more [simple
-    command](../basicgrammar.md#simple_commands) probably connected in a pipe
--   a [list](../basicgrammar.md#lists) is one or more
-    [pipelines](../basicgrammar.md#pipelines) connected by special operators
--   a [compound command](../basicgrammar.md#compound_commands) is a
-    [list](../basicgrammar.md#lists) or a special command that forms a new
+-   a [pipeline](#pipelines) is one or more [simple
+    command](#simple_commands) probably connected in a pipe
+-   a [list](#lists) is one or more
+    [pipelines](#pipelines) connected by special operators
+-   a [compound command](#compound_commands) is a
+    [list](#lists) or a special command that forms a new
     meta-command
--   a [function definition](../basicgrammar.md#shell_function_definitions)
-    makes a [compound command](../basicgrammar.md#compound_commands) available
+-   a [function definition](#shell_function_definitions)
+    makes a [compound command](#compound_commands) available
     under a new name, and a separate environment
 
 ## Examples for classification
@@ -312,12 +312,12 @@ FIXME more\...
       cp mymusic.mp3 /data/mp3
     fi
 
--   the [compound command](../basicgrammar.md#compound_commands) for the `if`
+-   the [compound command](#compound_commands) for the `if`
     clause
--   the [list](../basicgrammar.md#lists) that `if` **checks** actually
-    contains the [simple command](../basicgrammar.md#simple_commands)
+-   the [list](#lists) that `if` **checks** actually
+    contains the [simple command](#simple_commands)
     `[ -d /data/mp3 ]`
--   the [list](../basicgrammar.md#lists) that `if` **executes** contains a
+-   the [list](#lists) that `if` **executes** contains a
     simple command (`cp mymusic.mp3 /data/mp3`)
 
 Let's invert test command exit code, only one thing changes:
@@ -326,8 +326,8 @@ Let's invert test command exit code, only one thing changes:
       cp mymusic.mp3 /data/mp3
     fi
 
--   the [list](../basicgrammar.md#lists) that `if` **checks** contains a
-    [pipeline](../basicgrammar.md#pipelines) now (because of the `!`)
+-   the [list](#lists) that `if` **checks** contains a
+    [pipeline](#pipelines) now (because of the `!`)
 
 ## See also
 

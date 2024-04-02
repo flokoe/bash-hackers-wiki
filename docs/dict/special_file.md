@@ -14,6 +14,6 @@ too.
 
 ## See also
 
--   [file](../dict/terms/file.md)
--   [filename](../dict/terms/hardlink.md)
--   [directory](../dict/terms/directory.md)
+-   [file](../dict/file.md)
+-   [filename](../dict/hardlink.md)
+-   [directory](../dict/directory.md)

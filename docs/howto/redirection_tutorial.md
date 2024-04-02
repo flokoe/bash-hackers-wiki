@@ -663,7 +663,7 @@ recommendations:
 <!-- -->
 ```
 -   **Never** use the Csh `&>foo` and `>&foo` shorthand redirects. Use
-    the long form `>foo 2>&1`. (see: [obsolete](../obsolete.md))
+    the long form `>foo 2>&1`. (see: [obsolete](../scripting/obsolete.md))
 
 ```{=html}
 <!-- -->

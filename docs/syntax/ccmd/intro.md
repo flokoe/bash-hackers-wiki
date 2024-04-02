@@ -8,8 +8,8 @@ them. That is what the essential \"Bash language\" is made of.
 
 ## Command grouping
 
--   grouping: [command grouping](../../grouping_plain.md)
--   grouping again: [command grouping in a subshell](../../grouping_subshell.md)
+-   grouping: [command grouping](grouping_plain.md)
+-   grouping again: [command grouping in a subshell](grouping_subshell.md)
 
 ## Conditional reactions
 
@@ -18,18 +18,18 @@ Note that conditionals can also be scripted using
 commands.
 
 -   the \"new\" test command: [conditional
-    expression](../../conditional_expression.md)
--   if-clause: [conditional branching](../../if_clause.md)
--   case statement: [pattern-based branching](../../case.md)
+    expression](conditional_expression.md)
+-   if-clause: [conditional branching](if_clause.md)
+-   case statement: [pattern-based branching](case.md)
 
 ## Loops
 
--   [classic for-loop](../../classic_for.md)
--   [C-style for-loop](../../c_for.md)
--   [while loop](../../while_loop.md)
--   [until loop](../../until_loop.md)
+-   [classic for-loop](classic_for.md)
+-   [C-style for-loop](c_for.md)
+-   [while loop](while_loop.md)
+-   [until loop](until_loop.md)
 
 ## Misc
 
--   math: [arithmetic evaluation](../../arithmetic_eval.md)
--   menus: [user selections](../../user_select.md)
+-   math: [arithmetic evaluation](arithmetic_eval.md)
+-   menus: [user selections](user_select.md)

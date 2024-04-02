@@ -138,7 +138,7 @@ In the case of `eval` it isn't recommended to use this behavior,
 because unlike e.g. [declare](../../commands/builtin/declare.md), the initial
 expansion is still subject to all expansions including
 [word-splitting](../../syntax/expansion/wordsplit.md) and [pathname
-expansion](../../syntax/expansion/glob.md).
+expansion](../../syntax/expansion/globs.md).
 
      $ ( set -x; touch 'x+=(\[[123]\]=*)' 'x+=([3]=yo)'; eval x+=(*); echo "${x[@]}" )
     + touch 'x+=(\[[123]\]=*)' 'x+=([3]=yo)'
@@ -151,7 +151,7 @@ expansion](../../syntax/expansion/glob.md).
 Other commands known to be affected by compound assignment arguments
 include: [let](../../commands/builtin/let.md),
 [declare](../../commands/builtin/declare.md),
-[typeset](../../commands/builtin/typeset.md), [local](../../commands/builtin/local.md),
+`typeset`, [local](../../commands/builtin/local.md),
 [export](../../commands/builtin/export.md), and
 [readonly](../../commands/builtin/readonly.md). More oddities below show both
 similarities and differences to commands like

@@ -4,16 +4,16 @@ Also the article for:
 
 -   filename
 
-A hardlink associates a *filename* with a [file](../dict/terms/file.md). That
+A hardlink associates a *filename* with a [file](../dict/file.md). That
 name is an entry in a directory listing. Of course a file can have more
 hardlinks to it (usually the number of hardlinks to a file is limited),
 but all hardlinks to a file must reside on the same
-[filesystem](../dict/terms/filesystem.md) as the file itself!
+`filesystem` as the file itself!
 
 What you usually call a file is just a name for that file, and thus, a
 hardlink.
 
-The difference between a [symbolic link](../dict/terms/symlink.md) and a hard
+The difference between a [symbolic link](../dict/symlink.md) and a hard
 link is that there is no easy way to differentiate between a \'real\'
 file and a hard link, let's take a look at the example:
 
@@ -46,6 +46,5 @@ is freed when the last hard link pointing to it is deleted.
 
 ## See also
 
--   [file](../dict/terms/file.md)
--   [filesystem](../dict/terms/filesystem.md)
--   [symlink](../dict/terms/symlink.md)
+-   [file](../dict/file.md)
+-   [symlink](../dict/symlink.md)

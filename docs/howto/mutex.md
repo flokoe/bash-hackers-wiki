@@ -92,7 +92,7 @@ atomic. Maybe a while loop checking continously for the existence of the
 lock in the background and sending a signal such as USR1, if the
 directory is not found, can be done. The signal would need to be
 trapped. I am sure there there is a better solution than this
-suggestion* --- *[sn18](sunny_delhi18@yahoo.com) 2009/12/19 08:24*
+suggestion* --- **sn18** 2009/12/19 08:24*
 
 **Note:** While perusing the Internet, I found some people asking if the
 `mkdir` method works \"on all filesystems\". Well, let's say it should.

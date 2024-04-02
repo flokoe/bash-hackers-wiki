@@ -27,7 +27,7 @@ set flags (true for most commands on UNIX(r)).
   Flag   Optionname                                                 Description
   ------ ---------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   `-a`   `allexport`                                                Automatically mark new and altered variables to be exported to subsequent environments.
-  `-b`   `notify`                                                   Don\'t wait for the next prompt to print when showing the reports for a terminated background job (only with job control)
+  `-b`   `notify`                                                   Don't wait for the next prompt to print when showing the reports for a terminated background job (only with job control)
   `-e`   `errexit`                                                  When set, the shell exits when a simple command in a command list exits non-zero (`FALSE`). This is not done in situations, where the exit code is already checked (`if`, `while`, `until`, `||`, `&&`)
   `-f`   `noglob`                                                   Disable [pathname expansion](../../syntax/expansion/globs.md) (globbing)
   `-h`   `hashall`                                                  Remembers the location of commands when they\'re called (hashing). Enabled by default.
@@ -41,10 +41,10 @@ set flags (true for most commands on UNIX(r)).
   `-v`   `verbose`                                                  Print shell input lines as they are read - useful for debugging.
   `-x`   `xtrace`                                                   Print commands just before execution - with all expansions and substitutions done, and words marked - useful for debugging.
   `-B`   `braceexpand`                                              The shell performs [brace expansion](../../syntax/expansion/brace.md) This is on by default.
-  `-C`   \<BOOKMARK:tag_noclobber\>`noclobber`                      Don\'t overwrite files on redirection operations. You can override that by specifying the `>|` redirection operator when needed. See [redirection](../../syntax/redirection.md)
+  `-C`   <BOOKMARK:tag_noclobber>`noclobber`                      Don't overwrite files on redirection operations. You can override that by specifying the `>|` redirection operator when needed. See [redirection](../../syntax/redirection.md)
   `-E`   `errtrace`                                                 `ERR`-traps are inherited by by shell functions, command substitutions, and commands executed in a subshell environment.
   `-H`   `histexpand`                                               Enable `!`-style history expansion. Defaults to `on` for interactive shells.
-  `-P`   `physical`                                                 Don\'t follow symlinks when changing directories - use the physical filesystem structure.
+  `-P`   `physical`                                                 Don't follow symlinks when changing directories - use the physical filesystem structure.
   `-T`   `functrace`                                                `DEBUG`- and `RETURN`-traps are inherited by subsequent environments, like `-E` for `ERR` trap.
   `-`                                                               \"End of options\" - all following arguments are assigned to the positional parameters, even when they begin with a dash. `-x` and `-v` options are turned off. Positional parameters are unchanged (unlike using `--`!) when no further arguments are given.
   `--`                                                              If no arguments follow, the positional parameters are unset. With arguments, the positional parameters are set, even if the strings begin with a `-` (dash) like an option.

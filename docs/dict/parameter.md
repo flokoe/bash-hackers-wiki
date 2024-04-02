@@ -20,7 +20,7 @@ A shell variable is a parameter denoted by a *variable name*:
 -   containing only alphanumeric characters and underscores
 -   beginning with an alphabetic character or an underscore
 
-A value can be assigned to a variable, using the variable\'s name and an
+A value can be assigned to a variable, using the variable's name and an
 equal-sign:
 
     NAME=VALUE
@@ -37,9 +37,9 @@ The nullstring is a valid value:
 
 A positional parameter is denoted by a number other than `0` (zero).
 
-Positional parameters reflect the shell\'s arguments that are not given
+Positional parameters reflect the shell's arguments that are not given
 to the shell itself (in practise, the script arguments, also the
-function arguments). You can\'t directly assign to the positional
+function arguments). You can't directly assign to the positional
 parameters, however, [the set builtin command](../commands/builtin/set.md)
 can be used to indirectly set them.
 

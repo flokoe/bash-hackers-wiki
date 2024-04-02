@@ -34,7 +34,7 @@ Special events
   `EXIT`     0      executed on shell exit
   `DEBUG`           executed before every simple command
   `RETURN`          executed when a shell function or a sourced code finishes executing
-  `ERR`             executed each time a command\'s failure would cause the shell to exit when the [`-e` option (`errexit`)](../../commands/builtin/set.md) is enabled
+  `ERR`             executed each time a command's failure would cause the shell to exit when the [`-e` option (`errexit`)](../../commands/builtin/set.md) is enabled
 
 ### Options
 

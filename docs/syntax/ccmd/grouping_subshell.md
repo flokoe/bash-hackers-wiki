@@ -32,4 +32,4 @@ echo "$PWD" # Still in the original directory.
 ## See also
 
 -   [grouping commands](../../syntax/ccmd/grouping_plain.md)
--   [Subshells on Greycat\'s wiki](http://mywiki.wooledge.org/SubShell)
+-   [Subshells on Greycat's wiki](http://mywiki.wooledge.org/SubShell)

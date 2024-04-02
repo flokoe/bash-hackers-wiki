@@ -14,20 +14,20 @@ The most simple example of this behaviour is a referenced variable:
     mystring="Hello world"
     echo "$mystring"
 
-The `echo` program definitely doesn\'t care about what a shell variable
-is. It is Bash\'s job to deal with the variable. Bash **expands** the
+The `echo` program definitely doesn't care about what a shell variable
+is. It is Bash's job to deal with the variable. Bash **expands** the
 string \"`$mystring`\" to \"`Hello world`\", so that `echo` will only
 see `Hello world`, not the variable or anything else!
 
 After all these expansions and substitutions are done, all quotes that
 are not meant literally (i.e., [the quotes that marked contiguous
 words](../../syntax/quoting.md), as part of the shell syntax) are removed from
-the commandline text, so the called program won\'t see them. This step
+the commandline text, so the called program won't see them. This step
 is called **quote-removal**.
 
 ## Overview
 
-Saw a possible expansion syntax but don\'t know what it is? Here\'s a
+Saw a possible expansion syntax but don't know what it is? Here's a
 small list.
 
 -   [Parameter expansion](../../syntax/pe.md) (it has its own [overview

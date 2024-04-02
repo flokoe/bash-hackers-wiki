@@ -10,12 +10,12 @@ evaluate and execute is the simple command.
 
 ## Simple command expansion
 
-\<div center round info 60%\>
+<div center round info 60%>
 
 -   <http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00040.html>
 -   <http://lists.research.att.com/pipermail/ast-developers/2013q2/002456.html>
 
-\</div\>
+</div>
 
 This step happens after the initial command line splitting.
 
@@ -69,8 +69,8 @@ Otherwise, if a command name results:
         entire script to terminate*
 
 The behavior regarding the variable assignment errors can be tested:
-\<div center round info
-60%\><http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00054.html>\</div\>
+<div center round info
+60%><http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00054.html></div>
 
 **[This one exits the script completely]{.underline}**
 
@@ -113,7 +113,7 @@ As of Bash Version 4, when a command search fails, the shell executes a
 shell function named `command_not_found_handle()` using the failed
 command as arguments. This can be used to provide user friendly messages
 or install software packages etc. Since this function runs in a separate
-execution environment, you can\'t really influence the main shell with
+execution environment, you can't really influence the main shell with
 it (changing directory, setting variables).
 
 FIXME to be continued

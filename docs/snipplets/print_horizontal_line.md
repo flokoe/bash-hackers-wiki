@@ -1,13 +1,13 @@
 # Print a horizontal line
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: terminal, line
+---- dataentry snipplet ---- snipplet_tags: terminal, line
 LastUpdate_dt: 2010-07-31 Contributors: Jan Schampera, prince_jammys,
 ccsalvesen, others type: snipplet
 
 ------------------------------------------------------------------------
 
 The purpose of this small code collection is to show some code that
-draws a horizontal line using as less external tools as possible (it\'s
+draws a horizontal line using as less external tools as possible (it's
 not a big deal to do it with AWK or Perl, but with pure or nearly-pure
 Bash it gets more interesting).
 
@@ -66,7 +66,7 @@ printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 This one is a bit tricky. The format for the `printf` command is `%.0s`,
 which specified a field with the **maximum** length of **zero**. After
 this field, `printf` is told to print a dash. You might remember that
-it\'s the nature of `printf` to repeat, if the number of conversion
+it's the nature of `printf` to repeat, if the number of conversion
 specifications is less than the number of given arguments. With brace
 expansion `{1..20}`, 20 arguments are given (you could easily write
 `1 2 3 4 ... 20`, of course!). Following happens: The **zero-length
@@ -98,7 +98,7 @@ principle as this [string reverse
 example](../commands/builtin/eval.md#expansion_side-effects). It completely
 depends on Bash due to its brace expansion evaluation order and array
 parameter parsing details. As above, the eval only inserts the COLUMNS
-expansion into the expression and isn\'t involved in the rest, other
+expansion into the expression and isn't involved in the rest, other
 than to put the `_` value into the environment of the `_[0]` expansion.
 This works well since we\'re not creating one set of arguments and then
 editing or deleting them to create another as in the previous examples.

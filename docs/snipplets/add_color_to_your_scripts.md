@@ -1,6 +1,6 @@
 # Add Color to your scripts
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags : terminal, color
+---- dataentry snipplet ---- snipplet_tags : terminal, color
 LastUpdate_dt : 2013-03-23 Contributors : Frank Lazzarini, Dan Douglas
 type : snipplet
 
@@ -8,7 +8,7 @@ type : snipplet
 
 Make your scripts output more readable using bash colors. Simply add
 these variables to your script, and you will be able to echo in color.
-(I haven\'t added all the colors available, just some basics)
+(I haven't added all the colors available, just some basics)
 
     # Colors
     ESC_SEQ="\x1b["
@@ -34,7 +34,7 @@ hardwiring codes.
 
 This snipplet sets up associative arrays for basic color codes using
 `tput` for Bash, ksh93 or zsh. You can pass it variable names to
-correspond with a collection of codes. There\'s a `main` function with
+correspond with a collection of codes. There's a `main` function with
 example usage.
 
 ``` bash

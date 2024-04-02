@@ -56,7 +56,7 @@ redirected to the pipe.
 #### Avoid the final pipeline subshell
 
 The traditional Ksh workaround to avoid the subshell when doing
-`command | while read` is to use a coprocess. Unfortunately, Bash\'s
+`command | while read` is to use a coprocess. Unfortunately, Bash's
 behavior differs.
 
 In Ksh you would do:
@@ -81,14 +81,14 @@ bash: read: line: invalid file descriptor specification
 By the time we start reading from the output of the coprocess, the file
 descriptor has been closed.
 
-See [this FAQ entry on Greg\'s
+See [this FAQ entry on Greg's
 wiki](http://mywiki.wooledge.org/BashFAQ/024) for other pipeline
 subshell workarounds.
 
 #### Buffering
 
-In the first example, we GNU awk\'s `fflush()` command. As always, when
-you use pipes the I/O operations are buffered. Let\'s see what happens
+In the first example, we GNU awk's `fflush()` command. As always, when
+you use pipes the I/O operations are buffered. Let's see what happens
 with `sed`:
 
 ``` bash
@@ -100,9 +100,9 @@ nothing read
 ```
 
 Even though this example is the same as the first `awk` example, the
-`read` doesn\'t return because the output is waiting in a buffer.
+`read` doesn't return because the output is waiting in a buffer.
 
-See [this faq entry on Greg\'s
+See [this faq entry on Greg's
 wiki](http://mywiki.wooledge.org/BashFAQ/009) for some workarounds and
 more information on buffering issues.
 
@@ -147,9 +147,9 @@ Here, fd 3 is inherited.
 
 ### Anonymous Coprocess
 
-Unlike ksh, Bash doesn\'t have true anonymous coprocesses. Instead, Bash
+Unlike ksh, Bash doesn't have true anonymous coprocesses. Instead, Bash
 assigns FDs to a default array named `COPROC` if no `NAME` is supplied.
-Here\'s an example:
+Here's an example:
 
 ``` bash
 $ coproc awk '{print "foo" $0;fflush()}'
@@ -171,7 +171,7 @@ $ IFS= read -ru ${COPROC[0]} x; printf '%s\n' "$x"
 foobar
 ```
 
-When we don\'t need our command anymore, we can kill it via its pid:
+When we don't need our command anymore, we can kill it via its pid:
 
     $ kill $COPROC_PID
     $
@@ -209,10 +209,10 @@ exec >&${tee[1]} 2>&1
 
 -   The `coproc` keyword is not specified by POSIX(R)
 -   The `coproc` keyword appeared in Bash version 4.0-alpha
--   The `-p` option to Bash\'s `print` loadable is a NOOP and not
+-   The `-p` option to Bash's `print` loadable is a NOOP and not
     connected to Bash coprocesses in any way. It is only recognized as
     an option for ksh compatibility, and has no effect.
--   The `-p` option to Bash\'s `read` builtin conflicts with that of all
+-   The `-p` option to Bash's `read` builtin conflicts with that of all
     kshes and zsh. The equivalent in those shells is to add a `\?prompt`
     suffix to the first variable name argument to `read`. i.e., if the
     first variable name given contains a `?` character, the remainder of
@@ -227,23 +227,23 @@ which all do approximately the same thing. ksh93 and mksh have virtually
 identical syntax and semantics for coprocs. A *list* operator: `|&` is
 added to the language which runs the preceding *pipeline* as a coprocess
 (This is another reason not to use the special `|&` pipe operator in
-Bash \-- its syntax is conflicting). The `-p` option to the `read` and
+Bash -- its syntax is conflicting). The `-p` option to the `read` and
 `print` builtins can then be used to read and write to the pipe of the
-coprocess (whose FD isn\'t yet known). Special redirects are added to
+coprocess (whose FD isn't yet known). Special redirects are added to
 move the last spawned coprocess to a different FD: `<&p` and `>&p`, at
 which point it can be accessed at the new FD using ordinary redirection,
 and another coprocess may then be started, again using `|&`.
 
 zsh coprocesses are very similar to ksh except in the way they are
 started. zsh adds the shell reserved word `coproc` to the pipeline
-syntax (similar to the way Bash\'s `time` keyword works), so that the
-pipeline that follows is started as a coproc. The coproc\'s input and
+syntax (similar to the way Bash's `time` keyword works), so that the
+pipeline that follows is started as a coproc. The coproc's input and
 output FDs can then be accessed and moved using the same `read`/`print`
 `-p` and redirects used by the ksh shells.
 
 It is unfortunate that Bash chose to go against existing practice in
 their coproc implementation, especially considering it was the last of
-the major shells to incorporate this feature. However, Bash\'s method
+the major shells to incorporate this feature. However, Bash's method
 accomplishes the same without requiring nearly as much additional
 syntax. The `coproc` keyword is easy enough to wrap in a function such
 that it takes Bash code as an ordinary argument and/or stdin like
@@ -261,10 +261,10 @@ The ability to use multiple coprocesses in Bash is considered
 \"experimental\". Bash will throw an error if you attempt to start more
 than one. This may be overridden at compile-time with the
 `MULTIPLE_COPROCS` option. However, at this time there are still issues
-\-- see the above mailing list discussion.
+-- see the above mailing list discussion.
 
 ## See also
 
--   [Anthony Thyssen\'s Coprocess
+-   [Anthony Thyssen's Coprocess
     Hints](http://www.ict.griffith.edu.au/anthony/info/shell/co-processes.hints) -
     excellent summary of everything around the topic

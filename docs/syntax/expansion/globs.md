@@ -26,7 +26,7 @@ other `IFS`-characters they contain.
     be matched explicitly
 -   the dot at the beginning of a filename must be matched explicitly
     (also one following a `/` in the glob)
--   a glob that doesn\'t match a filename is unchanged and remains what
+-   a glob that doesn't match a filename is unchanged and remains what
     it is
 
 ## Customization
@@ -42,12 +42,12 @@ other `IFS`-characters they contain.
 -   when the shell option `dirspell` is set, Bash performs spelling
     corrections when matching directory names
 -   when the shell option `globstar` is set, the glob `**` will
-    recursively match all files and directories. This glob isn\'t
-    \"configurable\", i.e. you **can\'t** do something like `**.c` to
+    recursively match all files and directories. This glob isn't
+    \"configurable\", i.e. you **can't** do something like `**.c` to
     recursively get all `*.c` filenames.
 -   when the shell option `globasciiranges` is set, the bracket-range
     globs (e.g. `[A-Z]`) use C locale order rather than the configured
-    locale\'s order (i.e. `ABC...abc...` instead of e.g. `AaBbCc...`) -
+    locale's order (i.e. `ABC...abc...` instead of e.g. `AaBbCc...`) -
     since 4.3-alpha
 -   the variable [GLOBIGNORE](../../syntax/shellvars.md#GLOBIGNORE) can be set
     to a colon-separated list of patterns to be removed from the list
@@ -80,7 +80,7 @@ with an error, since no file named `*.txt` exists.
 
 Now, when the shell option `nullglob` is set, Bash will remove the
 entire glob from the command line. In case of the for-loop here, not
-even one iteration will be done. It just won\'t run.
+even one iteration will be done. It just won't run.
 
 So in our first example:
 

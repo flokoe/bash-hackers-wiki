@@ -1,6 +1,6 @@
 # Show size of a file
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: files, file size
+---- dataentry snipplet ---- snipplet_tags: files, file size
 LastUpdate_dt: 2010-07-31 Contributors: Frank Lazzarini type: snipplet
 
 ------------------------------------------------------------------------

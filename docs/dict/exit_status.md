@@ -36,9 +36,9 @@ purposes, like reporting a termination by a signal:
   --------- ------------------------------------------------------------------------------------------------------------------------------------------------------------
   0         success
   1-255     failure (in general)
-  126       the requested command (file) can\'t be executed (but was found)
+  126       the requested command (file) can't be executed (but was found)
   127       command (file) not found
-  128       according to ABS it\'s used to report an invalid argument to the exit builtin, but I wasn\'t able to verify that in the source code of Bash (see code 255)
+  128       according to ABS it's used to report an invalid argument to the exit builtin, but I wasn't able to verify that in the source code of Bash (see code 255)
   128 + N   the shell was terminated by the signal N (also used like this by various other programs)
   255       wrong argument to the exit builtin (see code 128)
 
@@ -51,7 +51,7 @@ control statements like `if` or `while`.
 ## Portability
 
 Tables of shell behavior involving non-portable side-effects or common
-bugs with exit statuses. Note heirloom doesn\'t support pipeline
+bugs with exit statuses. Note heirloom doesn't support pipeline
 negation (`! pipeline`).
 
 ### Misc
@@ -68,7 +68,7 @@ negation (`! pipeline`).
 
   `` eval echo \$? <&0`false` ``                                                                        1        1         1               1                 0                0       0         0          1
 
-  `while :; do ! break; done; echo $?`                                                                  1        1         1               1                 0                0       1         1          \-
+  `while :; do ! break; done; echo $?`                                                                  1        1         1               1                 0                0       1         1          -
 
   [discussion](https://lists.gnu.org/archive/html/bug-bash/2010-09/msg00009.html)`false; : | echo $?`   1        1         1               0                 1                1       1         1          0
 
@@ -90,9 +90,9 @@ transparency of the return builtin.
 
   `f() { return $?; }; false; f; echo $?`                  1      1         1               1       1      1      1      1         1
 
-  `f() { ! return; }; f; echo $?`                          0      0         1               0       0      0      1      1         \-
+  `f() { ! return; }; f; echo $?`                          0      0         1               0       0      0      1      1         -
 
-  `f() { ! return; }; false; f; echo $?`                   1      1         0               0       1      1      0      0         \-
+  `f() { ! return; }; false; f; echo $?`                   1      1         0               0       1      1      0      0         -
 
   `` f() { return; }; x=`false` f; echo $? ``              1      1         1               1       0      0      0      0         0
 

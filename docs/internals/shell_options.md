@@ -3,7 +3,7 @@
 ![](keywords>bash shell scripting options runtime variable behaviour)
 
 This information was taken from a Bash version \"`4.1`\", every now and
-then new options are added, so likely, this list isn\'t complete.
+then new options are added, so likely, this list isn't complete.
 
 The shell-options can be set with the [shopt builtin
 command](../commands/builtin/shopt.md).
@@ -252,7 +252,7 @@ the only possible completions. This option is enabled by default.
 
 If set, range expressions used in pattern matching behave as if in the
 traditional C locale when performing comparisons. That is, the current
-locale\'s collating sequence is not taken into account, so b will not
+locale's collating sequence is not taken into account, so b will not
 collate between A and B, and upper-case and lower-case ASCII characters
 will collate together.
 
@@ -490,7 +490,7 @@ There are two options that influence the parsing this way:
 -   `extglob`
 -   `extquote`
 
-Consequence: You **can\'t** use the new syntax (e.g. the extended
+Consequence: You **can't** use the new syntax (e.g. the extended
 globbing syntax) and the command to enable it **in the same line**.
 
     $ shopt -s extglob; echo !(*.txt) # this is the WRONG way!

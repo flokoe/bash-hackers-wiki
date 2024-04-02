@@ -28,7 +28,7 @@ mechanisms available in the language.
 
 The `((;;))` syntax at the top of the loop is not an ordinary
 [arithmetic compound command](../../syntax/ccmd/arithmetic_eval.md), but is part
-of the C-style for-loop\'s own syntax. The three sections separated by
+of the C-style for-loop's own syntax. The three sections separated by
 semicolons are [arithmetic expression](../../syntax/arith_expr.md) contexts.
 Each time one of the sections is to be evaluated, the section is first
 processed for: brace, parameter, command, arithmetic, and process
@@ -68,7 +68,7 @@ command](../../syntax/ccmd/arithmetic_eval.md) would be structured as:
       (( <EXPR3> ))
     done
 
-The equivalent `while` construct isn\'t exactly the same, because both,
+The equivalent `while` construct isn't exactly the same, because both,
 the `for` and the `while` loop behave differently in case you use the
 [continue](../../commands/builtin/continuebreak.md) command.
 
@@ -83,9 +83,9 @@ Bash, Ksh93, Mksh, and Zsh also provide an alternate syntax for the
       echo $x
     }
 
-This syntax is **not documented** and shouldn\'t be used. I found the
+This syntax is **not documented** and shouldn't be used. I found the
 parser definitions for it in 1.x code, and in modern 4.x code. My guess
-is that it\'s there for compatibility reasons. Unlike the other
+is that it's there for compatibility reasons. Unlike the other
 aforementioned shells, Bash does not support the analogous syntax for
 [case..esac](../../syntax/ccmd/case.md#portability_considerations).
 
@@ -96,15 +96,15 @@ The return status is that of the last command executed from `<LIST>`, or
 
 ## Alternatives and best practice
 
-\<div center round todo 60%\>TODO: Show some alternate usages involving
-functions and local variables for initialization.\</div\>
+<div center round todo 60%>TODO: Show some alternate usages involving
+functions and local variables for initialization.</div>
 
 ## Examples
 
 ### Simple counter
 
 A simple counter, the loop iterates 101 times (\"0\" to \"100\" are 101
-numbers -\> 101 runs!), and everytime the variable `x` is set to the
+numbers -> 101 runs!), and everytime the variable `x` is set to the
 current value.
 
 -   It **initializes** `x = 0`
@@ -132,7 +132,7 @@ will count from 0 to 100, but with a **step of 10**.
 
 This example loops through the bit-values of a Byte, beginning from 128,
 ending at 1. If that bit is set in the `testbyte`, it prints \"`1`\",
-else \"`0`\" =\> it prints the binary representation of the `testbyte`
+else \"`0`\" => it prints the binary representation of the `testbyte`
 value (8 bits).
 
     #!/usr/bin/env bash
@@ -161,7 +161,7 @@ value (8 bits).
 
     # vim: set fenc=utf-8 ff=unix ft=sh :
 
-\<div hide\>
+<div hide>
 
     testbyte=123
     for (( n = 128 ; n >= 1 ; n /= 2 )); do
@@ -173,10 +173,10 @@ value (8 bits).
     done
     echo
 
-\</div\>
+</div>
 
 Why that one begins at 128 (highest value, on the left) and not 1
-(lowest value, on the right)? It\'s easier to print from left to
+(lowest value, on the right)? It's easier to print from left to
 right\...
 
 We arrive at 128 for `n` through the recursive arithmetic expression
@@ -196,7 +196,7 @@ variables.
         printf '%*s\n' "$((n+1))" "$n"
     done
 
-\<code\> \~ \$ bash \<(xclip -o) 1
+<code> \~ \$ bash <(xclip -o) 1
 
     2
      3
@@ -216,20 +216,20 @@ variables.
      3
     2
 
-1 \</code\>
+1 </code>
 
 ## Portability considerations
 
--   C-style for loops aren\'t POSIX. They are available in Bash, ksh93,
+-   C-style for loops aren't POSIX. They are available in Bash, ksh93,
     and zsh. All 3 have essentially the same syntax and behavior.
--   C-style for loops aren\'t available in mksh.
+-   C-style for loops aren't available in mksh.
 
 ## Bugs
 
 -   *Fixed in 4.3*. ~~There appears to be a bug as of Bash 4.2p10 in
-    which command lists can\'t be distinguished from the for loop\'s
+    which command lists can't be distinguished from the for loop's
     arithmetic argument delimiter (both semicolons), so command
-    substitutions within the C-style for loop expression can\'t contain
+    substitutions within the C-style for loop expression can't contain
     more than one command.~~
 
 ## See also

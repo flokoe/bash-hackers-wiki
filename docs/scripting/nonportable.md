@@ -22,9 +22,9 @@ In these cases the portable syntax should be preferred.
 
              `command\ <<<\ WORD`                      `command <<MARKER WORD MARKER`                                                                                                                             a here-string, a special form of the here-document, avoid it in portable scripts!                                                                                                                                      POSIX(r)
 
-              `export VAR=VALUE`                           `VAR=VALUE export VAR`                                                                                                                         Though POSIX(r) allows it, some shells don\'t want the assignment and the exporting in one command                                                                                                                     POSIX(r), zsh, ksh, \...
+              `export VAR=VALUE`                           `VAR=VALUE export VAR`                                                                                                                         Though POSIX(r) allows it, some shells don't want the assignment and the exporting in one command                                                                                                                     POSIX(r), zsh, ksh, \...
 
-                 `(( MATH ))`                                  `: $(( MATH ))`                    POSIX(r) does\'t define an arithmetic compund command, many shells don\'t know it. Using the pseudo-command `:` and the arithmetic expansion `$(( ))` is a kind of workaround here. **Attention:** Not all shell support assignment like `$(( a = 1 + 1 ))`! Also see below for a probably more portable solution.          all POSIX(r) compatible shells
+                 `(( MATH ))`                                  `: $(( MATH ))`                    POSIX(r) does't define an arithmetic compund command, many shells don't know it. Using the pseudo-command `:` and the arithmetic expansion `$(( ))` is a kind of workaround here. **Attention:** Not all shell support assignment like `$(( a = 1 + 1 ))`! Also see below for a probably more portable solution.          all POSIX(r) compatible shells
 
              `[[\ EXPRESSION\ ]]`                             `[ EXPRESSION ]`\                                                                                      The Bashish test keyword is reserved by POSIX(r), but not defined. Use the old fashioned way with the `test` command. See [the classic test command](../commands/classictest.md)                                                                                    POSIX(r) and others
                                                                      or\                                                                                                                                                                                                                                                                                                                                              
@@ -38,9 +38,9 @@ In these cases the portable syntax should be preferred.
 ## Portability rationale
 
 Here is some assorted portability information. Take it as a small guide
-to make your scripts a bit more portable. It\'s not complete (it never
-will be!) and it\'s not very detailed (e.g. you won\'t find information
-about how which shell technically forks off which subshell). It\'s just
+to make your scripts a bit more portable. It's not complete (it never
+will be!) and it's not very detailed (e.g. you won't find information
+about how which shell technically forks off which subshell). It's just
 an assorted small set of portability guidelines. *-Thebonsai*
 
 FIXME UNIX shell gurus out there, please be patient with a newbie like
@@ -54,17 +54,17 @@ there are two possibilities:
 The *new value* is seen by subsequent programs
 
 -   without any special action (e.g. Bash)
--   only after an explicit export with `export VARIABLE` (e.g. Sun\'s
+-   only after an explicit export with `export VARIABLE` (e.g. Sun's
     `/bin/sh`)
 
-Since an extra `export` doesn\'t hurt, the safest and most portable way
+Since an extra `export` doesn't hurt, the safest and most portable way
 is to always (re-)export a changed variable if you want it to be seen by
 subsequent processes.
 
 ### Arithmetics
 
 Bash has a special compound command to do arithmetic without expansion.
-However, POSIX has no such command. In the table at the top, there\'s
+However, POSIX has no such command. In the table at the top, there's
 the `: $((MATH))` construct mentioned as possible alternative. Regarding
 the exit code, a 100% equivalent construct would be:
 
@@ -84,8 +84,8 @@ aritrhmetic expansions, so the most portable is *with quotes*.
 
 The overall problem with `echo` is, that there are 2 (maybe more)
 mainstream flavours around. The only case where you may safely use an
-`echo` on all systems is: Echoing non-variable arguments that don\'t
-start with a `-` (dash) and don\'t contain a `\` (backslash).
+`echo` on all systems is: Echoing non-variable arguments that don't
+start with a `-` (dash) and don't contain a `\` (backslash).
 
 Why? (list of known behaviours)
 
@@ -113,7 +113,7 @@ existance of [the `printf` command](../commands/builtin/printf.md).
 #### PWD
 
 [PWD](../syntax/shellvars.md#PWD) is POSIX but not Bourne. Most shells are
-*not POSIX* in that they don\'t ignore the value of the `PWD`
+*not POSIX* in that they don't ignore the value of the `PWD`
 environment variable. Workaround to fix the value of `PWD` at the start
 of your script:
 
@@ -153,11 +153,11 @@ Find another method.
 ### Check for a command in PATH
 
 The [PATH](../syntax/shellvars.md#PATH) variable is a colon-delimited list of
-directory names, so it\'s basically possible to run a loop and check
+directory names, so it's basically possible to run a loop and check
 every `PATH` component for the command you\'re looking for and for
 executability.
 
-However, this method doesn\'t look nice. There are other ways of doing
+However, this method doesn't look nice. There are other ways of doing
 this, using commands that are *not directly* related to this task.
 
 #### hash
@@ -183,7 +183,7 @@ Somewhat of a mass-check:
       fi
     done
 
-Here (bash 3), `hash` also respects builtin commands. I don\'t know if
+Here (bash 3), `hash` also respects builtin commands. I don't know if
 this works everywhere, but it seems logical.
 
 #### command
@@ -199,6 +199,6 @@ accessible by `PATH`:
       echo "sed is available"
     fi
 
-[^1]: \"portable\" doesn\'t necessarily mean it\'s POSIX, it can also
-    mean it\'s \"widely used and accepted\", and thus maybe more
+[^1]: \"portable\" doesn't necessarily mean it's POSIX, it can also
+    mean it's \"widely used and accepted\", and thus maybe more
     portable than POSIX(r

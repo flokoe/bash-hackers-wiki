@@ -19,17 +19,17 @@
 
   `?`         question mark      Status of the most recently executed foreground-pipeline (exit/return code)
 
-  `-`         dash               Current option flags set by the shell itself, on invocation, or using the [set builtin command](../commands/builtin/set.md). It\'s just a set of characters, like `himB` for `h`, `i`, `m` and `B`.
+  `-`         dash               Current option flags set by the shell itself, on invocation, or using the [set builtin command](../commands/builtin/set.md). It's just a set of characters, like `himB` for `h`, `i`, `m` and `B`.
 
   `$`         dollar-sign        The process ID (PID) of the shell. In an [explicit subshell](../syntax/ccmd/grouping_subshell.md) it expands to the PID of the current \"main shell\", not the subshell. This is different from `$BASHPID`!
 
   `!`         exclamation mark   The process ID (PID) of the most recently executed background pipeline (like started with `command &`)
 
   `0`         zero               The name of the shell or the shell script (filename). Set by the shell itself.\
-                                 If Bash is started with a filename to execute (script), it\'s set to this filename. If started with the `-c <CMDLINE>` option (commandline given as argument), then `$0` will be the first argument after the given `<CMDLINE>`. Otherwise, it is set to the string given on invocation for `argv[0]`.\
+                                 If Bash is started with a filename to execute (script), it's set to this filename. If started with the `-c <CMDLINE>` option (commandline given as argument), then `$0` will be the first argument after the given `<CMDLINE>`. Otherwise, it is set to the string given on invocation for `argv[0]`.\
                                  Unlike popular belief, `$0` is *not a positional parameter*.
 
-  `_`         underscore         A kind of catch-all parameter. Directly after shell invocation, it\'s set to the filename used to invoke Bash, or the absolute or relative path to the script, just like `$0` would show it. Subsequently, expands to the last argument to the previous command. Placed into the environment when executing commands, and set to the full pathname of these commands. When checking mail, this parameter holds the name of the mail file currently being checked.
+  `_`         underscore         A kind of catch-all parameter. Directly after shell invocation, it's set to the filename used to invoke Bash, or the absolute or relative path to the script, just like `$0` would show it. Subsequently, expands to the last argument to the previous command. Placed into the environment when executing commands, and set to the full pathname of these commands. When checking mail, this parameter holds the name of the mail file currently being checked.
   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Shell Variables
@@ -170,7 +170,7 @@ is the command executing at the time of the trap.
   Type:          normal variable   Read-only:   no
   Set by Bash:   no                Default:     n/a
 
-The value is used to set the shell\'s compatibility level. The value may
+The value is used to set the shell's compatibility level. The value may
 be a decimal number (e.g., `4.2`) or an integer (e.g., `42`)
 corresponding to the desired compatibility level. If `BASH_COMPAT` is
 unset or set to the empty string, the compatibility level is set to the
@@ -269,7 +269,7 @@ follows:
 
 Expands to a string describing the version of this instance of Bash.
 
-Since Bash 2.0 it includes the shell\'s \"release status\" (alpha\[N\],
+Since Bash 2.0 it includes the shell's \"release status\" (alpha\[N\],
 beta\[N\], release).
 
 ### CHILD_MAX
@@ -618,7 +618,7 @@ contain only a single command).
   Type:          integer variable   Read-only:   yes
   Set by Bash:   yes                Default:     n/a
 
-The process ID of the shell\'s parent process.
+The process ID of the shell's parent process.
 
 ### PWD
 
@@ -883,7 +883,7 @@ the history list:
 
   --------------- ------------------------------------------------------------------------------------------------------------
   `ignorespace`   lines which begin with a space character are not saved in the history list
-  `ignoredups`    don\'t save lines matching the previous history entry
+  `ignoredups`    don't save lines matching the previous history entry
   `ignoreboth`    short for `ignorespace:ignoredups`
   `erasedups`     remove all previous lines matching the current line from the history list before the current line is saved
   --------------- ------------------------------------------------------------------------------------------------------------
@@ -1273,7 +1273,7 @@ Prompt](https://www.gnu.org/software/bash/manual/bash.html#Controlling-the-Promp
   Variable:      `PS2`             Since:       unknown
   -------------- ----------------- ------------ -----------------
   Type:          normal variable   Read-only:   no
-  Set by Bash:   if unset          Default:     \"\'\'\> \'\'\"
+  Set by Bash:   if unset          Default:     \"\'\'> \'\'\"
 
 The value of this parameter is expanded as with PS1 and used as the
 secondary prompt string.
@@ -1309,7 +1309,7 @@ indicate multiple levels of indirection.
 
 The full pathname to the shell is kept in this environment variable. If
 it is not set when the shell starts, Bash assigns the full pathname of
-the current user\'s login shell.
+the current user's login shell.
 
 ### SRANDOM
 
@@ -1386,7 +1386,7 @@ arrive.
   Set by Bash:   no                Default:     n/a
 
 If set, Bash uses its value as the name of a directory in which Bash
-creates temporary files for the shell\'s use.
+creates temporary files for the shell's use.
 
 ### auto_resume
 
@@ -1408,7 +1408,7 @@ The substring value provides functionality analogous to the %? job
 identifier.
 
 If set to any other value, the supplied string must be a prefix of a
-stopped job\'s name; this provides functionality analogous to the
+stopped job's name; this provides functionality analogous to the
 `%string` job identifier.
 
 ### histchars

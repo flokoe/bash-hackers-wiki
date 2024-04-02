@@ -1,6 +1,6 @@
 # Bash compound commands
 
-The main part of Bash\'s syntax are the so-called **compound commands**.
+The main part of Bash's syntax are the so-called **compound commands**.
 They\'re called like that because they use \"real\" commands ([simple
 commands](../../syntax/basicgrammar.md#simple_commands) or
 [lists](../../syntax/basicgrammar.md#lists)) and knit some intelligence around

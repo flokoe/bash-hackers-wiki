@@ -1,6 +1,6 @@
 # Pausing a script (like MSDOS pause command)
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: terminal, pause, input
+---- dataentry snipplet ---- snipplet_tags: terminal, pause, input
 LastUpdate_dt: 2010-07-31 Contributors: Jan Schampera type: snipplet
 
 ------------------------------------------------------------------------

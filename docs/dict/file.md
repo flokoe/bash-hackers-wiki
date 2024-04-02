@@ -1,11 +1,11 @@
 # File
 
 A file is a pool of data in the [filesystem](../dict/terms/filesystem.md). On
-userlevel, it\'s referenced using a name, a
+userlevel, it's referenced using a name, a
 [hardlink](../dict/terms/hardlink.md) to the file.
 
 If a file is not referenced anymore (number of hardlinks to it drops to
-0) then the space allocated for that file is re-used, unless it\'s still
+0) then the space allocated for that file is re-used, unless it's still
 used by some process.
 
 The file-data splits into actual payload (file contents) and some

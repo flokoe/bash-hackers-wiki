@@ -51,10 +51,10 @@ variable has been set, then the variable of the same name in the
 next-outermost scope becomes visible to its scope and all children - as
 if the variable that was unset was never set to begin with. This
 property allows looking upwards through the stack as variable names are
-unset, so long as unset and the local it unsets aren\'t together in the
+unset, so long as unset and the local it unsets aren't together in the
 same scope level.
 
-Here\'s a demonstration of this behavior.
+Here's a demonstration of this behavior.
 
     #!/usr/bin/env bash
 
@@ -121,8 +121,8 @@ output:
 Some things to observe:
 
 -   `unset2` is only really needed once. We remain 5 levels deep in
-    `f`\'s for the remaining `unset` calls, which peel away the outer
-    layers of `a`\'s.
+    `f`'s for the remaining `unset` calls, which peel away the outer
+    layers of `a`'s.
 -   Notice that the \"a\" is unset using an ordinary unset command at
     recursion depth 1, and subsequently calling unset reveals a again in
     the global scope, which has since been modified in a lower scope
@@ -130,7 +130,7 @@ Some things to observe:
 -   Declaring a global with declare -g bypasses all locals and sets or
     modifies the variable of the global scope (outside of all
     functions). It has no affect on the visibility of the global.
--   This doesn\'t apply to individual array elements. If two local
+-   This doesn't apply to individual array elements. If two local
     arrays of the same name appear in different scopes, the entire array
     of the inner scope needs to be unset before any elements of the
     outer array become visible. This makes \"unset\" and \"unset2\"
@@ -145,7 +145,7 @@ expands its arguments.
      ~ $ ( a=({a..d}); unset 'a[2]'; declare -p a )
     declare -a a='([0]="a" [1]="b" [3]="d")'
 
-As usual in such cases, it\'s important to quote the args to avoid
+As usual in such cases, it's important to quote the args to avoid
 accidental results such as globbing.
 
      ~ $ ( a=({a..d}) b=a c=d d=1; set -x; unset "${b}["{2..3}-c\]; declare -p a )

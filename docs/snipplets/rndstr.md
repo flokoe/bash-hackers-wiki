@@ -1,6 +1,6 @@
 # Print a random string or select random elements
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: terminal, line
+---- dataentry snipplet ---- snipplet_tags: terminal, line
 LastUpdate_dt: 2013-04-30 Contributors: Dan Douglas (ormaaj) type:
 snipplet
 
@@ -31,7 +31,7 @@ basically the same principle as the `rndstr` function above.
      ~ $ ( set -- foo bar baz bork; printf '%s ' "${!_[_=RANDOM%$#+1,0]"{0..10}"}"; echo )
     bork bar baz baz foo baz baz baz baz baz bork 
 
-\<div hide\> This has some interesting option parsing concepts, but is
+<div hide> This has some interesting option parsing concepts, but is
 overly complex. This is a good example of working too hard to avoid an
 eval for no benefit and some performance penalty. :/
 
@@ -63,9 +63,9 @@ rndstr()
     fi
 ```
 
-\</div\>
+</div>
 
-The remaining examples don\'t use quite the same tricks, which will
+The remaining examples don't use quite the same tricks, which will
 hopefully be explained elsewhere eventually. See
 [unset](../commands/builtin/unset.md#scope) for why doing assignments in this
 way works well.
@@ -83,7 +83,7 @@ printf '%.1s' "${a[RANDOM%${#a[@]}]}"{0..9} $'\n'
 The extra detail that makes this work is to notice that in Bash, [brace
 expansion](../syntax/expansion/brace.md) is usually the very first type of
 expansion to be processed, always before parameter expansion. Bash is
-unique in this respect \-- all other shells with a brace expansion
+unique in this respect -- all other shells with a brace expansion
 feature perform it almost last, just before pathname expansion. First
 the sequence expansion generates ten parameters, then the parameters are
 expanded left-to-right causing the [arithmetic](../syntax/arith_expr.md) for
@@ -103,15 +103,15 @@ a=(one two three four five six seven eight nine ten)
 printf '%.*s ' $(printf '%s ' "${#a[x=RANDOM%${#a[@]}]} ${a[x]}"{1..10})
 ```
 
-This generates each parameter and it\'s length in pairs. The \'\*\'
+This generates each parameter and it's length in pairs. The \'\*\'
 modifier instructs printf to use the value preceding each parameter as
 the field width. Note the space between the parameters. This example
 unfortunately relies upon the unquoted command substitution to perform
 unsafe wordsplitting so that the outer printf gets each argument. Values
-in the array can\'t contain characters in IFS, or anything that might be
+in the array can't contain characters in IFS, or anything that might be
 interpreted as a pattern without using `set -f`.
 
-Lastly, empty brace expansions can be used which don\'t generate any
+Lastly, empty brace expansions can be used which don't generate any
 output that would need to be filtered. The disadvantage of course is
 that you must construct the brace expansion syntax to add up to the
 number of arguments to be generated, where the most optimal solution is

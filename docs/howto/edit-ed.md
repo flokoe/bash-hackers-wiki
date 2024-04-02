@@ -13,14 +13,14 @@ that, e.g. editing active and open files, the lack of GNU, or other
 
 Why `ed`?
 
--   maybe your `sed` doesn\'t support in-place edit
+-   maybe your `sed` doesn't support in-place edit
 -   maybe you need to be as portable as possible
 -   maybe you need to really edit in-file (and not create a new file
     like GNU `sed`)
 -   last but not least: standard `ed` has very good editing and
     addressing possibilities, compared to standard `sed`
 
-Don\'t get me wrong, this is **not** meant as anti-`sed` article! It\'s
+Don't get me wrong, this is **not** meant as anti-`sed` article! It's
 just meant to show you another way to do the job.
 
 ## Commanding ed
@@ -127,19 +127,19 @@ which defines an address range for the first to the last line, `,p` thus
 means print the whole file, after it has been modified. When your script
 runs sucessfully, you only have to replace the `,p` by a `w`.
 
-Of course, even if the file is not modified by the `p` command, **it\'s
+Of course, even if the file is not modified by the `p` command, **it's
 always a good idea to have a backup copy!**
 
 ## Editing your files
 
 Most of these things can be done with `sed`. But there are also things
-that can\'t be done in `sed` or can only be done with very complex code.
+that can't be done in `sed` or can only be done with very complex code.
 
 ### Simple word substitutions
 
 Like `sed`, `ed` also knows the common `s/FROM/TO/` command, and it can
 also take line-addresses. **If no substitution is made on the addressed
-lines, it\'s considered an error.**
+lines, it's considered an error.**
 
 #### Substitutions through the whole file
 
@@ -179,7 +179,7 @@ regexp
 
 \...using the `m` command: `<ADDRESS> m <TARGET-ADDRESS>`
 
-This is definitely something that can\'t be done easily with sed.
+This is definitely something that can't be done easily with sed.
 
     # moving lines 5-9 to the end of the file
     ed -s test.txt <<< $'5,9m$\nw'
@@ -206,7 +206,7 @@ command: `j` (join).
 
     ed -s file <<< $'1,$j\nw'
 
-Compared with two other methods (using `tr` or `sed`), you don\'t have
+Compared with two other methods (using `tr` or `sed`), you don't have
 to delete all newlines and manually add one at the end.
 
 ### File operations
@@ -219,7 +219,7 @@ prints the result to stdout - `,p`):
 
     ed -s FILE1 <<< $'$-1 r FILE2\n,p'
 
-To compare, here\'s a possible `sed` solution which must use Bash
+To compare, here's a possible `sed` solution which must use Bash
 arithmetic and the external program `wc`:
 
     sed "$(($(wc -l < FILE1)-1))r FILE2" FILE1
@@ -260,10 +260,10 @@ about it with the g (global) command:
 
 **\_\_ an error stops the script \_\_**
 
-You might think that it\'s not a problem and that the same thing happens
+You might think that it's not a problem and that the same thing happens
 with sed and you\'re right, with the exception that if ed does not find
-a pattern it\'s an error, while sed just continues with the next line.
-For instance, let\'s say that you want to change foo to bar on the first
+a pattern it's an error, while sed just continues with the next line.
+For instance, let's say that you want to change foo to bar on the first
 line of the file and add something after the next line, ed will stop if
 it cannot find foo on the first line, sed will continue.
 
@@ -288,8 +288,8 @@ attempt the substitution on all non blank lines
 
 **\_\_ shell parameters are expanded \_\_**
 
-If you don\'t quote the delimiter, \$ has a special meaning. This sounds
-obvious but it\'s easy to forget this fact when you use addresses like
+If you don't quote the delimiter, \$ has a special meaning. This sounds
+obvious but it's easy to forget this fact when you use addresses like
 \$-1 or commands like \$a. Either quote the \$ or the delimiter:
 
     #fails
@@ -341,8 +341,8 @@ read into memory.
     # equivalent
     ed -s file <<< 'g/foo/'
 
-The name `grep` is derived from the notaion `g/RE/p` (global =\> regular
-expression =\> print). ref
+The name `grep` is derived from the notaion `g/RE/p` (global => regular
+expression => print). ref
 <http://www.catb.org/~esr/jargon/html/G/grep.html>
 
 ### wc -l
@@ -355,7 +355,7 @@ number of lines of the file:
 
 ### cat
 
-Yea, it\'s a joke\...
+Yea, it's a joke\...
 
     ed -s file <<< $',p'
 

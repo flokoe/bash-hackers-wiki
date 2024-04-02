@@ -9,16 +9,16 @@ but as hints and comments about debugging a Bash script.
 
 Do **not** name your script `test`, for example! *Why?* `test` is the
 name of a UNIX(r)-command, and [most likely built into your
-shell]{.underline} (it\'s a built-in in Bash) - so you won\'t be able to
+shell]{.underline} (it's a built-in in Bash) - so you won't be able to
 run a script with the name `test` in a normal way.
 
-**Don\'t laugh!** This is a classic mistake :-)
+**Don't laugh!** This is a classic mistake :-)
 
 ## Read the error messages
 
 Many people come into IRC and ask something like *\"Why does my script
 fail? I get an error!\"*. And when you ask them what the error message
-is, they don\'t even know. Beautiful.
+is, they don't even know. Beautiful.
 
 Reading and interpreting error messages is 50% of your job as debugger!
 Error messages actually **mean** something. At the very least, they can
@@ -41,7 +41,7 @@ From my personal experience, I can suggest `vim` or `GNU emacs`.
 
 ## Write logfiles
 
-For more complex scripts, it\'s useful to write to a log file, or to the
+For more complex scripts, it's useful to write to a log file, or to the
 system log. Nobody can debug your script without knowing what actually
 happened and what went wrong.
 
@@ -61,7 +61,7 @@ literal quotes, to see leading and trailing spaces!
     pid=$(< fooservice.pid)
     echo "DEBUG: read from file: pid=\"$pid\"" >&2
 
-Bash\'s [printf](../commands/builtin/printf.md) command has the `%q` format,
+Bash's [printf](../commands/builtin/printf.md) command has the `%q` format,
 which is handy for verifying whether strings are what they appear to be.
 
     foo=$(< inputfile)
@@ -97,20 +97,20 @@ There are two useful debug outputs for that task (both are written to
 
 ### Simple example of how to interpret xtrace output
 
-Here\'s a simple command (a string comparison using the [classic test
+Here's a simple command (a string comparison using the [classic test
 command](../commands/classictest.md)) executed while in `set -x` mode:
 
     set -x
     foo="bar baz"
     [ $foo = test ]
 
-That fails. Why? Let\'s see the `xtrace` output:
+That fails. Why? Let's see the `xtrace` output:
 
     + '[' bar baz = test ']'
 
-And now you see that it\'s (\"bar\" and \"baz\") recognized as two
+And now you see that it's (\"bar\" and \"baz\") recognized as two
 separate words (which you would have realized if you READ THE ERROR
-MESSAGES ;) ). Let\'s check it\...
+MESSAGES ;) ). Let's check it\...
 
     # next try
     [ "$foo" = test ]
@@ -218,7 +218,7 @@ This can be wrapped in a shell function for more readable code.
 
     script.sh: line 100: syntax error: unexpected end of file
 
-Usually indicates exactly what it says: An unexpected end of file. It\'s
+Usually indicates exactly what it says: An unexpected end of file. It's
 unexpected because Bash waits for the closing of a [compound
 command](../syntax/ccmd/intro.md):
 
@@ -288,7 +288,7 @@ definition invalid.
 
 ### What is the CRLF issue?
 
-There\'s a big difference in the way that UNIX(r) and Microsoft(r) (and
+There's a big difference in the way that UNIX(r) and Microsoft(r) (and
 possibly others) handle the **line endings** of plain text files. The
 difference lies in the use of the CR (Carriage Return) and LF (Line
 Feed) characters.
@@ -298,7 +298,7 @@ Feed) characters.
 
 Keep in mind your script is a **plain text file**, and the `CR`
 character means nothing special to UNIX(r) - it is treated like any
-other character. If it\'s printed to your terminal, a carriage return
+other character. If it's printed to your terminal, a carriage return
 will effectively place the cursor at the beginning of the *current*
 line. This can cause much confusion and many headaches, since lines
 containing CRs are not what they appear to be when printed. In summary,
@@ -310,7 +310,7 @@ Some possible sources of CRs:
 
 -   a DOS/Windows text editor
 -   a UNIX(r) text editor that is \"too smart\" when determining the
-    file content type (and thinks \"*it\'s a DOS text file*\")
+    file content type (and thinks \"*it's a DOS text file*\")
 -   a direct copy and paste from certain webpages (some pastebins are
     known for this)
 
@@ -327,13 +327,13 @@ carriage return character!):
     echo "Hello world"^M
     ...
 
-Here\'s what happens because of the `#!/bin/bash^M` in our shebang:
+Here's what happens because of the `#!/bin/bash^M` in our shebang:
 
--   the file `/bin/bash^M` doesn\'t exist (hopefully)
+-   the file `/bin/bash^M` doesn't exist (hopefully)
 -   So Bash prints an error message which (depending on the terminal,
     the Bash version, or custom patches!) may or may not expose the
     problem.
--   the script can\'t be executed
+-   the script can't be executed
 
 The error message can vary. If you\'re lucky, you\'ll get:
 
@@ -347,9 +347,9 @@ Why? Because when printed literally, the `^M` makes the cursor go back
 to the beginning of the line. The whole error message is *printed*, but
 you *see* only part of it!
 
-\<note warning\> It\'s easy to imagine the `^M` is bad in other places
+<note warning> It's easy to imagine the `^M` is bad in other places
 too. If you get weird and illogical messages from your script, rule out
-the possibility that`^M` is involved. Find and eliminate it! \</note\>
+the possibility that`^M` is involved. Find and eliminate it! </note>
 
 ### How can I find and eliminate them?
 

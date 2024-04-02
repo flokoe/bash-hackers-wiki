@@ -59,8 +59,8 @@ f3
 
 ## Notes
 
--   `caller` produces no output unless used within a script that\'s run
-    from a real file. It isn\'t particularly useful for interactive use,
+-   `caller` produces no output unless used within a script that's run
+    from a real file. It isn't particularly useful for interactive use,
     but can be used to create a decent `die` function to track down
     errors in moderately complex scripts.
     `{ bash /dev/stdin; } <<<$'f(){ g; }\ng(){ h; }\nh(){ while caller $((n++)); do :; done; }\nf'`
@@ -68,7 +68,7 @@ f3
     are available and a number of special parameters that give more
     detail than caller (e.g. BASH_ARG{C,V}). Tools such as
     [Bashdb](http://bashdb.sourceforge.net/) can assist in using some of
-    Bash\'s more advanced debug features.
+    Bash's more advanced debug features.
 -   The Bash manpage and help text specifies that the argument to
     `caller` is an \"expr\" (whatever that means). Only an integer is
     actually allowed, with no special interpretation of an

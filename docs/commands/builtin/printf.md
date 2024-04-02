@@ -1,18 +1,18 @@
 # The printf command
 
-\<div center round todo box 70%\> FIXME Stranger, this is a very big
+<div center round todo box 70%> FIXME Stranger, this is a very big
 topic that needs experience - please fill in missing information, extend
-the descriptions, and correct the details if you can! \</div\> \<div
-center round tip 70%\> [**Attention:**]{.underline} This is about the
+the descriptions, and correct the details if you can! </div> <div
+center round tip 70%> [**Attention:**]{.underline} This is about the
 Bash-builtin command `printf` - however, the description should be
 nearly identical for an external command that follows POSIX(r).
 
 [GNU Awk](http://www.gnu.org/software/gawk/manual/gawk.html#Printf)
 expects a comma after the format string and between each of the
 arguments of a **printf** command. For examples, see: [code
-snippet](../../printf?&.md#using_printf_inside_of_awk). \</div\>
+snippet](../../printf?&.md#using_printf_inside_of_awk). </div>
 
-Unlike other documentations, I don\'t want to redirect you to the manual
+Unlike other documentations, I don't want to redirect you to the manual
 page for the `printf()` C function family. However, if you\'re more
 experienced, that should be the most detailed description for the format
 strings and modifiers.
@@ -23,7 +23,7 @@ POSIX(r) recommends that `printf` is preferred over `echo`.
 ## General
 
 The `printf` command provides a method to print preformatted text
-similar to the `printf()` system interface (C function). It\'s meant as
+similar to the `printf()` system interface (C function). It's meant as
 successor for `echo` and has far more features and possibilities.
 
 Beside other reasons, POSIX(r) has a very good argument to recommend it:
@@ -54,10 +54,10 @@ argument!).
   `-v VAR`   If given, the output is assigned to the variable `VAR` instead of printed to `stdout` (comparable to `sprintf()` in some way)
   ---------- -------------------------------------------------------------------------------------------------------------------------------
 
-The `-v` Option can\'t assign directly to array indexes in Bash versions
+The `-v` Option can't assign directly to array indexes in Bash versions
 older than Bash 4.1.
 
-\<note warning\> In versions newer than 4.1, one must be careful when
+<note warning> In versions newer than 4.1, one must be careful when
 performing expansions into the first non-option argument of printf as
 this opens up the possibility of an easy code injection vulnerability.
 
@@ -66,11 +66,11 @@ this opens up the possibility of an easy code injection vulnerability.
     declare -a x='([0]="hi")'
 
 \...where the echo can of course be replaced with any arbitrary command.
-If you must, either specify a hard-coded format string or use \-- to
+If you must, either specify a hard-coded format string or use -- to
 signal the end of options. The exact same issue also applies to
 [read](../../commands/builtin/read.md), and a similar one to
 [mapfile](../../commands/builtin/mapfile.md), though performing expansions into
-their arguments is less common. \</note\>
+their arguments is less common. </note>
 
 ### Arguments
 
@@ -84,8 +84,8 @@ recognized to give a number-argument to `printf`:
   `0N`            An octal number
   `0xN`           A hexadecimal number
   `0XN`           A hexadecimal number
-  `"X`            (a literal double-quote infront of a character): interpreted as number (underlying codeset) **don\'t forget escaping**
-  `'X`            (a literal single-quote infront of a character): interpreted as number (underlying codeset) **don\'t forget escaping**
+  `"X`            (a literal double-quote infront of a character): interpreted as number (underlying codeset) **don't forget escaping**
+  `'X`            (a literal single-quote infront of a character): interpreted as number (underlying codeset) **don't forget escaping**
 
 [**If more arguments than format specifiers**]{.underline} are present,
 then the format string is re-used until the last argument is
@@ -97,7 +97,7 @@ Take care to avoid [word splitting](../../syntax/expansion/wordsplit.md), as
 accidentally passing the wrong number of arguments can produce wildly
 different and unexpected results. See [this article](../../syntax/words.md).
 
-\<note warning\> [**Again, attention:**]{.underline} When a numerical
+<note warning> [**Again, attention:**]{.underline} When a numerical
 format expects a number, the internal `printf`-command will use the
 common Bash arithmetic rules regarding the base. A command like the
 following example **will** throw an error, since `08` is not a valid
@@ -105,7 +105,7 @@ octal number (`00` to `07`!):
 
     printf '%d\n' 08
 
-\</note\>
+</note>
 
 ### Format strings
 
@@ -143,7 +143,7 @@ all mean the same: A placeholder for data with a specified format:
   `%G`           Same as `%g`, but print it like `%E`
   `%c`           Interprets the associated argument as **char**: only the first character of a given argument is printed
   `%s`           Interprets the associated argument literally as string
-  `%n`           Assigns the number of characters printed so far to the variable named in the corresponding argument. Can\'t specify an array index. If the given name is already an array, the value is assigned to the zeroth element.
+  `%n`           Assigns the number of characters printed so far to the variable named in the corresponding argument. Can't specify an array index. If the given name is already an array, the value is assigned to the zeroth element.
   `%a`           Interprets the associated argument as **double**, and prints it in the form of a C99 [hexadecimal floating-point literal](http://www.exploringbinary.com/hexadecimal-floating-point-constants/).
   `%A`           Same as `%a`, but print it like `%E`
   `%(FORMAT)T`   output the date-time string resulting from using `FORMAT` as a format string for `strftime(3)`. The associated argument is the number of seconds since Epoch, or `-1` (current time) or `-2` (shell startup time). If no corresponding argument is supplies, the current time is used as default
@@ -164,7 +164,7 @@ introductory `%` and the character that specifies the format:
 
   Field output format   
   --------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `<N>`                 **Any number**: Specifies a **minimum field width**, if the text to print is shorter, it\'s padded with spaces, if the text is longer, the field is expanded
+  `<N>`                 **Any number**: Specifies a **minimum field width**, if the text to print is shorter, it's padded with spaces, if the text is longer, the field is expanded
   `.`                   **The dot**: Together with a field width, the field is **not** expanded when the text is longer, the text is truncated instead. \"`%.s`\" is an undocumented equivalent for \"`%.0s`\", which will force a field width of zero, effectively hiding the field from output
   `*`                   **The asterisk**: the width is given as argument before the string or number. Usage (the \"`*`\" corresponds to the \"`20`\"): `printf "%*s\n" 20 "test string"`
   `#`                   \"Alternative format\" for numbers: see table below
@@ -178,8 +178,8 @@ introductory `%` and the character that specifies the format:
 
   Alternative Format                                 
   -------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `%#o`                                              The octal number is printed with a leading zero, unless it\'s zero itself
-  `%#x`, `%#X`                                       The hex number is printed with a leading \"`0x`\"/\"`0X`\", unless it\'s zero
+  `%#o`                                              The octal number is printed with a leading zero, unless it's zero itself
+  `%#x`, `%#X`                                       The hex number is printed with a leading \"`0x`\"/\"`0X`\", unless it's zero
   `%#g`, `%#G`                                       The float number is printed with **trailing zeros** until the number of digits for the current precision is reached (usually trailing zeros are not printed)
   all number formats except `%d`, `%o`, `%x`, `%X`   Always print a decimal point in the output, even if no digits follow it
 
@@ -192,7 +192,7 @@ that precedes the number to print, like (prints 4,3000000000):
 
     printf "%.*f\n" 10 4,3
 
-The format `.*N` to specify the N\'th argument for precision does not
+The format `.*N` to specify the N'th argument for precision does not
 work in Bash.
 
 For strings, the precision specifies the maximum number of characters to
@@ -216,8 +216,8 @@ argument corresponding to a `%b` format.
   `\v`             Prints a vertical tabulator
   `\"`             Prints a `'`
   `\?`             Prints a `?`
-  `\<NNN>`         Interprets `<NNN>` as **octal** number and prints the corresponding character from the character set
-  `\0<NNN>`        same as `\<NNN>`
+  `<NNN>`         Interprets `<NNN>` as **octal** number and prints the corresponding character from the character set
+  `\0<NNN>`        same as `<NNN>`
   `\x<NNN>`        Interprets `<NNN>` as **hexadecimal** number and prints the corresponding character from the character set (**3 digits**)
   `\u<NNNN>`       same as `\x<NNN>`, but **4 digits**
   `\U<NNNNNNNN>`   same as `\x<NNN>`, but **8 digits**
@@ -364,7 +364,7 @@ correct awk syntax.
 
 With appropriate metacharacter escaping the bash printf can be called
 from inside awk (as from perl and other languages that support shell
-callout) as long as you don\'t care about program efficiency or
+callout) as long as you don't care about program efficiency or
 readability.
 
     echo "Foo" | awk '{ system( "printf \"%s\\n \" \"" $1 "\""  ) }'
@@ -382,7 +382,7 @@ readability.
     use `%c`, you\'re actually asking for the first byte of the
     argument. Likewise, the maximum field width modifier (dot) in
     combination with `%s` goes by bytes, not characters. This limits
-    some of printf\'s functionality to working with ascii only. ksh93\'s
+    some of printf's functionality to working with ascii only. ksh93's
     `printf` supports the `L` modifier with `%s` and `%c` (but so far
     not `%S` or `%C`) in order to treat precision as character width,
     not byte count. zsh appears to adjust itself dynamically based upon
@@ -409,16 +409,16 @@ fmt++;
 -   mksh has no built-in printf by default (usually). There is an
     unsupported compile-time option to include a very poor, basically
     unusable implementation. For the most part you must rely upon the
-    system\'s `/usr/bin/printf` or equivalent. The mksh maintainer
+    system's `/usr/bin/printf` or equivalent. The mksh maintainer
     recommends using `print`. The development version (post- R40f) adds
     a new parameter expansion in the form of `${name@Q}` which fills the
-    role of `printf %q` \-- expanding in a shell-escaped format.
+    role of `printf %q` -- expanding in a shell-escaped format.
 
 ```{=html}
 <!-- -->
 ```
 -   ksh93 optimizes builtins run from within a command substitution and
-    which have no redirections to run in the shell\'s process. Therefore
+    which have no redirections to run in the shell's process. Therefore
     the `printf -v` functionality can be closely matched by
     `var=$(printf ...)` without a big performance hit.
 
@@ -447,13 +447,13 @@ fmt++;
 
 -   The optional Bash loadable `print` may be useful for ksh
     compatibility and to overcome some of
-    [echo](../../commands/builtin/echo.md)\'s portability pitfalls. Bash, ksh93,
-    and zsh\'s `print` have an `-f` option which takes a `printf` format
+    [echo](../../commands/builtin/echo.md)'s portability pitfalls. Bash, ksh93,
+    and zsh's `print` have an `-f` option which takes a `printf` format
     string and applies it to the remaining arguments. Bash lists the
     synopsis as:
     `print: print [-Rnprs] [-u unit] [-f format] [arguments]`. However,
     only `-Rrnfu` are actually functional. Internally, `-p` is a noop
-    (it doesn\'t tie in with Bash coprocs at all), and `-s` only sets a
+    (it doesn't tie in with Bash coprocs at all), and `-s` only sets a
     flag but has no effect. `-Cev` are unimplemented.
 
 ```{=html}
@@ -472,5 +472,5 @@ fmt++;
     function](http://pubs.opengroup.org/onlinepubs/9699919799/functions/printf.html)
 -   [Code snip: Print a horizontal
     line](../../snipplets/print_horizontal_line.md) uses some `printf` examples
--   [Greg\'s BashFAQ 18: How can I use numbers with leading zeros in a
+-   [Greg's BashFAQ 18: How can I use numbers with leading zeros in a
     loop, e.g., 01, 02?](BashFAQ>018)

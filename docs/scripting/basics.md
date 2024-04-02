@@ -40,7 +40,7 @@ You can follow the process by using `echo` as a fake interpreter:
 
     #!/bin/echo
 
-We don\'t need a script body here, as the file will never be interpreted
+We don't need a script body here, as the file will never be interpreted
 and executed by \"`echo`\". You can see what the Operating System does,
 it calls \"`/bin/echo`\" with the name of the executable file and
 following arguments.
@@ -49,7 +49,7 @@ following arguments.
     /home/bash/bin/test testword hello
 
 The same way, with `#!/bin/bash` the shell \"`/bin/bash`\" is called
-with the script filename as an argument. It\'s the same as executing
+with the script filename as an argument. It's the same as executing
 \"`/bin/bash /home/bash/bin/test testword hello`\"
 
 If the interpreter can be specified with arguments and how long it can
@@ -58,17 +58,17 @@ be is system-specific (see
 executes a file with a #!/bin/bash shebang, the shebang itself is
 ignored, since the first character is a hashmark \"#\", which indicates
 a comment. The shebang is for the operating system, not for the shell.
-Programs that don\'t ignore such lines, may not work as shebang driven
+Programs that don't ignore such lines, may not work as shebang driven
 interpreters.
 
-\<WRAP center round important 60%\> [**Attention:**]{.underline}When the
+<WRAP center round important 60%> [**Attention:**]{.underline}When the
 specified interpreter is unavailable or not executable (permissions),
 you usually get a \"`bad interpreter`\" error message., If you get
 nothing and it fails, check the shebang. Older Bash versions will
 respond with a \"`no such file or directory`\" error for a nonexistant
-interpreter specified by the shebang. \</WRAP\>
+interpreter specified by the shebang. </WRAP>
 
-**Additional note:** When you specify `#!/bin/sh` as shebang and that\'s
+**Additional note:** When you specify `#!/bin/sh` as shebang and that's
 a link to a Bash, then Bash will run in POSIX(r) mode! See:
 
 -   [Bash behaviour](../scripting/bashbehaviour.md).
@@ -84,7 +84,7 @@ A common method is to specify a shebang like
 
 Which one you need, or whether you think which one is good, or bad, is
 up to you. There is no bulletproof portable way to specify an
-interpreter. **It\'s a common misconception that it solves all problems.
+interpreter. **It's a common misconception that it solves all problems.
 Period.**
 
 ## The standard filedescriptors
@@ -100,7 +100,7 @@ Usually, they\'re all connected to your terminal, stdin as input file
 (keyboard), stdout and stderr as output files (screen). When calling
 such a program, the invoking shell can change these filedescriptor
 connections away from the terminal to any other file (see redirection).
-Why two different output filedescriptors? It\'s convention to send error
+Why two different output filedescriptors? It's convention to send error
 messages and warnings to stderr and only program output to stdout. This
 enables the user to decide if they want to see nothing, only the data,
 only the errors, or both - and where they want to see them.
@@ -117,7 +117,7 @@ redirection and piping, see:
 
 ## Variable names
 
-It\'s good practice to use lowercase names for your variables, as shell
+It's good practice to use lowercase names for your variables, as shell
 and system-variable names are usually all in UPPERCASE. However, you
 should avoid naming your variables any of the following (incomplete
 list!):
@@ -145,11 +145,11 @@ code is a number between 0 and 255. Values from 126 to 255 are reserved
 for use by the shell directly, or for special purposes, like reporting a
 termination by a signal:
 
--   **126**: the requested command (file) was found, but can\'t be
+-   **126**: the requested command (file) was found, but can't be
     executed
 -   **127**: command (file) not found
--   **128**: according to ABS it\'s used to report an invalid argument
-    to the exit builtin, but I wasn\'t able to verify that in the source
+-   **128**: according to ABS it's used to report an invalid argument
+    to the exit builtin, but I wasn't able to verify that in the source
     code of Bash (see code 255)
 -   **128 + N**: the shell was terminated by the signal N
 -   **255**: wrong argument to the exit builtin (see code 128)
@@ -200,7 +200,7 @@ so others can check the script execution.
 
 ## Comments
 
-In a larger, or complex script, it\'s wise to comment the code. Comments
+In a larger, or complex script, it's wise to comment the code. Comments
 can help with debugging or tests. Comments start with the \# character
 (hashmark) and continue to the end of the line:
 
@@ -210,7 +210,7 @@ can help with debugging or tests. Comments start with the \# character
 echo "Be liberal in what you accept, and conservative in what you send" # say something
 ```
 
-The first thing was already explained, it\'s the so-called shebang, for
+The first thing was already explained, it's the so-called shebang, for
 the shell, **only a comment**. The second one is a comment from the
 beginning of the line, the third comment starts after a valid command.
 All three syntactically correct.
@@ -219,8 +219,8 @@ All three syntactically correct.
 
 To temporarily disable complete blocks of code you would normally have
 to prefix every line of that block with a \# (hashmark) to make it a
-comment. There\'s a little trick, using the pseudo command `:` (colon)
-and input redirection. The `:` does nothing, it\'s a pseudo command, so
+comment. There's a little trick, using the pseudo command `:` (colon)
+and input redirection. The `:` does nothing, it's a pseudo command, so
 it does not care about standard input. In the following code example,
 you want to test mail and logging, but not dump the database, or execute
 a shutdown:
@@ -242,7 +242,7 @@ SOMEWORD
 ```
 
 What happened? The `:` pseudo command was given some input by
-redirection (a here-document) - the pseudo command didn\'t care about
+redirection (a here-document) - the pseudo command didn't care about
 it, effectively, the entire block was ignored.
 
 The here-document-tag was quoted here **to avoid substitutions** in the
@@ -278,12 +278,12 @@ program\".
 **[Attention:]{.underline}** When you set variables in a child process,
 for example a *subshell*, they will be set there, but you will **never**
 have access to them outside of that subshell. One way to create a
-subshell is the pipe. It\'s all mentioned in a small article about [Bash
+subshell is the pipe. It's all mentioned in a small article about [Bash
 in the processtree](../scripting/processtree.md)!
 
 ### Local variables
 
-Bash provides ways to make a variable\'s scope *local* to a function:
+Bash provides ways to make a variable's scope *local* to a function:
 
 -   Using the `local` keyword, or
 -   Using `declare` (which will *detect* when it was called from within
@@ -327,7 +327,7 @@ echo $foo
 ### Environment variables
 
 The environment space is not directly related to the topic about scope,
-but it\'s worth mentioning.
+but it's worth mentioning.
 
 Every UNIX(r) process has a so-called *environment*. Other items, in
 addition to variables, are saved there, the so-called *environment

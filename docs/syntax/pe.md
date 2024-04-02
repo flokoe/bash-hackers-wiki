@@ -84,7 +84,7 @@ Looking for a specific syntax you saw, without knowing the name?
 
 `${PARAMETER}`
 
-The easiest form is to just use a parameter\'s name within braces. This
+The easiest form is to just use a parameter's name within braces. This
 is identical to using `$FOO` like you see it everywhere, but has the
 advantage that it can be immediately followed by characters that would
 be interpreted as part of the parameter name otherwise. Compare these
@@ -168,9 +168,9 @@ It was an unfortunate design decision to use the `!` prefix for
 indirection, as it introduces parsing ambiguity with other parameter
 expansions that begin with `!`. Indirection is not possible in
 combination with any parameter expansion whose modifier requires a
-prefix to the parameter name. Specifically, indirection isn\'t possible
+prefix to the parameter name. Specifically, indirection isn't possible
 on the `${!var@}`, `${!var*}`, `${!var[@]}`, `${!var[*]}`, and `${#var}`
-forms. This means the `!` prefix can\'t be used to retrieve the indices
+forms. This means the `!` prefix can't be used to retrieve the indices
 of an array, the length of a string, or number of elements in an array
 indirectly (see [syntax/arrays#indirection](../syntax/arrays.md#indirection)
 for workarounds). Additionally, the `!`-prefixed parameter expansion
@@ -208,14 +208,14 @@ The `^` operator modifies the first character to uppercase, the `,`
 operator to lowercase. When using the double-form (`^^` and `,,`), all
 characters are converted.
 
-\<wrap center round info 60%\>
+<wrap center round info 60%>
 
 The (**currently undocumented**) operators `~` and `~~` reverse the case
 of the given text (in `PARAMETER`).`~` reverses the case of first letter
 of words in the variable while `~~` reverses case for all. Thanks to
 `Bushmills` and `geirha` on the Freenode IRC channel for this finding.
 
-\</wrap\>
+</wrap>
 
 [**Example: Rename all `*.txt` filenames to lowercase**]{.underline}
 
@@ -245,13 +245,13 @@ examples:
 Assume: `array=(This is some Text)`
 
 -   `echo "${array[@],}"`
-    -   =\> `this is some text`
+    -   => `this is some text`
 -   `echo "${array[@],,}"`
-    -   =\> `this is some text`
+    -   => `this is some text`
 -   `echo "${array[@]^}"`
-    -   =\> `This Is Some Text`
+    -   => `This Is Some Text`
 -   `echo "${array[@]^^}"`
-    -   =\> `THIS IS SOME TEXT`
+    -   => `THIS IS SOME TEXT`
 
 ```{=html}
 <!-- -->
@@ -267,7 +267,7 @@ Assume: `array=(This is some Text)`
 
 This expands to a list of all set **variable names** beginning with the
 string `PREFIX`. The elements of the list are separated by the first
-character in the `IFS`-variable (\<space\> by default).
+character in the `IFS`-variable (<space> by default).
 
 This will show all defined variable names (not values!) beginning with
 \"BASH\":
@@ -287,7 +287,7 @@ This list will also include [array names](../syntax/arrays.md).
 
 `${PARAMETER%%PATTERN}`
 
-This one can **expand only a part** of a parameter\'s value, **given a
+This one can **expand only a part** of a parameter's value, **given a
 pattern to describe what to remove** from the string. The pattern is
 interpreted just like a pattern to describe a filename to match
 (globbing). See [Pattern matching](../syntax/pattern.md) for more.
@@ -336,16 +336,16 @@ filename**. Just look at the following list with examples:
 
 -   **Get name without extension**
     -   `${FILENAME%.*}`
-    -   =\> `bash_hackers.txt`
+    -   => `bash_hackers.txt`
 -   **Get extension**
     -   `${FILENAME##*.}`
-    -   =\> `bash_hackers.txt`
+    -   => `bash_hackers.txt`
 -   **Get directory name**
     -   `${PATHNAME%/*}`
-    -   =\> `/home/bash/bash_hackers.txt`
+    -   => `/home/bash/bash_hackers.txt`
 -   **Get filename**
     -   `${PATHNAME##*/}`
-    -   =\> `/home/bash/bash_hackers.txt`
+    -   => `/home/bash/bash_hackers.txt`
 
 These are the syntaxes for filenames with a single extension. Depending
 on your needs, you might need to adjust shortest/longest match.
@@ -362,7 +362,7 @@ expansion):
 Assume: `array=(This is a text)`
 
 -   `echo "${array[@]%is}"`
-    -   =\> `Th a text`
+    -   => `Th a text`
     -   (it was: `This is a text`)
 
 All other variants of this expansion behave the same.
@@ -392,31 +392,31 @@ The first one (*one slash*) is to only substitute **the first
 occurrence** of the given pattern, the second one (*two slashes*) is to
 substitute **all occurrences** of the pattern.
 
-First, let\'s try to say \"happy\" instead of \"conservative\" in our
+First, let's try to say \"happy\" instead of \"conservative\" in our
 example string:
 
     ${MYSTRING//conservative/happy}
 
-=\>
+=>
 `Be liberal in what you accept, and conservativehappy in what you send`
 
 Since there is only one \"conservative\" in that example, it really
-doesn\'t matter which of the two forms we use.
+doesn't matter which of the two forms we use.
 
-Let\'s play with the word \"in\", I don\'t know if it makes any sense,
-but let\'s substitute it with \"by\".
+Let's play with the word \"in\", I don't know if it makes any sense,
+but let's substitute it with \"by\".
 
 [**First form: Substitute first occurrence**]{.underline}
 
     ${MYSTRING/in/by}
 
-=\> `Be liberal inby what you accept, and conservative in what you send`
+=> `Be liberal inby what you accept, and conservative in what you send`
 
 [**Second form: Substitute all occurrences**]{.underline}
 
     ${MYSTRING//in/by}
 
-=\>
+=>
 `Be liberal inby what you accept, and conservative inby what you send`
 
 [**Anchoring**]{.underline} Additionally you can \"anchor\" an
@@ -447,28 +447,28 @@ A simple example, changing the (lowercase) letter `t` to `d`:
 Assume: `array=(This is a text)`
 
 -   `echo "${array[@]/t/d}"`
-    -   =\> `This is a dext`
+    -   => `This is a dext`
 -   `echo "${array[@]//t/d}"`
-    -   =\> `This is a dexd`
+    -   => `This is a dexd`
 
 ## String length
 
 `${#PARAMETER}`
 
-When you use this form, the length of the parameter\'s value is
+When you use this form, the length of the parameter's value is
 expanded. Again, a quote from a big man, to have a test text:
 
     MYSTRING="Be liberal in what you accept, and conservative in what you send"
 
 Using echo `${#MYSTRING}`\...
 
-=\> `64`
+=> `64`
 
 The length is reported in characters, not in bytes. Depending on your
 environment this may not always be the same (multibyte-characters, like
 in UTF8 encoding).
 
-There\'s not much to say about it, mh?
+There's not much to say about it, mh?
 
 ### (String) length: Arrays
 
@@ -484,14 +484,14 @@ Example:
 Assume: `array=(This is a text)`
 
 -   `echo ${#array[1]}`
-    -   =\> 2 (the word \"is\" has a length of 2)
+    -   => 2 (the word \"is\" has a length of 2)
 -   `echo ${#array[@]}`
-    -   =\> 4 (the array contains 4 elements)
+    -   => 4 (the array contains 4 elements)
 
 [**Attention:**]{.underline} The number of used elements does not need
 to conform to the highest index. Sparse arrays are possible in Bash,
 that means you can have 4 elements, but with indexes 1, 7, 20, 31. **You
-can\'t loop through such an array with a counter loop based on the
+can't loop through such an array with a counter loop based on the
 number of elements!**
 
 ## Substring expansion
@@ -500,10 +500,10 @@ number of elements!**
 
 `${PARAMETER:OFFSET:LENGTH}`
 
-This one can expand only a **part** of a parameter\'s value, given a
+This one can expand only a **part** of a parameter's value, given a
 **position to start** and maybe a **length**. If `LENGTH` is omitted,
 the parameter will be expanded up to the end of the string. If `LENGTH`
-is negative, it\'s taken as a second offset into the string, counting
+is negative, it's taken as a second offset into the string, counting
 from the end of the string.
 
 `OFFSET` and `LENGTH` can be **any** [arithmetic
@@ -520,7 +520,7 @@ that the offset 0 is the first character:
 
     echo ${MYSTRING:35}
 
-=\>
+=>
 `<del>Be liberal in what you accept, and </del>conservative in what you send`
 
 ### Using Offset and Length
@@ -529,12 +529,12 @@ In the second form we also give a length value:
 
     echo ${MYSTRING:35:12}
 
-=\>
+=>
 `<del>Be liberal in what you accept, and </del>conservative<del> in what you send</del>`
 
 ### Negative Offset Value
 
-If the given offset is negative, it\'s counted from the end of the
+If the given offset is negative, it's counted from the end of the
 string, i.e. an offset of -1 is the last character. In that case, the
 length still counts forward, of course. One special thing is to do when
 using a negative offset: You need to separate the (negative) number from
@@ -543,18 +543,18 @@ the colon:
     ${MYSTRING: -10:5}
     ${MYSTRING:(-10):5}
 
-Why? Because it\'s interpreted as the parameter expansion syntax to [use
+Why? Because it's interpreted as the parameter expansion syntax to [use
 a default value](../syntax/pe.md#use_a_default_value).
 
 ### Negative Length Value
 
-If the `LENGTH` value is negative, it\'s used as offset from the end of
+If the `LENGTH` value is negative, it's used as offset from the end of
 the string. The expansion happens from the first to the second offset
 then:
 
     echo "${MYSTRING:11:-17}"
 
-=\>
+=>
 `<del>Be liberal </del>in what you accept, and conservative<del> in what you send</del>`
 
 This works since Bash 4.2-alpha, see also
@@ -575,9 +575,9 @@ Example:
 Assume: `array=(This is a text)`
 
 -   `echo ${array[0]:2:2}`
-    -   =\> `is` (the \"is\" in \"This\", array element 0)
+    -   => `is` (the \"is\" in \"This\", array element 0)
 -   `echo ${array[@]:1:2}`
-    -   =\> `is a` (from element 1 inclusive, 2 elements are expanded,
+    -   => `is a` (from element 1 inclusive, 2 elements are expanded,
         i.e. element 1 and 2)
 
 ## Use a default value
@@ -603,7 +603,7 @@ useful, you need to put that parameter syntax in.
     read -p "Enter your gender (just press ENTER to not tell us): " GENDER
     echo "Your gender is ${GENDER:-a secret}."
 
-It will print \"Your gender is a secret.\" when you don\'t enter the
+It will print \"Your gender is a secret.\" when you don't enter the
 gender. Note that the default value is **used on expansion time**, it is
 **not assigned to the parameter**.
 
@@ -614,7 +614,7 @@ have to make a difference between expanding an individual element by a
 given index and mass-expanding the array using the `@` and `*`
 subscripts.
 
--   For individual elements, it\'s the very same: If the expanded
+-   For individual elements, it's the very same: If the expanded
     element is `NULL` or unset (watch the `:-` and `-` variants), the
     default text is expanded
 -   For mass-expansion syntax, the default text is expanded if the array
@@ -683,7 +683,7 @@ assigned when the parameter was **unset**.
 After the first expansion here (`${HOME:=/home/$USER}`), `HOME` is set
 and usable.
 
-Let\'s change our code example from above:
+Let's change our code example from above:
 
     #!/bin/bash
 
@@ -696,7 +696,7 @@ Let\'s change our code example from above:
 For [arrays](../syntax/arrays.md) this expansion type is limited. For an
 individual index, it behaves like for a \"normal\" parameter, the
 default value is assigned to this one element. The mass-expansion
-subscripts `@` and `*` **can not be used here** because it\'s not
+subscripts `@` and `*` **can not be used here** because it's not
 possible to assign to them!
 
 ## Use an alternate value
@@ -706,7 +706,7 @@ possible to assign to them!
 `${PARAMETER+WORD}`
 
 This form expands to nothing if the parameter is unset or empty. If it
-is set, it does not expand to the parameter\'s value, **but to some text
+is set, it does not expand to the parameter's value, **but to some text
 you can specify**:
 
     echo "The Java application was installed and can be started.${JAVAPATH:+ NOTE: JAVAPATH seems to be set}"
@@ -802,7 +802,7 @@ Removing the first 6 characters from a text string:
 
 -   **Fixed in 4.2.36**
     ([patch](ftp://ftp.cwru.edu/pub/bash/bash-4.2-patches/bash42-036)).
-    Bash doesn\'t follow either POSIX or its own documentation when
+    Bash doesn't follow either POSIX or its own documentation when
     expanding either a quoted `"$@"` or `"${arr[@]}"` with an adjacent
     expansion. `"$@$x"` expands in the same way as `"$*$x"` - i.e. all
     parameters plus the adjacent expansion are concatenated into a
@@ -857,7 +857,7 @@ Removing the first 6 characters from a text string:
     `When `IFS` is set to a non-null value, or unset, all shells behave
     the same - first expanding into separate args, then applying
     pathname expansion and word-splitting to the results, except for
-    zsh, which doesn\'t do pathname expansion in its default mode.
+    zsh, which doesn't do pathname expansion in its default mode.
 
 ```{=html}
 <!-- -->
@@ -884,7 +884,7 @@ Removing the first 6 characters from a text string:
     ksh : <a> <b> <ca> <b> <c> <a b c>
     zsh : <a> <b> <ca> <b> <c> <a-b-c>
     `ksh93 and mksh can additionally achieve this side effect (and
-    others) via the `${ cmds;}` expansion. I haven\'t yet tested every
+    others) via the `${ cmds;}` expansion. I haven't yet tested every
     possible side-effect that can affect expansion halfway through
     expansion that way.
 
@@ -900,7 +900,7 @@ Removing the first 6 characters from a text string:
 ```{=html}
 <!-- -->
 ```
--   Bash (and most other shells) don\'t allow .\'s in identifiers. In
+-   Bash (and most other shells) don't allow .'s in identifiers. In
     ksh93, dots in variable names are used to reference methods (i.e.
     \"Discipline Functions\"), attributes, special shell variables, and
     to define the \"real value\" of an instance of a class.
@@ -920,7 +920,7 @@ Removing the first 6 characters from a text string:
 -   Bash only evaluates the subscripts of the slice expansion
     (`${x:y:z}`) if the parameter is set (for both nested expansions and
     arithmetic). For ranges, Bash evaluates as little as possible, i.e.,
-    if the first part is out of range, the second won\'t be evaluated.
+    if the first part is out of range, the second won't be evaluated.
     ksh93 and mksh always evaluate the subscript parts even if the
     parameter is unset.
     ` $ bash -c 'n="y[\$(printf yo >&2)1]" m="y[\$(printf jo >&2)1]"; x=(); echo "${x[@]:n,6:m}"' # No output
@@ -1030,7 +1030,7 @@ it. Bash will actually expand the command as one of these:
 To the best of my knowledge, ksh93 is the only shell that acts
 differently. Rather than forcing nested expansions into quoting, a quote
 at the beginning and end of the nested region will cause the quote state
-to reverse itself within the nested part. I have no idea whether it\'s
+to reverse itself within the nested part. I have no idea whether it's
 an intentional or documented effect, but it does solve the problem and
 consequently adds a lot of potential power to these expansions.
 

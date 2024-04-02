@@ -18,16 +18,16 @@ against every pattern `<PATTERNn>` and on a match, the associated
 [list](../../syntax/basicgrammar.md#lists) `<LISTn>` is executed. Every
 commandlist is terminated by `;;`. This rule is optional for the very
 last commandlist (i.e., you can omit the `;;` before the `esac`). Every
-`<PATTERNn>` is separated from it\'s associated `<LISTn>` by a `)`, and
+`<PATTERNn>` is separated from it's associated `<LISTn>` by a `)`, and
 is optionally preceded by a `(`.
 
 Bash 4 introduces two new action terminators. The classic behavior using
 `;;` is to execute only the list associated with the first matching
 pattern, then break out of the `case` block. The `;&` terminator causes
 `case` to also execute the next block without testing its pattern. The
-`;;&` operator is like `;;`, except the case statement doesn\'t
+`;;&` operator is like `;;`, except the case statement doesn't
 terminate after executing the associated list - Bash just continues
-testing the next pattern as though the previous pattern didn\'t match.
+testing the next pattern as though the previous pattern didn't match.
 Using these terminators, a `case` statement can be configured to test
 against all patterns, or to share code between blocks, for example.
 
@@ -74,17 +74,17 @@ Another one of my stupid examples\...
             echo 'Hm, a bit awry, no?'
             ;;
         orange|tangerine)
-            echo $'Eeeks! I don\'t like those!\nGo away!'
+            echo $'Eeeks! I don't like those!\nGo away!'
             exit 1
             ;;
         *)
             echo "Unknown fruit - sure it isn't toxic?"
     esac
 
-Here\'s a practical example showing a common pattern involving a `case`
+Here's a practical example showing a common pattern involving a `case`
 statement. If the first argument is one of a valid set of alternatives,
 then perform some sysfs operations under Linux to control a video
-card\'s power profile. Otherwise, show a usage synopsis, and print the
+card's power profile. Otherwise, show a usage synopsis, and print the
 current power profile and GPU temperature.
 
 ``` bash
@@ -146,14 +146,14 @@ f a b c
 ## Portability considerations
 
 -   Only the `;;` delimiter is specified by POSIX.
--   zsh and mksh use the `;|` control operator instead of Bash\'s `;;&`.
+-   zsh and mksh use the `;|` control operator instead of Bash's `;;&`.
     Mksh has `;;&` for Bash compatability (undocumented).
 -   ksh93 has the `;&` operator, but no `;;&` or equivalent.
 -   ksh93, mksh, zsh, and posh support a historical syntax where open
     and close braces may be used in place of `in` and `esac`:
     `case word { x) ...; };`. This is similar to the alternate form Bash
     supports for its [for loops](../../syntax/ccmd/classic_for.md), but Bash
-    doesn\'t support this syntax for `case..esac`.
+    doesn't support this syntax for `case..esac`.
 
 ## See also
 

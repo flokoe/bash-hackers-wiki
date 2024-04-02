@@ -4,19 +4,19 @@
 
 ## Why lock?
 
-Sometimes there\'s a need to ensure only one copy of a script runs, i.e
+Sometimes there's a need to ensure only one copy of a script runs, i.e
 prevent two or more copies running simultaneously. Imagine an important
 cronjob doing something very important, which will fail or corrupt data
 if two copies of the called program were to run at the same time. To
 prevent this, a form of `MUTEX` (**mutual exclusion**) lock is needed.
 
 The basic procedure is simple: The script checks if a specific condition
-(locking) is present at startup, if yes, it\'s locked - the scipt
-doesn\'t start.
+(locking) is present at startup, if yes, it's locked - the scipt
+doesn't start.
 
 This article describes locking with common UNIX(r) tools. There are
 other special locking tools available, But they\'re not standardized, or
-worse yet, you can\'t be sure they\'re present when you want to run your
+worse yet, you can't be sure they\'re present when you want to run your
 scripts. **A tool designed for specifically for this purpose does the
 job much better than general purpose code.**
 
@@ -32,7 +32,7 @@ limits.
 ## Choose the locking method
 
 The best way to set a global lock condition is the UNIX(r) filesystem.
-Variables aren\'t enough, as each process has its own private variable
+Variables aren't enough, as each process has its own private variable
 space, but the filesystem is global to all processes (yes, I know about
 chroots, namespaces, \... special case). You can \"set\" several things
 in the filesystem that can be used as locking indicator:
@@ -44,17 +44,17 @@ in the filesystem that can be used as locking indicator:
 To create a file or set a file timestamp, usually the command touch is
 used. The following problem is implied: A locking mechanism checks for
 the existance of the lockfile, if no lockfile exists, it creates one and
-continues. Those are **two separate steps**! That means it\'s **not an
-atomic operation**. There\'s a small amount of time between checking and
+continues. Those are **two separate steps**! That means it's **not an
+atomic operation**. There's a small amount of time between checking and
 creating, where another instance of the same script could perform
-locking (because when it checked, the lockfile wasn\'t there)! In that
+locking (because when it checked, the lockfile wasn't there)! In that
 case you would have 2 instances of the script running, both thinking
 they are succesfully locked, and can operate without colliding. Setting
 the timestamp is similar: One step to check the timespamp, a second step
 to set the timestamp.
 
-\<WRAP center round tip 60%\> [**Conclusion:**]{.underline} We need an
-operation that does the check and the locking in one step. \</WRAP\>
+<WRAP center round tip 60%> [**Conclusion:**]{.underline} We need an
+operation that does the check and the locking in one step. </WRAP>
 
 A simple way to get that is to create a **lock directory** - with the
 mkdir command. It will:
@@ -84,16 +84,16 @@ atomic. Maybe a while loop checking continously for the existence of the
 lock in the background and sending a signal such as USR1, if the
 directory is not found, can be done. The signal would need to be
 trapped. I am sure there there is a better solution than this
-suggestion* \-\-- *[sn18](sunny_delhi18@yahoo.com) 2009/12/19 08:24*
+suggestion* --- *[sn18](sunny_delhi18@yahoo.com) 2009/12/19 08:24*
 
 **Note:** While perusing the Internet, I found some people asking if the
-`mkdir` method works \"on all filesystems\". Well, let\'s say it should.
+`mkdir` method works \"on all filesystems\". Well, let's say it should.
 The syscall under `mkdir` is guarenteed to work atomicly in all cases,
 at least on Unices. Two examples of problems are NFS filesystems and
 filesystems on cluster servers. With those two scenarios, dependencies
 exist related to the mount options and implementation. However, I
 successfully use this simple method on an Oracle OCFS2 filesystem in a
-4-node cluster environment. So let\'s just say \"it should work under
+4-node cluster environment. So let's just say \"it should work under
 normal conditions\".
 
 Another atomic method is setting the `noclobber` shell option
@@ -129,7 +129,7 @@ differences compared to the very simple example above:
 -   traps are created to automatically remove the lock when the script
     terminates, or is killed
 
-Details on how the script is killed aren\'t given, only code relevant to
+Details on how the script is killed aren't given, only code relevant to
 the locking process is shown:
 
 ``` bash

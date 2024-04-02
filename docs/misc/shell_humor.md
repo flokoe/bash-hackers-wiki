@@ -28,7 +28,7 @@ Usually Bash and/or Linux (GNU Toolset) specific.
     $ sed statement <<< cat
     cement
 
-    $ \(-
+    $ (-
     bash: (-: command not found
 
     $ echo '[q]sa[ln0=aln256%Pln256/snlbx]sb3135071790101768542287578439snlbxq'|dc

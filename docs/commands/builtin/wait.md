@@ -34,7 +34,7 @@ The return status is the return status of the job waited for, or
 
   Status   Reason
   -------- -------------------------------------------------
-  0        waited for all jobs in shell\'s job list
+  0        waited for all jobs in shell's job list
   1        the given `ID` is not a valid job or process ID
 
 ## Examples

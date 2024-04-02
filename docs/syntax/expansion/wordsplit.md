@@ -18,9 +18,9 @@ are **not double-quoted**!
 The `IFS` variable holds the characters that Bash sees as word
 boundaries in this step. The default contains the characters
 
--   \<space\>
--   \<tab\>
--   \<newline\>
+-   <space>
+-   <tab>
+-   <newline>
 
 These characters are also assumed when IFS is **unset**. When `IFS` is
 **empty** (nullstring), no word splitting is performed at all.
@@ -31,14 +31,14 @@ The results of the expansions mentioned above are scanned for
 `IFS`-characters. If **one or more** (in a sequence) of them is found,
 the expansion result is split at these positions into multiple words.
 
-This doesn\'t happen when the expansion results were **double-quoted**.
+This doesn't happen when the expansion results were **double-quoted**.
 
 When a null-string (e.g., something that before expanded to
-\>\>nothing\<\<) is found, it is removed, unless it is quoted (`''` or
+>>nothing<<) is found, it is removed, unless it is quoted (`''` or
 `""`).
 
 [**Again note:**]{.underline} Without any expansion beforehand, Bash
-won\'t perform word splitting! In this case, the initial token parsing
+won't perform word splitting! In this case, the initial token parsing
 is solely responsible.
 
 ## See also
@@ -49,4 +49,4 @@ is solely responsible.
 -   [WordSplitting](http://mywiki.wooledge.org/WordSplitting),
     [IFS](http://mywiki.wooledge.org/IFS), and
     [DontReadLinesWithFor](http://mywiki.wooledge.org/DontReadLinesWithFor) -
-    Greg\'s wiki
+    Greg's wiki

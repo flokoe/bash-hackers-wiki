@@ -20,7 +20,7 @@ from the C programming language.
 
 This article describes the theory of the used syntax and the behaviour.
 To get practical examples without big explanations, see [this page on
-Greg\'s
+Greg's
 wiki](http://mywiki.wooledge.org/BashGuide/CompoundCommands#Arithmetic_Evaluation).
 
 ## Constants
@@ -64,7 +64,7 @@ When no base is specified, the base 10 (decimal) is assumed, except when
 the prefixes as mentioned above (octals, hexadecimals) are present. The
 specified base can range from 2 to 64. To represent digits in a
 specified base greater than 10, characters other than 0 to 9 are needed
-(in this order, low =\> high):
+(in this order, low => high):
 
 -   `0 ... 9`
 -   `a ... z`
@@ -72,7 +72,7 @@ specified base greater than 10, characters other than 0 to 9 are needed
 -   `@`
 -   `_`
 
-Let\'s quickly invent a new number system with base 43 to show what I
+Let's quickly invent a new number system with base 43 to show what I
 mean:
 
     $ echo $((43#1))
@@ -91,7 +91,7 @@ mean:
     bash: 43#H: value too great for base (error token is "43#H")
 
 If you have no clue what a base is and why there might be other bases,
-and what numbers are and how they are built, then you don\'t need
+and what numbers are and how they are built, then you don't need
 different bases.
 
 If you want to convert between the usual bases (octal, decimal, hex),
@@ -103,7 +103,7 @@ strings.
 Shell variables can of course be used as operands, even when the integer
 attribute is not turned on (by `declare -i <NAME>`). If the variable is
 empty (null) or unset, its reference evaluates to 0. If the variable
-doesn\'t hold a value that looks like a valid expression (numbers or
+doesn't hold a value that looks like a valid expression (numbers or
 operations), the expression is re-used to reference, for example, the
 named parameters, e.g.:
 
@@ -223,7 +223,7 @@ That means, the following `if`-clause will execute the `else`-thread:
   `-`                          unary minus
 
   `<EXPR> ? <EXPR> : <EXPR>`   conditional (ternary) operator\
-                               \<condition\> ? \<result-if-true\> : \<result-if-false\>
+                               <condition> ? <result-if-true> : <result-if-false>
 
   `<EXPR> , <EXPR>`            expression list
 
@@ -232,7 +232,7 @@ That means, the following `if`-clause will execute the `else`-thread:
 
 ## Precedence
 
-The operator precedence is as follows (highest -\> lowest):
+The operator precedence is as follows (highest -> lowest):
 
 -   Postfix (`id++`, `id--`)
 -   Prefix (`++id`, `--id`)
@@ -260,16 +260,16 @@ first.
 
 ## Arithmetic expressions and return codes
 
-Bash\'s overall language construct is based on exit codes or return
+Bash's overall language construct is based on exit codes or return
 codes of commands or functions to be executed. `if` statements, `while`
 loops, etc., they all take the return codes of commands as conditions.
 
 Now the problem is: The return codes (0 means \"TRUE\" or \"SUCCESS\",
-not 0 means \"FALSE\" or \"FAILURE\") don\'t correspond to the meaning
+not 0 means \"FALSE\" or \"FAILURE\") don't correspond to the meaning
 of the result of an arithmetic expression (0 means \"FALSE\", not 0
 means \"TRUE\").
 
-That\'s why all commands and keywords that do arithmetic operations
+That's why all commands and keywords that do arithmetic operations
 attempt to **translate** the arithmetical meaning into an equivalent
 return code. This simply means:
 
@@ -292,7 +292,7 @@ else
 fi
 ```
 
-\<WRAP center round important\> Beware that `set -e` can change the
+<WRAP center round important> Beware that `set -e` can change the
 runtime behavior of scripts. For example,
 
 This non-equivalence of code behavior deserves some attention. Consider
@@ -332,7 +332,7 @@ echo $?
 (\"SUCCESS\")
 
 This change in code behavior was discovered once the script was run
-under set -e. \</WRAP\>
+under set -e. </WRAP>
 
 ## Arithmetic expressions in Bash
 

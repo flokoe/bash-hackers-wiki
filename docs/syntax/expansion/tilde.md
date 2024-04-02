@@ -23,7 +23,7 @@ The tilde expansion is used to expand to several specific pathnames:
 Tilde expansion is only performed, when the tilde-construct is at the
 beginning of a word, or a separate word.
 
-If there\'s nothing to expand, i.e., in case of a wrong username or any
+If there's nothing to expand, i.e., in case of a wrong username or any
 other error condition, the tilde construct is not replaced, it stays
 what it is.
 
@@ -33,13 +33,13 @@ Tilde expansion is also performed everytime a variable is assigned:
 -   after **every** `:` (colon) in the assigned value:
     `TARGET=file:~moonman/share`
 
-\<note info\> As of now (Bash 4.3-alpha) the following constructs
-**also** works, though it\'s not a variable assignment:
+<note info> As of now (Bash 4.3-alpha) the following constructs
+**also** works, though it's not a variable assignment:
 
     echo foo=~
     echo foo=:~
 
-I don\'t know yet, if this is a bug or intended. \</note\>
+I don't know yet, if this is a bug or intended. </note>
 
 This way you can correctly use the tilde expansion in your
 [PATH](../../syntax/shellvars.md#PATH):
@@ -60,15 +60,15 @@ This way you can correctly use the tilde expansion in your
 This form expands to the home-directory of the current user (`~`) or the
 home directory of the given user (`~<NAME>`).
 
-If the given user doesn\'t exist (or if his home directory isn\'t
-determinable, for some reason), it doesn\'t expand to something else, it
+If the given user doesn't exist (or if his home directory isn't
+determinable, for some reason), it doesn't expand to something else, it
 stays what it is. The requested home directory is found by asking the
 operating system for the associated home directory for `<NAME>`.
 
 To find the home directory of the current user (`~`), Bash has a
 precedence:
 
--   expand to the value of [HOME](../../syntax/shellvars.md#HOME) if it\'s
+-   expand to the value of [HOME](../../syntax/shellvars.md#HOME) if it's
     defined
 -   expand to the home directory of the user executing the shell
     (operating system)

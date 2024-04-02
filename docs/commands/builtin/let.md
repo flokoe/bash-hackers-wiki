@@ -24,7 +24,7 @@ difference being `let` is a builtin (simple command), and `((` is a
 compound command. The arguments to `let` are therefore subject to all
 the same expansions and substitutions as any other simple command -
 requiring proper quoting and escaping - whereas the contents of `((`
-aren\'t subject to [word-splitting](../../syntax/expansion/wordsplit.md) or
+aren't subject to [word-splitting](../../syntax/expansion/wordsplit.md) or
 [pathname expansion](../../syntax/expansion/globs.md) (almost never desirable
 for arithmetic). For this reason, **the [arithmetic compound
 command](../../syntax/ccmd/arithmetic_eval.md) should generally be preferred
@@ -41,12 +41,12 @@ command](../../syntax/ccmd/arithmetic_eval.md):
     $ echo "$a - $b - $?"
     4 - 2 - 0
 
-\<WRAP info\> Remember that inside arithmetic evaluation contexts, all
+<WRAP info> Remember that inside arithmetic evaluation contexts, all
 other expansions are processed as usual (from left-to-right), and the
 resulting text is evaluated as an arithmetic expression. Arithmetic
-already has a way to control precedence using parentheses, so it\'s very
-rare to need to nest arithmetic expansions within one another. It\'s
-used above only to illustrate how this precedence works. \</WRAP\>
+already has a way to control precedence using parentheses, so it's very
+rare to need to nest arithmetic expansions within one another. It's
+used above only to illustrate how this precedence works. </WRAP>
 
 Unlike `((`, being a simple command `let` has its own environment. In
 Bash, built-ins that can set variables process any arithmetic under
@@ -80,17 +80,17 @@ needed.
 -   It seems to be a common misunderstanding that `let` has some legacy
     purpose. Both `let` and [[^1]](../../syntax/ccmd/arithmetic_eval.md) were
     ksh88 features and almost identical in terms of portability as
-    everything that inherited one also tended to get the other. Don\'t
+    everything that inherited one also tended to get the other. Don't
     choose `let` over `((` expecting it to work in more places.
 -   [expr(1)](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/expr.html#tag_20_42)
     is a command one is likely to come across sooner or later. While it
     is more \"standard\" than `let`, the above should always be
     preferred. Both [arithmetic expansion](../../syntax/arith_expr.md)s and the
     `[` test operator are specified by POSIX(r) and satisfy almost all
-    of expr\'s use-cases. Unlike `let`, `expr` cannot assign directly to
+    of expr's use-cases. Unlike `let`, `expr` cannot assign directly to
     bash variables but instead returns a result on stdout. `expr` takes
     each operator it recognizes as a separate word and then concatenates
-    them into a single expression that\'s evaluated according to it\'s
+    them into a single expression that's evaluated according to it's
     own rules (which differ from shell arithmetic). `let` parses each
     word it recieves on its own and evaluates it as an expression
     without generating any output other than a return code.

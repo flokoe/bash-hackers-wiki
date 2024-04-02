@@ -39,7 +39,7 @@ For this topic, see also
   `gnu_errfmt`                      3.0-alpha                  
   `force_fignore`                   3.0-alpha                  
   `failglob`                        3.0-alpha                  
-  `extquote`                        3.0-alpha                  unsure \-- verify!
+  `extquote`                        3.0-alpha                  unsure -- verify!
   `extdebug`                        3.0-alpha                  
   `pipefail` (for `set -o`)         3.0                        
   `functrace` (for `set -o`)        3.0                        
@@ -108,7 +108,7 @@ For this topic, see also
   `[[...]]`: new                                                       2.02-alpha1                KSH93
   `[[...]]`: regex support (`=~`)                                      3.0-alpha                  
   `[[...]]`: quotable right-hand-side of `=~` forces string matching   3.2-alpha                  for consistency with pattern matching
-  `[[...]]`: `<` and `>` operators respect locale                      4.1-alpha                  for consistency, since 4.1-beta: ensure you have set compatiblity to \>4.0 (default)
+  `[[...]]`: `<` and `>` operators respect locale                      4.1-alpha                  for consistency, since 4.1-beta: ensure you have set compatiblity to >4.0 (default)
   `test`/`[`/`[[`: `-v`                                                4.2-alpha                  check if a variable is set
   `test`/`[`/`[[`: `-v`                                                4.2-alpha                  support array syntax to check for elements
   `test`/`[`/`[[`: `-N` accepts nanoseconds                            5.1-alpha                  
@@ -154,7 +154,7 @@ For this topic, see also
   `echo`                  `\uNNNN` and `\UNNNNNNNN` escape sequences                                                                                                   4.2-alpha                  for: `printf`, `echo -e`, `$'...'`
   `exec`                  option `-a` to give a `argv[0]` string                                                                                                       4.2-alpha                  
   `time`                  allowed as a command by itself to display timing values of the shell and its children                                                        4.2-alpha                  POSIX change
-  `help`                  `help` now searches exact topic-strings (i.e. `help read` won\'t find `readonly` anymore)                                                    4.3-alpha                  
+  `help`                  `help` now searches exact topic-strings (i.e. `help read` won't find `readonly` anymore)                                                    4.3-alpha                  
   `return`                accept negative values as return value (e.g. `return -1` will show as (8 bit) 255 in the caller)                                             4.3-alpha                  
   `exit`                  accept negative values as return value (e.g. `return -1` will show as (8 bit) 255 in the caller)                                             4.3-alpha                  
   `read`                  `read` skips `NUL` (ASCII Code 0) in input                                                                                                   4.3-alpha                  
@@ -163,7 +163,7 @@ For this topic, see also
   `read`                  `read` checks first variable argument for validity before trying to read inout                                                               4.3-beta                   
   `help`                  attempts substring matching (as it did through bash-4.2) if exact string matching fails                                                      4.3-beta2                  
   `fc`                    interprets option `-0` (zero) as the current command line                                                                                    4.3-beta2                  
-  `cd`                    new option `-@` to browse a file\'s extended attributes (on systems that support `O_XATTR`)                                                  4.3-rc1                    
+  `cd`                    new option `-@` to browse a file's extended attributes (on systems that support `O_XATTR`)                                                  4.3-rc1                    
   `kill`                  new option `-L` (upper case ell) to list signals like the normal lowercase option `-l` (compatiblity with some standalone `kill` commands)   4.4-beta                   
   `mapfile`               new option `-d`                                                                                                                              4.4-alpha                  
   `wait`                  new option `-f`                                                                                                                              5.0-alpha                  

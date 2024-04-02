@@ -20,7 +20,7 @@ If `<NAME...>` is given, the line is word-split using
 `<NAME>`. The remaining words are all assigned to the last `<NAME>` if
 more words than variable names are present.
 
-\<WRAP center round info 90%\> If no `<NAME>` is given, the whole line
+<WRAP center round info 90%> If no `<NAME>` is given, the whole line
 read (without performing word-splitting!) is assigned to the shell
 variable [REPLY](../../syntax/shellvars.md#REPLY). Then, `REPLY` really contains
 the line as it was read, without stripping pre- and postfix spaces and
@@ -30,7 +30,7 @@ other things!
       printf '"%s"\n' "$REPLY"
     done <<<"  a line with prefix and postfix space  "
 
-\</WRAP\>
+</WRAP>
 
 If a timeout is given, or if the shell variable
 [TMOUT](../../syntax/shellvars.md#TMOUT) is set, it is counted from initially
@@ -43,25 +43,25 @@ line is read). That means the timeout can occur during input, too.
   ---------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   `-a <ARRAY>`     read the data word-wise into the specified array `<ARRAY>` instead of normal variables
   `-d <DELIM>`     recognize `<DELIM>` as data-end, rather than `<newline>`
-  `-e`             on interactive shells: use Bash\'s readline interface to read the data. Since version 5.1-alpha, this can also be used on specified file descriptors using `-u`
+  `-e`             on interactive shells: use Bash's readline interface to read the data. Since version 5.1-alpha, this can also be used on specified file descriptors using `-u`
   `-i <STRING>`    preloads the input buffer with text from `<STRING>`, only works when Readline (`-e`) is used
   `-n <NCHARS>`    reads `<NCHARS>` characters of input, then quits
   `-N <NCHARS>`    reads `<NCHARS>` characters of input, *ignoring any delimiter*, then quits
   `-p <PROMPT>`    the prompt string `<PROMPT>` is output (without a trailing automatic newline) before the read is performed
   `-r`             raw input - **disables** interpretion of **backslash escapes** and **line-continuation** in the read data
-  `-s`             secure input - don\'t echo input if on a terminal (passwords!)
+  `-s`             secure input - don't echo input if on a terminal (passwords!)
   `-t <TIMEOUT>`   wait for data `<TIMEOUT>` seconds, then quit (exit code 1). Fractional seconds (\"5.33\") are allowed since Bash 4. A value of 0 immediately returns and indicates if data is waiting in the exit code. Timeout is indicated by an exit code greater than 128. If timeout arrives before data is read completely (before end-of-line), the partial data is saved.
   `-u <FD>`        use the filedescriptor number `<FD>` rather than `stdin` (0)
 
 When both, `-a <ARRAY>` and a variable name `<NAME>` is given, then the
 array is set, but not the variable.
 
-Of course it\'s valid to set individual array elements without using
+Of course it's valid to set individual array elements without using
 `-a`:
 
     read MYARRAY[5]
 
-\<WRAP center round important 90%\>
+<WRAP center round important 90%>
 
 Reading into array elements using the syntax above **may cause [pathname
 expansion](../../syntax/expansion/globs.md) to occur**.
@@ -81,7 +81,7 @@ array name and index:
 
     read 'x[1]'
 
-\</WRAP\>
+</WRAP>
 
 ### Return status
 
@@ -90,7 +90,7 @@ array name and index:
   0        no error
   0        error when assigning to a read-only variable [^1]
   2        invalid option
-  \>128    timeout (see `-t`)
+  >128    timeout (see `-t`)
   !=0      invalid filedescriptor supplied to `-u`
   !=0      end-of-file reached
 
@@ -99,7 +99,7 @@ array name and index:
 Essentially all you need to know about `-r` is to **ALWAYS** use it. The
 exact behavior you get without `-r` is completely useless even for weird
 purposes. It basically allows the escaping of input which matches
-something in IFS, and also escapes line continuations. It\'s explained
+something in IFS, and also escapes line continuations. It's explained
 pretty well in the [POSIX
 read](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/read.html#tag_20_109)
 spec.
@@ -141,7 +141,7 @@ some baskslash-escapes or switches (like `-n`).
 
 ### Press any key\...
 
-Remember the MSDOS `pause` command? Here\'s something similar:
+Remember the MSDOS `pause` command? Here's something similar:
 
     pause() {
       local dummy
@@ -254,9 +254,9 @@ date/time string are recognized correctly.
 
 -   POSIX(r) only specified the `-r` option (raw read); `-r` is not only
     POSIX, you can find it in earlier Bourne source code
--   POSIX(r) doesn\'t support arrays
+-   POSIX(r) doesn't support arrays
 -   `REPLY` is not POSIX(r), you need to set `IFS` to the empty string
-    to get the whole line for shells that don\'t know `REPLY`.
+    to get the whole line for shells that don't know `REPLY`.
     `while IFS= read -r line; do
       ...
     done < text.txt

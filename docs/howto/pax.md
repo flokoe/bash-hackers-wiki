@@ -12,12 +12,12 @@ the best features of `tar` and `cpio`, able to handle all common archive
 types.
 
 However, this is **not a manpage**, it will **not** list all possible
-options, it will **not** you detailed information about `pax`. It\'s
+options, it will **not** you detailed information about `pax`. It's
 only an introduction.
 
 This article is based on the debianized Berkeley implementation of
 `pax`, but implementation-specific things should be tagged as such.
-Unfortunately, the Debian package doesn\'t seem to be maintained
+Unfortunately, the Debian package doesn't seem to be maintained
 anymore.
 
 ## Overview
@@ -71,11 +71,11 @@ options, e.g. rewriting groups) to another location.
 
 ### Archive data
 
-When you don\'t specify anything special, `pax` will attempt to read
+When you don't specify anything special, `pax` will attempt to read
 archive data from standard input (read/list modes) and write archive
 data to standard output (write mode). This ensures `pax` can be easily
 used as part of a shell pipe construct, e.g. to read a compressed
-archive that\'s decompressed in the pipe.
+archive that's decompressed in the pipe.
 
 The option to specify the pathname of a file to be archived is `-f` This
 file will be used as input or output, depending on the operation
@@ -84,7 +84,7 @@ file will be used as input or output, depending on the operation
 When pax reads an archive, it tries to guess the archive type. However,
 in *write* mode, you must specify which type of archive to append using
 the `-x <TYPE>` switch. If you omit this switch, a default archive will
-be created (POSIX says it\'s implementation defined, Berkeley `pax`
+be created (POSIX says it's implementation defined, Berkeley `pax`
 creates `ustar` if no options are specified).
 
 The following archive formats are supported (Berkeley implementation):
@@ -115,7 +115,7 @@ files to list or extract.
     patterns
 -   if no patterns are given, `pax` will \"match\" (list or extract) all
     files from the archive
--   **To avoid conflicts with shell pathname expansion, it\'s wise to
+-   **To avoid conflicts with shell pathname expansion, it's wise to
     quote patterns!**
 
 #### Some assorted examples of patterns
@@ -170,7 +170,7 @@ customized to include permissions, timestamps, etc. with the
 specification is strongly derived from the `printf(3)` format
 specification.
 
-**Unfortunately** the `pax` utility delivered with Debian doesn\'t seem
+**Unfortunately** the `pax` utility delivered with Debian doesn't seem
 to support these extended listing formats.
 
 However, `pax` lists archive members in a `ls -l`-like format, when you
@@ -238,7 +238,7 @@ The same, but with an archive, can be accomplished by:
 
     pax -w -T 0000 -f /n/mybackups/$(date +%A)
 
-In this case, the day-name is an archive-file (you don\'t need a
+In this case, the day-name is an archive-file (you don't need a
 filename extension like `.tar` but you can add one, if desired).
 
 ### Changing filenames while archiving
@@ -269,7 +269,7 @@ happens in the order they are specified.
 ### Excluding files from an archive
 
 The -s command seen above can be used to exclude a file. The
-substitution must result in a null string: For example, let\'s say that
+substitution must result in a null string: For example, let's say that
 you want to exclude all the CVS directories to create a source code
 archive. We are going to replace the names containing /CVS/ with
 nothing, note the .\* they are needed because we need to match the
@@ -277,7 +277,7 @@ entire pathname.
 
       pax -w -x ustar -f release.tar -s',.*/CVS/.*,,' myapplication 
 
-You can use several -s options, for instance, let\'s say you also want
+You can use several -s options, for instance, let's say you also want
 to remove files ending in \~:
 
       pax -w -x ustar -f release.tar -'s,.*/CVS/.*,,' -'s/.*~//' myapplication 
@@ -292,7 +292,7 @@ that you want to extract only the \"usr\" directory:
 
 Like `cpio`, pax can read filenames from standard input (`stdin`). This
 provides great flexibility - for example, a `find(1)` command may select
-files/directories in ways pax can\'t do itself. In **write** mode
+files/directories in ways pax can't do itself. In **write** mode
 (creating an archive) or **copy** mode, when no filenames are given, pax
 expects to read filenames from standard input. For example:
 

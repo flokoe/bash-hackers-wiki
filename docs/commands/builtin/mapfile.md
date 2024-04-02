@@ -29,13 +29,13 @@ given array `ARRAY` is set readonly.
   `-t`            Remove any trailing newline from a line read, before it is assigned to an array element.
   `-u FD`         Read from filedescriptor `FD` rather than standard input.
 
-While `mapfile` isn\'t a common or portable shell feature, it\'s
+While `mapfile` isn't a common or portable shell feature, it's
 functionality will be familiar to many programmers. Almost all
 programming languages (aside from shells) with support for compound
 datatypes like arrays, and which handle open file objects in the
 traditional way, have some analogous shortcut for easily reading all
 lines of some input as a standard feature. In Bash, `mapfile` in itself
-can\'t do anything that couldn\'t already be done using read and a loop,
+can't do anything that couldn't already be done using read and a loop,
 and if portability is even a slight concern, should never be used.
 However, it does *significantly* outperform a read loop, and can make
 for shorter and cleaner code - especially convenient for interactive
@@ -43,13 +43,13 @@ use.
 
 ## Examples
 
-Here\'s a real-world example of interactive use borrowed from Gentoo
+Here's a real-world example of interactive use borrowed from Gentoo
 workflow. Xorg updates require rebuilding drivers, and the
-Gentoo-suggested command is less than ideal, so let\'s Bashify it. The
+Gentoo-suggested command is less than ideal, so let's Bashify it. The
 first command produces a list of packages, one per line. We can read
 those into the array named \"args\" using `mapfile`, stripping trailing
 newlines with the \'-t\' option. The resulting array is then expanded
-into the arguments of the \"emerge\" command - an interface to Gentoo\'s
+into the arguments of the \"emerge\" command - an interface to Gentoo's
 package manager. This type of usage can make for a safe and effective
 replacement for xargs(1) in certain situations. Unlike xargs, all
 arguments are guaranteed to be passed to a single invocation of the
@@ -59,13 +59,13 @@ business.
     # eix --only-names -IC x11-drivers | { mapfile -t args; emerge -av1 "${args[@]}" <&1; }
 
 Note the use of command grouping to keep the emerge command inside the
-pipe\'s subshell and within the scope of \"args\". Also note the unusual
+pipe's subshell and within the scope of \"args\". Also note the unusual
 redirection. This is because the -a flag makes emerge interactive,
 asking the user for confirmation before continuing, and checking with
-isatty(3) to abort if stdin isn\'t pointed at a terminal. Since stdin of
+isatty(3) to abort if stdin isn't pointed at a terminal. Since stdin of
 the entire command group is still coming from the pipe even though
 mapfile has read all available input, we just borrow FD 1 as it just so
-happens to be pointing where we want it. More on this over at greycat\'s
+happens to be pointing where we want it. More on this over at greycat's
 wiki: <http://mywiki.wooledge.org/BashFAQ/024>
 
 ### The callback
@@ -121,7 +121,7 @@ illustrates the callback behavior:
 
 Since redirects are syntactically allowed anywhere in a command, we put
 it before the printf to stay out of the way of additional arguments.
-Rather than opening \"outfile\<n\>\" for appending on each call by
+Rather than opening \"outfile<n>\" for appending on each call by
 calculating the filename, open an FD for each first and calculate which
 FD to send output to by measuring the size of x mod 2. The zero-width
 format specification is used to absorb the index number argument.
@@ -209,13 +209,13 @@ each subsequent 2 iterations. The RETURN trap is unimportant.
 
 ## To Do
 
--   Create an implementation as a shell function that\'s portable
+-   Create an implementation as a shell function that's portable
     between Ksh, Zsh, and Bash (and possibly other bourne-like shells
     with array support).
 
 ## See also
 
 -   [arrays](../../syntax/arrays.md)
--   [read](../../commands/builtin/read.md) - If you don\'t know about this yet,
+-   [read](../../commands/builtin/read.md) - If you don't know about this yet,
     why are you reading this page?
--   <http://mywiki.wooledge.org/BashFAQ/001> - It\'s FAQ 1 for a reason.
+-   <http://mywiki.wooledge.org/BashFAQ/001> - It's FAQ 1 for a reason.

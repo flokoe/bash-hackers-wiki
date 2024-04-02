@@ -22,7 +22,7 @@ variable.
 When used in a function, `declare` makes `NAMEs` local variables, unless
 used with the `-g` option.
 
-Don\'t use it\'s synonym `typeset` when coding for Bash, since it\'s
+Don't use it's synonym `typeset` when coding for Bash, since it's
 tagged as obsolete.
 
 ### Options
@@ -52,7 +52,7 @@ Below, `[-+]X` indicates an attribute, use `-X` to set the attribute,
   `[-+]n`   make NAME a reference to the variable named by its value. Introduced in Bash 4.3-alpha.\
             \'\' \${!NAME}\'\' reveals the reference variable name, VALUE.\
             Use `unset -n NAME` to unset the variable. (`unset -v NAME` unsets the VALUE variable.)\
-            Use `[[ -R NAME ]]` to test if NAME has been set to a VALUE, another variable\'s name.
+            Use `[[ -R NAME ]]` to test if NAME has been set to a VALUE, another variable's name.
 
   `-p`      display the attributes and value of each NAME
 
@@ -138,7 +138,7 @@ RHS.
     sum total a b c
     printf 'Final value of "total" is: %d\n' "$total"
 
-\<div hide\> function sum {
+<div hide> function sum {
 
       typeset -n _result=$1
       shift
@@ -153,12 +153,12 @@ RHS.
 }
 
 a=(1 2 3); b=(6 5 4); c=(2 4 6) sum total a b c printf \'Final value of
-\"total\" is: %d\\n\' \"\$total\" \</div\>
+\"total\" is: %d\\n\' \"\$total\" </div>
 
 `typeset -n` is currently implemented in ksh93, mksh, and Bash 4.3. Bash
-and mksh\'s implementations are quite similar, but much different from
-ksh93\'s. See [Portability considerations](#portability_considerations)
-for details. ksh93 namerefs are much more powerful than Bash\'s.
+and mksh's implementations are quite similar, but much different from
+ksh93's. See [Portability considerations](#portability_considerations)
+for details. ksh93 namerefs are much more powerful than Bash's.
 
 ## Portability considerations
 
@@ -167,7 +167,7 @@ for details. ksh93 namerefs are much more powerful than Bash\'s.
     possible exception of Zsh in Bash compatibility mode. Bash marks the
     synonym `typeset` as obsolete, which in Bash behaves identically to
     `declare`. All other Korn-like shells use `typeset`, so it probably
-    isn\'t going away any time soon. Unfortunately, being a non-standard
+    isn't going away any time soon. Unfortunately, being a non-standard
     builtin, `typeset` differs significantly between shells. ksh93 also
     considers `typeset` a special builtin, while Bash does not - even in
     POSIX mode. If you use `typeset`, you should attempt to only use it

@@ -31,7 +31,7 @@ The input and output **filedescriptors** are cumulative:
 
 This compound command also usually is the body of a [function
 definition](../../syntax/basicgrammar.md#shell_function_definitions), though not
-the only compound command that\'s valid there:
+the only compound command that's valid there:
 
     print_help() {
       echo "Options:"
@@ -64,8 +64,8 @@ the only compound command that\'s valid there:
     without extra separator (also in some other shells), **example**:
     `{ while sleep 1; do echo ZzZzzZ; done }` is valid. But this is not
     documented, infact the documentation explicitly says that a
-    semicolon or a newline must separate the enclosed list. \-- thanks
+    semicolon or a newline must separate the enclosed list. -- thanks
     `geirha` at Freenode
 
 [^2]: The main reason is the fact that in shell grammar, the curly
-    braces are not control operators but reserved words \-- TheBonsai
+    braces are not control operators but reserved words -- TheBonsai

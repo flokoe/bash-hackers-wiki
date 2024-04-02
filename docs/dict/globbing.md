@@ -18,7 +18,7 @@ really executes
 The term \"glob\" originates back in the UNIX(r) days where an
 executable `glob` (from \"global\") existed which was used to expand
 pattern-matching characters. Later, this functionality was built into
-the shell. There\'s still a library function called `glob()` (POSIX(r)),
+the shell. There's still a library function called `glob()` (POSIX(r)),
 which serves the same purpose.
 
 ## See also

@@ -5,7 +5,7 @@
 ## What is a \"Collapsing Function\"?
 
 A collapsing function is a function whose behavior changes depending
-upon the circumstances under which it\'s run. Function collapsing is
+upon the circumstances under which it's run. Function collapsing is
 useful when you find yourself repeatedly checking a variable whose value
 never changes.
 
@@ -41,7 +41,7 @@ common example is a script that gives the user the option of having
 ## How does it work?
 
 The first time you run chatter(), the function redefines itself based on
-the value of verbose. Thereafter, chatter doesn\'t check \$verbose, it
+the value of verbose. Thereafter, chatter doesn't check \$verbose, it
 simply is. Further calls to the function reflect its collapsed nature.
 If verbose is unset, chatter will echo nothing, with no extra effort
 from the developer.

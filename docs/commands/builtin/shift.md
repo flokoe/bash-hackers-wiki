@@ -63,26 +63,26 @@ There are no options.
     dash: 1: shift: can't shift that many
     ` In most shells, you can work around this problem using the
     [command](../../commands/builtin/command.md) builtin to suppress fatal
-    errors caused by *special builtins*. \<code\> \$ dash -c \'f() { if
-    command shift 2\>/dev/null; then echo \"\$1\"; else echo \"no
+    errors caused by *special builtins*. <code> \$ dash -c \'f() { if
+    command shift 2>/dev/null; then echo \"\$1\"; else echo \"no
     args\"; fi; }; f\'
 
-no args \</code\> While, POSIX requires this behavior, it isn\'t very
-obvious and some shells don\'t do it correctly. To work around this, you
+no args </code> While, POSIX requires this behavior, it isn't very
+obvious and some shells don't do it correctly. To work around this, you
 can use something like:
 
-\<code\> \$ mksh -c \'f() { if ! \${1+false} && shift; then echo
-\"\$1\"; else echo \"no args\"; fi; }; f\' no args \</code\> ~~The mksh
+<code> \$ mksh -c \'f() { if ! \${1+false} && shift; then echo
+\"\$1\"; else echo \"no args\"; fi; }; f\' no args </code> ~~The mksh
 maintainer refuses to change either the `shift` or `command` builtins.~~
 [Fixed](https://github.com/MirBSD/mksh/commit/996e05548ab82f7ef2dea61f109cc7b6d13837fa).
 (Thanks!)
 
--   Perhaps almost as bad as the above, busybox sh\'s `shift` always
+-   Perhaps almost as bad as the above, busybox sh's `shift` always
     returns success, even when attempting to shift beyond the final
-    argument. \<code\> \$ bb -c \'f() { if shift; then echo \"\$1\";
+    argument. <code> \$ bb -c \'f() { if shift; then echo \"\$1\";
     else echo \"no args\"; fi; }; f\'
 
-(no output) \</code\> The above mksh workaround will work in this case
+(no output) </code> The above mksh workaround will work in this case
 too.
 
 ## See also

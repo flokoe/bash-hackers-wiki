@@ -1,6 +1,6 @@
 # Save and restore terminal/screen content
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: terminal, restore
+---- dataentry snipplet ---- snipplet_tags: terminal, restore
 screen LastUpdate_dt: 2010-07-31 Contributors: Greg Wooledge type:
 snipplet
 

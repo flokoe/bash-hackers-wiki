@@ -7,7 +7,7 @@
 ## Description
 
 The `readonly` builtin command is used to mark variables or functions as
-read-only, which means unchangeable. This implies that it can\'t be
+read-only, which means unchangeable. This implies that it can't be
 unset anymore. A `readonly` variable may not be redefined in child
 scopes. A readonly global may not be redefined as a function local
 variable. Simple command environment assignments may not reference

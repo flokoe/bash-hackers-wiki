@@ -14,7 +14,7 @@ A pattern is a **string description**. Bash uses them in various ways:
 -   Pattern-based branching using the [case command](../syntax/ccmd/case.md)
 
 The pattern description language is relatively easy. Any character
-that\'s not mentioned below matches itself. The `NUL` character may not
+that's not mentioned below matches itself. The `NUL` character may not
 occur in a pattern. If special characters are quoted, they\'re matched
 literally, i.e., without their special meaning.
 
@@ -28,7 +28,7 @@ share some symbols and do similar matching work.
   `*`        Matches **any string**, including the null string (empty string)
   `?`        Matches any **single character**
   `X`        Matches the character `X` which can be any character that has no special meaning
-  `\X`       Matches the character `X`, where the character\'s special meaning is stripped by the backslash
+  `\X`       Matches the character `X`, where the character's special meaning is stripped by the backslash
   `\\`       Matches a backslash
   `[...]`    Defines a pattern **bracket expression** (see below). Matches any of the enclosed characters at this position.
 
@@ -55,23 +55,23 @@ Some simple examples using normal pattern matching:
 -   Pattern `"Hello world"` matches
     -   `Hello world`
 -   Pattern `[Hh]"ello world"` matches
-    -   =\> `Hello world`
-    -   =\> `hello world`
+    -   => `Hello world`
+    -   => `hello world`
 -   Pattern `Hello*` matches (for example)
-    -   =\> `Hello world`
-    -   =\> `Helloworld`
-    -   =\> `HelloWoRlD`
-    -   =\> `Hello`
+    -   => `Hello world`
+    -   => `Helloworld`
+    -   => `HelloWoRlD`
+    -   => `Hello`
 -   Pattern `Hello world[[:punct:]]` matches (for example)
-    -   =\> `Hello world!`
-    -   =\> `Hello world.`
-    -   =\> `Hello world+`
-    -   =\> `Hello world?`
+    -   => `Hello world!`
+    -   => `Hello world.`
+    -   => `Hello world+`
+    -   => `Hello world?`
 -   Pattern
     `[[.backslash.]]Hello[[.vertical-line.]]world[[.exclamation-mark.]]`
     matches (using [collation
     symbols](https://pubs.opengroup.org/onlinepubs/009696899/basedefs/xbd_chap07.html#tag_07_03_02_04))
-    -   =\> `\Hello|world!`
+    -   => `\Hello|world!`
 
 ## Extended pattern language
 
@@ -127,7 +127,7 @@ least) ksh93 and zsh translate patterns into regexes and then use a
 regex compiler to emit and cache optimized pattern matching code. This
 means Bash may be an order of magnitude or more slower in cases that
 involve complex back-tracking (usually that means extglob quantifier
-nesting). You may wish to use Bash\'s regex support (the `=~` operator)
+nesting). You may wish to use Bash's regex support (the `=~` operator)
 if performance is a problem, because Bash will use your C library regex
 implementation rather than its own pattern matcher.
 
@@ -141,8 +141,8 @@ to those described above.
 
 \* ksh93 supports arbitrary quantifiers just like ERE using the
 `{from,to}(pattern-list)` syntax. `{2,4}(foo)bar` matches between 2-4
-\"foo\"\'s followed by \"bar\". `{2,}(foo)bar` matches 2 or more
-\"foo\"\'s followed by \"bar\". You can probably figure out the rest. So
+\"foo\"'s followed by \"bar\". `{2,}(foo)bar` matches 2 or more
+\"foo\"'s followed by \"bar\". You can probably figure out the rest. So
 far, none of the other shells support this syntax.
 
 \* In ksh93, a `pattern-list` may be delimited by either `&` or `|`. `&`
@@ -155,7 +155,7 @@ double extglob negation. The aforementioned ksh93 pattern is equivalent
 in Bash to: `[[ fo0bar == !(!(fo[0-9])|!(+([[:alnum:]])))bar ]]`, which
 is technically more portable, but ugly.
 
-\* ksh93\'s [printf](../commands/builtin/printf.md) builtin can translate from
+\* ksh93's [printf](../commands/builtin/printf.md) builtin can translate from
 shell patterns to ERE and back again using the `%R` and `%P` format
 specifiers respectively.
 

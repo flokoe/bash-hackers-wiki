@@ -18,7 +18,7 @@ In brief, the *reverse polish notation* means the numbers are put on the
 stack first, then an operation is applied to them. Instead of writing
 `1+1`, you write `1 1+`.
 
-By default `dc`, unlike `bc`, doesn\'t print anything, the result is
+By default `dc`, unlike `bc`, doesn't print anything, the result is
 pushed on the stack. You have to use the \"p\" command to print the
 element at the top of the stack. Thus a simple operation looks like:
 
@@ -26,7 +26,7 @@ element at the top of the stack. Thus a simple operation looks like:
     2
 
 I used a \"here string\" present in bash 3.x, ksh93 and zsh. if your
-shell doesn\'t support this, you can use `echo '1 1+p' | dc` or if you
+shell doesn't support this, you can use `echo '1 1+p' | dc` or if you
 have GNU `dc`, you can use `dc -e '1 1 +p`\'.
 
 Of course, you can also just run `dc` and enter the commands.
@@ -140,10 +140,10 @@ command `f`. The stack remains unchanged:
     1
 
 Note how the first element that will be popped from the stack is printed
-first, if you are used to an HP calculator, it\'s the reverse.
+first, if you are used to an HP calculator, it's the reverse.
 
-Don\'t hesitate to put `f` in the examples of this tutorial, it doesn\'t
-change the result, and it\'s a good way to see what\'s going on.
+Don't hesitate to put `f` in the examples of this tutorial, it doesn't
+change the result, and it's a good way to see what's going on.
 
 ## Registers
 
@@ -159,7 +159,7 @@ supposed to use the NUL byte. Using a register is easy:
     +p # add the 2 values and print
     EOF
 
-The above snippet uses newlines to embed comments, but it doesn\'t
+The above snippet uses newlines to embed comments, but it doesn't
 really matter, you can use `echo '12sa10la+p'| dc`, with the same
 results.
 
@@ -184,7 +184,7 @@ enclosed in `[]`. You can print it with `p`: `dc <<< '[Hello World!]p'`
 and you can evalute it with x: `dc <<< '[1 2+]xp'`.
 
 This is not that interesting until combined with registers. First,
-let\'s say we want to calculate the square of a number (don\'t forget to
+let's say we want to calculate the square of a number (don't forget to
 include `f` if you get lost!):
 
     dc << EOF
@@ -223,7 +223,7 @@ we are used to reading:
 Some `dc` have `>R <R =R`, GNU `dc` had some more, check your manual.
 Note that the test \"consumes\" its operands: the 2 first elements are
 popped off the stack (you can verify that
-`dc <<< "[f]sR 2 1 >R 1 2 >R f"` doesn\'t print anything)
+`dc <<< "[f]sR 2 1 >R 1 2 >R f"` doesn't print anything)
 
 Have you noticed how we can *include* a macro (string) in a macro? and
 as `dc` relies on a stack we can, in fact, use the macro recursively
@@ -256,12 +256,12 @@ remove all those extra spaces newlines and comments:
     dc <<< '[lip1-si0li>L]sL10silLx' 
     dc <<< '[p1-d0<L]sL10lLx' # use the stack instead of a register
 
-I\'ll let you figure out the second example, it\'s not hard, it uses the
+I\'ll let you figure out the second example, it's not hard, it uses the
 stack instead of a register for the index.
 
 ## Next
 
-Check your dc manual, i haven\'t decribed everything, like arrays (only
+Check your dc manual, i haven't decribed everything, like arrays (only
 documented with \"; : are used by bc(1) for array operations\" on
 solaris, probably because *echo \'1 0:a 0Sa 2 0:a La 0;ap\' \| dc*
 results in //Segmentation Fault (core dump) //, the latest solaris uses

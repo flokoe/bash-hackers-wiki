@@ -10,8 +10,8 @@ it\".
 This is not a bible, of course. But I have seen so much ugly and
 terrible code (not only in shell) during all the years, that I\'m 100%
 convinced there needs to be *some* code layout and style. No matter
-which one you use, use it throughout your code (at least don\'t change
-it within the same shellscript file); don\'t change your code layout
+which one you use, use it throughout your code (at least don't change
+it within the same shellscript file); don't change your code layout
 with your mood.
 
 Some good code layout helps you to read your own code after a while. And
@@ -19,16 +19,16 @@ of course it helps others to read the code.
 
 ## Indentation guidelines
 
-Indentation is nothing that technically influences a script, it\'s only
+Indentation is nothing that technically influences a script, it's only
 for us humans.
 
 I\'m used to seeing/using indentation of *two space characters* (though
 many may prefer 4 spaces, see below in the discussion section):
 
--   it\'s easy and fast to type
--   it\'s not a hard-tab that\'s displayed differently in different
+-   it's easy and fast to type
+-   it's not a hard-tab that's displayed differently in different
     environments
--   it\'s wide enough to give a visual break and small enough to not
+-   it's wide enough to give a visual break and small enough to not
     waste too much space on the line
 
 Speaking of hard-tabs: Avoid them if possible. They only make trouble. I
@@ -145,7 +145,7 @@ Cryptic constructs, we all know them, we all love them. If they are not
 100% needed, avoid them, since nobody except you may be able to decipher
 them.
 
-It\'s - just like in C - the middle ground between smart, efficient and
+It's - just like in C - the middle ground between smart, efficient and
 readable.
 
 If you need to use a cryptic construct, include a comment that explains
@@ -179,12 +179,12 @@ loop counting variables, etc., \... (in the example: `file`)
 
 ### Variable initialization
 
-As in C, it\'s always a good idea to initialize your variables, though,
+As in C, it's always a good idea to initialize your variables, though,
 the shell will initialize fresh variables itself (better: Unset
 variables will generally behave like variables containing a null
 string).
 
-It\'s no problem to pass an **environment variable** to the script. If
+It's no problem to pass an **environment variable** to the script. If
 you blindly assume that all variables you use for the first time are
 **empty**, anybody can **inject** content into a variable by passing it
 via the environment.
@@ -203,7 +203,7 @@ in-code documentation for them.
 Unless you are really sure what you\'re doing, **quote every parameter
 expansion**.
 
-There are some cases where this isn\'t needed from a technical point of
+There are some cases where this isn't needed from a technical point of
 view, e.g.
 
 -   inside `[[ ... ]]` (other than the RHS of the `==`, `!=`, and `=~`
@@ -214,7 +214,7 @@ view, e.g.
 But quoting these is never a mistake. If you quote every parameter
 expansion, you\'ll be safe.
 
-If you need to parse a parameter as a list of words, you can\'t quote,
+If you need to parse a parameter as a list of words, you can't quote,
 of course, e.g.
 
     list="one two three"
@@ -260,7 +260,7 @@ Avoid it, unless absolutely neccesary:
 -   `eval` can be your neckshot
 -   there are most likely other ways to achieve what you want
 -   if possible, re-think the way your script works, if it seems you
-    can\'t avoid `eval` with your current method
+    can't avoid `eval` with your current method
 -   if you really, really, have to use it, then take care, and be sure
     about what you\'re doing
 
@@ -278,7 +278,7 @@ The basic structure of a script simply reads:
 
 ### The shebang
 
-If possible (I know it\'s not always possible!), use [a
+If possible (I know it's not always possible!), use [a
 shebang](../dict/terms/shebang.md).
 
 Be careful with `/bin/sh`: The argument that \"on Linux `/bin/sh` is
@@ -309,7 +309,7 @@ declared before the main script code runs. This gives a far better
 overview and ensures that all function names are known before they are
 used.
 
-Since a function isn\'t parsed before it is executed, you usually don\'t
+Since a function isn't parsed before it is executed, you usually don't
 have to ensure they\'re in a specific order.
 
 The portable form of the function definition should be used, without the
@@ -321,7 +321,7 @@ command](../syntax/ccmd/grouping_plain.md)):
     }
 
 Speaking about the command grouping in function definitions using
-`{ ...; }`: If you don\'t have a good reason to use another compound
+`{ ...; }`: If you don't have a good reason to use another compound
 command directly, you should always use this one.
 
 ## Behaviour and robustness
@@ -372,7 +372,7 @@ operation status of your script.
 
 You know: **\"One of the main causes of the fall of the Roman Empire was
 that, lacking zero, they had no way to indicate successful termination
-of their C programs.\"** *\-- Robert Firth*
+of their C programs.\"** *-- Robert Firth*
 
 ## Misc
 

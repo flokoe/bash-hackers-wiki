@@ -26,7 +26,7 @@ way, and takes all the same options, with 3 exceptions:
 
 ## Portability considerations
 
--   `local` is not specified by POSIX. Most bourne-like shells don\'t
+-   `local` is not specified by POSIX. Most bourne-like shells don't
     have a builtin called `local`, but some such as `dash` and the
     busybox shell do.
 
@@ -41,15 +41,15 @@ way, and takes all the same options, with 3 exceptions:
 ```{=html}
 <!-- -->
 ```
--   In ksh93, using POSIX-style function definitions, `typeset` doesn\'t
+-   In ksh93, using POSIX-style function definitions, `typeset` doesn't
     set `local` variables, but rather acts upon variables of the
     next-outermost scope (e.g. setting attributes). Using `typeset`
     within functions defined using ksh `function name {` syntax,
     variables follow roughly
     [lexical-scoping](http://community.schemewiki.org/?lexical-scope),
-    except that functions themselves don\'t have scope, just like Bash.
-    This means that even functions defined within a \"function\'s
-    scope\" don\'t have access to non-local variables except through
+    except that functions themselves don't have scope, just like Bash.
+    This means that even functions defined within a \"function's
+    scope\" don't have access to non-local variables except through
     `namerefs`.
 
 ## See also

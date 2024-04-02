@@ -19,5 +19,5 @@ written to (when `mtime` is updated.
 
 ## mtime
 
-The mtime is set, whenever a file\'s contents are changed, for example
+The mtime is set, whenever a file's contents are changed, for example
 by editing a file.

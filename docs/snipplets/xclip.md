@@ -1,6 +1,6 @@
 # X-Clipboard on Commandline
 
-\-\-\-- dataentry snipplet \-\-\-- snipplet_tags: clipboard, x11, xclip,
+---- dataentry snipplet ---- snipplet_tags: clipboard, x11, xclip,
 readline LastUpdate_dt: 2010-07-31 Contributors: Josh Triplett type:
 snipplet
 
@@ -31,4 +31,4 @@ The behaviour is a bit tricky to explain:
 Of course you can use any other command, you\'re not limited to `xclip`
 here.
 
-Note: C-@ as well as M-SPC both works and set the mark for me \-- pgas
+Note: C-@ as well as M-SPC both works and set the mark for me -- pgas

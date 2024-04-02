@@ -33,7 +33,7 @@ When listing options, the exit code is `TRUE` (0), if all options are
 enabled, `FALSE` otherwise.
 
 When setting/unsetting an option, the exit code is `TRUE` unless the
-named option doesn\'t exitst.
+named option doesn't exitst.
 
 ## Examples
 

@@ -1,6 +1,14 @@
-# Obsolete and deprecated syntax
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - obsolete
+  - deprecated
+  - outdated
+---
 
-![](keywords>bash shell scripting obsolete deprecated outdated)
+# Obsolete and deprecated syntax
 
 This (incomplete) page describes some syntax and commands considered
 obsolete by some measure. A thorough discussion of the rationale is

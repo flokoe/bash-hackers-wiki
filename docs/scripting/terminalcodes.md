@@ -1,6 +1,16 @@
-# Terminal codes (ANSI/VT100) introduction
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - colors
+  - cursor
+  - control
+  - vt100
+  - ansi
+---
 
-![](keywords>bash shell scripting colors cursor control vt100 ansi)
+# Terminal codes (ANSI/VT100) introduction
 
 Terminal (control) codes are used to issue specific commands to your
 terminal. This can be related to switching colors or positioning the

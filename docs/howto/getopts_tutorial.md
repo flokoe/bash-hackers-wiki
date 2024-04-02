@@ -1,6 +1,17 @@
-# Small getopts tutorial
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - arguments
+  - positional
+  - parameters
+  - options
+  - getopt
+  - getopts
+---
 
-![](keywords>bash shell scripting arguments positional parameters options getopt getopts)
+# Small getopts tutorial
 
 ## Description
 

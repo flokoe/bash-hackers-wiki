@@ -1,6 +1,14 @@
-# Basic grammar rules of Bash
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - grammar
+  - syntax
+  - language
+---
 
-![](keywords>bash shell scripting grammar syntax language)
+# Basic grammar rules of Bash
 
 Bash builds its features on top of a few basic **grammar rules**. The
 code you see everywhere, the code you use, is based on those rules.

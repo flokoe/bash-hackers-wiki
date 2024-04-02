@@ -1,6 +1,14 @@
-# Lock your script (against parallel execution)
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - mutex
+  - locking
+  - run-control
+---
 
-![](keywords>bash shell scripting mutex locking run-control)
+# Lock your script (against parallel execution)
 
 ## Why lock?
 

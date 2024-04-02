@@ -1,6 +1,18 @@
-# Process substitution
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - expansion
+  - substitution
+  - text
+  - stdin
+  - stdout
+  - save
+  - capture
+---
 
-![](keywords>bash shell scripting expansion substitution text stdin stdout save capture)
+# Process substitution
 
 Process substitution is a form of redirection where the input or output
 of a process (some sequence of commands) appear as a temporary file.

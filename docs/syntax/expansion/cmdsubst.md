@@ -1,6 +1,22 @@
-# Command substitution
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - expansion
+  - substitution
+  - text
+  - variable
+  - output
+  - execute
+  - stdout
+  - save
+  - result
+  - return
+  - value
+---
 
-![](keywords>bash shell scripting expansion substitution text variable output execute stdout save result return value)
+# Command substitution
 
     $( <COMMANDS> )
 

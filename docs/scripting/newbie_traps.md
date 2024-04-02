@@ -1,6 +1,14 @@
-# Beginner Mistakes
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - pitfalls
+  - traps
+  - beginners
+---
 
-![](keywords>bash shell scripting pitfalls traps beginners)
+# Beginner Mistakes
 
 Here are some typical traps:
 

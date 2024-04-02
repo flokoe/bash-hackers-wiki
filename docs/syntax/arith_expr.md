@@ -1,6 +1,16 @@
-# Arithmetic expressions
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - math
+  - arithmetic
+  - C
+  - calculation
+  - integer
+---
 
-![](keywords>bash shell scripting math arithmetic C calculation integer)
+# Arithmetic expressions
 
 Arithmetic expressions are used in several situations:
 

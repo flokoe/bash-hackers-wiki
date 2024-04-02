@@ -1,6 +1,14 @@
-# Debugging a script
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - bug
+  - debug
+  - debugging
+---
 
-![](keywords>bash shell scripting bug debug debugging)
+# Debugging a script
 
 These few lines are not intended as a full-fledged debugging tutorial,
 but as hints and comments about debugging a Bash script.

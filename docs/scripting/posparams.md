@@ -1,6 +1,15 @@
-# Handling positional parameters
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - arguments
+  - positional
+  - parameters
+  - options
+---
 
-![](keywords>bash shell scripting arguments positional parameters options)
+# Handling positional parameters
 
 ## Intro
 

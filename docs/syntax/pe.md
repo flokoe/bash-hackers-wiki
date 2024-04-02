@@ -1,6 +1,24 @@
-# Parameter expansion
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - expansion
+  - substitution
+  - text
+  - variable
+  - parameter
+  - mangle
+  - substitute
+  - change
+  - check
+  - defined
+  - "null"
+  - array
+  - arrays
+---
 
-![](keywords>bash shell scripting expansion substitution text variable parameter mangle substitute change check defined null array arrays)
+# Parameter expansion
 
 ## Introduction
 

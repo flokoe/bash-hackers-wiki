@@ -1,6 +1,17 @@
-# Patterns and pattern matching
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - glob
+  - globbing
+  - wildcards
+  - filename
+  - pattern
+  - matching
+---
 
-![](keywords>bash shell scripting glob globbing wildcards filename pattern matching)
+# Patterns and pattern matching
 
 A pattern is a **string description**. Bash uses them in various ways:
 

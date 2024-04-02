@@ -1,6 +1,14 @@
-# Collapsing Functions
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - example
+  - function
+  - collapse
+---
 
-![](keywords>bash shell scripting example function collapse)
+# Collapsing Functions
 
 ## What is a \"Collapsing Function\"?
 

@@ -473,4 +473,4 @@ fmt++;
 -   [Code snip: Print a horizontal
     line](../../snipplets/print_horizontal_line.md) uses some `printf` examples
 -   [Greg's BashFAQ 18: How can I use numbers with leading zeros in a
-    loop, e.g., 01, 02?](BashFAQ>018)
+    loop, e.g., 01, 02?](http://mywiki.wooledge.org/BashFAQ/018)

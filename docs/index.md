@@ -43,11 +43,10 @@ If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
 - [nonportable](scripting/nonportable.md)
 - [debuggingtips](scripting/debuggingtips.md)
 - [terminalcodes](scripting/terminalcodes.md)
-- [tutoriallist](scripting/tutoriallist)
 
 ## Code snippets
 
-There is a [section that holds small code snippets](snipplets).
+There is a [section that holds small code snippets](snipplets/index.md).
 
 See also [some Bash source code excerpts](misc/readthesourceluke.md).
 

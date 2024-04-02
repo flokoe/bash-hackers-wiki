@@ -63,7 +63,7 @@ name for a construct. Such a pipeline isn't necessarily a pair of
 commands where stdout/stdin is connected via a real pipe.
 
 Pipelines are one or more [simple
-commands](basicgrammar##simple_commands) (separated by the `|` symbol
+commands](#simple-commands) (separated by the `|` symbol
 connects their input and output), for example:
 
     ls /etc | wc -l

@@ -54,4 +54,4 @@ way, and takes all the same options, with 3 exceptions:
 
 ## See also
 
--   <http://wiki.bash-hackers.org/scripting/basics#variable_scope>
+- [The basics of shell scripting: Variable scope](../../scripting/basics.md#variable-scope)

@@ -1,6 +1,15 @@
-# List of shell options
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - options
+  - runtime
+  - variable
+  - behaviour
+---
 
-![](keywords>bash shell scripting options runtime variable behaviour)
+# List of shell options
 
 This information was taken from a Bash version \"`4.1`\", every now and
 then new options are added, so likely, this list isn't complete.

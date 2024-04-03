@@ -1,6 +1,14 @@
-# Portability talk
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - portability
+  - POSIX
+  - portable
+---
 
-![](keywords>bash shell scripting portability POSIX portable)
+# Portability talk
 
 The script programming language of BASH is based on the Bourne Shell
 syntax, with some extensions and derivations.

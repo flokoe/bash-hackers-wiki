@@ -278,8 +278,8 @@ The basic structure of a script simply reads:
 
 ### The shebang
 
-If possible (I know it's not always possible!), use [a
-shebang](../dict/terms/shebang.md).
+If possible (I know it's not always possible!), use a
+[shebang](../dict/interpreter_directive.md).
 
 Be careful with `/bin/sh`: The argument that \"on Linux `/bin/sh` is
 Bash\" **is a lie** (and technically irrelevant)
@@ -358,7 +358,7 @@ Example:
 
 ### Exit meaningfully
 
-The [exit code](../dict/terms/exit_status.md) is your only way to directly
+The [exit code](../dict/exit_status.md) is your only way to directly
 communicate with the calling process without any special provisions.
 
 If your script exits, provide a meaningful exit code. That minimally

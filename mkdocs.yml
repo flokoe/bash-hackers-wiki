@@ -23,12 +23,12 @@ theme:
     repo: fontawesome/brands/github
 
 plugins:
-  - tags:
-      tags_file: tags.md
   - git-revision-date-localized:
       enable_creation_date: true
   - search
   - awesome-pages
+  - tags:
+      tags_file: tags.md
   - minify:
       minify_html: true
       minify_css: true

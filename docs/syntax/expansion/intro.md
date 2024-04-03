@@ -1,6 +1,18 @@
-# Expansions and substitutions
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - expansion
+  - substitution
+  - text
+  - variable
+  - filename
+  - macro
+  - wildcard
+---
 
-![](keywords>bash shell scripting expansion substitution text variable filename macro wildcard)
+# Expansions and substitutions
 
 Before executing your commands, Bash checks whether there are any syntax
 elements in the command line that should be interpreted rather than

@@ -1,6 +1,15 @@
-# Bash and the process tree
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - processes
+  - pipes
+  - variables
+  - environment
+---
 
-![](keywords>bash shell scripting processes pipes variables environment)
+# Bash and the process tree
 
 ## The process tree
 

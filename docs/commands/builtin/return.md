@@ -32,4 +32,4 @@ comes back, there was a problem in doing the return.
 ## See also
 
 -   [The exit builtin command](../../commands/builtin/exit.md)
--   [The exit status](../../dict/terms/exit_status.md)
+-   [The exit status](../../dict/exit_status.md)

@@ -1,6 +1,17 @@
-# Tilde expansion
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - expansion
+  - substitution
+  - tilde
+  - home
+  - homedir
+  - shortcut
+---
 
-![](keywords>bash shell scripting expansion substitution tilde home homedir shortcut)
+# Tilde expansion
 
     ~
     ~/...

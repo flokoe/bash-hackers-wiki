@@ -1,6 +1,24 @@
-# Parameter expansion
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - expansion
+  - substitution
+  - text
+  - variable
+  - parameter
+  - mangle
+  - substitute
+  - change
+  - check
+  - defined
+  - "null"
+  - array
+  - arrays
+---
 
-![](keywords>bash shell scripting expansion substitution text variable parameter mangle substitute change check defined null array arrays)
+# Parameter expansion
 
 ## Introduction
 
@@ -28,7 +46,7 @@ applicable description mentions arrays below. Please also see the
 [article about arrays](../syntax/arrays.md).
 
 For a more technical view what a parameter is and which types exist,
-[see the dictionary entry for \"parameter\"](../dict/terms/parameter.md).
+[see the dictionary entry for \"parameter\"](../dict/parameter.md).
 
 ## Overview
 
@@ -1053,4 +1071,4 @@ the difference may introduce a possible compatibility problem.
 -   Internal: [Introduction to expansion and
     substitution](../syntax/expansion/intro.md)
 -   Internal: [Arrays](../syntax/arrays.md)
--   Dictionary, internal: [parameter](../dict/terms/parameter.md)
+-   Dictionary, internal: [parameter](../dict/parameter.md)

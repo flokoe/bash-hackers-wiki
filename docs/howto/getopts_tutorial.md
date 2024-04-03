@@ -1,6 +1,17 @@
-# Small getopts tutorial
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - arguments
+  - positional
+  - parameters
+  - options
+  - getopt
+  - getopts
+---
 
-![](keywords>bash shell scripting arguments positional parameters options getopt getopts)
+# Small getopts tutorial
 
 ## Description
 
@@ -82,7 +93,7 @@ left to parse, it's easy to use in a while-loop:
 parsing on the first non-option argument (a string that doesn't begin
 with a hyphen (`-`) that isn't an argument for any option in front of
 it). It will also stop parsing when it sees the `--` (double-hyphen),
-which means [end of options](../dict/terms/end_of_options.md).
+which means [end of options](../dict/end_of_options.md).
 
 ### Used variables
 

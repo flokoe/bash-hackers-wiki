@@ -1,6 +1,13 @@
-# Calculating with dc
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - arithmetic
+  - calculate
+---
 
-![](keywords>bash shell scripting arithmetic calculate)
+# Calculating with dc
 
 ## Introduction
 

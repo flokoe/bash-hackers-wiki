@@ -1,6 +1,16 @@
-# Bash's behaviour
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - startup
+  - files
+  - dotfiles
+  - modes
+  - POSIX
+---
 
-![](keywords>bash shell scripting startup files dotfiles modes POSIX)
+# Bash's behaviour
 
 FIXME incomplete
 

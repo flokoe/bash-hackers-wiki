@@ -1,6 +1,20 @@
-# Quotes and escaping
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - quoting
+  - quotes
+  - escape
+  - backslash
+  - marks
+  - singlequotes
+  - doublequotes
+  - single
+  - double
+---
 
-![](keywords>bash shell scripting quoting quotes escape backslash marks singlequotes doublequotes single double)
+# Quotes and escaping
 
 Quoting and escaping are important, as they influence the way Bash acts
 upon your input. There are three recognized types:

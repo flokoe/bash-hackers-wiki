@@ -51,11 +51,11 @@ behaves as if it would be 1 (**TRUE** in arithmetic context).
 :!: Like all loops (Both types of `for`-loop, `while` and `until`), this
 loop can be:
 
--   Terminated (broken) by the [break](../../commands/builtin/continuebreak.md)
+-   Terminated (broken) by the `break`
     builtin, optionally as `break N` to break out of `N` levels of
     nested loops.
 -   Forced immediately to the next iteration using the
-    [continue](../../commands/builtin/continuebreak.md) builtin, optionally as
+    `continue` builtin, optionally as
     the `continue N` analog to `break N`.
 
 The equivalent construct using a [while loop](../../syntax/ccmd/while_loop.md)
@@ -70,7 +70,7 @@ command](../../syntax/ccmd/arithmetic_eval.md) would be structured as:
 
 The equivalent `while` construct isn't exactly the same, because both,
 the `for` and the `while` loop behave differently in case you use the
-[continue](../../commands/builtin/continuebreak.md) command.
+`continue` command.
 
 ### Alternate syntax
 

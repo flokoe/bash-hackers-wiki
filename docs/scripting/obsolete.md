@@ -1,6 +1,14 @@
-# Obsolete and deprecated syntax
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - obsolete
+  - deprecated
+  - outdated
+---
 
-![](keywords>bash shell scripting obsolete deprecated outdated)
+# Obsolete and deprecated syntax
 
 This (incomplete) page describes some syntax and commands considered
 obsolete by some measure. A thorough discussion of the rationale is
@@ -74,7 +82,7 @@ surprised if you run across someone telling you not to use these.
 -   [Non-portable syntax and command uses](../scripting/nonportable.md)
 -   [bashchanges](../scripting/bashchanges.md)
 -   [Greg's BashFAQ 061: List of essential features added (with the
-    Bash version tag)](BashFAQ>061)
+    Bash version tag)](http://mywiki.wooledge.org/BashFAQ/061)
 -   [Bash <-> POSIX Portability guide with a focus on
     Dash](http://mywiki.wooledge.org/Bashism)
 -   <http://mywiki.wooledge.org/BashPitfalls>

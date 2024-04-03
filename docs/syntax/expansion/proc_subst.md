@@ -1,6 +1,18 @@
-# Process substitution
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - expansion
+  - substitution
+  - text
+  - stdin
+  - stdout
+  - save
+  - capture
+---
 
-![](keywords>bash shell scripting expansion substitution text stdin stdout save capture)
+# Process substitution
 
 Process substitution is a form of redirection where the input or output
 of a process (some sequence of commands) appear as a temporary file.
@@ -158,7 +170,7 @@ See the above section on [#scope](#scope)
     not (yet) pdksh derivatives (mksh). Coprocesses may be used instead.
 -   Process substitution is supported only on systems that support
     either named pipes (FIFO - a [special
-    file](../../dict/terms/special_file.md)) or the `/dev/fd/*` method for
+    file](../../dict/special_file.md)) or the `/dev/fd/*` method for
     accessing open files. If the system doesn't support `/dev/fd/*`,
     Bash falls back to creating named pipes. Note that not all shells
     that support process substitution have that fallback.

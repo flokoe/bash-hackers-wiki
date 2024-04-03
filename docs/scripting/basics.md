@@ -1,6 +1,14 @@
-# The basics of shell scripting
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - basics
+  - learning
+  - tutorial
+---
 
-![](keywords>bash shell scripting basics learning tutorial)
+# The basics of shell scripting
 
 ## Script files
 

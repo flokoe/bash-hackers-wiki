@@ -1,6 +1,15 @@
-# Config files for your script
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - config
+  - files
+  - include
+  - configuration
+---
 
-![](keywords>bash shell scripting config files include configuration)
+# Config files for your script
 
 ## General
 

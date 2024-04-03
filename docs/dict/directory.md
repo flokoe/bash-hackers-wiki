@@ -1,7 +1,7 @@
 # Directory
 
 In terms of UNIX(r), a directory is a special file which contains a list
-of [hardlinks](../dict/terms/hardlink.md) to other files. These other files
+of [hardlinks](../dict/hardlink.md) to other files. These other files
 also can be directories of course, so it's possible to create a
 \"hierarchy of directories\" - the UNIX(r)-typical filesystem structure.
 
@@ -10,6 +10,6 @@ all other directory entries are **subdirectories** of it.
 
 ## See also
 
--   [hardlink](../dict/terms/hardlink.md)
--   [file](../dict/terms/file.md)
--   [special file](../dict/terms/special_file.md)
+-   [hardlink](../dict/hardlink.md)
+-   [file](../dict/file.md)
+-   [special file](../dict/special_file.md)

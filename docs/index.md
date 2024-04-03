@@ -43,17 +43,16 @@ If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
 - [nonportable](scripting/nonportable.md)
 - [debuggingtips](scripting/debuggingtips.md)
 - [terminalcodes](scripting/terminalcodes.md)
-- [tutoriallist](scripting/tutoriallist)
 
 ## Code snippets
 
-There is a [section that holds small code snippets](snipplets).
+There is a [section that holds small code snippets](snipplets/index.md).
 
 See also [some Bash source code excerpts](misc/readthesourceluke.md).
 
 ## How to
 
-[Doing specific tasks: concepts, methods, ideas](howto/start.md):
+Doing specific tasks: concepts, methods, ideas:
 
 - [Simple locking (against parallel run.md)](howto/mutex.md)
 - [Rudimentary config files for your scripts](howto/conffile.md)
@@ -164,10 +163,10 @@ These are provided directly by the shell, rather than invoked as standalone exte
 
 | Command                                             | Description                                          | Alt      | Type            |
 | --------------------------------------------------- | ---------------------------------------------------- | -------- | --------------- |
-| [colon](commands/builtin/true.md)                     | "true" null command.                                 | `true`   | special builtin |
-| [dot](commands/builtin/source.md)                     | Source external files.                               | `source` | special builtin |
-| [false](commands/builtin/false.md)                    | Fail at doing nothing.                               |          | builtin         |
-| [continue / break](commands/builtin/continueBreak.md) | continue with or break out of loops.                 |          | special builtin |
+| `colon`                     | "true" null command.                                 | `true`   | special builtin |
+| `.` (dot)                     | Source external files.                               | `source` | special builtin |
+| `false`                    | Fail at doing nothing.                               |          | builtin         |
+| `continue / break` | continue with or break out of loops.                 |          | special builtin |
 | [let](commands/builtin/let.md)                        | Arithmetic evaluation simple command.                |          | builtin         |
 | [return](commands/builtin/return.md)                  | Return from a function with a specified exit status. |          | special builtin |
 | [[]](commands/classictest.md)                         | The classic `test` simple command.                   | `test`   | builtin         |
@@ -183,12 +182,13 @@ These are provided directly by the shell, rather than invoked as standalone exte
 | [exit](commands/builtin/exit.md)   | Exit the shell.                                        |     | special builtin |
 | [trap](commands/builtin/trap.md)   | Set signal handlers or output the current handlers.    |     | special builtin |
 | [kill](commands/builtin/kill.md)   | Send a signal to specified process(es.md)                 |     | builtin         |
-| [times](commands/builtin/times.md) | Display process times.                                 |     | special builtin |
+|`times` | Display process times.                                 |     | special builtin |
 | [wait](commands/builtin/wait.md)   | Wait for background jobs and asynchronous lists.       |     | builtin         |
 
 ## Dictionary
 
-A list of expressions, words, and their meanings is [here](dict/index.md).
+A list of expressions, words, and their meanings can be found under the *Dict*
+tab.
 
 ## Links
 
@@ -253,7 +253,7 @@ Visit us in [ircs://irc.libera.chat:6697](ircs://irc.libera.chat:6697), channel 
 If you have critiques or suggestions, please feel free to send a mail using the contact form on the right.
 Note that there is a simple discussion option below every article.
 
-Please also see the [imprint](user/thebonsai/imprint.md) if you have problems with the site and its contents (legality, ...)!
+Please also see the imprint if you have problems with the site and its contents (legality, ...)!
 
 It also would be nice to drop a line when
 

@@ -1,8 +1,18 @@
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - syntax
+  - language
+  - behaviour
+  - executing
+  - execution
+---
+
 FIXME work in progress\...
 
 # Parsing and execution
-
-![](keywords>bash shell scripting syntax language behaviour executing execution)
 
 Nearly everything in [Bash grammar](../../syntax/basicgrammar.md) can be broken
 down to a \"simple command\". The only thing Bash has to expand,

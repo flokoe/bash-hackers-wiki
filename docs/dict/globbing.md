@@ -23,8 +23,8 @@ which serves the same purpose.
 
 ## See also
 
--   [shell](../dict/terms/shell.md)
--   [hardlink](../dict/terms/hardlink.md)
+-   [shell](../dict/shell.md)
+-   [hardlink](../dict/hardlink.md)
 
 ## See also (article)
 

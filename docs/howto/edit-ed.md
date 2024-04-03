@@ -1,6 +1,17 @@
-# Editing files via scripts with ed
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - arguments
+  - file
+  - editor
+  - edit
+  - ed
+  - sed
+---
 
-![](keywords>bash shell scripting arguments file editor edit ed sed)
+# Editing files via scripts with ed
 
 ## Why ed?
 

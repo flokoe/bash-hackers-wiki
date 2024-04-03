@@ -1,6 +1,16 @@
-# Brace expansion
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - expansion
+  - substitution
+  - text
+  - list
+  - brace
+---
 
-![](keywords>bash shell scripting expansion substitution text list brace)
+# Brace expansion
 
     {string1,string2,...,stringN}
     {<START>..<END>}

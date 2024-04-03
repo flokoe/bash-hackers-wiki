@@ -1,6 +1,16 @@
-# pax - the POSIX archiver
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - POSIX
+  - archive
+  - tar
+  - packing
+  - zip
+---
 
-![](keywords>bash shell scripting POSIX archive tar packing zip)
+# pax - the POSIX archiver
 
 pax can do a lot of fancy stuff, feel free to contribute more awesome
 pax tricks!

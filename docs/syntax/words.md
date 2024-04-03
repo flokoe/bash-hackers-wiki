@@ -1,6 +1,16 @@
-# Words\...
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - token
+  - words
+  - split
+  - splitting
+  - recognition
+---
 
-![](keywords>bash shell scripting token words split splitting recognition)
+# Words\...
 
 FIXME This article needs a review, it covers two topics (command line
 splitting and word splitting) and mixes both a bit too much. But in

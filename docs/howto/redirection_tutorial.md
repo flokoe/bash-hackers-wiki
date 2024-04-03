@@ -1,6 +1,16 @@
-# Illustrated Redirection Tutorial
+---
+tags:
+  - bash
+  - shell
+  - scripting
+  - tutorial
+  - redirection
+  - redirect
+  - file
+  - descriptor
+---
 
-![](keywords>bash shell scripting tutorial redirection redirect file descriptor)
+# Illustrated Redirection Tutorial
 
 This tutorial is not a complete guide to redirection, it will not cover
 here docs, here strings, name pipes etc\... I just hope it\'ll help you
@@ -653,7 +663,7 @@ recommendations:
 <!-- -->
 ```
 -   **Never** use the Csh `&>foo` and `>&foo` shorthand redirects. Use
-    the long form `>foo 2>&1`. (see: [obsolete](../obsolete.md))
+    the long form `>foo 2>&1`. (see: [obsolete](../scripting/obsolete.md))
 
 ```{=html}
 <!-- -->

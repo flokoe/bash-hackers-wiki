@@ -62,7 +62,7 @@ There are no options.
     errors.`$ dash -c 'f() { if shift; then echo "$1"; else echo "no args"; fi; }; f'
     dash: 1: shift: can't shift that many
     ` In most shells, you can work around this problem using the
-    [command](../../commands/builtin/command.md) builtin to suppress fatal
+    `command` builtin to suppress fatal
     errors caused by *special builtins*. <code> \$ dash -c \'f() { if
     command shift 2>/dev/null; then echo \"\$1\"; else echo \"no
     args\"; fi; }; f\'

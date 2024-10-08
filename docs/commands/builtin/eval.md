@@ -55,7 +55,7 @@ This code defines a set of identical functions using the supplied names.
 ### Using printf %q
 
 The `printf %q` format string performs shell escaping on its arguments.
-This makes `printf %q` the \"anti-eval\" - with each pass of a string
+This makes `printf %q` the "anti-eval" - with each pass of a string
 through printf requiring another `eval` to peel off the escaping again.
 
     while (( ++n <= 5 )) || ! evalBall="eval $evalBall"; do
@@ -112,16 +112,11 @@ controlled carefully by the caller is a good way to use it.
     `setopt POSIX_BUILTINS` -- looks like a regression). This works
     correctly in Bash POSIX mode, Dash, and mksh.
 
-```{=html}
-<!-- -->
-```
 -   `eval` is another one of the few Bash builtins with keyword-like
     conditional parsing of arguments that are in the form of compound
     assignments.
 
-```{=html}
-<!-- -->
-```
+
      $ ( eval a=( a b\\ c d ); printf '<%s> ' "${a[@]}"; echo ) # Only works in Bash.
     <a> <b c> <d>
      $ ( x=a; eval "$x"=( a b\\ c d ); printf '<%s> ' "${a[@]}"; echo ) # Argument is no longer in the form of a valid assignment, therefore ordinary parsing rules apply.
@@ -168,7 +163,7 @@ identical to those of [let](../../commands/builtin/let.md).
     eval](http://mywiki.wooledge.org/BashFAQ/006#Assigning_indirect.2BAC8-reference_variables)
 -   [More indirection via
     eval](http://fvue.nl/wiki/Bash:_Passing_variables_by_reference)
--   [Martin Väth's \"push\"](https://github.com/vaeth/push) --
+-   [Martin Väth's "push"](https://github.com/vaeth/push) --
     `printf %q` work-alike for POSIX.
--   [The \"magic alias\"
+-   [The "magic alias"
     hack](http://www.chiark.greenend.org.uk/~sgtatham/aliases.html)

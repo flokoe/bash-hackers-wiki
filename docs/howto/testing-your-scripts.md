@@ -23,7 +23,7 @@ We have a simple **stat.sh** script:
     echo "PYTHON LINES: $LINES"
 
 This script evaluate the number of python files and the number of python
-code lines in the files. We can use it like **./stat.sh <dir>**
+code lines in the files. We can use it like **`./stat.sh <dir>`**
 
 ### Create testsuit
 

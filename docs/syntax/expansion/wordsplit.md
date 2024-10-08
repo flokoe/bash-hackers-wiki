@@ -1,6 +1,7 @@
 # Word splitting
 
-FIXME to be continued!
+!!! warning "FIXME"
+    to be continued!
 
 Word splitting occurs once any of the following expansions are done (and
 only then!)
@@ -18,9 +19,9 @@ are **not double-quoted**!
 The `IFS` variable holds the characters that Bash sees as word
 boundaries in this step. The default contains the characters
 
--   <space>
--   <tab>
--   <newline>
+-   &lt;space&gt;
+-   &lt;tab&gt;
+-   &lt;newline&gt;
 
 These characters are also assumed when IFS is **unset**. When `IFS` is
 **empty** (nullstring), no word splitting is performed at all.
@@ -34,10 +35,10 @@ the expansion result is split at these positions into multiple words.
 This doesn't happen when the expansion results were **double-quoted**.
 
 When a null-string (e.g., something that before expanded to
->>nothing<<) is found, it is removed, unless it is quoted (`''` or
+&gt;&gt;nothing&lt;&lt;) is found, it is removed, unless it is quoted (`''` or
 `""`).
 
-[**Again note:**]{.underline} Without any expansion beforehand, Bash
+<u>**Again note:**</u> Without any expansion beforehand, Bash
 won't perform word splitting! In this case, the initial token parsing
 is solely responsible.
 

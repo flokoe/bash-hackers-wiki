@@ -20,7 +20,7 @@ contents with `sed`, and the file is open elsewhere and read by some
 process, you will find out that GNU `sed` and its `-i` option will not
 allow you to edit the file. There are circumstances where you may need
 that, e.g. editing active and open files, the lack of GNU, or other
-`sed`, with \"in-place\" option available.
+`sed`, with "in-place" option available.
 
 Why `ed`?
 
@@ -40,12 +40,12 @@ Since `ed` is an interactive text editor, it reads and executes commands
 that come from `stdin`. There are several ways to feed our commands to
 ed:
 
-**[Pipelines]{.underline}**
+**<u>Pipelines</u>**
 
     echo '<ED-COMMANDS>' | ed <FILE>
 
 To inject the needed newlines, etc. it may be easier to use the builtin
-command, `printf` (\"help printf\"). Shown here as an example Bash
+command, `printf` ("help printf"). Shown here as an example Bash
 function to prefix text to file content:
 
 
@@ -55,11 +55,11 @@ function to prefix text to file content:
       printf '%s\n' H 1i "$1" . w | ed -s "$2"
     }
 
-**[Here-strings]{.underline}**
+**<u>Here-strings</u>**
 
     ed <FILE> <<< '<ED-COMMANDS>'
 
-**[Here-documents]{.underline}**
+**<u>Here-documents</u>**
 
     ed <FILE> <<EOF
     <ED-COMMANDS>
@@ -71,17 +71,17 @@ it looks best here IMHO.
 There are other ways to provide input to `ed`. For example, process
 substitution. But these should be enough for daily needs.
 
-Since `ed` wants commands separated by newlines, I\'ll use a special
+Since `ed` wants commands separated by newlines, I'll use a special
 Bash quoting method, the C-like strings `$'TEXT'`, as it can interpret a
-set of various escape sequences and special characters. I\'ll use the
+set of various escape sequences and special characters. I'll use the
 `-s` option to make it less verbose.
 
 ## The basic interface
 
 Check the `ed` manpage for details
 
-Similar to `vi` or `vim`, `ed` has a \"command mode\" and an
-\"interactive mode\". For non-interactive use, the command mode is the
+Similar to `vi` or `vim`, `ed` has a "command mode" and an
+"interactive mode". For non-interactive use, the command mode is the
 usual choice.
 
 Commands to `ed` have a simple and regular structure: zero, one, or two
@@ -103,7 +103,7 @@ no RE can ever match a newline.
 
 ## Debugging your ed scripts
 
-By default, `ed` is not very talkative and will simply print a \"?\"
+By default, `ed` is not very talkative and will simply print a "?"
 when an error occurs. Interactively you can use the `h` command to get a
 short message explaining the last error. You can also turn on a mode
 that makes `ed` automatically print this message with the `H` command.
@@ -156,8 +156,8 @@ lines, it's considered an error.**
 
     ed -s test.txt <<< $',s/Windows(R)-compatible/POSIX-conform/g\nw'
 
-[Note:]{.underline} The comma as single address operator is an alias for
-`1,$` (\"all lines\").
+<u>Note:</u> The comma as single address operator is an alias for
+`1,$` ("all lines").
 
 #### Substitutions in specific lines
 
@@ -188,7 +188,7 @@ regexp
 
 #### Move a block of text
 
-\...using the `m` command: `<ADDRESS> m <TARGET-ADDRESS>`
+...using the `m` command: `<ADDRESS> m <TARGET-ADDRESS>`
 
 This is definitely something that can't be done easily with sed.
 
@@ -200,7 +200,7 @@ This is definitely something that can't be done easily with sed.
 
 #### Copy a block of text
 
-\...using the `t` command: `<ADDRESS> t <TARGET-ADDRESS>`
+...using the `t` command: `<ADDRESS> t <TARGET-ADDRESS>`
 
 You use the `t` command just like you use the `m` (move) command.
 
@@ -212,7 +212,7 @@ You use the `t` command just like you use the `m` (move) command.
 
 #### Join all lines
 
-\...but leave the final newline intact. This is done by an extra
+...but leave the final newline intact. This is done by an extra
 command: `j` (join).
 
     ed -s file <<< $'1,$j\nw'
@@ -263,7 +263,7 @@ about it with the g (global) command:
     echo $'1\n1\n3' > file
 
     #replace all lines matching 1 by "replacement"
-    ed -s file <<< $'g/1/s/1/replacement/\n,p' 
+    ed -s file <<< $'g/1/s/1/replacement/\n,p'
 
     #replace the first line matching 1 by "replacement"
     #(because it starts searching from the last line)
@@ -272,7 +272,7 @@ about it with the g (global) command:
 **\_\_ an error stops the script \_\_**
 
 You might think that it's not a problem and that the same thing happens
-with sed and you\'re right, with the exception that if ed does not find
+with sed and you're right, with the exception that if ed does not find
 a pattern it's an error, while sed just continues with the next line.
 For instance, let's say that you want to change foo to bar on the first
 line of the file and add something after the next line, ed will stop if
@@ -299,9 +299,9 @@ attempt the substitution on all non blank lines
 
 **\_\_ shell parameters are expanded \_\_**
 
-If you don't quote the delimiter, \$ has a special meaning. This sounds
+If you don't quote the delimiter, `$` has a special meaning. This sounds
 obvious but it's easy to forget this fact when you use addresses like
-\$-1 or commands like \$a. Either quote the \$ or the delimiter:
+`$-1` or commands like `$a`. Either quote the `$` or the delimiter:
 
     #fails
     ed -s file << EOF
@@ -309,15 +309,15 @@ obvious but it's easy to forget this fact when you use addresses like
     last line
     .
     w
-    EOF 
+    EOF
 
     #ok
     ed -s file << EOF
-    \$a
+    $a
     last line
     .
     w
-    EOF 
+    EOF
 
     #ok again
     ed -s file << 'EOF'
@@ -325,11 +325,11 @@ obvious but it's easy to forget this fact when you use addresses like
     last line
     .
     w
-    EOF 
+    EOF
 
-**\_\_ \".\" is not a command \_\_**
+**\_\_ "." is not a command \_\_**
 
-The . used to terminate the command \"a\" must be the only thing on the
+The . used to terminate the command "a" must be the only thing on the
 line. take care if you indent the commands:
 
     #ed doesn't care about the spaces before the commands, but the . must be the only thing on the line:
@@ -358,7 +358,7 @@ expression => print). ref
 
 ### wc -l
 
-Since the default for the `ed` \"print line number\" command is the last
+Since the default for the `ed` "print line number" command is the last
 line, a simple `=` (equal sign) will print this line number and thus the
 number of lines of the file:
 
@@ -366,23 +366,24 @@ number of lines of the file:
 
 ### cat
 
-Yea, it's a joke\...
+Yea, it's a joke...
 
     ed -s file <<< $',p'
 
-\...but a similar thing to `cat` showing line-endings and escapes can be
+...but a similar thing to `cat` showing line-endings and escapes can be
 done with the `list` command (l):
 
     ed -s file <<< $',l'
 
-FIXME to be continued
+!!! warning "FIXME"
+    to be continued
 
 ## Links
 
 Reference:
 
 -   [Gnu ed](http://www.gnu.org/software/ed/manual/ed_manual.html) - if
-    we had to guess, you\'re probably using this one.
+    we had to guess, you're probably using this one.
 -   POSIX
     [ed](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/ed.html#tag_20_38),
     [ex](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/ex.html#tag_20_40),

@@ -28,7 +28,7 @@ The most simple example of this behaviour is a referenced variable:
 
 The `echo` program definitely doesn't care about what a shell variable
 is. It is Bash's job to deal with the variable. Bash **expands** the
-string \"`$mystring`\" to \"`Hello world`\", so that `echo` will only
+string "`$mystring`" to "`Hello world`", so that `echo` will only
 see `Hello world`, not the variable or anything else!
 
 After all these expansions and substitutions are done, all quotes that

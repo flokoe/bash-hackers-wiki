@@ -16,16 +16,16 @@ but as hints and comments about debugging a Bash script.
 ## Use a unique name for your script
 
 Do **not** name your script `test`, for example! *Why?* `test` is the
-name of a UNIX(r)-command, and [most likely built into your
-shell]{.underline} (it's a built-in in Bash) - so you won't be able to
+name of a UNIX(r)-command, and <u>most likely built into your
+shell</u> (it's a built-in in Bash) - so you won't be able to
 run a script with the name `test` in a normal way.
 
 **Don't laugh!** This is a classic mistake :-)
 
 ## Read the error messages
 
-Many people come into IRC and ask something like *\"Why does my script
-fail? I get an error!\"*. And when you ask them what the error message
+Many people come into IRC and ask something like *"Why does my script
+fail? I get an error!"*. And when you ask them what the error message
 is, they don't even know. Beautiful.
 
 Reading and interpreting error messages is 50% of your job as debugger!
@@ -33,9 +33,9 @@ Error messages actually **mean** something. At the very least, they can
 give you hints as to where to start debugging. **READ YOUR ERROR
 MESSAGES!**
 
-You may ask yourself why is this mentioned as debugging tip? Well, [you
+You may ask yourself why is this mentioned as debugging tip? Well, <u>you
 would be surprised how many shell users ignore the text of error
-messages!]{.underline} When I find some time, I\'ll paste 2 or 3 IRC
+messages!</u> When I find some time, I'll paste 2 or 3 IRC
 log-snips here, just to show you that annoying fact.
 
 ## Use a good editor
@@ -85,7 +85,7 @@ There are two useful debug outputs for that task (both are written to
     -   print commands to be executed to `stderr` as if they were read
         from input (script file or keyboard)
     -   print everything **before** any ([substitution and
-        expansion](../syntax/expansion/intro.md), \...) is applied
+        expansion](../syntax/expansion/intro.md), ...) is applied
 -   `set -x` mode (`set -o xtrace`)
     -   print everything as if it were executed, after [substitution and
         expansion](../syntax/expansion/intro.md) is applied
@@ -98,7 +98,7 @@ There are two useful debug outputs for that task (both are written to
         configurable file descriptor, rather than sdtout by setting the
         [BASH_XTRACEFD](../syntax/shellvars.md#BASH_XTRACEFD) variable.
 
-**[Hint:]{.underline}** These modes can be entered when calling Bash:
+**<u>Hint:</u>** These modes can be entered when calling Bash:
 
 -   from commandline: `bash -vx ./myscript`
 -   from shebang (OS dependant): `#!/bin/bash -vx`
@@ -116,9 +116,9 @@ That fails. Why? Let's see the `xtrace` output:
 
     + '[' bar baz = test ']'
 
-And now you see that it's (\"bar\" and \"baz\") recognized as two
+And now you see that it's ("bar" and "baz") recognized as two
 separate words (which you would have realized if you READ THE ERROR
-MESSAGES ;) ). Let's check it\...
+MESSAGES ;) ). Let's check it...
 
     # next try
     [ "$foo" = test ]
@@ -146,7 +146,7 @@ function*:
 
     +(somefile.bash:412): echo 'Hello world'
 
-\...and like this when you trace code *inside a function*:
+...and like this when you trace code *inside a function*:
 
     +(somefile.bash:412): myfunc(): echo 'Hello world'
 
@@ -236,14 +236,14 @@ command](../syntax/ccmd/intro.md):
 -   did you close your `{` with a `}`?
 -   did you close your `(` with a `)`?
 
-**[Note:]{.underline}** It seems that here-documents (tested on versions
+<u>**Note:**</u> It seems that here-documents (tested on versions
 `1.14.7`, `2.05b`, `3.1.17` and `4.0`) are correctly terminated when
 there is an EOF before the end-of-here-document tag (see
 [redirection](../syntax/redirection.md)). The reason is unknown, but it seems
 to be deliberate. Bash 4.0 added an extra message for this:
 `` warning: here-document at line <N> delimited by end-of-file (wanted `<MARKER>') ``
 
-### Unexpected end of file while looking for matching \...
+### Unexpected end of file while looking for matching ...
 
     script.sh: line 50: unexpected EOF while looking for matching `"'
     script.sh: line 100: syntax error: unexpected end of file
@@ -266,13 +266,13 @@ example for `xtrace` output from above. External commands may display
 such an error message though in our example, it was the **internal**
 test-command that yielded the error.
 
-### !\": event not found
+### !": event not found
 
     $ echo "Hello world!"
     bash: !": event not found
 
 This is not an error per se. It happens in interactive shells, when the
-C-Shell-styled history expansion (\"`!searchword`\") is enabled. This is
+C-Shell-styled history expansion ("`!searchword`") is enabled. This is
 the default. Disable it like this:
 
     set +H
@@ -317,8 +317,8 @@ CRs are a pain.
 Some possible sources of CRs:
 
 -   a DOS/Windows text editor
--   a UNIX(r) text editor that is \"too smart\" when determining the
-    file content type (and thinks \"*it's a DOS text file*\")
+-   a UNIX(r) text editor that is "too smart" when determining the
+    file content type (and thinks "*it's a DOS text file*")
 -   a direct copy and paste from certain webpages (some pastebins are
     known for this)
 
@@ -343,7 +343,7 @@ Here's what happens because of the `#!/bin/bash^M` in our shebang:
     problem.
 -   the script can't be executed
 
-The error message can vary. If you\'re lucky, you\'ll get:
+The error message can vary. If you're lucky, you'll get:
 
     bash: ./testing.sh: /bin/bash^M: bad interpreter: No such file or directory
 
@@ -355,9 +355,10 @@ Why? Because when printed literally, the `^M` makes the cursor go back
 to the beginning of the line. The whole error message is *printed*, but
 you *see* only part of it!
 
-<note warning> It's easy to imagine the `^M` is bad in other places
-too. If you get weird and illogical messages from your script, rule out
-the possibility that`^M` is involved. Find and eliminate it! </note>
+!!! warning "warning"
+    It's easy to imagine the `^M` is bad in other places
+    too. If you get weird and illogical messages from your script, rule out
+    the possibility that`^M` is involved. Find and eliminate it!
 
 ### How can I find and eliminate them?
 
@@ -376,7 +377,8 @@ the possibility that`^M` is involved. Find and eliminate it! </note>
 
 -   [the set builtin command](../commands/builtin/set.md) (for `-v` and `-x`)
 
-FIXME
+!!! warning "FIXME"
+    tbd.
 
 -   DEBUG trap
 -   BASH Debugger <http://bashdb.sourceforge.net/>

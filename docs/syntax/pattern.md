@@ -26,7 +26,7 @@ A pattern is a **string description**. Bash uses them in various ways:
 
 The pattern description language is relatively easy. Any character
 that's not mentioned below matches itself. The `NUL` character may not
-occur in a pattern. If special characters are quoted, they\'re matched
+occur in a pattern. If special characters are quoted, they're matched
 literally, i.e., without their special meaning.
 
 Do **not** confuse patterns with ***regular expressions***, because they
@@ -34,30 +34,30 @@ share some symbols and do similar matching work.
 
 ## Normal pattern language
 
-  Sequence   Description
-  ---------- ----------------------------------------------------------------------------------------------------------------
-  `*`        Matches **any string**, including the null string (empty string)
-  `?`        Matches any **single character**
-  `X`        Matches the character `X` which can be any character that has no special meaning
-  `\X`       Matches the character `X`, where the character's special meaning is stripped by the backslash
-  `\\`       Matches a backslash
-  `[...]`    Defines a pattern **bracket expression** (see below). Matches any of the enclosed characters at this position.
+|Sequence|Description|
+|--------|-----------|
+|`*`|Matches **any string**, including the null string (empty string)|
+|`?`|Matches any **single character**|
+|`X`|Matches the character `X` which can be any character that has no special meaning|
+|`\X`|Matches the character `X`, where the character's special meaning is stripped by the backslash|
+|`\\`|Matches a backslash|
+|`[...]`|Defines a pattern **bracket expression** (see below). Matches any of the enclosed characters at this position.|
 
 ### Bracket expressions
 
 The bracket expression `[...]` mentioned above has some useful
 applications:
 
-  Bracket expression     Description
-  ---------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `[XYZ]`                The \"normal\" bracket expression, matching either `X`, `Y` or `Z`
-  `[X-Z]`                A range expression: Matching all the characters from `X` to `Y` (your current **locale**, defines how the characters are **sorted**!)
-  `[[:class:]]`          Matches all the characters defined by a [POSIX(r) character class](https://pubs.opengroup.org/onlinepubs/009696899/basedefs/xbd_chap07.html#tag_07_03_01): `alnum`, `alpha`, `ascii`, `blank`, `cntrl`, `digit`, `graph`, `lower`, `print`, `punct`, `space`, `upper`, `word` and `xdigit`
-  `[^...]`               A negating expression: It matches all the characters that are **not** in the bracket expression
-  `[!...]`               Equivalent to `[^...]`
-  `[]...]` or `[-...]`   Used to include the characters `]` and `-` into the set, they need to be the first characters after the opening bracket
-  `[=C=]`                Matches any character that is eqivalent to the collation weight of `C` (current locale!)
-  `[[.SYMBOL.]]`         Matches the collating symbol `SYMBOL`
+|Bracket expression|Description|
+|------------------|-----------|
+|`[XYZ]`|The "normal" bracket expression, matching either `X`, `Y` or `Z`|
+|`[X-Z]`|A range expression: Matching all the characters from `X` to `Y` (your current **locale**, defines how the characters are **sorted**!)|
+|`[[:class:]]`|Matches all the characters defined by a [POSIX(r) character class](https://pubs.opengroup.org/onlinepubs/009696899/basedefs/xbd_chap07.html#tag_07_03_01): `alnum`, `alpha`, `ascii`, `blank`, `cntrl`, `digit`, `graph`, `lower`, `print`, `punct`, `space`, `upper`, `word` and `xdigit`|
+|`[^...]`|A negating expression: It matches all the characters that are **not** in the bracket expression|
+|`[!...]`|Equivalent to `[^...]`|
+|`[]...]` or `[-...]`|Used to include the characters `]` and `-` into the set, they need to be the first characters after the opening bracket|
+|`[=C=]`|Matches any character that is eqivalent to the collation weight of `C` (current locale!)|
+|`[[.SYMBOL.]]`|Matches the collating symbol `SYMBOL`|
 
 ### Examples
 
@@ -66,23 +66,23 @@ Some simple examples using normal pattern matching:
 -   Pattern `"Hello world"` matches
     -   `Hello world`
 -   Pattern `[Hh]"ello world"` matches
-    -   => `Hello world`
-    -   => `hello world`
+    -   =&gt; `Hello world`
+    -   =&gt; `hello world`
 -   Pattern `Hello*` matches (for example)
-    -   => `Hello world`
-    -   => `Helloworld`
-    -   => `HelloWoRlD`
-    -   => `Hello`
+    -   =&gt; `Hello world`
+    -   =&gt; `Helloworld`
+    -   =&gt; `HelloWoRlD`
+    -   =&gt; `Hello`
 -   Pattern `Hello world[[:punct:]]` matches (for example)
-    -   => `Hello world!`
-    -   => `Hello world.`
-    -   => `Hello world+`
-    -   => `Hello world?`
+    -   =&gt; `Hello world!`
+    -   =&gt; `Hello world.`
+    -   =&gt; `Hello world+`
+    -   =&gt; `Hello world?`
 -   Pattern
     `[[.backslash.]]Hello[[.vertical-line.]]world[[.exclamation-mark.]]`
     matches (using [collation
     symbols](https://pubs.opengroup.org/onlinepubs/009696899/basedefs/xbd_chap07.html#tag_07_03_02_04))
-    -   => `\Hello|world!`
+    -   =&gt; `\Hello|world!`
 
 ## Extended pattern language
 
@@ -90,17 +90,17 @@ If you set the [shell option](../internals/shell_options.md) `extglob`, Bash
 understands some powerful patterns. A `<PATTERN-LIST>` is one or more
 patterns, separated by the pipe-symbol (`PATTERN|PATTERN`).
 
-  --------------------- ------------------------------------------------------------
-  `?(<PATTERN-LIST>)`   Matches **zero or one** occurrence of the given patterns
-  `*(<PATTERN-LIST>)`   Matches **zero or more** occurrences of the given patterns
-  `+(<PATTERN-LIST>)`   Matches **one or more** occurrences of the given patterns
-  `@(<PATTERN-LIST>)`   Matches **one** of the given patterns
-  `!(<PATTERN-LIST>)`   Matches anything **except** one of the given patterns
-  --------------------- ------------------------------------------------------------
+|Extended pattern|Matches|
+|----------------|-------|
+|`?(<PATTERN-LIST>)`|Matches **zero or one** occurrence of the given patterns|
+|`*(<PATTERN-LIST>)`|Matches **zero or more** occurrences of the given patterns|
+|`+(<PATTERN-LIST>)`|Matches **one or more** occurrences of the given patterns|
+|`@(<PATTERN-LIST>)`|Matches **one** of the given patterns|
+|`!(<PATTERN-LIST>)`|Matches anything **except** one of the given patterns|
 
 ### Examples
 
-**[Delete all but one specific file]{.underline}**
+<u>**Delete all but one specific file**</u>
 
     rm -f !(survivior.txt)
 
@@ -108,15 +108,15 @@ patterns, separated by the pipe-symbol (`PATTERN|PATTERN`).
 
 ### Related shell options
 
-  option              classification                        description
-  ------------------- ------------------------------------- -------------------------------------------------------------------------------
-  `dotglob`           [globbing](../syntax/expansion/globs.md)   see [Pathname expansion customization](../syntax/expansion/globs.md#Customization)
-  `extglob`           global                                enable/disable extended pattern matching language, as described above
-  `failglob`          [globbing](../syntax/expansion/globs.md)   see [Pathname expansion customization](../syntax/expansion/globs.md#Customization)
-  `nocaseglob`        [globbing](../syntax/expansion/globs.md)   see [Pathname expansion customization](../syntax/expansion/globs.md#Customization)
-  `nocasematch`       pattern/string matching               perform pattern matching without regarding the case of individual letters
-  `nullglob`          [globbing](../syntax/expansion/globs.md)   see [Pathname expansion customization](../syntax/expansion/globs.md#Customization)
-  `globasciiranges`   [globbing](../syntax/expansion/globs.md)   see [Pathname expansion customization](../syntax/expansion/globs.md#Customization)
+|option|classification|description|
+|------|--------------|-----------|
+|`dotglob`|[globbing](../syntax/expansion/globs.md)|see [Pathname expansion customization](/syntax/expansion/globs.md#Customization)|
+|`extglob`|global|enable/disable extended pattern matching language, as described above|
+|`failglob`|[globbing](../syntax/expansion/globs.md)|see [Pathname expansion customization](/syntax/expansion/globs.md#Customization)|
+|`nocaseglob`|[globbing](../syntax/expansion/globs.md)|see [Pathname expansion customization](/syntax/expansion/globs.md#Customization)|
+|`nocasematch`|pattern/string matching|perform pattern matching without regarding the case of individual letters|
+|`nullglob`|[globbing](../syntax/expansion/globs.md)|see [Pathname expansion customization](/syntax/expansion/globs.md#Customization)|
+|`globasciiranges`|[globbing](../syntax/expansion/globs.md)|see [Pathname expansion customization](/syntax/expansion/globs.md#Customization)|
 
 ## Bugs and Portability considerations
 
@@ -152,12 +152,12 @@ to those described above.
 
 \* ksh93 supports arbitrary quantifiers just like ERE using the
 `{from,to}(pattern-list)` syntax. `{2,4}(foo)bar` matches between 2-4
-\"foo\"'s followed by \"bar\". `{2,}(foo)bar` matches 2 or more
-\"foo\"'s followed by \"bar\". You can probably figure out the rest. So
+"foo"'s followed by "bar". `{2,}(foo)bar` matches 2 or more
+"foo"'s followed by "bar". You can probably figure out the rest. So
 far, none of the other shells support this syntax.
 
 \* In ksh93, a `pattern-list` may be delimited by either `&` or `|`. `&`
-means \"all patterns must be matched\" instead of \"any pattern\". For
+means "all patterns must be matched" instead of "any pattern". For
 example, `[[ fo0bar == @(fo[0-9]&+([[:alnum:]]))bar ]]` would be true
 while `[[ f00bar == @(fo[0-9]&+([[:alnum:]]))bar ]]` is false, because
 all members of the and-list must be satisfied. No other shell supports

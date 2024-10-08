@@ -27,7 +27,7 @@ All three forms have the very same purpose: **They give you general
 control over parsing, expansion and expansion results.**
 
 Besides these basic variants, there are some special quoting methods
-(like interpreting ANSI-C escapes in a string) you\'ll meet below.
+(like interpreting ANSI-C escapes in a string) you'll meet below.
 
 :!: **ATTENTION** :!: The quote characters (`"`, double quote and `'`,
 single quote) are a syntax element that influence parsing. It is not
@@ -77,7 +77,7 @@ beautify your code:
     }
 
 The backslash can be used to mask every character that has a special
-meaning to bash. [Exception:]{.underline} Inside a single-quoted string
+meaning to bash. <u>Exception:</u> Inside a single-quoted string
 (see below).
 
 ## Weak quoting
@@ -105,7 +105,7 @@ unless you have a file named `*`, spit out an error.
 Will work as expected. `$PATH` is expanded, because it's double (weak)
 quoted.
 
-If a backslash in double quotes (\"weak quoting\") occurs, there are 2
+If a backslash in double quotes ("weak quoting") occurs, there are 2
 ways to deal with it
 
 -   if the baskslash is followed by a character that would have a
@@ -131,7 +131,7 @@ it's surrounded by strong quotes.
 
 In practise that means, to produce a text like `Here's my test...` as a
 single-quoted string, you have to leave and re-enter the single quoting
-to get the character \"`'`\" as literal text:
+to get the character "`'`" as literal text:
 
     # WRONG
     echo 'Here's my test...'
@@ -151,25 +151,25 @@ C-like escape sequences. The Syntax is:
 
 where the following escape sequences are decoded in `string`:
 
-  Code           Meaning
-  -------------- -------------------------------------------------------------------------------------------------------------------------------------
-  `\"`           double-quote
-  `\'`           single-quote
-  `\\`           backslash
-  `\a`           terminal alert character (bell)
-  `\b`           backspace
-  `\e`           escape (ASCII 033)
-  `\E`           escape (ASCII 033) **\\E is non-standard**
-  `\f`           form feed
-  `\n`           newline
-  `\r`           carriage return
-  `\t`           horizontal tab
-  `\v`           vertical tab
-  `\cx`          a control-x character, for example, `$'\cZ'` to print the control sequence composed of Ctrl-Z (`^Z`)
-  `\uXXXX`       Interprets `XXXX` as a hexadecimal number and prints the corresponding character from the character set (4 digits) (Bash 4.2-alpha)
-  `\UXXXXXXXX`   Interprets `XXXX` as a hexadecimal number and prints the corresponding character from the character set (8 digits) (Bash 4.2-alpha)
-  `\nnn`         the eight-bit character whose value is the octal value nnn (one to three digits)
-  `\xHH`         the eight-bit character whose value is the hexadecimal value HH (one or two hex digits)
+|Code|Meaning|
+|----|-------|
+|`\"`|double-quote|
+|`\'`|single-quote|
+|`\\`|backslash|
+|`\a`|terminal alert character (bell)|
+|`\b`|backspace|
+|`\e`|escape (ASCII 033)|
+|`\E`|escape (ASCII 033) **\E is non-standard**|
+|`\f`|form feed|
+|`\n`|newline|
+|`\r`|carriage return|
+|`\t`|horizontal tab|
+|`\v`|vertical tab|
+|`\cx`|a control-x character, for example, `$'\cZ'` to print the control sequence composed of Ctrl-Z (`^Z`)|
+|`\uXXXX`|Interprets `XXXX` as a hexadecimal number and prints the corresponding character from the character set (4 digits) (Bash 4.2-alpha)|
+|`\UXXXXXXXX`|Interprets `XXXX` as a hexadecimal number and prints the corresponding character from the character set (8 digits) (Bash 4.2-alpha)|
+|`\nnn`|the eight-bit character whose value is the octal value nnn (one to three digits)|
+|`\xHH`|the eight-bit character whose value is the hexadecimal value HH (one or two hex digits)|
 
 This is especially useful when you want to pass special characters as
 arguments to some programs, like passing a newline to sed.
@@ -181,8 +181,8 @@ The `$'...'` syntax comes from ksh93, but is portable to most modern
 shells including pdksh. A
 [specification](http://austingroupbugs.net/view.php?id=249#c590) for it
 was accepted for SUS issue 7. There are still some stragglers, such as
-most ash variants including dash, (except busybox built with \"bash
-compatibility\" features).
+most ash variants including dash, (except busybox built with "bash
+compatibility" features).
 
 ## I18N/L10N
 
@@ -197,7 +197,7 @@ quoted string.
 
 If the string was replaced (translated), the result is double quoted.
 
-In case you\'re a C programmer: The purpose of `$"..."` is the same as
+In case you're a C programmer: The purpose of `$"..."` is the same as
 for `gettext()` or `_()`.
 
 For useful examples to localize your scripts, please see [Appendix I of
@@ -216,7 +216,7 @@ iterate through. The list can also be in a variable:
 
     mylist="DOG CAT BIRD HORSE"
 
-**[WRONG]{.underline}** way to iterate through this list:
+**<u>WRONG</u>** way to iterate through this list:
 
     for animal in "$mylist"; do
         echo $animal
@@ -226,7 +226,7 @@ Why? Due to the double-quotes, technically, the expansion of `$mylist`
 is seen as **one word**. The for loop iterates exactly one time, with
 `animal` set to the whole list.
 
-**[RIGHT]{.underline}** way to iterate through this list:
+**<u>RIGHT</u>** way to iterate through this list:
 
     for animal in $mylist; do
         echo $animal
@@ -251,7 +251,7 @@ test string with spaces:
 
     mystring="my string"
 
-And now check that string against the word \"testword\":
+And now check that string against the word "testword":
 
     [ $mystring = testword ] # WRONG!
 
@@ -272,20 +272,16 @@ So what you really want to do is:
 Now the command has three parameters, which makes sense for a binary
 (two argument) operator.
 
-**[Hint:]{.underline}** Inside the [conditional
+**<u>Hint:</u>** Inside the [conditional
 expression](../syntax/ccmd/conditional_expression.md) (`[[ ]]`) Bash doesn't
 perform word splitting, and thus you don't need to quote your variable
-references - they are always seen as \"one word\".
+references - they are always seen as "one word".
 
 ## See also
 
--   Internal: [Some words about words\...](../syntax/words.md)
+-   Internal: [Some words about words...](../syntax/words.md)
 -   Internal: [Word splitting](../syntax/expansion/wordsplit.md)
 -   Internal: [Introduction to expansions and
     substitutions](../syntax/expansion/intro.md)
-
-```{=html}
-<!-- -->
-```
 -   External: [Grymore:
     Shellquoting](http://www.grymoire.com/Unix/Quote.html)

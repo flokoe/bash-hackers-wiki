@@ -16,28 +16,17 @@ The testing features basically are the same (see the lists for [classic
 test command](../../commands/classictest.md)), with some additions and
 extensions.
 
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Operator                                                             Description
-  -------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `( <EXPRESSION> )`                                                   Used to group expressions, to influence precedence of operators
-
-  `<EXPRESSION1> && <EXPRESSION2>`                                     `TRUE` if `<EXPRESSION1>`**and**`<EXPRESSION2>` are `TRUE` (do **not** use `-a`!)
-
-  `<EXPRESSION1> || <EXPRESSION2>`                                     `TRUE` if `<EXPRESSION1>`**or**`<EXPRESSION2>` is `TRUE` (do **not** use `-o`!)
-
-  `<STRING> == <PATTERN>`                                              `<STRING>` is checked against the pattern `<PATTERN>` - `TRUE` on a match\
-                                                                       *But note¹, quoting the pattern forces a literal comparison.*
-
-  `<STRING> = <PATTERN>`                                               equivalent to the `==` operator
-
-  `<STRING> != <PATTERN>`                                              `<STRING>` is checked against the pattern `<PATTERN>` - `TRUE` on **no match**
-
-  `<STRING> =~ <ERE>`                                                  `<STRING>` is checked against the [extended regular expression](https://en.wikipedia.org/wiki/Regular_expression#POSIX_extended) `<ERE>` - `TRUE` on a match
-
-  See the [classic test operators](../../commands/classictest.md#file_tests)   Do **not** use the `test`-typical operators `-a` and `-o` for AND and OR.
-
-  See also [arithmetic comparisons](../../syntax/arith_expr.md#comparisons)    Using `(( <EXPRESSION> ))`, the [arithmetic expression compound command](../../syntax/ccmd/arithmetic_eval.md)
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Operator|Description|
+|--|--|
+|`( <EXPRESSION> )`|Used to group expressions, to influence precedence of operators|
+|`<EXPRESSION1> && <EXPRESSION2>`|`TRUE` if `<EXPRESSION1>`**and**`<EXPRESSION2>` are `TRUE` (do **not** use `-a`!)|
+|`<EXPRESSION1>||<EXPRESSION2>`|`TRUE` if `<EXPRESSION1>`**or**`<EXPRESSION2>` is `TRUE` (do **not** use `-o`!)|
+|`<STRING> == <PATTERN>`|`<STRING>` is checked against the pattern `<PATTERN>` - `TRUE` on a match<br>*But note¹, quoting the pattern forces a literal comparison.*|
+|`<STRING> = <PATTERN>`|equivalent to the `==` operator|
+|`<STRING> != <PATTERN>`|`<STRING>` is checked against the pattern `<PATTERN>` - `TRUE` on **no match**|
+|`<STRING> =~ <ERE>`|`<STRING>` is checked against the [extended regular expression](https://en.wikipedia.org/wiki/Regular_expression#POSIX_extended) `<ERE>` - `TRUE` on a match|
+|See the [classic test operators](../../commands/classictest.md#file_tests)|Do **not** use the `test`-typical operators `-a` and `-o` for AND and OR.|
+|See also [arithmetic comparisons](../../syntax/arith_expr.md#comparisons)|Using `(( <EXPRESSION> ))`, the [arithmetic expression compound command](../../syntax/ccmd/arithmetic_eval.md)|
 
 When the `==` and `!=` operators are used, the string to the right of
 the operator is considered a pattern and matched according to the rules
@@ -50,7 +39,7 @@ literal string.
 
 When the operators `<` and `>` are used (string collation order), the
 test happens using the current locale when the `compat` level is greater
-than \"40\".
+than "40".
 
 Operator precedence (highest => lowest):
 
@@ -151,7 +140,7 @@ Example:
 
 ### Behaviour differences compared to the builtin test command
 
-As of Bash 4.1 alpha, the test primaries \'<\' and \'>\' (compare
+As of Bash 4.1 alpha, the test primaries '&lt;' and '&gt;' (compare
 strings lexicographically) use the current locale settings, while the
 same primitives for the builtin test command don't. This leads to the
 following situation where they behave differently:
@@ -180,7 +169,7 @@ both contains whitespace and is not the result of an expansion.
 
 -   `[[ ... ]]` functionality isn't specified by POSIX(R), though it's
     a reserved word
--   Amongst the major \"POSIX-shell superset languages\" (for lack of a
+-   Amongst the major "POSIX-shell superset languages" (for lack of a
     better term) which do have `[[`, the test expression compound
     command is one of the very most portable non-POSIX features. Aside
     from the `=~` operator, almost every major feature is consistent

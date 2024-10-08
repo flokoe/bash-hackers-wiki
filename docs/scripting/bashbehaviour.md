@@ -12,13 +12,14 @@ tags:
 
 # Bash's behaviour
 
-FIXME incomplete
+!!! warning "FIXME"
+    incomplete
 
 ## Bash startup modes
 
 ### Login shell
 
-As a \"login shell\", Bash reads and sets (executes) the user's profile
+As a "login shell", Bash reads and sets (executes) the user's profile
 from `/etc/profile` and one of `~/.bash_profile`, `~/.bash_login`, or
 `~/.profile` (in that order, using the first one that's readable!).
 
@@ -27,20 +28,20 @@ When a login shell exits, Bash reads and executes commands from the file
 
 Why an extra login shell mode? There are many actions and variable sets
 that only make sense for the initial user login. That's why all UNIX(r)
-shells have (should have) a \"login\" mode.
+shells have (should have) a "login" mode.
 
-[**Methods to start Bash as a login shell:**]{.underline}
+<u>**Methods to start Bash as a login shell:**</u>
 
 -   the first character of `argv[0]` is `-` (a hyphen): traditional
     UNIX(r) shells start from the `login` binary
 -   Bash is started with the `-l` option
 -   Bash is started with the `--login` option
 
-[**Methods to test for login shell mode:**]{.underline}
+<u>**Methods to test for login shell mode:**</u>
 
 -   the shell option `login_shell` is set
 
-[**Related switches:**]{.underline}
+<u>**Related switches:**</u>
 
 -   `--noprofile` disables reading of all profile files
 
@@ -49,7 +50,7 @@ shells have (should have) a \"login\" mode.
 When Bash starts as an interactive non-login shell, it reads and
 executes commands from `~/.bashrc`. This file should contain, for
 example, aliases, since they need to be defined in every shell as
-they\'re not inherited from the parent shell.
+they're not inherited from the parent shell.
 
 The feature to have a system-wide `/etc/bash.bashrc` or a similar
 system-wide rc-file is specific to vendors and distributors that ship
@@ -57,11 +58,11 @@ system-wide rc-file is specific to vendors and distributors that ship
 system-wide rc file is to `source /etc/bashrc` from every user's
 `~/.bashrc`.
 
-[**Methods to test for interactive-shell mode:**]{.underline}
+<u>**Methods to test for interactive-shell mode:**</u>
 
 -   the special parameter `$-` contains the letter `i` (lowercase I)
 
-[**Related switches:**]{.underline}
+<u>**Related switches:**</u>
 
 -   `-i` forces the interactive mode
 -   `--norc` disables reading of the startup files (e.g.
@@ -83,7 +84,7 @@ used as the name of the startup file.
 After the startup files are read, Bash enters the [POSIX(r) compatiblity
 mode (for running, not for starting!)](#posix_run_mode).
 
-[**Bash starts in `sh` compatiblity mode when:**]{.underline}
+<u>**Bash starts in `sh` compatiblity mode when:**</u>
 
 -   the base filename in `argv[0]` is `sh` (:!: NB: `/bin/sh` may be
     linked to `/bin/bash`, but that doesn't mean it acts like
@@ -94,11 +95,11 @@ mode (for running, not for starting!)](#posix_run_mode).
 When Bash is started in POSIX(r) mode, it follows the POSIX(r) standard
 for startup files. In this mode, **interactive shells** expand the
 [ENV](../syntax/shellvars.md#ENV) variable and commands are read and executed
-from the file whose name is the expanded value.\
+from the file whose name is the expanded value.
 No other startup files are read. Hence, a non-interactive shell doesn't
 read any startup files in POSIX(r) mode.
 
-[**Bash starts in POSIX(r) mode when:**]{.underline}
+<u>**Bash starts in POSIX(r) mode when:**</u>
 
 -   the commandline option `--posix` is specified
 -   the environment variable
@@ -112,13 +113,13 @@ read any startup files in POSIX(r) mode.
     Bash usually reads the first file found, when multiple choices are
     given (for user files in `~/`)
 
-  Mode                    `/etc/profile`   `~/.bash_profile`   `~/.bash_login`   `~/.profile`   `~/.bashrc`   `${ENV}`
-  ----------------------- ---------------- ------------------- ----------------- -------------- ------------- ----------
-  Login shell             X                X                   X                 X              -            -
-  Interactive shell       -               -                  -                -             X             -
-  SH compatible login     X                -                  -                X              -            -
-  SH compatible           -               -                  -                -             -            X
-  POSIX(r) compatiblity   -               -                  -                -             -            X
+|Mode|`/etc/profile`|`~/.bash_profile`|`~/.bash_login`|`~/.profile`|`~/.bashrc`|`${ENV}`|
+|--|--|--|--|--|--|--|
+|Login shell|✅|✅|✅|✅|🚫|🚫|
+|Interactive shell|🚫|🚫|🚫|🚫|✅|🚫|
+|SH compatible login|✅|🚫|🚫|✅|🚫|🚫|
+|SH compatible|🚫|🚫|🚫|🚫|🚫|✅|
+|POSIX(r) compatiblity|🚫|🚫|🚫|🚫|🚫|✅|
 
 ## Bash run modes
 
@@ -304,9 +305,10 @@ and parsing (excerpt from a Bash maintainer's document):
     Bash can be configured to be POSIX-conformant by default, by specifying
     the `--enable-strict-posix-default' to `configure' when building.
 
-FIXME help me to find out what breaks in POSIX(r) mode!
+!!! warning "FIXME"
+    help me to find out what breaks in POSIX(r) mode!
 
-[**The POSIX(r) mode can be switched on by:**]{.underline}
+<u>**The POSIX(r) mode can be switched on by:**</u>
 
 -   Bash starting as `sh` (the basename of `argv[0]` is `sh`)
 -   starting Bash with the commandline option `--posix`
@@ -314,7 +316,7 @@ FIXME help me to find out what breaks in POSIX(r) mode!
     [POSIXLY_CORRECT](../syntax/shellvars.md#POSIXLY_CORRECT) is set
 -   the command `set -o posix`
 
-[**Tests for the POSIX(r) mode:**]{.underline}
+<u>**Tests for the POSIX(r) mode:**</u>
 
 -   the variable [SHELLOPTS](../syntax/shellvars.md#SHELLOPTS) contains
     `posix` in its list
@@ -330,7 +332,7 @@ like normal Bash with the following restrictions:
     [PATH](../syntax/shellvars.md#PATH), [ENV](../syntax/shellvars.md#ENV) and
     [BASH_ENV](../syntax/shellvars.md#BASH_ENV) can't be set or unset
 -   command names that contain a `/` (slash) can't be called (hence
-    you\'re limited to `PATH`)
+    you're limited to `PATH`)
 -   filenames containing a `/` (slash) can't be specified as argument
     to the `source` or `.` builtin command
 -   filenames containing a `/` (slash) can't be specified as argument
@@ -351,19 +353,19 @@ like normal Bash with the following restrictions:
 -   turning off restricted mode with `set +r` or `set +o restricted` is
     (of course) forbidden
 
-The \"-r\" restrictions are turned on **after** Bash has read its
+The "-r" restrictions are turned on **after** Bash has read its
 startup files.
 
 When the command that is run is a shell script, then the restrictions
 are **turned off** for the (sub-)shell that runs that shell script.
 
-[**The restricted shell can be switched on by:**]{.underline}
+<u>**The restricted shell can be switched on by:**</u>
 
 -   calling Bash as `rbash` (the basename of `argv[0]` is `rbash`)
 -   calling Bash with the `-r` option
 -   calling Bash with the `--restricted` option
 
-[**Tests for restricted mode:**]{.underline}
+<u>**Tests for restricted mode:**</u>
 
 -   the special parameter `$-` contains the letter `r` (lowercase R)
 -   the shell option `restricted_shell` is set and can be checked by the

@@ -35,7 +35,7 @@ anymore.
 ### Operation modes
 
 There are four basic operation modes to *list*, *read*, *write* and
-*copy* archives. They\'re switched with combinations of `-r` and `-w`
+*copy* archives. They're switched with combinations of `-r` and `-w`
 command line options:
 
   Mode    RW-Options
@@ -123,7 +123,7 @@ files to list or extract.
 -   if you specify the `-c` option, `pax` will invert the matches, i.e.
     it matches all filenames **except** those matching the specified
     patterns
--   if no patterns are given, `pax` will \"match\" (list or extract) all
+-   if no patterns are given, `pax` will "match" (list or extract) all
     files from the archive
 -   **To avoid conflicts with shell pathname expansion, it's wise to
     quote patterns!**
@@ -207,7 +207,7 @@ To copy directory contents to another directory, similar to a `cp -a`
 command, use:
 
     mkdir destdir
-    pax -rw dir destdir #creates a copy of dir in destdir/, i.e. destdir/dir 
+    pax -rw dir destdir #creates a copy of dir in destdir/, i.e. destdir/dir
 
 ### Copying files via ssh
 
@@ -223,7 +223,7 @@ on the remote machine.
 
 ### Backup your daily work
 
-[**Note:**]{.underline} `-T` is an extension and is not defined by
+<u>**Note:**</u> `-T` is an extension and is not defined by
 POSIX.
 
 Say you have write-access to a fileserver mounted on your filesystem
@@ -234,14 +234,14 @@ modified today:
     pax -rw -T 0000 data/ /n/mybackups/$(date +%A)/
 
 This is done using the `-T` switch, which normally allows you to specify
-a time window, but in this case, only the start time which means \"today
-at midnight\".
+a time window, but in this case, only the start time which means "today
+at midnight".
 
-When you execute this \"very simple backup\" after your daily work, you
+When you execute this "very simple backup" after your daily work, you
 will have a copy of the modified files.
 
-[**Note:**]{.underline} The `%A` format from `date` expands to the name
-of the current day, localized, e.g. \"Friday\" (en) or \"Mittwoch\"
+<u>**Note:**</u> The `%A` format from `date` expands to the name
+of the current day, localized, e.g. "Friday" (en) or "Mittwoch"
 (de).
 
 The same, but with an archive, can be accomplished by:
@@ -282,19 +282,19 @@ The -s command seen above can be used to exclude a file. The
 substitution must result in a null string: For example, let's say that
 you want to exclude all the CVS directories to create a source code
 archive. We are going to replace the names containing /CVS/ with
-nothing, note the .\* they are needed because we need to match the
+nothing, note the `.*` they are needed because we need to match the
 entire pathname.
 
-      pax -w -x ustar -f release.tar -s',.*/CVS/.*,,' myapplication 
+      pax -w -x ustar -f release.tar -s',.*/CVS/.*,,' myapplication
 
 You can use several -s options, for instance, let's say you also want
-to remove files ending in \~:
+to remove files ending in `~`:
 
-      pax -w -x ustar -f release.tar -'s,.*/CVS/.*,,' -'s/.*~//' myapplication 
+      pax -w -x ustar -f release.tar -'s,.*/CVS/.*,,' -'s/.*~//' myapplication
 
 This can also be done while reading an archive, for instance, suppose
-you have an archive containing a \"usr\" and a \"etc\" directory but
-that you want to extract only the \"usr\" directory:
+you have an archive containing a "usr" and a "etc" directory but
+that you want to extract only the "usr" directory:
 
     pax -r -f archive.tar -s',^etc/.*,,' #the etc/ dir is not extracted
 
@@ -341,8 +341,8 @@ make the switch:
   ------------------------------------- ------------------------------------------ -----------------------------------------------------------------------
   `tar xzvf file.tar.gz`                `pax -rvz -f file.tar.gz`                  `-z` is an extension, POSIXly: `gunzip <file.tar.gz | pax -rv`
   `tar czvf archive.tar.gz path ...`    `pax -wvz -f archive.tar.gz path ...`      `-z` is an extension, POSIXly: `pax -wv path | gzip > archive.tar.gz`
-  `tar xjvf file.tar.bz2`               `bunzip2 <file.tar.bz2 | pax -rv`          
-  `tar cjvf archive.tar.bz2 path ...`   `pax -wv path | bzip2 > archive.tar.bz2`   
+  `tar xjvf file.tar.bz2`               `bunzip2 <file.tar.bz2 | pax -rv`
+  `tar cjvf archive.tar.bz2 path ...`   `pax -wv path | bzip2 > archive.tar.bz2`
   `tar tzvf file.tar.gz`                `pax -vz -f file.tar.gz`                   `-z` is an extension, POSIXly: `gunzip <file.tar.gz | pax -v`
 
 `pax` might not create ustar (`tar`) archives by default but its own pax

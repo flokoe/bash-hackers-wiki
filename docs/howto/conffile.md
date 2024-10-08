@@ -16,7 +16,7 @@ tags:
 For this task, you don't have to write large parser routines (unless
 you want it 100% secure or you want a special file syntax) - you can use
 the Bash source command. The file to be sourced should be formated in
-key=\"value\" format, otherwise bash will try to interpret commands:
+key="value" format, otherwise bash will try to interpret commands:
 
     #!/bin/bash
     echo "Reading config...." >&2
@@ -50,7 +50,7 @@ usage of the dot is identical:
 ## Per-user configs
 
 There's also a way to provide a system-wide config file in /etc and a
-custom config in \~/(user's home) to override system-wide defaults. In
+custom config in ~/(user's home) to override system-wide defaults. In
 the following example, the if/then construct is used to check for the
 existance of a user-specific config:
 
@@ -66,11 +66,11 @@ existance of a user-specific config:
 
 As mentioned earlier, the sourced file can contain anything a Bash
 script can. Essentially, it **is** an included Bash script. That creates
-security issues. A malicicios person can \"execute\" arbitrary code when
+security issues. A malicicios person can "execute" arbitrary code when
 your script is sourcing its config file. You might want to allow only
 constructs in the form `NAME=VALUE` in that file (variable assignment
 syntax) and maybe comments (though technically, comments are
-unimportant). Imagine the following \"config file\", containing some
+unimportant). Imagine the following "config file", containing some
 malicious code:
 
     # cool config file for my even cooler script
@@ -107,7 +107,7 @@ filters by description:
     # now source it, either the original or the filtered variant
     source "$configfile"
 
-**[To make clear what it does:]{.underline}** egrep checks if the file
+<u>**To make clear what it does:**</u> egrep checks if the file
 contains something we don't want, if yes, egrep filters the file and
 writes the filtered contents to a new file. If done, the original file
 name is changed to the name stored in the variable `configfile`. The

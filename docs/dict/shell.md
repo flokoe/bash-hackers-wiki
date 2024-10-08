@@ -10,7 +10,8 @@ This behaviour alone doesn't help much. A shell knits some intelligence
 and flow control around the possibility to execute commands - it's a
 complete commandline-oriented user-interface (UI).
 
-FIXME
+!!! warning "FIXME"
+    tbd.
 
 ## See also
 

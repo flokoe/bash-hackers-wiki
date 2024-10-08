@@ -29,7 +29,7 @@ if given.
   `\a`           alert (bell)
   `\b`           backspace
   `\c`           suppress further output
-  `\e`           
+  `\e`
   `\E`           an escape character
   `\f`           form feed
   `\n`           new line
@@ -56,17 +56,14 @@ if given.
     case `-n` is always treated as a string, and backslash escapes are
     interpreted by default. `dash` has the misfeature of following this
     and interpreting escapes by default, but includes a `-n` feature for
-    suppressing newlines nevertheless.\
-    \
-    In practice, if you\'re able to assume a korn-like shell including
+    suppressing newlines nevertheless.
+
+    In practice, if you're able to assume a korn-like shell including
     bash, mksh, or zsh, `echo` when used in simple cases is generally
     reliable. For example, in the very common situation in which echo is
     supplied with a single argument and whose output is to have a
     newline appended, using `echo` is considered common practice.
 
-```{=html}
-<!-- -->
-```
 -   **Never use options to `echo`! *Ever*!** Any time you feel tempted
     to use `echo -e`, `-n`, or any other special feature of echo, **use
     [printf](../../commands/builtin/printf.md) instead!** If portability is a
@@ -76,9 +73,6 @@ if given.
     \$\'\...\' \'\'if targeting only shells that support this special
     quoting style.
 
-```{=html}
-<!-- -->
-```
 -   `ksh93` has a `print` command, which if coding specifically for
     `ksh93` should be preferred over `echo`.
     [printf](../../commands/builtin/printf.md) still includes most of the

@@ -1,7 +1,7 @@
 # Parameter
 
-Also the article for: [variable]{.underline}, [positional
-parameter]{.underline}, [special parameter]{.underline}
+Also the article for: <u>variable</u>, <u>positional
+parameter</u>, <u>special parameter</u>
 
 In Bash, a parameter is simply an entity that stores values and can be
 referenced. Depending on the type, the parameters can be set directly,

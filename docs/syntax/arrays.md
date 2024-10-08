@@ -38,7 +38,7 @@ Bash supports two different types of ksh-like one-dimensional arrays.
     ksh88. Similar, partially compatible syntax was inherited by many
     derivatives including Bash. Indexed arrays always carry the `-a`
     attribute.
--   *Associative arrays* (sometimes known as a \"hash\" or \"dict\") use
+-   *Associative arrays* (sometimes known as a "hash" or "dict") use
     arbitrary nonempty strings as keys. In other words, associative
     arrays allow you to look up a value from a table based upon its
     corresponding string label. **Associative arrays are always
@@ -99,12 +99,12 @@ an array without assigning any values (see [declaration](#Declaration)).
 The following explicitly give variables array attributes, making them
 arrays:
 
-  Syntax               Description
-  -------------------- -------------------------------------------------------------------------------------------------------------------------
-  `ARRAY=()`           Declares an **indexed** array `ARRAY` and initializes it to be empty. This can also be used to empty an existing array.
-  `ARRAY[0]=`          Generally sets the first element of an **indexed** array. If no array `ARRAY` existed before, it is created.
-  `declare -a ARRAY`   Declares an **indexed** array `ARRAY`. An existing array is not initialized.
-  `declare -A ARRAY`   Declares an **associative** array `ARRAY`. This is the one and only way to create associative arrays.
+|Syntax|Description|
+|------|-----------|
+|`ARRAY=()`|Declares an **indexed** array `ARRAY` and initializes it to be empty. This can also be used to empty an existing array.|
+|`ARRAY[0]=`|Generally sets the first element of an **indexed** array. If no array `ARRAY` existed before, it is created.|
+|`declare -a ARRAY`|Declares an **indexed** array `ARRAY`. An existing array is not initialized.|
+|`declare -A ARRAY`|Declares an **associative** array `ARRAY`. This is the one and only way to create associative arrays.|
 
 As an example, and for use below, let's declare our `NAMES` array as
 described [above](#purpose):
@@ -116,31 +116,32 @@ described [above](#purpose):
 Storing values in arrays is quite as simple as storing values in normal
 variables.
 
-  Syntax                            Description
-  --------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `ARRAY[N]=VALUE`                  Sets the element `N` of the **indexed** array `ARRAY` to `VALUE`. **`N` can be any valid [arithmetic expression](../syntax/arith_expr.md)**.
-  `ARRAY[STRING]=VALUE`             Sets the element indexed by `STRING` of the **associative array** `ARRAY`.
-  `ARRAY=VALUE`                     As above. If no index is given, as a default the zeroth element is set to `VALUE`. Careful, this is even true of associative arrays - there is no error if no key is specified, and the value is assigned to string index \"0\".
-  `ARRAY=(E1\ E2\ ...)`             Compound array assignment - sets the whole array `ARRAY` to the given list of elements indexed sequentially starting at zero. The array is unset before assignment unless the += operator is used. When the list is empty (`ARRAY=()`), the array will be set to an empty array. This method obviously does not use explicit indexes. An **associative array** can **not** be set like that! Clearing an associative array using `ARRAY=()` works.
-  `ARRAY=([X]=E1\ [Y]=E2\ ...)`     Compound assignment for indexed arrays with index-value pairs declared individually (here for example `X` and `Y`). X and Y are arithmetic expressions. This syntax can be combined with the above - elements declared without an explicitly specified index are assigned sequentially starting at either the last element with an explicit index, or zero.
-  `ARRAY=([S1]=E1\ [S2]=E2\ ...)`   Individual mass-setting for **associative arrays**. The named indexes (here: `S1` and `S2`) are strings.
-  `ARRAY+=(E1\ E2\ ...)`            Append to ARRAY.
-  `ARRAY=("${ANOTHER_ARRAY[@]}")`   Copy ANOTHER_ARRAY to ARRAY, copying each element.
+|Syntax|Description|
+|------|-----------|
+|`ARRAY[N]=VALUE`|Sets the element `N` of the **indexed** array `ARRAY` to `VALUE`. **`N` can be any valid [arithmetic expression](../syntax/arith_expr.md)**.|
+|`ARRAY[STRING]=VALUE`|Sets the element indexed by `STRING` of the **associative array** `ARRAY`.|
+|`ARRAY=VALUE`|As above. If no index is given, as a default the zeroth element is set to `VALUE`. Careful, this is even true of associative arrays - there is no error if no key is specified, and the value is assigned to string index "0".|
+|`ARRAY=(E1\ E2\ ...)`|Compound array assignment - sets the whole array `ARRAY` to the given list of elements indexed sequentially starting at zero. The array is unset before assignment unless the += operator is used. When the list is empty (`ARRAY=()`), the array will be set to an empty array. This method obviously does not use explicit indexes. An **associative array** can **not** be set like that! Clearing an associative array using `ARRAY=()` works.|
+|`ARRAY=([X]=E1\ [Y]=E2\ ...)`|Compound assignment for indexed arrays with index-value pairs declared individually (here for example `X` and `Y`). X and Y are arithmetic expressions. This syntax can be combined with the above - elements declared without an explicitly specified index are assigned sequentially starting at either the last element with an explicit index, or zero.|
+|`ARRAY=([S1]=E1\ [S2]=E2\ ...)`|Individual mass-setting for **associative arrays**. The named indexes (here: `S1` and `S2`) are strings.|
+|`ARRAY+=(E1\ E2\ ...)`|Append to ARRAY.|
+|`ARRAY=("${ANOTHER_ARRAY[@]}")`|Copy ANOTHER_ARRAY to ARRAY, copying each element.|
 
 As of now, arrays can't be exported.
 
 ### Getting values
 
-<note> For completeness and details on several parameter expansion
-variants, see the [article about parameter expansion](../syntax/pe.md) and
-check the notes about arrays. </note>
+!!! info ""
+    For completeness and details on several parameter expansion
+    variants, see the [article about parameter expansion](../syntax/pe.md) and
+    check the notes about arrays.
 
-  Syntax                                                                  Description
-  ----------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `${ARRAY[N]}`                                                           Expands to the value of the index `N` in the **indexed** array `ARRAY`. If `N` is a negative number, it's treated as the offset from the maximum assigned index (can't be used for assignment) - 1
-  `${ARRAY[S]}`                                                           Expands to the value of the index `S` in the **associative** array `ARRAY`.
-  `"${ARRAY[@]}" ${ARRAY[@]} "${ARRAY[*]}" ${ARRAY[*]}`                   Similar to [mass-expanding positional parameters](../scripting/posparams.md#mass_usage), this expands to all elements. If unquoted, both subscripts `*` and `@` expand to the same result, if quoted, `@` expands to all elements individually quoted, `*` expands to all elements quoted as a whole.
-  `"${ARRAY[@]:N:M}" ${ARRAY[@]:N:M} "${ARRAY[*]:N:M}" ${ARRAY[*]:N:M}`   Similar to what this syntax does for the characters of a single string when doing [substring expansion](../syntax/pe.md#substring_expansion), this expands to `M` elements starting with element `N`. This way you can mass-expand individual indexes. The rules for quoting and the subscripts `*` and `@` are the same as above for the other mass-expansions.
+|Syntax|Description|
+|------|-----------|
+|`${ARRAY[N]}`|Expands to the value of the index `N` in the **indexed** array `ARRAY`. If `N` is a negative number, it's treated as the offset from the maximum assigned index (can't be used for assignment) - 1|
+|`${ARRAY[S]}`|Expands to the value of the index `S` in the **associative** array `ARRAY`.|
+|`"${ARRAY[@]}" ${ARRAY[@]} "${ARRAY[*]}" ${ARRAY[*]}`|Similar to [mass-expanding positional parameters](../scripting/posparams.md#mass_usage), this expands to all elements. If unquoted, both subscripts `*` and `@` expand to the same result, if quoted, `@` expands to all elements individually quoted, `*` expands to all elements quoted as a whole.|
+|`"${ARRAY[@]:N:M}" ${ARRAY[@]:N:M} "${ARRAY[*]:N:M}" ${ARRAY[*]:N:M}`|Similar to what this syntax does for the characters of a single string when doing [substring expansion](../syntax/pe.md#substring_expansion), this expands to `M` elements starting with element `N`. This way you can mass-expand individual indexes. The rules for quoting and the subscripts `*` and `@` are the same as above for the other mass-expansions.|
 
 For clarification: When you use the subscripts `@` or `*` for
 mass-expanding, then the behaviour is exactly what it is for `$@` and
@@ -150,62 +151,50 @@ article to understand what's going on.
 
 ### Metadata
 
-  --------------------------------------------------------------------------------------------------------------------------------
-  Syntax                Description
-  --------------------- ----------------------------------------------------------------------------------------------------------
-  `${#ARRAY[N]}`        Expands to the **length** of an individual array member at index `N` (**stringlength**)
-
-  `${#ARRAY[STRING]}`   Expands to the **length** of an individual associative array member at index `STRING` (**stringlength**)
-
-  `${#ARRAY[@]}`\       Expands to the **number of elements** in `ARRAY`
-  `${#ARRAY[*]}`        
-
-  `${!ARRAY[@]}`\       Expands to the **indexes** in `ARRAY` since BASH 3.0
-  `${!ARRAY[*]}`        
-  --------------------------------------------------------------------------------------------------------------------------------
+|Syntax|Description|
+|------|-----------|
+|`${#ARRAY[N]}`|Expands to the **length** of an individual array member at index `N` (**stringlength**)|
+|`${#ARRAY[STRING]}`|Expands to the **length** of an individual associative array member at index `STRING` (**stringlength**)|
+|`${#ARRAY[@]}` \ `${#ARRAY[*]}`|Expands to the **number of elements** in `ARRAY`|
+|`${!ARRAY[@]}` \ `${!ARRAY[*]}`|Expands to the **indexes** in `ARRAY` since BASH 3.0|
 
 ### Destruction
 
 The [unset](../commands/builtin/unset.md) builtin command is used to destroy
 (unset) arrays or individual elements of arrays.
 
-  --------------------------------------------------------------------------------------------------
-  Syntax                     Description
-  -------------------------- -----------------------------------------------------------------------
-  `unset -v ARRAY`\          Destroys a complete array
-  `unset -v ARRAY[@]`\       
-  `unset -v ARRAY[*]`        
-
-  `unset -v ARRAY[N]`        Destroys the array element at index `N`
-
-  `unset -v ARRAY[STRING]`   Destroys the array element of the associative array at index `STRING`
-  --------------------------------------------------------------------------------------------------
+|Syntax|Description|
+|------|-----------|
+|`unset -v ARRAY` \ `unset -v ARRAY[@]` \ `unset -v ARRAY[*]`|Destroys a complete array|
+|`unset -v ARRAY[N]`|Destroys the array element at index `N`|
+|`unset -v ARRAY[STRING]`|Destroys the array element of the associative array at index `STRING`|
 
 It is best to [explicitly specify
 -v](../commands/builtin/unset.md#portability_considerations) when unsetting
 variables with unset.
 
-<note warning> Specifying unquoted array elements as arguments to any
-command, such as with the syntax above **may cause [pathname
-expansion](../syntax/expansion/globs.md) to occur** due to the presence of
-glob characters.
+!!! warning "warning"
+    Specifying unquoted array elements as arguments to any
+    command, such as with the syntax above **may cause [pathname
+    expansion](../syntax/expansion/globs.md) to occur** due to the presence of
+    glob characters.
 
-Example: You are in a directory with a file named `x1`, and you want to
-destroy an array element `x[1]`, with
+    Example: You are in a directory with a file named `x1`, and you want to
+    destroy an array element `x[1]`, with
 
-    unset x[1]
+        unset x[1]
 
-then pathname expansion will expand to the filename `x1` and break your
-processing!
+    then pathname expansion will expand to the filename `x1` and break your
+    processing!
 
-Even worse, if `nullglob` is set, your array/index will disappear.
+    Even worse, if `nullglob` is set, your array/index will disappear.
 
-To avoid this, **always quote** the array name and index:
+    To avoid this, **always quote** the array name and index:
 
-    unset -v 'x[1]'
+        unset -v 'x[1]'
 
-This applies generally to all commands which take variable names as
-arguments. Single quotes preferred. </note>
+    This applies generally to all commands which take variable names as
+    arguments. Single quotes preferred.
 
 ## Usage
 
@@ -247,7 +236,7 @@ The method above, walking through an array by just knowing its number of
 elements, only works for arrays where all elements are set, of course.
 If one element in the middle is removed, then the calculation is
 nonsense, because the number of elements doesn't correspond to the
-highest used index anymore (we call them \"*sparse arrays*\").
+highest used index anymore (we call them "*sparse arrays*").
 
 Now, suppose that you want to replace your array `sentence` with the
 values in the [previously-declared array](#purpose) `NAMES` . You might
@@ -297,7 +286,7 @@ starting at zero) just is replaced with an arbitrary string:
     sentence[End]='in what you send'
     sentence['Very end']=...
 
-[**Beware:**]{.underline} don't rely on the fact that the elements are
+<u>**Beware:**</u> don't rely on the fact that the elements are
 ordered in memory like they were declared, it could look like this:
 
     # output from 'set' command
@@ -320,9 +309,9 @@ associative array indexed with the SHA sum of the files:
     # Thanks to Tramp in #bash for the idea and the code
 
     unset flist; declare -A flist;
-    while read -r sum fname; do 
+    while read -r sum fname; do
         if [[ ${flist[$sum]} ]]; then
-            printf 'rm -- "%s" # Same as >%s<\n' "$fname" "${flist[$sum]}" 
+            printf 'rm -- "%s" # Same as >%s<\n' "$fname" "${flist[$sum]}"
         else
             flist[$sum]="$fname"
         fi
@@ -369,13 +358,13 @@ strings would have been inserted into the integer array without
 evaluating the arithmetic. A special-case of this is shown in the next
 section.
 
-<note> Bash declaration commands are really keywords in disguise. They
-magically parse arguments to determine whether they are in the form of a
-valid assignment. If so, they are evaluated as assignments. If not, they
-are undergo normal argument expansion before being passed to the builtin
-which evaluates the resulting string as an assignment (somewhat like
-`eval`, but there are differences.) `'Todo:`\' Discuss this in detail.
-</note>
+!!! info "info"
+    Bash declaration commands are really keywords in disguise. They
+    magically parse arguments to determine whether they are in the form of a
+    valid assignment. If so, they are evaluated as assignments. If not, they
+    are undergo normal argument expansion before being passed to the builtin
+    which evaluates the resulting string as an assignment (somewhat like
+    `eval`, but there are differences.) `'Todo:`\' Discuss this in detail.
 
 ### Indirection
 
@@ -385,7 +374,7 @@ syntax. Parameters whose values are of the form: `name[index]`,
 results. This is mainly useful for passing arrays (especially multiple
 arrays) by name to a function.
 
-This example is an \"isSubset\"-like predicate which returns true if all
+This example is an "isSubset"-like predicate which returns true if all
 key-value pairs of the array given as the first argument to isSubset
 correspond to a key-value of the array given as the second argument. It
 demonstrates both indirect array expansion and indirect key-passing
@@ -550,7 +539,7 @@ dynamically calls a function whose name is resolved from the array.
     the subscript or the value first can change in almost every shell
     for both expansions and arithmetic variables. See [evaluation
     order](#evaluation_order) for details.
--   Bash 4.1.\* and below cannot use negative subscripts to address
+-   Bash 4.1.* and below cannot use negative subscripts to address
     array indexes relative to the highest-numbered index. You must use
     the subscript expansion, i.e. `"${arr[@]:(-n):1}"`, to expand the
     nth-last element (or the next-highest indexed after `n` if `arr[n]`
@@ -570,7 +559,7 @@ dynamically calls a function whose name is resolved from the array.
 
 ### Bugs
 
--   **Fixed in 4.3** Bash 4.2.\* and earlier considers each chunk of a
+-   **Fixed in 4.3** Bash 4.2.* and earlier considers each chunk of a
     compound assignment, including the subscript for globbing. The
     subscript part is considered quoted, but any unquoted glob
     characters on the right-hand side of the `[...]=` will be clumped
@@ -586,7 +575,7 @@ dynamically calls a function whose name is resolved from the array.
     1=a
     `
 -   **Fixed in 4.3** In addition to the above globbing issue,
-    assignments preceding \"declare\" have an additional effect on brace
+    assignments preceding "declare" have an additional effect on brace
     and pathname expansion. `$ set -x; foo=bar declare arr=( {1..10} )
     + foo=bar
     + declare 'arr=(1)' 'arr=(2)' 'arr=(3)' 'arr=(4)' 'arr=(5)' 'arr=(6)' 'arr=(7)' 'arr=(8)' 'arr=(9)' 'arr=(10)'
@@ -687,6 +676,3 @@ to generate these results.
     detailed discussion on arrays with many examples.
 -   [BashSheet - Arrays](http://mywiki.wooledge.org/BashSheet#Arrays) -
     Bashsheet quick-reference on Greycat's wiki.
-
-<div hide> vim: set fenc=utf-8 ff=unix ts=4 sts=4 sw=4 ft=dokuwiki et
-wrap lbr: </div>

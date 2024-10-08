@@ -43,7 +43,7 @@ done**, which means you can leave expansions unquoted without problems:
     esac
 
 This is similar to the behavior of the [conditional expression command
-(\"new test command\")](../../syntax/ccmd/conditional_expression.md) (also no
+("new test command")](../../syntax/ccmd/conditional_expression.md) (also no
 word splitting for expansions).
 
 Unlike the C-case-statement, only the matching list and nothing else is
@@ -55,13 +55,13 @@ This is a POSIX-compatable equivalent to the `@(pattern-list)` extglob
 construct.
 
 The `case` statement is one of the most difficult commands to indent
-clearly, and people frequently ask about the most \"correct\" style.
+clearly, and people frequently ask about the most "correct" style.
 Just do your best - there are many variations of indenting style for
 `case` and no real agreed-upon best practice.
 
 ## Examples
 
-Another one of my stupid examples\...
+Another one of my stupid examples...
 
     printf '%s ' 'Which fruit do you like most?'
     read -${BASH_VERSION+e}r fruit

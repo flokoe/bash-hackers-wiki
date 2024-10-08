@@ -44,24 +44,25 @@ Tilde expansion is also performed everytime a variable is assigned:
 -   after **every** `:` (colon) in the assigned value:
     `TARGET=file:~moonman/share`
 
-<note info> As of now (Bash 4.3-alpha) the following constructs
-**also** works, though it's not a variable assignment:
+!!! info "Note"
+    As of now (Bash 4.3-alpha) the following constructs
+    **also** works, though it's not a variable assignment:
 
-    echo foo=~
-    echo foo=:~
+        echo foo=~
+        echo foo=:~
 
-I don't know yet, if this is a bug or intended. </note>
+    I don't know yet, if this is a bug or intended.
 
 This way you can correctly use the tilde expansion in your
 [PATH](../../syntax/shellvars.md#PATH):
 
     PATH=~/mybins:~peter/mybins:$PATH
 
-**Spaces in the referenced pathes?** A construct like\...
+**Spaces in the referenced pathes?** A construct like...
 
     ~/"my directory"
 
-\...is perfectly valid and works!
+...is perfectly valid and works!
 
 ## Home directory
 
@@ -84,7 +85,7 @@ precedence:
 -   expand to the home directory of the user executing the shell
     (operating system)
 
-That means, the variable `HOME` can override the \"real\" home
+That means, the variable `HOME` can override the "real" home
 directory, at least regarding tilde expansion.
 
 ## Current working directory

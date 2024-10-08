@@ -108,7 +108,7 @@ more information on buffering issues.
 
 #### background processes
 
-A coprocess\' file descriptors are accessible only to the process from
+A coprocess' file descriptors are accessible only to the process from
 which the `coproc` was started. They are not inherited by subshells.
 
 Here is a not-so-meaningful illustration. Suppose we want to
@@ -200,7 +200,7 @@ $
 #!/bin/bash
 # we start tee in the background
 # redirecting its output to the stdout of the script
-{ coproc tee { tee logfile ;} >&3 ;} 3>&1 
+{ coproc tee { tee logfile ;} >&3 ;} 3>&1
 # we redirect stding and stdout of the script to our coprocess
 exec >&${tee[1]} 2>&1
 ```
@@ -222,7 +222,7 @@ exec >&${tee[1]} 2>&1
 
 ### Other shells
 
-ksh93, mksh, zsh, and Bash all support something called \"coprocesses\"
+ksh93, mksh, zsh, and Bash all support something called "coprocesses"
 which all do approximately the same thing. ksh93 and mksh have virtually
 identical syntax and semantics for coprocs. A *list* operator: `|&` is
 added to the language which runs the preceding *pipeline* as a coprocess
@@ -258,7 +258,7 @@ more. See
 more details
 
 The ability to use multiple coprocesses in Bash is considered
-\"experimental\". Bash will throw an error if you attempt to start more
+"experimental". Bash will throw an error if you attempt to start more
 than one. This may be overridden at compile-time with the
 `MULTIPLE_COPROCS` option. However, at this time there are still issues
 -- see the above mailing list discussion.

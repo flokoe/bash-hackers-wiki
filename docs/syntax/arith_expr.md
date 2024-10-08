@@ -74,7 +74,7 @@ When no base is specified, the base 10 (decimal) is assumed, except when
 the prefixes as mentioned above (octals, hexadecimals) are present. The
 specified base can range from 2 to 64. To represent digits in a
 specified base greater than 10, characters other than 0 to 9 are needed
-(in this order, low => high):
+(in this order, low =&gt; high):
 
 -   `0 ... 9`
 -   `a ... z`
@@ -124,8 +124,8 @@ named parameters, e.g.:
     # will output "3"!
 
 Of course, in the end, when it finally evaluates to something that is
-**not** a valid arithmetic expression (newlines, ordinary text, \...)
-then you\'ll get an error.
+**not** a valid arithmetic expression (newlines, ordinary text, ...)
+then you'll get an error.
 
 When variables are referenced, the notation `1 + $X` is equivalent to
 the notation `1 + X`, both are allowed.
@@ -138,10 +138,10 @@ an arithmetic expression.
 ## Truth
 
 Unlike command exit and return codes, arithmetic expressions evaluate to
-logical \"true\" when they are not 0. When they are 0, they evaluate to
-\"false\". The [arithmetic evaluation compound
-command](../syntax/ccmd/arithmetic_eval.md) reverses the \"truth\" of an
-arithmetic expression to match the \"truth\" of command exit codes:
+logical "true" when they are not 0. When they are 0, they evaluate to
+"false". The [arithmetic evaluation compound
+command](../syntax/ccmd/arithmetic_eval.md) reverses the "truth" of an
+arithmetic expression to match the "truth" of command exit codes:
 
 -   if the arithmetic expression brings up a value not 0 (arithmetic
     true), it returns 0 (shell true)
@@ -160,89 +160,79 @@ That means, the following `if`-clause will execute the `else`-thread:
 
 ### Assignment
 
-  Operator              Description
-  --------------------- ----------------------------------------------------------------------------------------------------
-  `<ID> = <EXPR>`       normal assignment
-  `<ID> *= <EXPR>`      equivalent to `<ID> = <ID> * <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)
-  `<ID> /= <EXPR>`      equivalent to `<ID> = <ID> / <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)
-  `<ID> %= <EXPR>`      equivalent to `<ID> = <ID> % <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)
-  `<ID> += <EXPR>`      equivalent to `<ID> = <ID> + <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)
-  `<ID> -= <EXPR>`      equivalent to `<ID> = <ID> - <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)
-  `<ID> <<= <NUMBER>`   equivalent to `<ID> = <ID> << <NUMBER>`, see [bit operations](../syntax/arith_expr.md#bit_operations)
-  `<ID> >>= <NUMBER>`   equivalent to `<ID> = <ID> >> <NUMBER>`, see [bit operations](../syntax/arith_expr.md#bit_operations)
-  `<ID> &= <EXPR>`      equivalent to `<ID> = <ID> & <EXPR>`, see [bit operations](../syntax/arith_expr.md#bit_operations)
-  `<ID> ^= <EXPR>`      equivalent to `<ID> = <ID> ^ <EXPR>`, see [bit operations](../syntax/arith_expr.md#bit_operations)
-  `<ID> |= <EXPR>`      equivalent to `<ID> = <ID> | <EXPR>`, see [bit operations](../syntax/arith_expr.md#bit_operations)
+|Operator|Description|
+|--------|-----------|
+|`<ID> = <EXPR>`|normal assignment|
+|`<ID> *= <EXPR>`|equivalent to `<ID> = <ID> * <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)|
+|`<ID> /= <EXPR>`|equivalent to `<ID> = <ID> / <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)|
+|`<ID> %= <EXPR>`|equivalent to `<ID> = <ID> % <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)|
+|`<ID> += <EXPR>`|equivalent to `<ID> = <ID> + <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)|
+|`<ID> -= <EXPR>`|equivalent to `<ID> = <ID> - <EXPR>`, see [calculation operators](../syntax/arith_expr.md#calculations)|
+|`<ID> <<= <NUMBER>`|equivalent to `<ID> = <ID> << <NUMBER>`, see [bit operations](../syntax/arith_expr.md#bit_operations)|
+|`<ID> >>= <NUMBER>`|equivalent to `<ID> = <ID> >> <NUMBER>`, see [bit operations](../syntax/arith_expr.md#bit_operations)|
+|`<ID> &= <EXPR>`|equivalent to `<ID> = <ID> & <EXPR>`, see [bit operations](../syntax/arith_expr.md#bit_operations)|
+|`<ID> ^= <EXPR>`|equivalent to `<ID> = <ID> ^ <EXPR>`, see [bit operations](../syntax/arith_expr.md#bit_operations)|
+|`<ID>|= <EXPR>`|equivalent to `<ID> = <ID>|<EXPR>`, see [bit operations](../syntax/arith_expr.md#bit_operations)|
 
 ### Calculations
 
-  Operator   Description
-  ---------- --------------------
-  `*`        multiplication
-  `/`        division
-  `%`        remainder (modulo)
-  `+`        addition
-  `-`        subtraction
-  `**`       exponentiation
+|Operator|Description|
+|--------|-----------|
+|`*`|multiplication|
+|`/`|division|
+|`%`|remainder (modulo)|
+|`+`|addition|
+|`-`|subtraction|
+|`**`|exponentiation|
 
 ### Comparisons
 
-  Operator   Description
-  ---------- -----------------------------------
-  `<`        comparison: less than
-  `>`        comparison: greater than
-  `<=`       comparison: less than or equal
-  `>=`       comparison: greater than or equal
-  `==`       equality
-  `!=`       inequality
+|Operator|Description|
+|--------|-----------|
+|`<`|comparison: less than|
+|`>`|comparison: greater than|
+|`<=`|comparison: less than or equal|
+|`>=`|comparison: greater than or equal|
+|`==`|equality|
+|`!=`|inequality|
 
 ### Bit operations
 
-  Operator   Description
-  ---------- ----------------------------
-  `~`        bitwise negation
-  `<<`       bitwise shifting (left)
-  `>>`       bitwise shifting (right)
-  `&`        bitwise AND
-  `^`        bitwise exclusive OR (XOR)
-  `|`        bitwise OR
+|Operator|Description|
+|--------|-----------|
+|`~`|bitwise negation|
+|`<<`|bitwise shifting (left)|
+|`>>`|bitwise shifting (right)|
+|`&`|bitwise AND|
+|`^`|bitwise exclusive OR (XOR)|
+|`|`|bitwise OR|
 
 ### Logical
 
-  Operator   Description
-  ---------- ------------------
-  `!`        logical negation
-  `&&`       logical AND
-  `||`       logical OR
+|Operator|Description|
+|--------|-----------|
+|`!`|logical negation|
+|`&&`|logical AND|
+|`||`|logical OR|
+
 
 ### Misc
 
-  -------------------------------------------------------------------------------------------------
-  Operator                     Description
-  ---------------------------- --------------------------------------------------------------------
-  `id++`                       **post-increment** of the variable `id` (not required by POSIX(r))
-
-  `id--`                       **post-decrement** of the variable `id` (not required by POSIX(r))
-
-  `++id`                       **pre-increment** of the variable `id` (not required by POSIX(r))
-
-  `--id`                       **pre-decrement** of the variable `id` (not required by POSIX(r))
-
-  `+`                          unary plus
-
-  `-`                          unary minus
-
-  `<EXPR> ? <EXPR> : <EXPR>`   conditional (ternary) operator\
-                               <condition> ? <result-if-true> : <result-if-false>
-
-  `<EXPR> , <EXPR>`            expression list
-
-  `( <EXPR> )`                 subexpression (to force precedence)
-  -------------------------------------------------------------------------------------------------
+|Operator|Description|
+|--------|-----------|
+|`id++`|**post-increment** of the variable `id` (not required by POSIX(r))|
+|`id--`|**post-decrement** of the variable `id` (not required by POSIX(r))|
+|`++id`|**pre-increment** of the variable `id` (not required by POSIX(r))|
+|`--id`|**pre-decrement** of the variable `id` (not required by POSIX(r))|
+|`+`|unary plus|
+|`-`|unary minus|
+|`<EXPR> ? <EXPR> : <EXPR>`|conditional (ternary) operator &lt;condition&gt; ? &lt;result-if-true&gt; : &lt;result-if-false&gt;|
+|`<EXPR> , <EXPR>`|expression list|
+|`( <EXPR> )`|subexpression (to force precedence)|
 
 ## Precedence
 
-The operator precedence is as follows (highest -> lowest):
+The operator precedence is as follows (highest -&gt; lowest):
 
 -   Postfix (`id++`, `id--`)
 -   Prefix (`++id`, `--id`)
@@ -274,19 +264,19 @@ Bash's overall language construct is based on exit codes or return
 codes of commands or functions to be executed. `if` statements, `while`
 loops, etc., they all take the return codes of commands as conditions.
 
-Now the problem is: The return codes (0 means \"TRUE\" or \"SUCCESS\",
-not 0 means \"FALSE\" or \"FAILURE\") don't correspond to the meaning
-of the result of an arithmetic expression (0 means \"FALSE\", not 0
-means \"TRUE\").
+Now the problem is: The return codes (0 means "TRUE" or "SUCCESS",
+not 0 means "FALSE" or "FAILURE") don't correspond to the meaning
+of the result of an arithmetic expression (0 means "FALSE", not 0
+means "TRUE").
 
 That's why all commands and keywords that do arithmetic operations
 attempt to **translate** the arithmetical meaning into an equivalent
 return code. This simply means:
 
--   if the arithmetic operation evaluates to 0 (\"FALSE\"), the return
-    code is not 0 (\"FAILURE\")
--   if the arithmetic operation evaluates to 1 (\"TRUE\"), the return
-    code is 0 (\"SUCCESS\")
+-   if the arithmetic operation evaluates to 0 ("FALSE"), the return
+    code is not 0 ("FAILURE")
+-   if the arithmetic operation evaluates to 1 ("TRUE"), the return
+    code is 0 ("SUCCESS")
 
 This way, you can easily use arithmetic expressions (along with the
 commands or keywords that operate them) as conditions for `if`, `while`
@@ -302,47 +292,48 @@ else
 fi
 ```
 
-<WRAP center round important> Beware that `set -e` can change the
-runtime behavior of scripts. For example,
+!!! warning "Beware that `set -e` can change the runtime behavior of scripts."
 
-This non-equivalence of code behavior deserves some attention. Consider
-what happens if v happens to be zero in the expression below:
+    For example,
 
-``` bash
-((v += 0))
-echo $?
-```
+    This non-equivalence of code behavior deserves some attention. Consider
+    what happens if v happens to be zero in the expression below:
 
-1
+    ``` bash
+    ((v += 0))
+    echo $?
+    ```
 
-(\"FAILURE\")
+    1
 
-``` bash
-v=$((v + 0))
-echo $?
-```
+    ("FAILURE")
 
-0
+    ``` bash
+    v=$((v + 0))
+    echo $?
+    ```
 
-(\"SUCCESS\")
+    0
 
-The return code behavior is not equivalent to the arithmetic behavior,
-as has been noted.
+    ("SUCCESS")
 
-A workaround is to use a list operation that returns True, or use the
-second assignment style.
+    The return code behavior is not equivalent to the arithmetic behavior,
+    as has been noted.
 
-``` bash
-((v += 0)) || :
-echo $?
-```
+    A workaround is to use a list operation that returns True, or use the
+    second assignment style.
 
-0
+    ``` bash
+    ((v += 0)) || :
+    echo $?
+    ```
 
-(\"SUCCESS\")
+    0
 
-This change in code behavior was discovered once the script was run
-under set -e. </WRAP>
+    ("SUCCESS")
+
+    This change in code behavior was discovered once the script was run
+    under set -e.
 
 ## Arithmetic expressions in Bash
 
@@ -350,4 +341,4 @@ under set -e. </WRAP>
 -   [Arithmetic expansion](../syntax/expansion/arith.md)
 -   [Arithmetic evaluation compound
     command](../syntax/ccmd/arithmetic_eval.md)
--   [The \"let\" builtin command](../commands/builtin/let.md)
+-   [The "let" builtin command](../commands/builtin/let.md)

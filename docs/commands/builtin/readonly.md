@@ -15,23 +15,23 @@ readonly variables.
 
 ### Options
 
-  Option   Description
-  -------- ------------------------------------------------------------------------------------------------------------------------
-  `-a`     refer to normal arrays
-  `-A`     refer to associative arrays
-  `-f`     refer to functions
-  `-p`     print all read-only variables or functions, `-a`, `-A` and `-f` can be used to filter. The output is reusable as input
+|Option|Description|
+|-|-|
+|`-a`|refer to normal arrays|
+|`-A`|refer to associative arrays|
+|`-f`|refer to functions|
+|`-p`|print all read-only variables or functions, `-a`, `-A` and `-f` can be used to filter. The output is reusable as input|
 
 An argument of `--` disables further option processing.
 
 ### Return status
 
-  Status   Reason
-  -------- --------------------------------
-  0        no error
-  !=0      invalid option
-  !=0      invalid combination of options
-  !=0      a given `NAME` is invalid
+|Status|Reason|
+|-|-|
+|0|no error|
+|!=0|invalid option|
+|!=0|invalid combination of options|
+|!=0|a given `NAME` is invalid|
 
 ## Examples
 

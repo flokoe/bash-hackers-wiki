@@ -3,8 +3,8 @@
 ## General
 
 Unlike on other platforms you may have seen, on UNIX(r), the shell is
-responsible for interpreting and expanding globs (\"filename
-wildcards\"). A called program will never see the glob itself; it will
+responsible for interpreting and expanding globs ("filename
+wildcards"). A called program will never see the glob itself; it will
 only see the expanded filenames as its arguments (here, all filenames
 matching `*.log`):
 
@@ -43,7 +43,7 @@ other `IFS`-characters they contain.
     corrections when matching directory names
 -   when the shell option `globstar` is set, the glob `**` will
     recursively match all files and directories. This glob isn't
-    \"configurable\", i.e. you **can't** do something like `**.c` to
+    "configurable", i.e. you **can't** do something like `**.c` to
     recursively get all `*.c` filenames.
 -   when the shell option `globasciiranges` is set, the bracket-range
     globs (e.g. `[A-Z]`) use C locale order rather than the configured
@@ -56,7 +56,7 @@ other `IFS`-characters they contain.
 ### nullglob
 
 Normally, when no glob specified matches an existing filename, no
-pathname expansion is performed, and the globs are [**not**]{.underline}
+pathname expansion is performed, and the globs are <u>**not**</u>
 removed:
 
     $ echo "Textfiles here:" *.txt
@@ -75,7 +75,7 @@ This can be very annoying, for example when you drive a
     done
 
 When no file name matches the glob, the loop will not only output stupid
-text (\"`BEGIN: *.txt`\"), but also will make the `cat`-command fail
+text ("`BEGIN: *.txt`"), but also will make the `cat`-command fail
 with an error, since no file named `*.txt` exists.
 
 Now, when the shell option `nullglob` is set, Bash will remove the
@@ -92,11 +92,11 @@ and the glob is gone.
 
 ### Glob characters
 
--   \* - means \'match any number of characters\'. \'/\' is not matched
+-   `*` - means \'match any number of characters\'. \'/\' is not matched
     (and depending on your settings, things like \'.\' may or may not be
     matched, see above)
--   ? - means \'match any single character\'
--   \[abc\] - match any of the characters listed. This syntax also
+-   `?` - means \'match any single character\'
+-   `[abc]` - match any of the characters listed. This syntax also
     supports ranges, like \[0-9\]
 
 For example, to match something beginning with either \'S\' or \'K\'

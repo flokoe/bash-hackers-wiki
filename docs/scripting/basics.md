@@ -49,31 +49,31 @@ You can follow the process by using `echo` as a fake interpreter:
     #!/bin/echo
 
 We don't need a script body here, as the file will never be interpreted
-and executed by \"`echo`\". You can see what the Operating System does,
-it calls \"`/bin/echo`\" with the name of the executable file and
+and executed by "`echo`". You can see what the Operating System does,
+it calls "`/bin/echo`" with the name of the executable file and
 following arguments.
 
     $ /home/bash/bin/test testword hello
     /home/bash/bin/test testword hello
 
-The same way, with `#!/bin/bash` the shell \"`/bin/bash`\" is called
+The same way, with `#!/bin/bash` the shell "`/bin/bash`" is called
 with the script filename as an argument. It's the same as executing
-\"`/bin/bash /home/bash/bin/test testword hello`\"
+"`/bin/bash /home/bash/bin/test testword hello`"
 
 If the interpreter can be specified with arguments and how long it can
 be is system-specific (see
 [#!-magic](http://www.in-ulm.de/~mascheck/various/shebang/)). When Bash
 executes a file with a #!/bin/bash shebang, the shebang itself is
-ignored, since the first character is a hashmark \"#\", which indicates
+ignored, since the first character is a hashmark "`#`", which indicates
 a comment. The shebang is for the operating system, not for the shell.
 Programs that don't ignore such lines, may not work as shebang driven
 interpreters.
 
-<WRAP center round important 60%> [**Attention:**]{.underline}When the
+<WRAP center round important 60%> <u>**Attention:**</u>When the
 specified interpreter is unavailable or not executable (permissions),
-you usually get a \"`bad interpreter`\" error message., If you get
+you usually get a "`bad interpreter`" error message., If you get
 nothing and it fails, check the shebang. Older Bash versions will
-respond with a \"`no such file or directory`\" error for a nonexistant
+respond with a "`no such file or directory`" error for a nonexistant
 interpreter specified by the shebang. </WRAP>
 
 **Additional note:** When you specify `#!/bin/sh` as shebang and that's
@@ -85,7 +85,7 @@ A common method is to specify a shebang like
 
     #!/usr/bin/env bash
 
-\...which just moves the location of the potential problem to
+...which just moves the location of the potential problem to
 
 -   the `env` utility must be located in /usr/bin/
 -   the needed `bash` binary must be located in `PATH`
@@ -104,7 +104,7 @@ files*:
 -   **stdout**: standard output
 -   **stderr**: standard error output
 
-Usually, they\'re all connected to your terminal, stdin as input file
+Usually, they're all connected to your terminal, stdin as input file
 (keyboard), stdout and stderr as output files (screen). When calling
 such a program, the invoking shell can change these filedescriptor
 connections away from the terminal to any other file (see redirection).
@@ -179,8 +179,8 @@ else
 fi
 ```
 
-A common decision making command is \"`test`\" or its equivalent
-\"`[`\". But note that, when calling test with the name \"`[`\", the
+A common decision making command is "`test`" or its equivalent
+"`[`". But note that, when calling test with the name "`[`", the
 square brackets are not part of the shell syntax, the left bracket
 **is** the test command!
 
@@ -194,7 +194,7 @@ fi
 
 Read more about [the test command](../commands/classictest.md)
 
-A common exit code check method uses the \"`||`\" or \"`&&`\" operators.
+A common exit code check method uses the "`||`" or "`&&`" operators.
 This lets you execute a command based on whether or not the previous
 command completed successfully:
 
@@ -203,13 +203,13 @@ grep ^root: /etc/passwd >/dev/null || echo "root was not found - check the pub a
 which vi && echo "Your favourite editor is installed."
 ```
 
-Please, when your script exits on errors, provide a \"FALSE\" exit code,
+Please, when your script exits on errors, provide a "`FALSE`" exit code,
 so others can check the script execution.
 
 ## Comments
 
 In a larger, or complex script, it's wise to comment the code. Comments
-can help with debugging or tests. Comments start with the \# character
+can help with debugging or tests. Comments start with the `#` character
 (hashmark) and continue to the end of the line:
 
 ``` bash
@@ -226,7 +226,7 @@ All three syntactically correct.
 ### Block commenting
 
 To temporarily disable complete blocks of code you would normally have
-to prefix every line of that block with a \# (hashmark) to make it a
+to prefix every line of that block with a `#` (hashmark) to make it a
 comment. There's a little trick, using the pseudo command `:` (colon)
 and input redirection. The `:` does nothing, it's a pseudo command, so
 it does not care about standard input. In the following code example,
@@ -254,14 +254,14 @@ redirection (a here-document) - the pseudo command didn't care about
 it, effectively, the entire block was ignored.
 
 The here-document-tag was quoted here **to avoid substitutions** in the
-\"commented\" text! Check [redirection with
+"commented" text! Check [redirection with
 here-documents](../syntax/redirection.md#tag_heredoc) for more
 
 ## Variable scope
 
 In Bash, the scope of user variables is generally *global*. That means,
-it does **not** matter whether a variable is set in the \"main program\"
-or in a \"function\", the variable is defined everywhere.
+it does **not** matter whether a variable is set in the "main program"
+or in a "function", the variable is defined everywhere.
 
 Compare the following *equivalent* code snippets:
 
@@ -280,10 +280,10 @@ echo $myvariable
 ```
 
 In both cases, the variable `myvariable` is set and accessible from
-everywhere in that script, both in functions and in the \"main
-program\".
+everywhere in that script, both in functions and in the "main
+program".
 
-**[Attention:]{.underline}** When you set variables in a child process,
+**<u>Attention:</u>** When you set variables in a child process,
 for example a *subshell*, they will be set there, but you will **never**
 have access to them outside of that subshell. One way to create a
 subshell is the pipe. It's all mentioned in a small article about [Bash
@@ -359,7 +359,7 @@ export myvariable
 ```
 
 Remember that the *exported* variable is a **copy**. There is no
-provision to \"copy it back to the parent.\" See the article about [Bash
+provision to "copy it back to the parent." See the article about [Bash
 in the process tree](../scripting/processtree.md)!
 
 [^1]: under specific circumstances, also by the shell itself

@@ -16,7 +16,7 @@ This example queries the hostkeys for the very same machine, but under 3
 different \"names\" (hostname, FQDN, IP) and redirects the output to the
 `known_hosts`-file.
 
-[**Notes:**]{.underline}
+<u>**Notes:**</u>
 
 -   if done blindly, the `known_host`-file may grow very large. It might
     be wise to check for key existance first

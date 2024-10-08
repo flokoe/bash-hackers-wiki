@@ -15,13 +15,13 @@ Note: Some of these options and other shell options can also be set with
 
 ### Options
 
-  Option   Description
-  -------- -----------------------------------------------------------------------------------------------------------------------------
-  `-o`     Restrict the values of `<OPTNAME...>` to only those also known by [the set builtin](../../commands/builtin/set.md)
-  `-p`     Print all shell options and their current value. **Default**.
-  `-q`     Quiet mode. Set exit code if named option is set. For multiple options: `TRUE` if all options are set, `FALSE` otherwise
-  `-s`     Enable ([s]{.underline}et) the shell options named by `<OPTNAME...>` or list all *enabled* options if no names are given
-  `-u`     Disabe ([u]{.underline}nset) the shell options named by `<OPTNAME...>` or list all *disabled* options if no names are given
+|Option|Description|
+|------|-----------|
+|`-o`|Restrict the values of `<OPTNAME...>` to only those also known by [the set builtin](../../commands/builtin/set.md)|
+|`-p`|Print all shell options and their current value. **Default**.|
+|`-q`|Quiet mode. Set exit code if named option is set. For multiple options: `TRUE` if all options are set, `FALSE` otherwise|
+|`-s`|Enable (<u>s</u>et) the shell options named by `<OPTNAME...>` or list all *enabled* options if no names are given|
+|`-u`|Disabe (<u>u</u>nset) the shell options named by `<OPTNAME...>` or list all *disabled* options if no names are given|
 
 As noted above, if only `-s` or `-u` are given without any option names,
 only the currently enabled (`-s`) or disabled (`-u`) options are

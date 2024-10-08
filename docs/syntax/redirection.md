@@ -1,6 +1,8 @@
 # Redirection
 
-<wrap left todo>Fix me: To be continued</wrap>\
+!!! warning "FIXME"
+    To be continued
+
 Redirection makes it possible to control where the output of a command
 goes to, and where the input of a command comes from. It's a mighty
 tool that, together with pipelines, makes the shell powerful. The
@@ -10,15 +12,18 @@ be executed](../syntax/grammar/parser_exec.md).
 Under normal circumstances, there are 3 files open, accessible by the
 file descriptors 0, 1 and 2, all connected to your terminal:
 
-  Name       FD   Description
-  ---------- ---- --------------------------------------------------------
-  `stdin`    0    standard input stream (e.g. keyboard)
-  `stdout`   1    standard output stream (e.g. monitor)
-  `stderr`   2    standard error output stream (usually also on monitor)
+|Name|FD|Description|
+|----|--|-----------|
+|`stdin`|0|standard input stream (e.g. keyboard)|
+|`stdout`|1|standard output stream (e.g. monitor)|
+|`stderr`|2|standard error output stream (usually also on monitor)|
 
-<wrap center info>The terms \"monitor\" and \"keyboard\" refer to the
-same device, the **terminal** here. Check your preferred UNIX(r)-FAQ for
-details, I\'m too lazy to explain what a terminal is ;-) </wrap>
+
+
+!!! info "INFO"
+    The terms "monitor" and "keyboard" refer to the
+    same device, the **terminal** here. Check your preferred UNIX(r)-FAQ for
+    details, I'm too lazy to explain what a terminal is ;-)
 
 Both, `stdout` and `stderr` are output file descriptors. Their
 difference is the **convention** that a program outputs payload on
@@ -33,7 +38,7 @@ this descriptor, you just use the number:
     cat some_file.txt 2>/dev/null
 
 Whenever you **reference** a descriptor, to point to its current target
-file, then you use a \"`&`\" followed by a the descriptor number:
+file, then you use a "`&`" followed by a the descriptor number:
 
     # this executes the echo-command and redirects its normal output (stdout) to the standard error target
     echo "There was an error" 1>&2
@@ -45,26 +50,27 @@ these examples are equivalent:
     cat >new.txt foo.txt bar.txt
     >new.txt cat foo.txt bar.txt
 
-<wrap center important>Every redirection operator takes one or two
-words as operands. If you have to use operands (e.g. filenames to
-redirect to) that contain spaces you **must** quote them!</wrap>
+!!! info "important"
+    Every redirection operator takes one or two
+    words as operands. If you have to use operands (e.g. filenames to
+    redirect to) that contain spaces you **must** quote them!
 
 ## Valid redirection targets and sources
 
 This syntax is recognized whenever a `TARGET` or a `SOURCE`
 specification (like below in the details descriptions) is used.
 
-  Syntax                 Description
-  ---------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------
-  `FILENAME`             references a normal, ordinary filename from the filesystem (which can of course be a FIFO, too. Simply everything you can reference in the filesystem)
-  `&N`                   references the current target/source of the filedescriptor `N` (\"duplicates\" the filedescriptor)
-  `&-`                   closes the redirected filedescriptor, useful instead of `> /dev/null` constructs (`> &-`)
-  `/dev/fd/N`            duplicates the filedescriptor `N`, if `N` is a valid integer
-  `/dev/stdin`           duplicates filedescriptor 0 (`stdin`)
-  `/dev/stdout`          duplicates filedescriptor 1 (`stdout`)
-  `/dev/stderr`          duplicates filedescriptor 2 (`stderr`)
-  `/dev/tcp/HOST/PORT`   assuming `HOST` is a valid hostname or IP address, and `PORT` is a valid port number or service name: redirect from/to the corresponding TCP socket
-  `/dev/udp/HOST/PORT`   assuming `HOST` is a valid hostname or IP address, and `PORT` is a valid port number or service name: redirect from/to the corresponding UDP socket
+|Syntax|Description|
+|------|-----------|
+|`FILENAME`|references a normal, ordinary filename from the filesystem (which can of course be a FIFO, too. Simply everything you can reference in the filesystem)|
+|`&N`|references the current target/source of the filedescriptor `N` ("duplicates" the filedescriptor)|
+|`&-`|closes the redirected filedescriptor, useful instead of `> /dev/null` constructs (`> &-`)|
+|`/dev/fd/N`|duplicates the filedescriptor `N`, if `N` is a valid integer|
+|`/dev/stdin`|duplicates filedescriptor 0 (`stdin`)|
+|`/dev/stdout`|duplicates filedescriptor 1 (`stdout`)|
+|`/dev/stderr`|duplicates filedescriptor 2 (`stderr`)|
+|`/dev/tcp/HOST/PORT`|assuming `HOST` is a valid hostname or IP address, and `PORT` is a valid port number or service name: redirect from/to the corresponding TCP socket|
+|`/dev/udp/HOST/PORT`|assuming `HOST` is a valid hostname or IP address, and `PORT` is a valid port number or service name: redirect from/to the corresponding UDP socket|
 
 If a target/source specification fails to open, the whole redirection
 operation fails. Avoid referencing file descriptors above 9, since you
@@ -106,9 +112,10 @@ specified target. It's **equivalent** to
 Since Bash4, there's `&>>TARGET`, which is equivalent to
 `>> TARGET 2>&1`.
 
-<wrap center important>This syntax is deprecated and should not be
-used. See the page about [obsolete and deprecated
-syntax](../scripting/obsolete.md).</wrap>
+!!! info "important"
+    This syntax is deprecated and should not be
+    used. See the page about [obsolete and deprecated
+    syntax](../scripting/obsolete.md).
 
 ## Appending redirected output and error output
 
@@ -145,7 +152,7 @@ omitted, filedescriptor 0 (`stdin`) is assumed.
     TAG
 
 A here-document is an input redirection using source data specified
-directly at the command line (or in the script), no \"external\" source.
+directly at the command line (or in the script), no "external" source.
 The redirection-operator `<<` is used together with a tag `TAG` that's
 used to mark the end of input later:
 
@@ -178,11 +185,12 @@ here-documents.
 The tag you use **must** be the only word in the line, to be recognized
 as end-of-here-document marker.
 
-<wrap center info>It seems that here-documents (tested on versions
-`1.14.7`, `2.05b` and `3.1.17`) are correctly terminated when there is
-an EOF before the end-of-here-document tag. The reason is unknown, but
-it seems to be done on purpose. Bash 4 introduced a warning message when
-end-of-file is seen before the tag is reached.</wrap>
+!!! info "info"
+    It seems that here-documents (tested on versions
+    `1.14.7`, `2.05b` and `3.1.17`) are correctly terminated when there is
+    an EOF before the end-of-here-document tag. The reason is unknown, but
+    it seems to be done on purpose. Bash 4 introduced a warning message when
+    end-of-file is seen before the tag is reached.
 
 ## Here strings
 
@@ -201,7 +209,7 @@ The here-string will append a newline (`\n`) to the data.
 ## Multiple redirections
 
 More redirection operations can occur in a line of course. The order is
-**important**! They\'re evaluated from **left to right**. If you want to
+**important**! They're evaluated from **left to right**. If you want to
 redirect both, `stderr` and `stdout` to the same file (like `/dev/null`,
 to hide it), this is **the wrong way**:
 
@@ -216,12 +224,12 @@ Why? Relatively easy:
 -   initially, `stdout` points to your terminal (you read it)
 -   same applies to `stderr`, it's connected to your terminal
 -   `2>&1` redirects `stderr` away from the terminal to the target for
-    `stdout`: **the terminal** (again\...)
+    `stdout`: **the terminal** (again...)
 -   `1>/dev/null` redirects `stdout` away from your terminal to the file
     `/dev/null`
 
 What remains? `stdout` goes to `/dev/null`, `stderr` still (or better:
-\"again\") goes to the terminal. You have to swap the order to make it
+"again") goes to the terminal. You have to swap the order to make it
 do what you want:
 
 ``` bash

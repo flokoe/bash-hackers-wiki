@@ -21,9 +21,9 @@ There are no options.
 If everything is okay, the `return` command doesn't come back. If it
 comes back, there was a problem in doing the return.
 
-  Status   Reason
-  -------- -------------------------------------------------------------------------
-  1        `return` was called while not being in a shell function or sourced file
+|Status|Reason|
+|-|-|
+|1|`return` was called while not being in a shell function or sourced file|
 
 ## Examples
 

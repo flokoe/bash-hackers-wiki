@@ -6,8 +6,8 @@
 
 ## Description
 
-The `trap` command is used to \"trap\" signals and other events. In this
-context, \"trapping\" means to install handler code.
+The `trap` command is used to "trap" signals and other events. In this
+context, "trapping" means to install handler code.
 
 The shell code `ARGUMENT` is to be read and executed whenever the shell
 receives a signal or another event `SIGNAL`. The given `SIGNAL`
@@ -29,27 +29,27 @@ Special `ARGUMENT`s
 
 Special events
 
-  Name       Code   Description
-  ---------- ------ --------------------------------------------------------------------------------------------------------------------------------------------
-  `EXIT`     0      executed on shell exit
-  `DEBUG`           executed before every simple command
-  `RETURN`          executed when a shell function or a sourced code finishes executing
-  `ERR`             executed each time a command's failure would cause the shell to exit when the [`-e` option (`errexit`)](../../commands/builtin/set.md) is enabled
+|Name|Code|Description|
+|----|----|-----------|
+|`EXIT`|0|executed on shell exit|
+|`DEBUG`||executed before every simple command|
+|`RETURN`||executed when a shell function or a sourced code finishes executing|
+|`ERR`||executed each time a command's failure would cause the shell to exit when the [`-e` option (`errexit`)](../../commands/builtin/set.md) is enabled|
 
 ### Options
 
-  Option   Description
-  -------- ------------------------------------------------------------------------------------------
-  `-l`     print a list of signal names and their corresponding numbers
-  `-p`     display the trap commands associated with each signal specification in a reusable format
+|Option|Description|
+|------|-----------|
+|`-l`|print a list of signal names and their corresponding numbers|
+|`-p`|display the trap commands associated with each signal specification in a reusable format|
 
 ### Return status
 
-  Status   Reason
-  -------- ------------------------------
-  0        no error/success
-  !=0      invalid option
-  !=0      invalid signal specification
+|Status|Reason|
+|------|------|
+|0|no error/success|
+|!=0|invalid option|
+|!=0|invalid signal specification|
 
 ## Examples
 

@@ -53,8 +53,8 @@ expansion is to be assigned to an array, another method is possible
 using [declaration commands](../../commands/builtin/declare.md):
 `declare -a 'pics=(img{'"$a..$b"'}.png)'; mv "${pics[@]}" ../imgs` This
 is significantly safer, but one must still be careful to control the
-values of \$a and \$b. Both the exact quoting, and explicitly including
-\"-a\" are important.
+values of `$a` and `$b`. Both the exact quoting, and explicitly including
+"`-a`" are important.
 
 The brace expansion is present in two basic forms, **string lists** and
 **ranges**.
@@ -87,24 +87,21 @@ With prefix or suffix strings, the result is a space-separated list of
     _I- _want- _my- _money- _back-
 
 The brace expansion is only performed, if the given string list is
-really a **list of strings**, i.e., if there is a minimum of one \"`,`\"
+really a **list of strings**, i.e., if there is a minimum of one "`,`"
 (comma)! Something like `{money}` doesn't expand to something special,
-it's really only the text \"`{money}`\".
+it's really only the text "`{money}`".
 
 ## Ranges
 
     {<START>..<END>}
 
 Brace expansion using ranges is written giving the startpoint and the
-endpoint of the range. This is a \"sequence expression\". The sequences
+endpoint of the range. This is a "sequence expression". The sequences
 can be of two types
 
 -   integers (optionally zero padded, optionally with a given increment)
 -   characters
 
-```{=html}
-<!-- -->
-```
     $ echo {5..12}
     5 6 7 8 9 10 11 12
 
@@ -186,13 +183,10 @@ for.
 
     mkdir /home/bash/test/{foo,bar,baz,cat,dog}
 
-### Generate numbers with a prefix 001 002 \...
+### Generate numbers with a prefix 001 002 ...
 
 -   Using a prefix:
 
-```{=html}
-<!-- -->
-```
     for i in 0{1..9} 10; do printf "%s\n" "$i";done
 
 If you need to create words with the number embedded, you can use nested
@@ -202,9 +196,6 @@ brace:
 
 -   Formatting the numbers with printf:
 
-```{=html}
-<!-- -->
-```
     echo $(printf "img%02d.png " {1..99})
 
 See the [text below](#news_in_bash_4.0) for a new Bash 4 method.
@@ -217,34 +208,33 @@ Can be written as
 
     somecommand -v{,,,,}
 
-\...which is a kind of a hack, but hey, it works.
+...which is a kind of a hack, but hey, it works.
 
-<div round info>
 
-#### More fun
 
-The most optimal possible brace expansion to expand n arguments of
-course consists of n's prime factors. We can use the \"factor\" program
-bundled with GNU coreutils to emit a brace expansion that will expand
-any number of arguments.
+!!! info "More fun"
 
-    function braceify {
-        [[ $1 == +([[:digit:]]) ]] || return
-        typeset -a a
-        read -ra a < <(factor "$1")
-        eval "echo $(printf '{$(printf ,%%.s {1..%s})}' "${a[@]:1}")"
-    }
+    The most optimal possible brace expansion to expand n arguments of
+    course consists of n's prime factors. We can use the "factor" program
+    bundled with GNU coreutils to emit a brace expansion that will expand
+    any number of arguments.
 
-    printf 'eval printf "$arg"%s' "$(braceify 1000000)"
+        function braceify {
+            [[ $1 == +([[:digit:]]) ]] || return
+            typeset -a a
+            read -ra a < <(factor "$1")
+            eval "echo $(printf '{$(printf ,%%.s {1..%s})}' "${a[@]:1}")"
+        }
 
-\"Braceify\" generates the expansion code itself. In this example we
-inject that output into a template which displays the most terse brace
-expansion code that would expand `"$arg"` 1,000,000 times if evaluated.
-In this case, the output is:
+        printf 'eval printf "$arg"%s' "$(braceify 1000000)"
 
-    eval printf "$arg"{,,}{,,}{,,}{,,}{,,}{,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}
+    "Braceify" generates the expansion code itself. In this example we
+    inject that output into a template which displays the most terse brace
+    expansion code that would expand `"$arg"` 1,000,000 times if evaluated.
+    In this case, the output is:
 
-</div>
+        eval printf "$arg"{,,}{,,}{,,}{,,}{,,}{,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}{,,,,,}
+
 
 ## New in Bash 4.0
 

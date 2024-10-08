@@ -23,7 +23,7 @@ alternative, historical and undocumented syntax [^1]
 ## Description
 
 For every word in `<WORDS>`, one iteration of the loop is performed and
-the variable `<NAME>` is set to the current word. If no \"`in <WORDS>`\"
+the variable `<NAME>` is set to the current word. If no "`in <WORDS>`"
 is present to give an own word-list, then the positional parameters
 (`"$@"`) are used (the arguments to the script or function). In this
 case (and only in this case), the semicolon between the variable name
@@ -60,14 +60,14 @@ specified by POSIX(r).
 
 The return status is the one of the last command executed in `<LIST>` or
 `0` (`TRUE`), if the item list `<WORDS>` evaluates to nothing (i.e.:
-\"is empty\"!).
+"is empty"!).
 
 ## Examples
 
 ### Iterate over array elements
 
 With some array syntax (see [arrays](../../syntax/arrays.md)) you can easily
-\"feed\" the for-loop to iterate over all elements in an array (by
+"feed" the for-loop to iterate over all elements in an array (by
 mass-expanding all elements):
 
 ``` bash
@@ -156,7 +156,7 @@ done
 
 ### Loop over a number range
 
-Beginning in Bash 4, you can also use \"sequence expression\" form of
+Beginning in Bash 4, you can also use "sequence expression" form of
 [brace expansion](../../syntax/expansion/brace.md) syntax when looping over
 numbers, and this form does not create leading zeroes unless you ask for
 them:

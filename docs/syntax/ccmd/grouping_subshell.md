@@ -8,7 +8,7 @@
 
 The [list](../../syntax/basicgrammar.md#lists) `<LIST>` is executed in a
 separate shell - a subprocess. No changes to the environment (variables
-etc\...) are reflected in the \"main shell\".
+etc...) are reflected in the "main shell".
 
 ## Examples
 

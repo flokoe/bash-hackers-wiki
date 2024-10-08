@@ -21,27 +21,16 @@ e.g. if there is a corresponding POSIX(r)-compatible syntax (see
 Some syntax elements have a BASH-specific, and a portable[^1]) pendant.
 In these cases the portable syntax should be preferred.
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                  construct                                  portable equivalent                                                                                                                                                                     Description                                                                                                                                                                        Portability
-  ------------------------------------------ --------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------
-                `source\ FILE`                                    `. FILE`                                                                                                                                                                      include a script file                                                                                                                                                  Bourne shell (bash, ksh, POSIX(r), zsh, \...)
-
-             `declare`\\ keyword                              `typeset` keyword                                                                                                                                             define local variables (or variables with special attributes)                                                                                                                                     ksh, zsh, \..., **not POSIX!**
-
-             `command\ <<<\ WORD`                      `command <<MARKER WORD MARKER`                                                                                                                             a here-string, a special form of the here-document, avoid it in portable scripts!                                                                                                                                      POSIX(r)
-
-              `export VAR=VALUE`                           `VAR=VALUE export VAR`                                                                                                                         Though POSIX(r) allows it, some shells don't want the assignment and the exporting in one command                                                                                                                     POSIX(r), zsh, ksh, \...
-
-                 `(( MATH ))`                                  `: $(( MATH ))`                    POSIX(r) does't define an arithmetic compund command, many shells don't know it. Using the pseudo-command `:` and the arithmetic expansion `$(( ))` is a kind of workaround here. **Attention:** Not all shell support assignment like `$(( a = 1 + 1 ))`! Also see below for a probably more portable solution.          all POSIX(r) compatible shells
-
-             `[[\ EXPRESSION\ ]]`                             `[ EXPRESSION ]`\                                                                                      The Bashish test keyword is reserved by POSIX(r), but not defined. Use the old fashioned way with the `test` command. See [the classic test command](../commands/classictest.md)                                                                                    POSIX(r) and others
-                                                                     or\                                                                                                                                                                                                                                                                                                                                              
-                                                              `test EXPRESSION`                                                                                                                                                                                                                                                                                                                                       
-
-   `COMMAND\ <\ <(\ ...INPUTCOMMANDS...\ )`   `INPUTCOMMANDS\ >\ TEMPFILE COMMAND\ <\ TEMPFILE`                                                                                                                Process substitution (here used with redirection); use the old fashioned way (tempfiles)                                                                                                                             POSIX(r) and others
-
-            `((echo X);(echo Y))`                         `( (echo X); (echo Y) )`                                                                                                    Nested subshells (separate the inner `()` from the outer `()` by spaces, to not confuse the shell regarding arithmetic control operators)                                                                                                     POSIX(r) and others
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|construct|portable equivalent|Description|Portability|
+|---------|-------------------|-----------|-----------|
+|`source FILE`|`. FILE`|include a script file|Bourne shell (bash, ksh, POSIX(r), zsh, …)|
+|`declare` keyword|`typeset` keyword|define local variables (or variables with special attributes)|ksh, zsh, …, **not POSIX!**|
+|`command <<< WORD`|`command <<MARKER`\n`WORD`\n`MARKER`|a here-string, a special form of the here-document, avoid it in portable scripts!|POSIX(r)|
+|`export VAR=VALUE`|`VAR=VALUE`\n`export VAR`|Though POSIX(r) allows it, some shells don't want the assignment and the exporting in one command|POSIX(r), zsh, ksh, …|
+|`(( MATH ))`|`: $(( MATH ))`|POSIX(r) does't define an arithmetic compund command, many shells don't know it. Using the pseudo-command `:` and the arithmetic expansion `$(( ))` is a kind of workaround here. **Attention:** Not all shell support assignment like `$(( a = 1 + 1 ))`! Also see below for a probably more portable solution.|all POSIX(r) compatible shells|
+|`[[ EXPRESSION ]]`|`[ EXPRESSION ]`\nor\n`test EXPRESSION`|The Bashish test keyword is reserved by POSIX(r), but not defined. Use the old fashioned way with the `test` command. See [[web/20230315170826/https://wiki.bash-hackers.org/commands/classictest]]|POSIX(r) and others|
+|`COMMAND < <( …INPUTCOMMANDS… )`|`INPUTCOMMANDS > TEMPFILE`\n`COMMAND < TEMPFILE`|Process substitution (here used with redirection); use the old fashioned way (tempfiles)|POSIX(r) and others|
+|`((echo X);(echo Y))`|`( (echo X); (echo Y) )`|Nested subshells (separate the inner `()` from the outer `()` by spaces, to not confuse the shell regarding arithmetic control operators)|POSIX(r) and others|
 
 ## Portability rationale
 
@@ -51,8 +40,9 @@ will be!) and it's not very detailed (e.g. you won't find information
 about how which shell technically forks off which subshell). It's just
 an assorted small set of portability guidelines. *-Thebonsai*
 
-FIXME UNIX shell gurus out there, please be patient with a newbie like
-me and give comments and hints instead of flames.
+!!! warning "FIXME"
+    UNIX shell gurus out there, please be patient with a newbie like me
+    and give comments and hints instead of flames.
 
 ### Environment (exported) variables
 
@@ -100,7 +90,7 @@ Why? (list of known behaviours)
 -   may or may not automatically interpret backslash escpape codes in
     the strings
 -   may or may not automatically interpret switches (like `-n`)
--   may or may not ignore \"end of options\" tag (`--`)
+-   may or may not ignore "end of options" tag (`--`)
 -   `echo -n` and `echo -e` are neither portable nor standard (**even
     within the same shell**, depending on the version or environment
     variables or the build options, especially KSH93 and Bash)
@@ -113,7 +103,7 @@ existance of [the `printf` command](../commands/builtin/printf.md).
 -   `${var:x:x}` is KSH93/Bash specific
 -   `${var/../..}` and `${var//../..}` are KSH93/Bash specific
 -   `var=$*` and `var=$@` are not handled the same in all shells if the
-    first char of IFS is not \" \" (space). `var="$*"` should work
+    first char of IFS is not " " (space). `var="$*"` should work
     (except the Bourne shell always joins the expansions with space)
 
 ### Special variables
@@ -130,11 +120,11 @@ of your script:
 #### RANDOM
 
 [RANDOM](../syntax/shellvars.md#RANDOM) is Bash/KSH/ZSH specific variable
-that will give you a random number up to 32767 (2\^15-1). Among many
+that will give you a random number up to 32767 (2^15-1). Among many
 other available external options, you can use awk to generate a random
 number. There are multiple implementations of awk and which version your
-system uses will depend. Most modern systems will call \'gawk\' (i.e.
-GNU awk) or \'nawk\'. \'oawk\' (i.e. Original/Old awk) does not have the
+system uses will depend. Most modern systems will call 'gawk' (i.e.
+GNU awk) or 'nawk'. 'oawk' (i.e. Original/Old awk) does not have the
 rand() or srand() functions, so is best avoided.
 
     # 'gawk' can produce random numbers using srand().  In this example, 10 integers between 1 and 500:
@@ -143,10 +133,10 @@ rand() or srand() functions, so is best avoided.
     # 'nawk' and 'mawk' does the same, but needs a seed to be provided for its rand() function.  In this example we use $(date)
     randpm=$(mawk -v min=1 -v max=500 -v nNum=10 -v seed="$(date +%Y%M%d%H%M%S)" 'BEGIN { srand(seed); for (i = 0; i < nNum; ++i) {print int(min + rand() * (max - min)} }')
 
-*Yes, I\'m not an `awk` expert, so please correct it, rather than
+*Yes, I'm not an `awk` expert, so please correct it, rather than
 complaining about possible stupid code!*
 
-    # Well, seeing how this //is// BASH-hackers.org I kinda missed the bash way of doing the above ;-) 
+    # Well, seeing how this //is// BASH-hackers.org I kinda missed the bash way of doing the above ;-)
     # print a number between 0 and 500 :-)
      printf $((  500 *  RANDOM  / 32767   ))
 
@@ -162,7 +152,7 @@ Find another method.
 
 The [PATH](../syntax/shellvars.md#PATH) variable is a colon-delimited list of
 directory names, so it's basically possible to run a loop and check
-every `PATH` component for the command you\'re looking for and for
+every `PATH` component for the command you're looking for and for
 executability.
 
 However, this method doesn't look nice. There are other ways of doing
@@ -207,6 +197,6 @@ accessible by `PATH`:
       echo "sed is available"
     fi
 
-[^1]: \"portable\" doesn't necessarily mean it's POSIX, it can also
-    mean it's \"widely used and accepted\", and thus maybe more
+[^1]: "portable" doesn't necessarily mean it's POSIX, it can also
+    mean it's "widely used and accepted", and thus maybe more
     portable than POSIX(r

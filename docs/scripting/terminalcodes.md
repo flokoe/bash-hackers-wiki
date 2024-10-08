@@ -23,8 +23,8 @@ printed (like any other text). If the terminal understands the code, it
 won't display the character-sequence, but will perform some action. You
 can print the codes with a simple `echo` command.
 
-[**Note:**]{.underline} I see codes referenced as \"Bash colors\"
-sometimes (several \"Bash tutorials\" etc\...): That's a completely
+<u>**Note:**</u> I see codes referenced as "Bash colors"
+sometimes (several "Bash tutorials" etc...): That's a completely
 incorrect definition.
 
 ## The tput command
@@ -43,7 +43,7 @@ understands).
 
 ## The codes
 
-In this list I\'ll focus on ANSI/VT100 control codes for the most common
+In this list I'll focus on ANSI/VT100 control codes for the most common
 actions - take it as quick reference. The documentation of your terminal
 or the `terminfo` database is always the preferred source when something
 is unclear! Also the `tput` acronyms are usually the ones dedicated for
@@ -53,7 +53,7 @@ I listed only the most relevant codes, of course, any ANSI terminal
 understands many more! But let's keep the discussion centered on common
 shell scripting ;-)
 
-If I couldn't find a matching ANSI escape, you\'ll see a :?: as the
+If I couldn't find a matching ANSI escape, you'll see a :?: as the
 code. Feel free to mail me or fix it.
 
 The ANSI codes always start with the ESC character. (ASCII 0x1B or octal
@@ -63,29 +63,29 @@ codes directly - use the `tput` command!**
 All codes that can be used with `tput` can be found in terminfo(5). (on
 OpenBSD at least) See [OpenBSD's
 terminfo(5)](http://www.openbsd.org/cgi-bin/man.cgi?query=terminfo&apropos=0&sektion=5&manpath=OpenBSD+Current&arch=i386&format=html)
-under the [Capabilities]{.underline} section. The *cap-name* is the code
+under the <u>Capabilities</u> section. The *cap-name* is the code
 to use with tput. A description of each code is also provided.
 
 ### General useful ASCII codes
 
 The **Ctrl-Key** representation is simply associating the non-printable
 characters from ASCII code 1 with the printable (letter) characters from
-ASCII code 65 (\"A\"). ASCII code 1 would be `^A` (Ctrl-A), while ASCII
+ASCII code 65 ("A"). ASCII code 1 would be `^A` (Ctrl-A), while ASCII
 code 7 (BEL) would be `^G` (Ctrl-G). This is a common representation
 (and input method) and historically comes from one of the VT series of
 terminals.
 
-  Name    decimal   octal   hex    C-escape   Ctrl-Key   Description
-  ------- --------- ------- ------ ---------- ---------- --------------------------------
-  `BEL`   7         007     0x07   `\a`       `^G`       Terminal bell
-  `BS`    8         010     0x08   `\b`       `^H`       Backspace
-  `HT`    9         011     0x09   `\t`       `^I`       Horizontal TAB
-  `LF`    10        012     0x0A   `\n`       `^J`       Linefeed (newline)
-  `VT`    11        013     0x0B   `\v`       `^K`       Vertical TAB
-  `FF`    12        014     0x0C   `\f`       `^L`       Formfeed (also: New page `NP`)
-  `CR`    13        015     0x0D   `\r`       `^M`       Carriage return
-  `ESC`   27        033     0x1B   `<none>`   `^[`       Escape character
-  `DEL`   127       177     0x7F   `<none>`   `<none>`   Delete character
+|Name|decimal|octal|hex|C-escape|Ctrl-Key|Description|
+|-------|---------|-------|------|----------|----------|--------------------------------|
+|`BEL`|7|007|0x07|`\a`|`^G`|Terminal bell|
+|`BS`|8|010|0x08|`\b`|`^H`|Backspace|
+|`HT`|9|011|0x09|`\t`|`^I`|Horizontal TAB|
+|`LF`|10|012|0x0A|`\n`|`^J`|Linefeed (newline)|
+|`VT`|11|013|0x0B|`\v`|`^K`|Vertical TAB|
+|`FF`|12|014|0x0C|`\f`|`^L`|Formfeed (also: New page `NP`)|
+|`CR`|13|015|0x0D|`\r`|`^M`|Carriage return|
+|`ESC`|27|033|0x1B|`<none>`|`^[`|Escape character|
+|`DEL`|127|177|0x7F|`<none>`|`<none>`|Delete character|
 
 ### Cursor handling
 
@@ -114,7 +114,7 @@ terminals.
   ANSI      terminfo equivalent   Description
   --------- --------------------- ----------------------------------------------------------------
   `[ K`\    `el`                  **Clear line** from current cursor position **to end** of line
-  `[ 0 K`                         
+  `[ 0 K`
 
   `[ 1 K`   `el1`                 **Clear line from beginning** to current cursor position
 
@@ -123,44 +123,43 @@ terminals.
 
 ### General text attributes
 
-  ANSI      terminfo equivalent           Description
-  --------- ----------------------------- ------------------------------------------------
-  `[ 0 m`   `sgr0`                        Reset all attributes
-  `[ 1 m`   `bold`                        Set \"bright\" attribute
-  `[ 2 m`   `dim`                         Set \"dim\" attribute
-  `[ 3 m`   `smso`                        Set \"standout\" attribute
-  `[ 4 m`   set `smul` unset `rmul` :?:   Set \"underscore\" (underlined text) attribute
-  `[ 5 m`   `blink`                       Set \"blink\" attribute
-  `[ 7 m`   `rev`                         Set \"reverse\" attribute
-  `[ 8 m`   `invis`                       Set \"hidden\" attribute
-
+|ANSI|terminfo equivalent|Description|
+|----|-------------------|-----------|
+|`[ 0 m`|`sgr0`|Reset all attributes|
+|`[ 1 m`|`bold`|Set "bright" attribute|
+|`[ 2 m`|`dim`|Set "dim" attribute|
+|`[ 3 m`|`smso`|Set "standout" attribute|
+|`[ 4 m`|set `smul` unset `rmul` :?:|Set "underscore" (underlined text) attribute|
+|`[ 5 m`|`blink`|Set "blink" attribute|
+|`[ 7 m`|`rev`|Set "reverse" attribute|
+|`[ 8 m`|`invis`|Set "hidden" attribute|
 ### Foreground coloring
 
-  ANSI        terminfo equivalent   Description
-  ----------- --------------------- ----------------------------------------------
-  `[ 3 0 m`   `setaf 0`             Set **foreground** to color #0 - **black**
-  `[ 3 1 m`   `setaf 1`             Set **foreground** to color #1 - **red**
-  `[ 3 2 m`   `setaf 2`             Set **foreground** to color #2 - **green**
-  `[ 3 3 m`   `setaf 3`             Set **foreground** to color #3 - **yellow**
-  `[ 3 4 m`   `setaf 4`             Set **foreground** to color #4 - **blue**
-  `[ 3 5 m`   `setaf 5`             Set **foreground** to color #5 - **magenta**
-  `[ 3 6 m`   `setaf 6`             Set **foreground** to color #6 - **cyan**
-  `[ 3 7 m`   `setaf 7`             Set **foreground** to color #7 - **white**
-  `[ 3 9 m`   `setaf 9`             Set **default** color as foreground color
+|ANSI|terminfo equivalent|Description|
+|----|-------------------|-----------|
+|`[ 3 0 m`|`setaf 0`|Set **foreground** to color \#0 - **black**|
+|`[ 3 1 m`|`setaf 1`|Set **foreground** to color \#1 - **red**|
+|`[ 3 2 m`|`setaf 2`|Set **foreground** to color \#2 - **green**|
+|`[ 3 3 m`|`setaf 3`|Set **foreground** to color \#3 - **yellow**|
+|`[ 3 4 m`|`setaf 4`|Set **foreground** to color \#4 - **blue**|
+|`[ 3 5 m`|`setaf 5`|Set **foreground** to color \#5 - **magenta**|
+|`[ 3 6 m`|`setaf 6`|Set **foreground** to color \#6 - **cyan**|
+|`[ 3 7 m`|`setaf 7`|Set **foreground** to color \#7 - **white**|
+|`[ 3 9 m`|`setaf 9`|Set **default** color as foreground color|
 
 ### Background coloring
 
-  ANSI        terminfo equivalent   Description
-  ----------- --------------------- ----------------------------------------------
-  `[ 4 0 m`   `setab 0`             Set **background** to color #0 - **black**
-  `[ 4 1 m`   `setab 1`             Set **background** to color #1 - **red**
-  `[ 4 2 m`   `setab 2`             Set **background** to color #2 - **green**
-  `[ 4 3 m`   `setab 3`             Set **background** to color #3 - **yellow**
-  `[ 4 4 m`   `setab 4`             Set **background** to color #4 - **blue**
-  `[ 4 5 m`   `setab 5`             Set **background** to color #5 - **magenta**
-  `[ 4 6 m`   `setab 6`             Set **background** to color #6 - **cyan**
-  `[ 4 7 m`   `setab 7`             Set **background** to color #7 - **white**
-  `[ 4 9 m`   `setab 9`             Set **default** color as background color
+|ANSI|terminfo equivalent|Description|
+|----|-------------------|-----------|
+|`[ 4 0 m`|`setab 0`|Set **background** to color \#0 - **black**|
+|`[ 4 1 m`|`setab 1`|Set **background** to color \#1 - **red**|
+|`[ 4 2 m`|`setab 2`|Set **background** to color \#2 - **green**|
+|`[ 4 3 m`|`setab 3`|Set **background** to color \#3 - **yellow**|
+|`[ 4 4 m`|`setab 4`|Set **background** to color \#4 - **blue**|
+|`[ 4 5 m`|`setab 5`|Set **background** to color \#5 - **magenta**|
+|`[ 4 6 m`|`setab 6`|Set **background** to color \#6 - **cyan**|
+|`[ 4 7 m`|`setab 7`|Set **background** to color \#7 - **white**|
+|`[ 4 9 m`|`setab 9`|Set **default** color as background color|
 
 ### Misc codes
 
@@ -168,7 +167,7 @@ terminals.
 
 Used capabilities: `smcup`, `rmcup`
 
-You\'ve undoubtedly already encountered programs that restore the
+You've undoubtedly already encountered programs that restore the
 terminal contents after they do their work (like `vim`). This can be
 done by the following commands:
 
@@ -187,7 +186,7 @@ These features require that certain capabilities exist in your
 termcap/terminfo. While `xterm` and most of its clones (`rxvt`, `urxvt`,
 etc) will support the instructions, your operating system may not
 include references to them in its default xterm profile. (FreeBSD, in
-particular, falls into this category.) If \`tput smcup\` appears to do
+particular, falls into this category.) If `tput smcup` appears to do
 nothing for you, and you don't want to modify your system
 termcap/terminfo data, and you KNOW that you are using a compatible
 xterm application, the following may work for you:
@@ -198,14 +197,14 @@ xterm application, the following may work for you:
 Certain software uses these codes (via their termcap capabilities) as
 well. You may have seen the screen save/restore in `less`, `vim`, `top`,
 `screen` and others. Some of these applications may also provide
-configuration options to \*disable\* this behaviour. For example, `less`
+configuration options to *disable* this behaviour. For example, `less`
 has a `-X` option for this, which can also be set in an environment
 variable:
 
     export LESS=X
     less /path/to/file
 
-Similarly, `vim` can be configured not to \"restore\" the screen by
+Similarly, `vim` can be configured not to "restore" the screen by
 adding the following to your `~/.vimrc`:
 
     set t_ti= t_te=
@@ -226,7 +225,7 @@ in graphical environments.
 
 The Virtual Terminal implemented in the Linux kernel supports only 16
 colors, and the usual default terminfo entry for `TERM=linux` defines
-only 8. There is sometimes an alternate \"linux-16color\" that you can
+only 8. There is sometimes an alternate "linux-16color" that you can
 switch to, to get the other 8 colors.
 
 ## Bash examples
@@ -237,11 +236,11 @@ switch to, to get the other 8 colors.
 
 ### Colors using tput
 
-[Directly inside the echo:]{.underline}
+<u>Directly inside the echo:</u>
 
     echo "TPUT is a $(tput setaf 2)nice$(tput setaf 9) and $(tput setaf 5)user friendly$(tput setaf 9) terminal capability database."
 
-[With preset variables:]{.underline}
+<u>With preset variables:</u>
 
     COL_NORM="$(tput setaf 9)"
     COL_RED="$(tput setaf 1)"
@@ -250,7 +249,7 @@ switch to, to get the other 8 colors.
 
 ### Misc
 
-[HOME function]{.underline}
+<u>HOME function</u>
 
     home() {
       # yes, actually not much shorter ;-)
@@ -323,7 +322,7 @@ default), but uses only features that don't make the Bash parser crash.
     # Combined Bash/ksh93 flavors by Dan Douglas (ormaaj)
 
     function doBash {
-        typeset P Q X Y a b c i v x y 
+        typeset P Q X Y a b c i v x y
         for ((P=10**8,Q=P/100,X=320*Q/cols,Y=210*Q/lines,y=-105*Q,v=-220*Q,x=v;y<105*Q;x=v,y+=Y)); do
             for ((;x<P;a=b=i=c=0,x+=X)); do
                 for ((;a**2+b**2<4*P**2&&i++<99;a=((c=a)**2-b**2)/P+x,b=2*c*b/P+y)); do :
@@ -336,14 +335,14 @@ default), but uses only features that don't make the Bash parser crash.
 
     function doKsh {
         integer i
-        float a b c x=2.2 y=-1.05 X=3.2/cols Y=2.1/lines 
+        float a b c x=2.2 y=-1.05 X=3.2/cols Y=2.1/lines
         while
             for ((a=b=i=0;(c=a)**2+b**2<=2&&i++<99&&(a=a**2-b**2+x,b=2*c*b+y);)); do :
             done
             . colorBox $((i<99?i%16:0))
             if ((x<1?!(x+=X):(y+=Y,x=-2.2))); then
                 print
-                ((y<1.05)) 
+                ((y<1.05))
             fi
             do :
         done

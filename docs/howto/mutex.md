@@ -23,8 +23,8 @@ The basic procedure is simple: The script checks if a specific condition
 doesn't start.
 
 This article describes locking with common UNIX(r) tools. There are
-other special locking tools available, But they\'re not standardized, or
-worse yet, you can't be sure they\'re present when you want to run your
+other special locking tools available, But they're not standardized, or
+worse yet, you can't be sure they're present when you want to run your
 scripts. **A tool designed for specifically for this purpose does the
 job much better than general purpose code.**
 
@@ -42,7 +42,7 @@ limits.
 The best way to set a global lock condition is the UNIX(r) filesystem.
 Variables aren't enough, as each process has its own private variable
 space, but the filesystem is global to all processes (yes, I know about
-chroots, namespaces, \... special case). You can \"set\" several things
+chroots, namespaces, ... special case). You can "set" several things
 in the filesystem that can be used as locking indicator:
 
 -   create files
@@ -61,7 +61,7 @@ they are succesfully locked, and can operate without colliding. Setting
 the timestamp is similar: One step to check the timespamp, a second step
 to set the timestamp.
 
-<WRAP center round tip 60%> [**Conclusion:**]{.underline} We need an
+<WRAP center round tip 60%> <u>**Conclusion:**</u> We need an
 operation that does the check and the locking in one step. </WRAP>
 
 A simple way to get that is to create a **lock directory** - with the
@@ -95,14 +95,14 @@ trapped. I am sure there there is a better solution than this
 suggestion* --- **sn18** 2009/12/19 08:24*
 
 **Note:** While perusing the Internet, I found some people asking if the
-`mkdir` method works \"on all filesystems\". Well, let's say it should.
+`mkdir` method works "on all filesystems". Well, let's say it should.
 The syscall under `mkdir` is guarenteed to work atomicly in all cases,
 at least on Unices. Two examples of problems are NFS filesystems and
 filesystems on cluster servers. With those two scenarios, dependencies
 exist related to the mount options and implementation. However, I
 successfully use this simple method on an Oracle OCFS2 filesystem in a
-4-node cluster environment. So let's just say \"it should work under
-normal conditions\".
+4-node cluster environment. So let's just say "it should work under
+normal conditions".
 
 Another atomic method is setting the `noclobber` shell option
 (`set -C`). That will cause redirection to fail, if the file the
@@ -162,12 +162,12 @@ echo -n "[statsgen] Locking: " >&2
 
 if mkdir "${LOCKDIR}" &>/dev/null; then
 
-    # lock succeeded, install signal handlers before storing the PID just in case 
+    # lock succeeded, install signal handlers before storing the PID just in case
     # storing the PID fails
     trap 'ECODE=$?;
           echo "[statsgen] Removing lock. Exit: ${ETXT[ECODE]}($ECODE)" >&2
           rm -rf "${LOCKDIR}"' 0
-    echo "$$" >"${PIDFILE}" 
+    echo "$$" >"${PIDFILE}"
     # the following handler will exit the script upon receiving these signals
     # the trap on "0" (EXIT) from above will be triggered by this trap's "exit" command!
     trap 'echo "[statsgen] Killed by a signal." >&2

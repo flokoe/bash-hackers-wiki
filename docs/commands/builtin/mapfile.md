@@ -14,7 +14,7 @@ This builtin is also accessible using the command name `readarray`.
 handling standard input (the other being `read`). `mapfile` reads lines
 of standard input and assigns each to the elements of an indexed array.
 If no array name is given, the default array name is `MAPFILE`. The
-target array must be a \"normal\" integer indexed array.
+target array must be a "normal" integer indexed array.
 
 `mapfile` returns success (0) unless an invalid option is given or the
 given array `ARRAY` is set readonly.
@@ -47,9 +47,9 @@ Here's a real-world example of interactive use borrowed from Gentoo
 workflow. Xorg updates require rebuilding drivers, and the
 Gentoo-suggested command is less than ideal, so let's Bashify it. The
 first command produces a list of packages, one per line. We can read
-those into the array named \"args\" using `mapfile`, stripping trailing
-newlines with the \'-t\' option. The resulting array is then expanded
-into the arguments of the \"emerge\" command - an interface to Gentoo's
+those into the array named "args" using `mapfile`, stripping trailing
+newlines with the '`-t`' option. The resulting array is then expanded
+into the arguments of the `emerge` command - an interface to Gentoo's
 package manager. This type of usage can make for a safe and effective
 replacement for xargs(1) in certain situations. Unlike xargs, all
 arguments are guaranteed to be passed to a single invocation of the
@@ -59,7 +59,7 @@ business.
     # eix --only-names -IC x11-drivers | { mapfile -t args; emerge -av1 "${args[@]}" <&1; }
 
 Note the use of command grouping to keep the emerge command inside the
-pipe's subshell and within the scope of \"args\". Also note the unusual
+pipe's subshell and within the scope of "args". Also note the unusual
 redirection. This is because the -a flag makes emerge interactive,
 asking the user for confirmation before continuing, and checking with
 isatty(3) to abort if stdin isn't pointed at a terminal. Since stdin of
@@ -71,11 +71,11 @@ wiki: <http://mywiki.wooledge.org/BashFAQ/024>
 ### The callback
 
 This is one of the more unusual features of a Bash builtin. As far as
-I\'m able to tell, the exact behavior is as follows: If defined, as each
+I'm able to tell, the exact behavior is as follows: If defined, as each
 line is read, the code contained within the string argument to the -C
 flag is evaluated and executed *before* the assignment of each array
 element. There are no restrictions to this string, which can be any
-arbitrary code, however, two additional \"words\" are automatically
+arbitrary code, however, two additional "words" are automatically
 appended to the end before evaluation: the index, and corresponding line
 of data to be assigned to the next array element. Since all this happens
 before assignment, the callback feature cannot be used to modify the
@@ -91,9 +91,9 @@ the appended words from printf.
 
 Really, the intended usage is for the callback to just contain the name
 of a function, with the extra words passed to it as arguments. If
-you\'re going to use callbacks at all, this is probably the best way
-because it allows for easy access to the arguments with no ugly \"code
-in a string\".
+you're going to use callbacks at all, this is probably the best way
+because it allows for easy access to the arguments with no ugly "code
+in a string".
 
     $ foo() { echo "|$1|"; }; mapfile -n 11 -c 2 -C 'foo' <file
     |2|
@@ -121,13 +121,13 @@ illustrates the callback behavior:
 
 Since redirects are syntactically allowed anywhere in a command, we put
 it before the printf to stay out of the way of additional arguments.
-Rather than opening \"outfile<n>\" for appending on each call by
+Rather than opening "outfile&lt;n&gt;" for appending on each call by
 calculating the filename, open an FD for each first and calculate which
 FD to send output to by measuring the size of x mod 2. The zero-width
 format specification is used to absorb the index number argument.
 
 Another variation might be to add each of these lines to the elements of
-separate arrays. I\'ll leave dissecting this one as an exercise for the
+separate arrays. I'll leave dissecting this one as an exercise for the
 reader. This is quite the hack but illustrates some interesting
 properties of printf -v and mapfile -C (which you should probably never
 use in real code).
@@ -147,7 +147,7 @@ use in real code).
 
 This example based on yet another #bash question illustrates mapfile in
 combination with read. The sample input is the heredoc to `main`. The
-goal is to build a \"struct\" based upon records in the input file made
+goal is to build a "struct" based upon records in the input file made
 up of the numbers following the colon on each line. Every 3rd line is a
 key followed by 2 corresponding fields. The showRecord function takes a
 key and returns the record.

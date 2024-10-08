@@ -46,7 +46,7 @@ applicable description mentions arrays below. Please also see the
 [article about arrays](../syntax/arrays.md).
 
 For a more technical view what a parameter is and which types exist,
-[see the dictionary entry for \"parameter\"](../dict/parameter.md).
+[see the dictionary entry for "parameter"](../dict/parameter.md).
 
 ## Overview
 
@@ -107,16 +107,16 @@ is identical to using `$FOO` like you see it everywhere, but has the
 advantage that it can be immediately followed by characters that would
 be interpreted as part of the parameter name otherwise. Compare these
 two expressions (`WORD="car"` for example), where we want to print a
-word with a trailing \"s\":
+word with a trailing "s":
 
     echo "The plural of $WORD is most likely $WORDs"
     echo "The plural of $WORD is most likely ${WORD}s"
 
-[Why does the first one fail?]{.underline} It prints nothing, because a
-parameter (variable) named \"`WORDs`\" is undefined and thus printed as
-\"\" (*nothing*). Without using braces for parameter expansion, Bash
+<u>Why does the first one fail?</u> It prints nothing, because a
+parameter (variable) named "`WORDs`" is undefined and thus printed as
+"" (*nothing*). Without using braces for parameter expansion, Bash
 will interpret the sequence of all valid characters from the introducing
-\"`$`\" up to the last valid character as name of the parameter. When
+"`$`" up to the last valid character as name of the parameter. When
 using braces you just force Bash to **only interpret the name inside
 your braces**.
 
@@ -138,9 +138,9 @@ individual indexes or mass arguments. An individual index behaves like a
 normal parameter, for the mass expansion, please read the article about
 arrays linked above.
 
--   \${array\[5\]}
--   \${array\[\*\]}
--   \${array\[@\]}
+-   `${array[5]}`
+-   `${array[*]}`
+-   `${array[@]}`
 
 ## Indirection
 
@@ -158,13 +158,13 @@ you can instead use the form
 
 to enter a level of indirection. The referenced parameter is not
 `PARAMETER` itself, but the parameter whose name is stored as the value
-of `PARAMETER`. If the parameter `PARAMETER` has the value \"`TEMP`\",
+of `PARAMETER`. If the parameter `PARAMETER` has the value "`TEMP`",
 then `${!PARAMETER}` will expand to the value of the parameter named
 `TEMP`:
 
     read -rep 'Which variable do you want to inspect? ' look_var
 
-    printf 'The value of "%s" is: "%s"\n' "$look_var" "${!look_var}" 
+    printf 'The value of "%s" is: "%s"\n' "$look_var" "${!look_var}"
 
 Of course the indirection also works with special variables:
 
@@ -193,7 +193,7 @@ of an array, the length of a string, or number of elements in an array
 indirectly (see [syntax/arrays#indirection](../syntax/arrays.md#indirection)
 for workarounds). Additionally, the `!`-prefixed parameter expansion
 conflicts with ksh-like shells which have the more powerful
-\"name-reference\" form of indirection, where the exact same syntax is
+"name-reference" form of indirection, where the exact same syntax is
 used to expand to the name of the variable being referenced.
 
 Indirect references to [array names](../syntax/arrays.md) are also possible
@@ -235,13 +235,13 @@ of words in the variable while `~~` reverses case for all. Thanks to
 
 </wrap>
 
-[**Example: Rename all `*.txt` filenames to lowercase**]{.underline}
+<u>**Example: Rename all `*.txt` filenames to lowercase**</u>
 
     for file in *.txt; do
       mv "$file" "${file,,}"
     done
 
-[**Note:**]{.underline} Case modification is a handy feature you can
+<u>**Note:**</u> Case modification is a handy feature you can
 apply to a name or a title. Or is it? Case modification was an important
 aspect of the Bash 4 release. Bash version 4, RC1 would perform word
 splitting, and then case modification, resulting in title case (where
@@ -271,9 +271,6 @@ Assume: `array=(This is some Text)`
 -   `echo "${array[@]^^}"`
     -   => `THIS IS SOME TEXT`
 
-```{=html}
-<!-- -->
-```
      * ''echo "${array[2]^^}"''
        * => ''SOME''
 
@@ -288,7 +285,7 @@ string `PREFIX`. The elements of the list are separated by the first
 character in the `IFS`-variable (<space> by default).
 
 This will show all defined variable names (not values!) beginning with
-\"BASH\":
+"BASH":
 
     $ echo ${!BASH*}
     BASH BASH_ARGC BASH_ARGV BASH_COMMAND BASH_LINENO BASH_SOURCE BASH_SUBSHELL BASH_VERSINFO BASH_VERSION
@@ -319,9 +316,9 @@ Example string (*just a quote from a big man*):
 `${PARAMETER#PATTERN}` and `${PARAMETER##PATTERN}`
 
 This form is to remove the described [pattern](../syntax/pattern.md) trying
-to **match it from the beginning of the string**. The operator \"`#`\"
+to **match it from the beginning of the string**. The operator "`#`"
 will try to remove the shortest text matching the pattern, while
-\"`##`\" tries to do it with the longest text matching. Look at the
+"`##`" tries to do it with the longest text matching. Look at the
 following examples to get the idea (matched text ~~marked striked~~,
 remember it will be removed!):
 
@@ -347,7 +344,7 @@ from the end.
 
 ### Common use
 
-[**How the heck does that help to make my life easier?**]{.underline}
+<u>**How the heck does that help to make my life easier?**</u>
 
 Well, maybe the most common use for it is to **extract parts of a
 filename**. Just look at the following list with examples:
@@ -410,7 +407,7 @@ The first one (*one slash*) is to only substitute **the first
 occurrence** of the given pattern, the second one (*two slashes*) is to
 substitute **all occurrences** of the pattern.
 
-First, let's try to say \"happy\" instead of \"conservative\" in our
+First, let's try to say "happy" instead of "conservative" in our
 example string:
 
     ${MYSTRING//conservative/happy}
@@ -418,26 +415,26 @@ example string:
 =>
 `Be liberal in what you accept, and conservativehappy in what you send`
 
-Since there is only one \"conservative\" in that example, it really
+Since there is only one "conservative" in that example, it really
 doesn't matter which of the two forms we use.
 
-Let's play with the word \"in\", I don't know if it makes any sense,
-but let's substitute it with \"by\".
+Let's play with the word "in", I don't know if it makes any sense,
+but let's substitute it with "by".
 
-[**First form: Substitute first occurrence**]{.underline}
+<u>**First form: Substitute first occurrence**</u>
 
     ${MYSTRING/in/by}
 
 => `Be liberal inby what you accept, and conservative in what you send`
 
-[**Second form: Substitute all occurrences**]{.underline}
+<u>**Second form: Substitute all occurrences**</u>
 
     ${MYSTRING//in/by}
 
 =>
 `Be liberal inby what you accept, and conservative inby what you send`
 
-[**Anchoring**]{.underline} Additionally you can \"anchor\" an
+<u>**Anchoring**</u> Additionally you can "anchor" an
 expression: A `#` (hashmark) will indicate that your expression is
 matched against the beginning portion of the string, a `%`
 (percent-sign) will do it for the end portion.
@@ -478,7 +475,7 @@ expanded. Again, a quote from a big man, to have a test text:
 
     MYSTRING="Be liberal in what you accept, and conservative in what you send"
 
-Using echo `${#MYSTRING}`\...
+Using echo `${#MYSTRING}`...
 
 => `64`
 
@@ -493,7 +490,7 @@ There's not much to say about it, mh?
 For [arrays](../syntax/arrays.md), this expansion type has two meanings:
 
 -   For **individual** elements, it reports the string length of the
-    element (as for every \"normal\" parameter)
+    element (as for every "normal" parameter)
 -   For the **mass subscripts** `@` and `*` it reports the number of set
     elements in the array
 
@@ -502,11 +499,11 @@ Example:
 Assume: `array=(This is a text)`
 
 -   `echo ${#array[1]}`
-    -   => 2 (the word \"is\" has a length of 2)
+    -   => 2 (the word "is" has a length of 2)
 -   `echo ${#array[@]}`
     -   => 4 (the array contains 4 elements)
 
-[**Attention:**]{.underline} The number of used elements does not need
+<u>**Attention:**</u> The number of used elements does not need
 to conform to the highest index. Sparse arrays are possible in Bash,
 that means you can have 4 elements, but with indexes 1, 7, 20, 31. **You
 can't loop through such an array with a counter loop based on the
@@ -593,7 +590,7 @@ Example:
 Assume: `array=(This is a text)`
 
 -   `echo ${array[0]:2:2}`
-    -   => `is` (the \"is\" in \"This\", array element 0)
+    -   => `is` (the "is" in "This", array element 0)
 -   `echo ${array[@]:1:2}`
     -   => `is a` (from element 1 inclusive, 2 elements are expanded,
         i.e. element 1 and 2)
@@ -621,7 +618,7 @@ useful, you need to put that parameter syntax in.
     read -p "Enter your gender (just press ENTER to not tell us): " GENDER
     echo "Your gender is ${GENDER:-a secret}."
 
-It will print \"Your gender is a secret.\" when you don't enter the
+It will print "Your gender is a secret." when you don't enter the
 gender. Note that the default value is **used on expansion time**, it is
 **not assigned to the parameter**.
 
@@ -712,7 +709,7 @@ Let's change our code example from above:
 ### Assign a default value: Arrays
 
 For [arrays](../syntax/arrays.md) this expansion type is limited. For an
-individual index, it behaves like for a \"normal\" parameter, the
+individual index, it behaves like for a "normal" parameter, the
 default value is assigned to this one element. The mass-expansion
 subscripts `@` and `*` **can not be used here** because it's not
 possible to assign to them!
@@ -732,7 +729,7 @@ you can specify**:
 The above code will simply add a warning if `JAVAPATH` is set (because
 it could influence the startup behaviour of that imaginary application).
 
-Some more unrealistic example\... Ask for some flags (for whatever
+Some more unrealistic example... Ask for some flags (for whatever
 reason), and then, if they were set, print a warning and also print the
 flags:
 
@@ -761,7 +758,7 @@ if variables you need (and that can be empty) are undefined:
 ### Use an alternate value: Arrays
 
 Similar to the cases for [arrays](../syntax/arrays.md) to expand to a default
-value, this expansion behaves like for a \"normal\" parameter when using
+value, this expansion behaves like for a "normal" parameter when using
 individual array elements by index, but reacts differently when using
 the mass-expansion subscripts `@` and `*`:
 
@@ -830,9 +827,6 @@ Removing the first 6 characters from a text string:
     <a b cfoo> <a b cfoo> <a> <b> <cfoo>
     `
 
-```{=html}
-<!-- -->
-```
 -   Almost all shells disagree about the treatment of an unquoted `$@`,
     `${arr[@]}`, `$*`, and `${arr[*]}` when
     [IFS](http://mywiki.wooledge.org/IFS) is set to null. POSIX is
@@ -877,9 +871,6 @@ Removing the first 6 characters from a text string:
     pathname expansion and word-splitting to the results, except for
     zsh, which doesn't do pathname expansion in its default mode.
 
-```{=html}
-<!-- -->
-```
 -   Additionally, shells disagree about various wordsplitting behaviors,
     the behavior of inserting delimiter characters from IFS in `$*`, and
     the way adjacent arguments are concatenated, when IFS is modified in
@@ -906,35 +897,23 @@ Removing the first 6 characters from a text string:
     possible side-effect that can affect expansion halfway through
     expansion that way.
 
-```{=html}
-<!-- -->
-```
 -   As previously mentioned, the Bash form of indirection by prefixing a
     parameter expansion with a `!` conflicts with the same syntax used
     by mksh, zsh, and ksh93 for a different purpose. Bash will
-    \"slightly\" modify this expansion in the next version with the
+    "slightly" modify this expansion in the next version with the
     addition of namerefs.
 
-```{=html}
-<!-- -->
-```
 -   Bash (and most other shells) don't allow .'s in identifiers. In
     ksh93, dots in variable names are used to reference methods (i.e.
-    \"Discipline Functions\"), attributes, special shell variables, and
-    to define the \"real value\" of an instance of a class.
+    "Discipline Functions"), attributes, special shell variables, and
+    to define the "real value" of an instance of a class.
 
-```{=html}
-<!-- -->
-```
 -   In ksh93, the `_` parameter has even more uses. It is used in the
     same way as `self` in some object-oriented languages; as a
     placeholder for some data local to a class; and also as the
     mechanism for class inheritance. In most other contexts, `_` is
     compatible with Bash.
 
-```{=html}
-<!-- -->
-```
 -   Bash only evaluates the subscripts of the slice expansion
     (`${x:y:z}`) if the parameter is set (for both nested expansions and
     arithmetic). For ranges, Bash evaluates as little as possible, i.e.,
@@ -954,13 +933,10 @@ Removing the first 6 characters from a text string:
 
 ### Quote Nesting
 
--   In most shells, when dealing with an \"alternate\" parameter
+-   In most shells, when dealing with an "alternate" parameter
     expansion that expands to multiple words, and nesting such
     expansions, not all combinations of nested quoting are possible.
 
-```{=html}
-<!-- -->
-```
     # Bash
      $ typeset -a a=(meh bleh blerg) b
      $ IFS=e
@@ -1007,7 +983,7 @@ Consider the following (only slightly far-fetched) code:
 
     "${someCmd[@]-"$someOtherCmd" arg2 "${otherArgs[@]}"}" arg5
 
-This final line is perhaps not the most obvious, but I\'ve run into
+This final line is perhaps not the most obvious, but I've run into
 cases were this type of logic can be desirable and realistic. We can
 deduce what was intended:
 

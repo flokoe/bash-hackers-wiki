@@ -27,7 +27,7 @@ The `kill` command is a Bash builtin command instead of relying on the
 external `kill` command of the operating system to
 
 -   be able to use shell job specifications instead of Unix process IDs
--   be able to send signals (\"kill something\") also, when your process
+-   be able to send signals ("kill something") also, when your process
     limit is reached
 
 ### Options

@@ -10,22 +10,22 @@ tags:
   - execution
 ---
 
-FIXME work in progress\...
+!!! warning "FIXME"
+    work in progress...
 
 # Parsing and execution
 
 Nearly everything in [Bash grammar](../../syntax/basicgrammar.md) can be broken
-down to a \"simple command\". The only thing Bash has to expand,
+down to a "simple command". The only thing Bash has to expand,
 evaluate and execute is the simple command.
 
 ## Simple command expansion
 
-<div center round info 60%>
+!!! info "info"
 
--   <http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00040.html>
--   <http://lists.research.att.com/pipermail/ast-developers/2013q2/002456.html>
+    - <http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00040.html>
+    - <http://lists.research.att.com/pipermail/ast-developers/2013q2/002456.html>
 
-</div>
 
 This step happens after the initial command line splitting.
 
@@ -82,7 +82,7 @@ The behavior regarding the variable assignment errors can be tested:
 <div center round info
 60%><http://lists.gnu.org/archive/html/bug-bash/2013-01/msg00054.html></div>
 
-**[This one exits the script completely]{.underline}**
+**<u>This one exits the script completely</u>**
 
     #!/bin/sh
     # This shell runs in POSIX mode!
@@ -95,8 +95,8 @@ The behavior regarding the variable assignment errors can be tested:
 
     echo POST
 
-**[This one terminates only the enclosing compound command (the
-`{ ...; }`):]{.underline}**
+<u>**This one terminates only the enclosing compound command (the
+`{ ...; }`):**</u>
 
     #!/bin/bash
     # This shell runs in native Bash-mode!
@@ -126,7 +126,8 @@ or install software packages etc. Since this function runs in a separate
 execution environment, you can't really influence the main shell with
 it (changing directory, setting variables).
 
-FIXME to be continued
+!!! warning "FIXME"
+    to be continued
 
 ## See also
 

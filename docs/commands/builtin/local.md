@@ -30,17 +30,11 @@ way, and takes all the same options, with 3 exceptions:
     have a builtin called `local`, but some such as `dash` and the
     busybox shell do.
 
-```{=html}
-<!-- -->
-```
 -   The behavior of function scope is not defined by POSIX, however
     local variables are implemented widely by bourne-like shells, and
     behavior differs substantially. Even the`dash` shell has local
     variables.
 
-```{=html}
-<!-- -->
-```
 -   In ksh93, using POSIX-style function definitions, `typeset` doesn't
     set `local` variables, but rather acts upon variables of the
     next-outermost scope (e.g. setting attributes). Using `typeset`
@@ -48,8 +42,8 @@ way, and takes all the same options, with 3 exceptions:
     variables follow roughly
     [lexical-scoping](http://community.schemewiki.org/?lexical-scope),
     except that functions themselves don't have scope, just like Bash.
-    This means that even functions defined within a \"function's
-    scope\" don't have access to non-local variables except through
+    This means that even functions defined within a "function's
+    scope" don't have access to non-local variables except through
     `namerefs`.
 
 ## See also

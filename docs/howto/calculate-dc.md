@@ -12,9 +12,9 @@ tags:
 ## Introduction
 
 dc(1) is a non standard, but commonly found, reverse-polish Desk
-Calculator. According to Ken Thompson, \"dc is the oldest language on
+Calculator. According to Ken Thompson, "dc is the oldest language on
 Unix; it was written on the PDP-7 and ported to the PDP-11 before Unix
-\[itself\] was ported\".
+\[itself\] was ported".
 
 Historically the standard bc(1) has been implemented as a *front-end to
 dc*.
@@ -26,15 +26,15 @@ stack first, then an operation is applied to them. Instead of writing
 `1+1`, you write `1 1+`.
 
 By default `dc`, unlike `bc`, doesn't print anything, the result is
-pushed on the stack. You have to use the \"p\" command to print the
+pushed on the stack. You have to use the "p" command to print the
 element at the top of the stack. Thus a simple operation looks like:
 
     $ dc <<< '1 1+pq'
     2
 
-I used a \"here string\" present in bash 3.x, ksh93 and zsh. if your
+I used a "here string" present in bash 3.x, ksh93 and zsh. if your
 shell doesn't support this, you can use `echo '1 1+p' | dc` or if you
-have GNU `dc`, you can use `dc -e '1 1 +p`\'.
+have GNU `dc`, you can use `dc -e '1 1 +p'`.
 
 Of course, you can also just run `dc` and enter the commands.
 
@@ -53,7 +53,7 @@ GNU `dc` adds a couple more.
 To input a negative number you need to use the `_` (underscore)
 character:
 
-    $ dc <<< '1_1-p' 
+    $ dc <<< '1_1-p'
     2
 
 You can use the *digits* `0` to `9` and the *letters* `A` to `F` as
@@ -63,21 +63,21 @@ with lower case characters. A number with a letter is considered
 hexadecimal:
 
     dc <<< 'Ap'
-    10 
+    10
 
 The **output** is converted to **base 10** by default
 
 ## Scale And Base
 
 `dc` is a calulator with abitrary precision, by default this precision
-is 0. thus `dc <<< "5 4/p"` prints \"1\".
+is 0. thus `dc <<< "5 4/p"` prints "1".
 
 We can increase the precision using the `k` command. It pops the value
 at the top of the stack and uses it as the precision argument:
 
     dc <<< '2k5 4/p' # prints 1.25
     dc <<< '4k5 4/p' # prints 1.2500
-    dc <<< '100k 2vp' 
+    dc <<< '100k 2vp'
     1.4142135623730950488016887242096980785696718753769480731766797379907\
     324784621070388503875343276415727
 
@@ -102,7 +102,7 @@ commands, including `i`:
     16i 16o # base is 16 for input and output
     10p # prints 10
     10i # ! set the base to 10 i.e. to 16 decimal
-    17p # prints 17 
+    17p # prints 17
     EOF
 
 This code prints 17 while we might think that `10i` reverts the base
@@ -123,9 +123,6 @@ There are two basic commands to manipulate the stack:
 -   `d` duplicates the top of the stack
 -   `c` clears the stack
 
-```{=html}
-<!-- -->
-```
     $ dc << EOF
     2   # put 2 on the stack
     d   # duplicate i.e. put another 2 on the stack
@@ -228,7 +225,7 @@ we are used to reading:
     EOF
 
 Some `dc` have `>R <R =R`, GNU `dc` had some more, check your manual.
-Note that the test \"consumes\" its operands: the 2 first elements are
+Note that the test "consumes" its operands: the 2 first elements are
 popped off the stack (you can verify that
 `dc <<< "[f]sR 2 1 >R 1 2 >R f"` doesn't print anything)
 
@@ -246,13 +243,13 @@ as `dc` relies on a stack we can, in fact, use the macro recursively
 We have recursivity, we have test, we have loops:
 
     dc << EOF
-    [ li       # put our index i on the stack 
+    [ li       # put our index i on the stack
       p        # print it, to see what's going on
       1 -      # we decrement the index by one
       si       # store decremented index (i=i-1)
      0 li >L   # if i > 0 then execute L
     ] sL       # store our macro with the name L
-     
+
     10 si      # let's give to our index the value 10
     lLx        # and start our loop
     EOF
@@ -260,16 +257,16 @@ We have recursivity, we have test, we have loops:
 Of course code written this way is far too easy to read! Make sure to
 remove all those extra spaces newlines and comments:
 
-    dc <<< '[lip1-si0li>L]sL10silLx' 
+    dc <<< '[lip1-si0li>L]sL10silLx'
     dc <<< '[p1-d0<L]sL10lLx' # use the stack instead of a register
 
-I\'ll let you figure out the second example, it's not hard, it uses the
+I'll let you figure out the second example, it's not hard, it uses the
 stack instead of a register for the index.
 
 ## Next
 
 Check your dc manual, i haven't decribed everything, like arrays (only
-documented with \"; : are used by bc(1) for array operations\" on
+documented with "; : are used by bc(1) for array operations" on
 solaris, probably because *echo \'1 0:a 0Sa 2 0:a La 0;ap\' \| dc*
 results in //Segmentation Fault (core dump) //, the latest solaris uses
 GNU dc)

@@ -42,21 +42,22 @@ from a file).
 
 ### Scope
 
-<note important> Note: According to multiple comments and sources, the
-scope of process substitution file descriptors is **not** stable,
-guaranteed, or specified by bash. Newer versions of bash (5.0+) seem to
-have shorter scope, and substitutions scope seems to be shorter than
-function scope. See
-[stackexchange](https://unix.stackexchange.com/questions/425456/conditional-process-substitution)
-and
-[stackoverflow](https://stackoverflow.com/questions/46660020/bash-what-is-the-scope-of-the-process-substitution);
-the latter discussion contains a script that can test the scoping
-behavior case-by-case </note>
+!!! note "Note"
+    According to multiple comments and sources, the
+    scope of process substitution file descriptors is **not** stable,
+    guaranteed, or specified by bash. Newer versions of bash (5.0+) seem to
+    have shorter scope, and substitutions scope seems to be shorter than
+    function scope. See
+    [stackexchange](https://unix.stackexchange.com/questions/425456/conditional-process-substitution)
+    and
+    [stackoverflow](https://stackoverflow.com/questions/46660020/bash-what-is-the-scope-of-the-process-substitution);
+    the latter discussion contains a script that can test the scoping
+    behavior case-by-case
 
 If a process substitution is expanded as an argument to a function,
 expanded to an environment variable during calling of a function, or
 expanded to any assignment within a function, the process substitution
-will be \"held open\" for use by any command within the function or its
+will be "held open" for use by any command within the function or its
 callees, until the function in which it was set returns. If the same
 variable is set again within a callee, unless the new variable is local,
 the previous process substitution is closed and will be unavailable to
@@ -97,10 +98,11 @@ where those files are written to and destroyed automatically.
 
 ### Avoiding subshells
 
-<WRAP center round info 60%> See Also:
-[BashFAQ/024](http://mywiki.wooledge.org/BashFAQ/024) -- *I set
-variables in a loop that's in a pipeline. Why do they disappear after
-the loop terminates? Or, why can't I pipe data to read?* </WRAP>
+!!! info "See Also"
+    See Also:
+    [BashFAQ/024](http://mywiki.wooledge.org/BashFAQ/024) -- *I set
+    variables in a loop that's in a pipeline. Why do they disappear after
+    the loop terminates? Or, why can't I pipe data to read?*
 
 One of the most common uses for process substitutions is to avoid the
 final subshell that results from executing a pipeline. The following is
@@ -120,7 +122,7 @@ Due to the pipe, the `while read; do ... done` part is executed in a
 subshell (in Bash, by default), which means `counter` is only
 incremented within the subshell. When the pipeline finishes, the
 subshell is terminated, and the `counter` visible to `echo` is still at
-\"0\"!
+"0"!
 
 Process substitution helps us avoid the pipe operator (the reason for
 the subshell):
@@ -149,7 +151,7 @@ note that the space is required in order to disambiguate the syntax from
 ### Process substitution assigned to a parameter
 
 This example demonstrates how process substitutions can be made to
-resemble \"passable\" objects. This results in converting the output of
+resemble "passable" objects. This results in converting the output of
 `f`'s argument to uppercase.
 
 ``` bash

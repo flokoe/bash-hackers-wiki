@@ -17,15 +17,15 @@ The day will come when you want to give arguments to your scripts. These
 arguments are known as **positional parameters**. Some relevant special
 parameters are described below:
 
-  Parameter(s)       Description
-  ------------------ ------------------------------------------------------------------------------------------------------------------------------------
-  `$0`               the first positional parameter, equivalent to `argv[0]` in C, see [the first argument](../scripting/posparams.md#the_first_argument)
-  `$FUNCNAME`        the function name ([**attention**]{.underline}: inside a function, `$0` is still the `$0` of the shell, **not** the function name)
-  `$1 ... $9`        the argument list elements from 1 to 9
-  `${10} ... ${N}`   the argument list elements beyond 9 (note the [parameter expansion](../syntax/pe.md) syntax!)
-  `$*`               all positional parameters except `$0`, see [mass usage](../scripting/posparams.md#mass_usage)
-  `$@`               all positional parameters except `$0`, see [mass usage](../scripting/posparams.md#mass_usage)
-  `$#`               the number of arguments, not counting `$0`
+|Parameter(s)|Description|
+|------------|-----------|
+|`$0`|the first positional parameter, equivalent to `argv[0]` in C, see [the first argument](../scripting/posparams.md#the_first_argument)|
+|`$FUNCNAME`|the function name (<u>**attention**</u>: inside a function, `$0` is still the `$0` of the shell, **not** the function name)|
+|`$1 ... $9`|the argument list elements from 1 to 9|
+|`${10} ... ${N}`|the argument list elements beyond 9 (note the [parameter expansion](../syntax/pe.md) syntax!)|
+|`$*`|all positional parameters except `$0`, see [mass usage](../scripting/posparams.md#mass_usage)|
+|`$@`|all positional parameters except `$0`, see [mass usage](../scripting/posparams.md#mass_usage)|
+|`$#`|the number of arguments, not counting `$0`|
 
 These positional parameters reflect exactly what was given to the script
 when it was called.
@@ -33,8 +33,7 @@ when it was called.
 Option-switch parsing (e.g. `-h` for displaying help) is not performed
 at this point.
 
-See also [the dictionary entry for
-\"parameter\"](../dict/parameter.md).
+See also [the dictionary entry for "parameter"](../dict/parameter.md).
 
 ## The first argument
 
@@ -42,15 +41,15 @@ The very first argument you can access is referenced as `$0`. It is
 usually set to the script's name exactly as called, and it's set on
 shell initialization:
 
-[Testscript]{.underline} - it just echos `$0`:
+<u>Testscript</u> - it just echos `$0`:
 
     #!/bin/bash
     echo "$0"
 
 You see, `$0` is always set to the name the script is called with (`>`
-is the prompt\...):
+is the prompt...):
 
-    > ./testscript 
+    > ./testscript
     ./testscript
 
     > /usr/bin/testscript
@@ -79,7 +78,7 @@ values:
 -   `$1` will be discarded
 -   `$2` will become `$1`
 -   `$3` will become `$2`
--   \...
+-   ...
 -   in general: `$N` will become `$N-1`
 
 The command can take a number as argument: Number of positions to shift.
@@ -139,7 +138,7 @@ a given wordlist. The loop uses the positional parameters as a wordlist:
         echo "$arg"
     done
 
-[Advantage:]{.underline} The positional parameters will be preserved
+<u>Advantage:</u> The positional parameters will be preserved
 
 ------------------------------------------------------------------------
 
@@ -172,7 +171,7 @@ There is a [small tutorial dedicated to
 
 ### All Positional Parameters
 
-Sometimes it's necessary to just \"relay\" or \"pass\" given arguments
+Sometimes it's necessary to just "relay" or "pass" given arguments
 to another program. It's very inefficient to do that in one of these
 loops, as you will destroy integrity, most likely (spaces!).
 
@@ -180,27 +179,27 @@ The shell developers created `$*` and `$@` for this purpose.
 
 As overview:
 
-  Syntax   Effective result
-  -------- -----------------------------
-  `$*`     `$1 $2 $3 ... ${N}`
-  `$@`     `$1 $2 $3 ... ${N}`
-  `"$*"`   `"$1c$2c$3c...c${N}"`
-  `"$@"`   `"$1" "$2" "$3" ... "${N}"`
+|Syntax|Effective result|
+|-------|----------------------------|
+|`$*`|`$1 $2 $3 ... ${N}`|
+|`$@`|`$1 $2 $3 ... ${N}`|
+|`"$*"`|`"$1c$2c$3c...c${N}"`|
+|`"$@"`|`"$1" "$2" "$3" ... "${N}"`|
 
 Without being quoted (double quotes), both have the same effect: All
 positional parameters from `$1` to the last one used are expanded
 without any special handling.
 
 When the `$*` special parameter is double quoted, it expands to the
-equivalent of: `"$1c$2c$3c$4c........$N"`, where \'c\' is the first
+equivalent of: `"$1c$2c$3c$4c........$N"`, where 'c' is the first
 character of `IFS`.
 
 But when the `$@` special parameter is used inside double quotes, it
-expands to the equivanent of\...
+expands to the equivanent of...
 
 `"$1" "$2" "$3" "$4" ..... "$N"`
 
-\...which **reflects all positional parameters as they were set
+...which **reflects all positional parameters as they were set
 initially** and passed to the script or function. If you want to re-use
 your positional parameters to **call another program** (for example in a
 wrapper-script), then this is the choice for you, use double quoted
@@ -234,12 +233,12 @@ reverse starting with the last one.
 `COUNT` may not be negative, i.e. the element count may not be
 decremented.
 
-[**Example:**]{.underline} START at the last positional parameter:
+<u>**Example:**</u> START at the last positional parameter:
 
     echo "${@: -1}"
 
-[**Attention**]{.underline}: As of Bash 4, a `START` of `0` includes the
-special parameter `$0`, i.e. the shell name or whatever \$0 is set to,
+<u>**Attention**</u>: As of Bash 4, a `START` of `0` includes the
+special parameter `$0`, i.e. the shell name or whatever `$0` is set to,
 when the positional parameters are in use. A `START` of `1` begins at
 `$1`. In Bash 3 and older, both `0` and `1` began at `$1`.
 
@@ -247,7 +246,7 @@ when the positional parameters are in use. A `START` of `1` begins at
 
 Setting positional parameters with command line arguments, is not the
 only way to set them. The [builtin command, set](../commands/builtin/set.md)
-may be used to \"artificially\" change the positional parameters from
+may be used to "artificially" change the positional parameters from
 inside the script or function:
 
     set "This is" my new "set of" positional parameters
@@ -260,7 +259,7 @@ inside the script or function:
     # $5: positional
     # $6: parameters
 
-It's wise to signal \"end of options\" when setting positional
+It's wise to signal "end of options" when setting positional
 parameters this way. If not, the dashes might be interpreted as an
 option switch by `set` itself:
 
@@ -273,7 +272,8 @@ flags, which may otherwise be reset by `set`
 
     set -$- ...
 
-FIXME continue
+!!! warning "FIXME"
+    continue
 
 ## Production examples
 
@@ -281,7 +281,7 @@ FIXME continue
 
 To make your program accept options as standard command syntax:
 
-`COMMAND [options] <params>` \# Like \'cat -A file.txt\'
+`COMMAND [options] <params> # Like 'cat -A file.txt'`
 
 See simple option parsing code below. It's not that flexible. It
 doesn't auto-interpret combined options (-fu USER) but it works and is
@@ -343,8 +343,8 @@ a good rudimentary way to parse your arguments.
 This simple wrapper enables filtering unwanted options (here: `-a` and
 `--all` for `ls`) out of the command line. It reads the positional
 parameters and builds a filtered array consisting of them, then calls
-`ls` with the new option set. It also respects the `--` as \"end of
-options\" for `ls` and doesn't change anything after it:
+`ls` with the new option set. It also respects the `--` as "end of
+options" for `ls` and doesn't change anything after it:
 
     #!/bin/bash
 

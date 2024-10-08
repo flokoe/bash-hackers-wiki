@@ -10,12 +10,13 @@ tags:
   - recognition
 ---
 
-# Words\...
+# Words...
 
-FIXME This article needs a review, it covers two topics (command line
-splitting and word splitting) and mixes both a bit too much. But in
-general, it's still usable to help understand this behaviour, it's
-\"wrong but not wrong\".
+!!! warning "FIXME"
+    This article needs a review, it covers two topics (command line
+    splitting and word splitting) and mixes both a bit too much. But in
+    general, it's still usable to help understand this behaviour, it's
+    "wrong but not wrong".
 
 One fundamental principle of Bash is to recognize words entered at the
 command prompt, or under other circumstances like variable-expansion.
@@ -32,7 +33,7 @@ by a space. When you enter an echo command at the Bash prompt, Bash will
 look for those special characters, and use them to separate the
 parameters.
 
-You don't know what I\'m talking about? I\'m talking about this:
+You don't know what I'm talking about? I'm talking about this:
 
     $ echo Hello little world
     Hello little world
@@ -48,9 +49,9 @@ blank characters is treated as a single blank.** Here's an example:
 
 Bash splits the command line at the blanks into words, then it calls
 echo with **each word as an argument**. In this example, echo is called
-with three arguments: \"`Hello`\", \"`little`\" and \"`world`\"!
+with three arguments: "`Hello`", "`little`" and "`world`"!
 
-[Does that mean we can't echo more than one Space?]{.underline} Of
+<u>Does that mean we can't echo more than one Space?</u> Of
 course not! Bash treats blanks as special characters, but there are two
 ways to tell Bash not to treat them special: **Escaping** and
 **quoting**.
@@ -63,9 +64,9 @@ Escaping is done by preceeding the character with a backslash:
     Hello                little                  world
 
 None of the escaped spaces will be used to perform word splitting. Thus,
-echo is called with one argument: \"`Hello little world`\".
+echo is called with one argument: "`Hello little world`".
 
-Bash has a mechanism to \"escape\" an entire string: **Quoting**. In the
+Bash has a mechanism to "escape" an entire string: **Quoting**. In the
 context of command-splitting, which this section is about, it doesn't
 matter which kind of quoting you use: weak quoting or strong quoting,
 both cause Bash to not treat spaces as special characters:
@@ -76,7 +77,7 @@ both cause Bash to not treat spaces as special characters:
     $ echo 'Hello                little                  world'
     Hello                little                  world
 
-[What is it all about now?]{.underline} Well, for example imagine a
+<u>What is it all about now?</u> Well, for example imagine a
 program that expects a filename as an argument, like cat. Filenames can
 have spaces in them:
 
@@ -141,41 +142,37 @@ and the first review is:
 
     echo The file is named $MYFILE
 
-The parser will scan for blanks and mark the relevant words (\"splitting
-the command line\"):
+The parser will scan for blanks and mark the relevant words ("splitting
+the command line"):
 
-  Initial command line splitting:                                        
-  --------------------------------- -------- -------- -------- --------- -----------
-  Word 1                            Word 2   Word 3   Word 4   Word 5    Word 6
-  `echo`                            `The`    `file`   `is`     `named`   `$MYFILE`
+| Initial command line splitting: |        |        |        |         |           |
+|---------------------------------|--------|--------|--------|---------|-----------|
+| Word 1                          | Word 2 | Word 3 | Word 4 | Word 5  | Word 6    |
+| `echo`                          | `The`  | `file` | `is`   | `named` | `$MYFILE` |
 
 A [parameter/variable expansion](../syntax/pe.md) is part of that command
 line, Bash will perform the substitution, and the [word
 splitting](../syntax/expansion/wordsplit.md) on the results:
 
-  Word splitting after substitution:                                                 
-  ------------------------------------ -------- -------- -------- --------- -------- ------------
-  Word 1                               Word 2   Word 3   Word 4   Word 5    Word 6   Word 7
-  `echo`                               `The`    `file`   `is`     `named`   `THE`    `FILE.TXT`
+| Word splitting after substitution: |        |        |        |         |        |            |
+|------------------------------------|--------|--------|--------|---------|--------|------------|
+| Word 1                             | Word 2 | Word 3 | Word 4 | Word 5  | Word 6 | Word 7     |
+| `echo`                             | `The`  | `file` | `is`   | `named` | `THE`  | `FILE.TXT` |
 
 Now let's imagine we quoted `$MYFILE`, the command line now looks like:
 
     echo The file is named "$MYFILE"
 
-  Word splitting after substitution (quoted!):                                        
-  ---------------------------------------------- -------- -------- -------- --------- ----------------
-  Word 1                                         Word 2   Word 3   Word 4   Word 5    Word 6
-  `echo`                                         `The`    `file`   `is`     `named`   `THE FILE.TXT`
+| Word splitting after substitution (quoted!): |        |        |        |         |                |
+|----------------------------------------------|--------|--------|--------|---------|----------------|
+| Word 1                                       | Word 2 | Word 3 | Word 4 | Word 5  | Word 6         |
+| `echo`                                       | `The`  | `file` | `is`   | `named` | `THE FILE.TXT` |
 
-***Bold Text*72i love this world**===== See also =====
+# See also
 
 -   Internal: [Quoting and character escaping](../syntax/quoting.md)
 -   Internal: [Word splitting](../syntax/expansion/wordsplit.md)
 -   Internal: [Introduction to expansions and
     substitutions](../syntax/expansion/intro.md)
-
-```{=html}
-<!-- -->
-```
 -   External: [Grymore:
     Shellquoting](http://www.grymoire.com/Unix/Quote.html)

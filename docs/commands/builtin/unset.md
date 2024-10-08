@@ -12,20 +12,20 @@ unset a variable first, then a function.
 
 ### Options
 
-  Option   Description
-  -------- --------------------------------------------------------------------------------------------------------------
-  `-f`     treats each `NAME` as a function name
-  `-v`     treats each `NAME` as a variable name
-  `-n`     treats each `NAME` as a name reference and unsets the variable itself rather than the variable it references
+|Option|Description|
+|------|-----------|
+|`-f`|treats each `NAME` as a function name|
+|`-v`|treats each `NAME` as a variable name|
+|`-n`|treats each `NAME` as a name reference and unsets the variable itself rather than the variable it references|
 
 ### Exit status
 
-  Status   Reason
-  -------- ----------------------------------------------------
-  0        no error
-  !=0      invalid option
-  !=0      invalid combination of options (`-v` **and** `-f`)
-  !=0      a given `NAME` is read-only
+|Status|Reason|
+|------|------|
+|0|no error|
+|!=0|invalid option|
+|!=0|invalid combination of options (`-v` **and** `-f`)|
+|!=0|a given `NAME` is read-only|
 
 ## Examples
 
@@ -71,8 +71,8 @@ Here's a demonstration of this behavior.
             local -a 'fnames=("${FUNCNAME[@]:1}")'
         fi
 
-        if (( ! ${#fnames[@]} )); then 
-            printf 0 
+        if (( ! ${#fnames[@]} )); then
+            printf 0
             return
         fi
 
@@ -123,7 +123,7 @@ Some things to observe:
 -   `unset2` is only really needed once. We remain 5 levels deep in
     `f`'s for the remaining `unset` calls, which peel away the outer
     layers of `a`'s.
--   Notice that the \"a\" is unset using an ordinary unset command at
+-   Notice that the "a" is unset using an ordinary unset command at
     recursion depth 1, and subsequently calling unset reveals a again in
     the global scope, which has since been modified in a lower scope
     using declare -g.
@@ -133,7 +133,7 @@ Some things to observe:
 -   This doesn't apply to individual array elements. If two local
     arrays of the same name appear in different scopes, the entire array
     of the inner scope needs to be unset before any elements of the
-    outer array become visible. This makes \"unset\" and \"unset2\"
+    outer array become visible. This makes "unset" and "unset2"
     identical for individual array elements, and for arrays as a whole,
     unset and unset2 behave as they do for scalar variables.
 

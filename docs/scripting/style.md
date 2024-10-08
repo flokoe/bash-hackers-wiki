@@ -1,14 +1,15 @@
 # Scripting with style
 
-FIXME continue
+!!! warning "FIXME"
+    continue
 
 These are some coding guidelines that helped me to read and understand
 my own code over the years. They also will help to produce code that
-will be a bit more robust than \"if something breaks, I know how to fix
-it\".
+will be a bit more robust than "if something breaks, I know how to fix
+it".
 
 This is not a bible, of course. But I have seen so much ugly and
-terrible code (not only in shell) during all the years, that I\'m 100%
+terrible code (not only in shell) during all the years, that I'm 100%
 convinced there needs to be *some* code layout and style. No matter
 which one you use, use it throughout your code (at least don't change
 it within the same shellscript file); don't change your code layout
@@ -22,7 +23,7 @@ of course it helps others to read the code.
 Indentation is nothing that technically influences a script, it's only
 for us humans.
 
-I\'m used to seeing/using indentation of *two space characters* (though
+I'm used to seeing/using indentation of *two space characters* (though
 many may prefer 4 spaces, see below in the discussion section):
 
 -   it's easy and fast to type
@@ -32,7 +33,7 @@ many may prefer 4 spaces, see below in the discussion section):
     waste too much space on the line
 
 Speaking of hard-tabs: Avoid them if possible. They only make trouble. I
-can imagine one case where they\'re useful: Indenting
+can imagine one case where they're useful: Indenting
 [here-documents](../syntax/redirection.md#here_documents).
 
 ### Breaking up lines
@@ -40,33 +41,33 @@ can imagine one case where they\'re useful: Indenting
 Whenever you need to break lines of long code, you should follow one of
 these two rules:
 
-[**Indention using command width:**]{.underline}
+<u>**Indention using command width:**</u>
 
     activate some_very_long_option \
              some_other_option
 
-[**Indention using two spaces:**]{.underline}
+<u>**Indention using two spaces:**</u>
 
     activate some_very_long_option \
       some_other_option
 
 Personally, with some exceptions, I prefer the first form because it
-supports the visual impression of \"these belong together\".
+supports the visual impression of "these belong together".
 
 ### Breaking compound commands
 
 [Compound commands](../syntax/ccmd/intro.md) form the structures that make a
 shell script different from a stupid enumeration of commands. Usually
-they contain a kind of \"head\" and a \"body\" that contains command
+they contain a kind of "head" and a "body" that contains command
 lists. This type of compound command is relatively easy to indent.
 
-I\'m used to (not all points apply to all compound commands, just pick
+I'm used to (not all points apply to all compound commands, just pick
 the basic idea):
 
 -   put the introducing keyword and the initial command list or
-    parameters on one line (\"head\")
--   put the \"body-introducing\" keyword on the same line
--   the command list of the \"body\" on separate lines, indented by two
+    parameters on one line ("head")
+-   put the "body-introducing" keyword on the same line
+-   the command list of the "body" on separate lines, indented by two
     spaces
 -   put the closing keyword on a separated line, indented like the
     initial introducing keyword
@@ -82,7 +83,7 @@ What?! Well, here again:
 ##### if/then/elif/else
 
 This construct is a bit special, because it has keywords (`elif`,
-`else`) \"in the middle\". The visually appealing way is to indent them
+`else`) "in the middle". The visually appealing way is to indent them
 like this:
 
     if ...; then
@@ -110,7 +111,7 @@ like this:
 The `case` construct might need a bit more discussion here, since its
 structure is a bit more complex.
 
-In general, every new \"layer\" gets a new indentation level:
+In general, every new "layer" gets a new indentation level:
 
     case $input in
       hello)
@@ -149,13 +150,13 @@ It's - just like in C - the middle ground between smart, efficient and
 readable.
 
 If you need to use a cryptic construct, include a comment that explains
-what your \"monster\" does.
+what your "monster" does.
 
 ### Variable names
 
 Since all reserved variables are `UPPERCASE`, the safest way is to only
 use `lowercase` variable names. This is true for reading user input,
-loop counting variables, etc., \... (in the example: `file`)
+loop counting variables, etc., ... (in the example: `file`)
 
 -   prefer `lowercase` variables
 -   if you use `UPPERCASE` names, **do not use reserved variable names**
@@ -165,9 +166,6 @@ loop counting variables, etc., \... (in the example: `file`)
 -   if you use `UPPERCASE` names, prepend the name with a unique prefix
     (`MY_` in the example below)
 
-```{=html}
-<!-- -->
-```
     #!/bin/bash
 
     # the prefix 'MY_'
@@ -200,7 +198,7 @@ in-code documentation for them.
 
 ### Parameter expansion
 
-Unless you are really sure what you\'re doing, **quote every parameter
+Unless you are really sure what you're doing, **quote every parameter
 expansion**.
 
 There are some cases where this isn't needed from a technical point of
@@ -212,7 +210,7 @@ view, e.g.
 -   variable assignment: `VAR=$WORD`
 
 But quoting these is never a mistake. If you quote every parameter
-expansion, you\'ll be safe.
+expansion, you'll be safe.
 
 If you need to parse a parameter as a list of words, you can't quote,
 of course, e.g.
@@ -252,8 +250,8 @@ should quote the command substitution!
 
 ### Eval
 
-Well, like Greg says: **\"If eval is the answer, surely you are asking
-the wrong question.\"**
+Well, like Greg says: **"If eval is the answer, surely you are asking
+the wrong question."**
 
 Avoid it, unless absolutely neccesary:
 
@@ -262,7 +260,7 @@ Avoid it, unless absolutely neccesary:
 -   if possible, re-think the way your script works, if it seems you
     can't avoid `eval` with your current method
 -   if you really, really, have to use it, then take care, and be sure
-    about what you\'re doing
+    about what you're doing
 
 ## Basic structure
 
@@ -281,8 +279,8 @@ The basic structure of a script simply reads:
 If possible (I know it's not always possible!), use a
 [shebang](../dict/interpreter_directive.md).
 
-Be careful with `/bin/sh`: The argument that \"on Linux `/bin/sh` is
-Bash\" **is a lie** (and technically irrelevant)
+Be careful with `/bin/sh`: The argument that "on Linux `/bin/sh` is
+Bash" **is a lie** (and technically irrelevant)
 
 The shebang serves two purposes for me:
 
@@ -290,16 +288,16 @@ The shebang serves two purposes for me:
     called directly: If you code for Bash, specify `bash`!
 -   it documents the desired interpreter (so: use `bash` when you write
     a Bash-script, use `sh` when you write a general Bourne/POSIX
-    script, \...)
+    script, ...)
 
 ### Configuration variables
 
 I call variables that are meant to be changed by the user
-\"configuration variables\" here.
+"configuration variables" here.
 
 Make them easy to find (directly at the top of the script), give them
 meaningful names and maybe a short comment. As noted above, use
-`UPPERCASE` for them only when you\'re sure about what you\'re doing.
+`UPPERCASE` for them only when you're sure about what you're doing.
 `lowercase` will be the safest.
 
 ### Function definitions
@@ -310,7 +308,7 @@ overview and ensures that all function names are known before they are
 used.
 
 Since a function isn't parsed before it is executed, you usually don't
-have to ensure they\'re in a specific order.
+have to ensure they're in a specific order.
 
 The portable form of the function definition should be used, without the
 `function` keyword (here using the [grouping compound
@@ -336,7 +334,7 @@ begins its work in a potentially broken state.
 ### Availability of commands
 
 If you use external commands that may not be present on the path, or not
-installed, check for their availability, then tell the user they\'re
+installed, check for their availability, then tell the user they're
 missing.
 
 Example:
@@ -370,9 +368,9 @@ means:
 This, **and only this**, will enable the calling component to check the
 operation status of your script.
 
-You know: **\"One of the main causes of the fall of the Roman Empire was
+You know: **"One of the main causes of the fall of the Roman Empire was
 that, lacking zero, they had no way to indicate successful termination
-of their C programs.\"** *-- Robert Firth*
+of their C programs."** *-- Robert Firth*
 
 ## Misc
 
@@ -405,5 +403,5 @@ of their C programs.\"** *-- Robert Firth*
 ### Tooling
 
 -   some of these guidelines, such as indentation, positioning of
-    \"body-introducing\" keywords, and portable function declarations,
+    "body-introducing" keywords, and portable function declarations,
     can be enforced by [shfmt](https://github.com/mvdan/sh)

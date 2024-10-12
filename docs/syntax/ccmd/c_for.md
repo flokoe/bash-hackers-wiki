@@ -20,10 +20,10 @@
 
 The C-style for-loop is a [compound
 command](../../syntax/basicgrammar.md#compound_commands) derived from the
-equivalent ksh88 feature, which is in turn derived from the C \"for\"
+equivalent ksh88 feature, which is in turn derived from the C "for"
 keyword. Its purpose is to provide a convenient way to evaluate
 arithmetic expressions in a loop, plus initialize any required
-arithmetic variables. It is one of the main \"loop with a counter\"
+arithmetic variables. It is one of the main "loop with a counter"
 mechanisms available in the language.
 
 The `((;;))` syntax at the top of the loop is not an ordinary
@@ -103,7 +103,7 @@ functions and local variables for initialization.</div>
 
 ### Simple counter
 
-A simple counter, the loop iterates 101 times (\"0\" to \"100\" are 101
+A simple counter, the loop iterates 101 times ("0" to "100" are 101
 numbers -> 101 runs!), and everytime the variable `x` is set to the
 current value.
 
@@ -111,9 +111,6 @@ current value.
 -   Before every iteration it **checks** if `x ≤ 100`
 -   After every iteration it **changes** `x++`
 
-```{=html}
-<!-- -->
-```
     for ((x = 0 ; x <= 100 ; x++)); do
       echo "Counter: $x"
     done
@@ -131,8 +128,8 @@ will count from 0 to 100, but with a **step of 10**.
 ### Bits analyzer
 
 This example loops through the bit-values of a Byte, beginning from 128,
-ending at 1. If that bit is set in the `testbyte`, it prints \"`1`\",
-else \"`0`\" => it prints the binary representation of the `testbyte`
+ending at 1. If that bit is set in the `testbyte`, it prints "`1`",
+else "`0`" => it prints the binary representation of the `testbyte`
 value (8 bits).
 
     #!/usr/bin/env bash
@@ -161,7 +158,7 @@ value (8 bits).
 
     # vim: set fenc=utf-8 ff=unix ft=sh :
 
-<div hide>
+    <div hide>
 
     testbyte=123
     for (( n = 128 ; n >= 1 ; n /= 2 )); do
@@ -173,11 +170,11 @@ value (8 bits).
     done
     echo
 
-</div>
+    </div>
 
 Why that one begins at 128 (highest value, on the left) and not 1
 (lowest value, on the right)? It's easier to print from left to
-right\...
+right...
 
 We arrive at 128 for `n` through the recursive arithmetic expression
 stored in `x`, which calculates the next-greatest power of 2 after `m`.
@@ -186,7 +183,7 @@ it has a built-in feature for `printf` to print a representation of any
 number in an arbitrary base (up to 64). Very few languages have that
 ability built-in, even things like Python.
 
-### Up, down, up, down\...
+### Up, down, up, down...
 
 This counts up and down from `0` to `${1:-5}`, `${2:-4}` times,
 demonstrating more complicated arithmetic expressions with multiple
@@ -196,7 +193,8 @@ variables.
         printf '%*s\n' "$((n+1))" "$n"
     done
 
-<code> \~ \$ bash <(xclip -o) 1
+``` bash
+~ \$ bash <(xclip -o) 1
 
     2
      3
@@ -216,7 +214,8 @@ variables.
      3
     2
 
-1 </code>
+1
+```
 
 ## Portability considerations
 

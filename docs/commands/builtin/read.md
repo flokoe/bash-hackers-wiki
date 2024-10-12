@@ -8,7 +8,7 @@
 
 ## Description
 
-The `read` builtin reads **one line** of data (text, user input, \...)
+The `read` builtin reads **one line** of data (text, user input, ...)
 from standard input or a supplied filedescriptor number into one or more
 variables named by `<NAME...>`.
 
@@ -50,7 +50,7 @@ line is read). That means the timeout can occur during input, too.
   `-p <PROMPT>`    the prompt string `<PROMPT>` is output (without a trailing automatic newline) before the read is performed
   `-r`             raw input - **disables** interpretion of **backslash escapes** and **line-continuation** in the read data
   `-s`             secure input - don't echo input if on a terminal (passwords!)
-  `-t <TIMEOUT>`   wait for data `<TIMEOUT>` seconds, then quit (exit code 1). Fractional seconds (\"5.33\") are allowed since Bash 4. A value of 0 immediately returns and indicates if data is waiting in the exit code. Timeout is indicated by an exit code greater than 128. If timeout arrives before data is read completely (before end-of-line), the partial data is saved.
+  `-t <TIMEOUT>`   wait for data `<TIMEOUT>` seconds, then quit (exit code 1). Fractional seconds ("5.33") are allowed since Bash 4. A value of 0 immediately returns and indicates if data is waiting in the exit code. Timeout is indicated by an exit code greater than 128. If timeout arrives before data is read completely (before end-of-line), the partial data is saved.
   `-u <FD>`        use the filedescriptor number `<FD>` rather than `stdin` (0)
 
 When both, `-a <ARRAY>` and a variable name `<NAME>` is given, then the
@@ -134,12 +134,12 @@ from a file and print them on the terminal.
       done <"$1"
     }
 
-[**Note:**]{.underline} Here, `read -r` and the default `REPLY` is used,
+<u>**Note:**</u> Here, `read -r` and the default `REPLY` is used,
 because we want to have the real literal line, without any mangeling.
 `printf` is used, because (depending on settings), `echo` may interpret
 some baskslash-escapes or switches (like `-n`).
 
-### Press any key\...
+### Press any key...
 
 Remember the MSDOS `pause` command? Here's something similar:
 
@@ -236,7 +236,7 @@ be different between each field:
 
 ### Ask for a path with a default value
 
-[**Note:**]{.underline} The `-i` option was introduced with Bash 4
+<u>**Note:**</u> The `-i` option was introduced with Bash 4
 
     read -e -p "Enter the path to the file: " -i "/usr/local/etc/" FILEPATH
 

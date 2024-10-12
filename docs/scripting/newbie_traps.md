@@ -17,8 +17,8 @@ Here are some typical traps:
 ### Your perfect Bash script executes with syntax errors
 
 If you write Bash scripts with Bash specific syntax and features, run
-them with [Bash]{.underline}, and run them with Bash in [native
-mode]{.underline}.
+them with <u>Bash</u>, and run them with Bash in <u>native
+mode</u>.
 
 **Wrong**:
 
@@ -36,7 +36,7 @@ See also:
 -   [Bash startup mode: SH mode](../scripting/bashbehaviour.md#sh_mode)
 -   [Bash run mode: POSIX mode](../scripting/bashbehaviour.md#posix_run_mode)
 
-### Your script named \"test\" doesn't execute
+### Your script named "test" doesn't execute
 
 Give it another name. The executable `test` already exists.
 

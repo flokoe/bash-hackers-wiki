@@ -10,7 +10,7 @@ tags:
 
 # Collapsing Functions
 
-## What is a \"Collapsing Function\"?
+## What is a "Collapsing Function"?
 
 A collapsing function is a function whose behavior changes depending
 upon the circumstances under which it's run. Function collapsing is
@@ -21,7 +21,7 @@ never changes.
 
 Function collapsing requires some static feature in the environment. A
 common example is a script that gives the user the option of having
-\"verbose\" output.
+"verbose" output.
 
     #!/bin/bash
 
@@ -49,58 +49,63 @@ common example is a script that gives the user the option of having
 ## How does it work?
 
 The first time you run chatter(), the function redefines itself based on
-the value of verbose. Thereafter, chatter doesn't check \$verbose, it
+the value of verbose. Thereafter, chatter doesn't check `$verbose`, it
 simply is. Further calls to the function reflect its collapsed nature.
 If verbose is unset, chatter will echo nothing, with no extra effort
 from the developer.
 
 ## More examples
 
-FIXME Add more examples!
+!!! warning "FIXME"
+    Add more examples!
 
-    # Somewhat more portable find -executable
-    # FIXME/UNTESTED (I don't have access to all of the different versions of find.)
-    # Usage: find PATH ARGS -- use find like normal, except use -executable instead of
-    # various versions of -perm /+ blah blah and hacks
+```bash
+# Somewhat more portable find -executable
+# FIXME/UNTESTED (I don't have access to all of the different versions of find.)
+# Usage: find PATH ARGS -- use find like normal, except use -executable instead of
+# various versions of -perm /+ blah blah and hacks
+find() {
+  hash find || { echo 'find not found!'; exit 1; }
+  # We can be pretty sure "$0" should be executable.
+  if [[ $(command find "$0" -executable 2> /dev/null) ]]; then
+    unset -f find # We can just use the command find
+  elif [[ $(command find "$0" -perm /u+x 2> /dev/null) ]]; then
     find() {
-      hash find || { echo 'find not found!'; exit 1; }
-      # We can be pretty sure "$0" should be executable.
-      if [[ $(command find "$0" -executable 2> /dev/null) ]]; then
-        unset -f find # We can just use the command find
-      elif [[ $(command find "$0" -perm /u+x 2> /dev/null) ]]; then
-        find() {
-          typeset arg args
-          for arg do
-            [[ $arg = -executable ]] && args+=(-perm /u+x) || args+=("$arg")
-          done
-          command find "${args[@]}"
-        }
-      elif [[ $(command find "$0" -perm +u+x 2> /dev/null) ]]; then
-        find() {
-          typeset arg args
-          for arg do
-            [[ $arg = -executable ]] && args+=(-perm +u+x) || args+=("$arg")
-          done
-          command find "${args[@]}"
-        }
-      else # Last resort
-        find() {
-          typeset arg args
-          for arg do
-            [[ $arg = -executable ]] && args+=(-exec test -x {} \; -print) || args+=("$arg")
-          done
-          command find "${args[@]}"
-        }
-      fi
-      find "$@"
+      typeset arg args
+      for arg do
+        [[ $arg = -executable ]] && args+=(-perm /u+x) || args+=("$arg")
+      done
+      command find "${args[@]}"
     }
+  elif [[ $(command find "$0" -perm +u+x 2> /dev/null) ]]; then
+    find() {
+      typeset arg args
+      for arg do
+        [[ $arg = -executable ]] && args+=(-perm +u+x) || args+=("$arg")
+      done
+      command find "${args[@]}"
+    }
+  else # Last resort
+    find() {
+      typeset arg args
+      for arg do
+        [[ $arg = -executable ]] && args+=(-exec test -x {} \; -print) || args+=("$arg")
+      done
+      command find "${args[@]}"
+    }
+  fi
+  find "$@"
+}
+```
 
-    #!/bin/bash
-    # Using collapsing functions to turn debug messages on/off
+```bash
+#!/bin/bash
+# Using collapsing functions to turn debug messages on/off
 
-    [ "--debug" = "$1" ] && dbg=echo || dbg=:
+[ "--debug" = "$1" ] && dbg=echo || dbg=:
 
 
-    # From now on if you use $dbg instead of echo, you can select if messages will be shown
+# From now on if you use $dbg instead of echo, you can select if messages will be shown
 
-    $dbg "This message will only be displayed if --debug is specified at the command line
+$dbg "This message will only be displayed if --debug is specified at the command line
+```

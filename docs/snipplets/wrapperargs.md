@@ -31,7 +31,7 @@ then this script should generate code that looks like
 you need correct escapes or quotes to not generate shell special
 characters out of normal text (like embedded dollar signs `$`).
 
-**[Solution:]{.underline}**
+**<u>Solution:</u>**
 
 A loop over the own arguments that writes out properly quoted/escaped
 code to the generated script file
@@ -67,7 +67,7 @@ The generated script will look like:
 
     #!/bin/bash
 
-    echo 'fir$t' 'seco "ond"' 'thir'\''d' 
+    echo 'fir$t' 'seco "ond"' 'thir'\''d'
 
 ## Using printf
 
@@ -90,4 +90,4 @@ The generated script will look like:
 
     #!/bin/bash
 
-    echo fir\$t seco\ \"ond\" thir\'d 
+    echo fir\$t seco\ \"ond\" thir\'d

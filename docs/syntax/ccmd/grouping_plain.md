@@ -13,7 +13,7 @@
 The [list](../../syntax/basicgrammar.md#lists) `<LIST>` is simply executed in
 the **current** shell environment. The list must be terminated with a
 **newline** or **semicolon**. For parsing reasons, the curly braces must
-be separated from `<LIST>` by a **semicolon** and **blanks** if they\'re
+be separated from `<LIST>` by a **semicolon** and **blanks** if they're
 in the same line! [^1][^2]
 
 This is known as a **group command**. The return status is the [exit

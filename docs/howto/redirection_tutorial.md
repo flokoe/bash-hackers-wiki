@@ -13,7 +13,7 @@ tags:
 # Illustrated Redirection Tutorial
 
 This tutorial is not a complete guide to redirection, it will not cover
-here docs, here strings, name pipes etc\... I just hope it\'ll help you
+here docs, here strings, name pipes etc... I just hope it'll help you
 to understand what things like `3>&2`, `2>&1` or `1>&3-` do.
 
 # stdin, stdout, stderr
@@ -22,7 +22,7 @@ When Bash starts, normally, 3 file descriptors are opened, `0`, `1` and
 `2` also known as standard input (`stdin`), standard output (`stdout`)
 and standard error (`stderr`).
 
-For example, with Bash running in a Linux terminal emulator, you\'ll
+For example, with Bash running in a Linux terminal emulator, you'll
 see:
 
     # lsof +f g -ap $BASHPID -d 0,1,2
@@ -54,7 +54,7 @@ connected to `/dev/pts/5`.
 
 # Simple Redirections
 
-## Output Redirection \"n> file\"
+## Output Redirection "n&gt; file"
 
 `>` is probably the simplest redirection.
 
@@ -107,7 +107,7 @@ pointing to `file`. The command will then start with:
 What will the command do with this descriptor? It depends. Often
 nothing. We will see later why we might want other file descriptors.
 
-## Input Redirection \"n< file\"
+## Input Redirection "n&lt; file"
 
 When you run a commandusing `command < file`, it changes the file
 descriptor `0` so that it looks like:
@@ -130,7 +130,7 @@ from the console.
 As with `>`, `<` can be used to open a new file descriptor for reading,
 `command 3<file`. Later we will see how this can be useful.
 
-## Pipes \|
+## Pipes |
 
 What does this `|` do? Among other things, it connects the standard
 output of the command on the left to the standard input of the command
@@ -181,8 +181,8 @@ interesting example so we will use `ls /tmp/ doesnotexist 2>&1 | less`
      ---       +--------------+              ---       +--------------+
 
 Why is it called *duplicating*? Because after `2>&1`, we have 2 file
-descriptors pointing to the same file. Take care not to call this \"File
-Descriptor Aliasing\"; if we redirect `stdout` after `2>&1` to a file
+descriptors pointing to the same file. Take care not to call this "File
+Descriptor Aliasing"; if we redirect `stdout` after `2>&1` to a file
 `B`, file descriptor `2` will still be opened on the file `A` where it
 was. This is often misunderstood by people wanting to redirect both
 standard input and standard output to the file. Continue reading for
@@ -223,9 +223,10 @@ Similarly for output file descriptors, writing a line to file descriptor
 `s` will append a line to a file as will writing a line to file
 descriptor `t`.
 
-<note tip>The syntax is somewhat confusing in that you would think
-that the arrow would point in the direction of the copy, but it's
-reversed. So it's `target>&source` effectively.</note>
+!!! info "Tip"
+    The syntax is somewhat confusing in that you would think
+    that the arrow would point in the direction of the copy, but it's
+    reversed. So it's `target>&source` effectively.
 
 So, as a simple example (albeit slightly contrived), is the following:
 
@@ -235,7 +236,7 @@ So, as a simple example (albeit slightly contrived), is the following:
     exec 1>&3         # Copy 3 back into 1
     echo Done         # Output to original stdout
 
-## Order Of Redirection, i.e., \"> file 2>&1\" vs. \"2>&1 >file\"
+## Order Of Redirection, i.e., "`> file 2>&1`" vs. "`2>&1 >file`"
 
 While it doesn't matter where the redirections appears on the command
 line, their order does matter. They are set up from left to right.
@@ -323,7 +324,7 @@ Then it sees our duplication `2>&1`:
 
 And voila, both `1` and `2` are redirected to file.
 
-## Why sed 's/foo/bar/\' file >file Doesn't Work
+## Why sed 's/foo/bar/' file >file Doesn't Work
 
 This is a common error, we want to modify a file using something that
 reads from a file and writes the result to `stdout`. To do this, we
@@ -332,7 +333,7 @@ as we have seen, the redirections are setup before the command is
 actually executed.
 
 So **BEFORE** sed starts, standard output has already been redirected,
-with the additional side effect that, because we used >, \"file\" gets
+with the additional side effect that, because we used >, "file" gets
 truncated. When `sed` starts to read the file, it contains nothing.
 
 ## exec
@@ -447,8 +448,8 @@ it. It's probably better to do something like:
 
     #we don't need 3 any more
 
-I\'ve seen some people using this as a way to discard, say stderr, using
-something like: command 2>&-. Though it might work, I\'m not sure if
+I've seen some people using this as a way to discard, say stderr, using
+something like: command 2>&-. Though it might work, I'm not sure if
 you can expect all applications to behave correctly with a closed
 stderr.
 
@@ -598,11 +599,11 @@ original `stderr`.
 # Syntax
 
 I used to have trouble choosing between `0&<3` `3&>1` `3>&1` `->2`
-`-<&0` `&-<0` `0<&-` etc\... (I think probably because the syntax is
+`-<&0` `&-<0` `0<&-` etc... (I think probably because the syntax is
 more representative of the result, i.e., the redirection, than what is
 done, i.e., opening, closing, or duplicating file descriptors).
 
-If this fits your situation, then maybe the following \"rules\" will
+If this fits your situation, then maybe the following "rules" will
 help you, a redirection is always like the following:
 
      lhs op rhs
@@ -612,18 +613,12 @@ help you, a redirection is always like the following:
         the op is `<` then there is an implicit 0, if it's `>` or `>>`,
         there is an implicit 1.
 
-```{=html}
-<!-- -->
-```
 -   `op` is `<`, `>`, `>>`, `>|`, or `<>`:
     -   `<` if the file decriptor in `lhs` will be read, `>` if it will
         be written, `>>` if data is to be appended to the file, `>|` to
         overwrite an existing file or `<>` if it will be both read and
         written.
 
-```{=html}
-<!-- -->
-```
 -   `rhs` is the thing that the file descriptor will describe:
     -   It can be the name of a file, the place where another descriptor
         goes (`&1`), or, `&-`, which will close the file descriptor.
@@ -638,49 +633,34 @@ The shell is pretty loose about what it considers a valid redirect.
 While opinions probably differ, this author has some (strong)
 recommendations:
 
--   **Always** keep redirections \"tightly grouped\" -- that is, **do
+-   **Always** keep redirections "tightly grouped" -- that is, **do
     not** include whitespace anywhere within the redirection syntax
     except within quotes if required on the RHS (e.g. a filename that
     contains a space). Since shells fundamentally use whitespace to
     delimit fields in general, it is visually much clearer for each
     redirection to be separated by whitespace, but grouped in chunks
     that contain no unnecessary whitespace.
-
-```{=html}
-<!-- -->
-```
 -   **Do** always put a space between each redirection, and between the
-    argument list and the first redirect.
-
-```{=html}
-<!-- -->
-```
 -   **Always** place redirections together at the very end of a command
     after all arguments. Never precede a command with a redirect. Never
-    put a redirect in the middle of the arguments.
-
-```{=html}
-<!-- -->
-```
 -   **Never** use the Csh `&>foo` and `>&foo` shorthand redirects. Use
     the long form `>foo 2>&1`. (see: [obsolete](../scripting/obsolete.md))
 
-```{=html}
-<!-- -->
+```bash
+# Good! This is clearly a simple commmand with two arguments and 4 redirections
+cmd arg1 arg2 <myFile 3<&1 2>/dev/null >&2
+
+# Good!
+{ cmd1 <<<'my input'; cmd2; } >someFile
+
+# Bad. Is the "1" a file descriptor or an argument to cmd? (answer: it's the FD). Is the space after the herestring part of the input data? (answer: No).
+# The redirects are also not delimited in any obvious way.
+cmd 2>& 1 <<< stuff
+
+# Hideously Bad. It's difficult to tell where the redirects are and whether they're even valid redirects.
+# This is in fact one command with one argument, an assignment, and three redirects.
+foo=bar<baz bork<<< blarg>bleh
 ```
-    # Good! This is clearly a simple commmand with two arguments and 4 redirections
-    cmd arg1 arg2 <myFile 3<&1 2>/dev/null >&2
-
-    # Good!
-    { cmd1 <<<'my input'; cmd2; } >someFile
-
-    # Bad. Is the "1" a file descriptor or an argument to cmd? (answer: it's the FD). Is the space after the herestring part of the input data? (answer: No).
-    # The redirects are also not delimited in any obvious way.
-    cmd 2>& 1 <<< stuff
-
-    # Hideously Bad. It's difficult to tell where the redirects are and whether they're even valid redirects.
-    # This is in fact one command with one argument, an assignment, and three redirects.
-    foo=bar<baz bork<<< blarg>bleh
 
 # Conclusion
 
@@ -689,9 +669,9 @@ I hope this tutorial worked for you.
 I lied, I did not explain `1>&3-`, go check the manual ;-)
 
 Thanks to Stéphane Chazelas from whom I stole both the intro and the
-example\....
+example....
 
-The intro is inspired by this introduction, you\'ll find a nice exercise
+The intro is inspired by this introduction, you'll find a nice exercise
 there too:
 
 -    [A Detailed Introduction to I/O and I/O

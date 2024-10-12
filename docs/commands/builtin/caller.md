@@ -8,7 +8,7 @@
 
 The `caller` builtin command is used to print execution frames of
 subroutine calls. Without giving a framenumber, the topmost execution
-frame information is printed (\"who called me\") wile linenumber and
+frame information is printed ("who called me") wile linenumber and
 filename.
 
 When an execution frame number is given (0 - topmost), the linenumber,
@@ -22,10 +22,10 @@ used in a loop (see the examples section below).
 
 The code below defines a function `die` that is used to exit the
 program. It prints a list of execution frames, starting with the topmost
-frame (0). The topmost frame is the \"caller of the die function\", in
-this case function \"f1\".
+frame (0). The topmost frame is the "caller of the die function", in
+this case function "f1".
 
-This way, you can print a \"stack trace\" for debugging or logging
+This way, you can print a "stack trace" for debugging or logging
 purposes.
 
 The code is made very simple, just to show the basic purposes.
@@ -70,9 +70,9 @@ f3
     [Bashdb](http://bashdb.sourceforge.net/) can assist in using some of
     Bash's more advanced debug features.
 -   The Bash manpage and help text specifies that the argument to
-    `caller` is an \"expr\" (whatever that means). Only an integer is
+    `caller` is an "expr" (whatever that means). Only an integer is
     actually allowed, with no special interpretation of an
-    \"expression\" as far as we can tell.
+    "expression" as far as we can tell.
 
 ## Portability considerations
 

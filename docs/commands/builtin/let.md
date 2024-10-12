@@ -10,8 +10,8 @@ The `let` builtin command evaluates each supplied word from left to
 right as an [arithmetic expression](../../syntax/arith_expr.md) and returns an
 exit code according to the truth value of the rightmost expression.
 
--   0 (TRUE) when `arg` evaluated to not 0 (arithmetic \"true\")
--   1 (FALSE) when `arg` evaluated to 0 (arithmetic \"false\")
+-   0 (TRUE) when `arg` evaluated to not 0 (arithmetic "true")
+-   1 (FALSE) when `arg` evaluated to 0 (arithmetic "false")
 
 For this return code mapping, please see [this
 section](../../syntax/arith_expr.md#arithmetic_expressions_and_return_codes).
@@ -50,7 +50,7 @@ used above only to illustrate how this precedence works. </WRAP>
 
 Unlike `((`, being a simple command `let` has its own environment. In
 Bash, built-ins that can set variables process any arithmetic under
-their own environment, which makes the variable effectively \"local\" to
+their own environment, which makes the variable effectively "local" to
 the builtin unless the variable is also set or modified by the builtin.
 This differs in other shells, such as ksh93, where environment
 assignments to regular builtins are always local even if the variable is
@@ -84,7 +84,7 @@ needed.
     choose `let` over `((` expecting it to work in more places.
 -   [expr(1)](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/expr.html#tag_20_42)
     is a command one is likely to come across sooner or later. While it
-    is more \"standard\" than `let`, the above should always be
+    is more "standard" than `let`, the above should always be
     preferred. Both [arithmetic expansion](../../syntax/arith_expr.md)s and the
     `[` test operator are specified by POSIX(r) and satisfy almost all
     of expr's use-cases. Unlike `let`, `expr` cannot assign directly to
@@ -108,4 +108,4 @@ needed.
 -   Internal: [arithmetic evaluation compound
     command](../../syntax/ccmd/arithmetic_eval.md)
 
-[^1]: \...
+[^1]: ...

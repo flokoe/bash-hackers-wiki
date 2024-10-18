@@ -69,12 +69,13 @@ a comment. The shebang is for the operating system, not for the shell.
 Programs that don't ignore such lines, may not work as shebang driven
 interpreters.
 
-<WRAP center round important 60%> <u>**Attention:**</u>When the
-specified interpreter is unavailable or not executable (permissions),
-you usually get a "`bad interpreter`" error message., If you get
-nothing and it fails, check the shebang. Older Bash versions will
-respond with a "`no such file or directory`" error for a nonexistant
-interpreter specified by the shebang. </WRAP>
+!!! WARNING
+    <u>**Attention:**</u>When the
+    specified interpreter is unavailable or not executable (permissions),
+    you usually get a "`bad interpreter`" error message., If you get
+    nothing and it fails, check the shebang. Older Bash versions will
+    respond with a "`no such file or directory`" error for a nonexistant
+    interpreter specified by the shebang.
 
 **Additional note:** When you specify `#!/bin/sh` as shebang and that's
 a link to a Bash, then Bash will run in POSIX(r) mode! See:
@@ -130,16 +131,16 @@ and system-variable names are usually all in UPPERCASE. However, you
 should avoid naming your variables any of the following (incomplete
 list!):
 
-  ---------------- ------------- ---------------- --------------- ------------------ -----------------
-  `BASH`           `BASH_ARGC`   `BASH_ARGV`      `BASH_LINENO`   `BASH_SOURCE`      `BASH_VERSINFO`
-  `BASH_VERSION`   `COLUMNS`     `DIRSTACK`       `DISPLAY`       `EDITOR`           `EUID`
-  `GROUPS`         `HISTFILE`    `HISTFILESIZE`   `HISTSIZE`      `HOME`             `HOSTNAME`
-  `IFS`            `LANG`        `LANGUAGE`       `LC_ALL`        `LINES`            `LOGNAME`
-  `LS_COLORS`      `MACHTYPE`    `MAILCHECK`      `OLDPWD`        `OPTERR`           `OPTIND`
-  `OSTYPE`         `PATH`        `PIPESTATUS`     `PPID`          `PROMPT_COMMAND`   `PS1`
-  `PS2`            `PS4`         `PS3`            `PWD`           `SHELL`            `SHELLOPTS`
-  `SHLVL`          `TERM`        `UID`            `USER`          `USERNAME`         `XAUTHORITY`
-  ---------------- ------------- ---------------- --------------- ------------------ -----------------
+|  |  |  |  |  |  |
+|--|--|--|--|--|--|
+|`BASH`|`BASH_ARGC`|`BASH_ARGV`|`BASH_LINENO`|`BASH_SOURCE`|`BASH_VERSINFO`|
+|`BASH_VERSION`|`COLUMNS`|`DIRSTACK`|`DISPLAY`|`EDITOR`|`EUID`|
+|`GROUPS`|`HISTFILE`|`HISTFILESIZE`|`HISTSIZE`|`HOME`|`HOSTNAME`|
+|`IFS`|`LANG`|`LANGUAGE`|`LC_ALL`|`LINES`|`LOGNAME`|
+|`LS_COLORS`|`MACHTYPE`|`MAILCHECK`|`OLDPWD`|`OPTERR`|`OPTIND`|
+|`OSTYPE`|`PATH`|`PIPESTATUS`|`PPID`|`PROMPT_COMMAND`|`PS1`|
+|`PS2`|`PS4`|`PS3`|`PWD`|`SHELL`|`SHELLOPTS`|
+|`SHLVL`|`TERM`|`UID`|`USER`|`USERNAME`|`XAUTHORITY`|
 
 This list is incomplete. **The safest way is to use all-lowercase
 variable names.**

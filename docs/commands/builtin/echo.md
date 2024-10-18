@@ -16,31 +16,31 @@ if given.
 
 ### Options
 
-  Option   Description
-  -------- ----------------------------------------------------------------------------------------------------------------
-  `-n`     The trailing newline is suppressed.
-  `-e`     Interpretation of the following backslash-escaped characters (below) is enabled.
-  `-E`     Disables the interpretation of these escape characters, even on systems where they are interpreted by default.
+Option|Description|
+------|-----------|
+|`-n`|The trailing newline is suppressed.|
+|`-e`|Interpretation of the following backslash-escaped characters (below) is enabled.|
+|`-E`|Disables the interpretation of these escape characters, even on systems where they are interpreted by default.|
 
 ### Escape sequences
 
-  Escape         Description
-  -------------- ---------------------------------------------------------------------------------------------------------------
-  `\a`           alert (bell)
-  `\b`           backspace
-  `\c`           suppress further output
-  `\e`
-  `\E`           an escape character
-  `\f`           form feed
-  `\n`           new line
-  `\r`           carriage return
-  `\t`           horizontal tab
-  `\v`           vertical tab
-  `\\`           backslash
-  `\0nnn`        the eight-bit character whose value is the octal value nnn (zero to three octal digits)
-  `\xHH`         the eight-bit character whose value is the hexadecimal value HH (one or two hex digits)
-  `\uHHHH`       the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHH (one to four hex digits)
-  `\UHHHHHHHH`   the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHHHHHH (one to eight hex digits)
+|Escape|Description|
+|------|-----------|
+|`\a`|alert (bell)|
+|`\b`|backspace|
+|`\c`|suppress further output|
+|`\e`|
+|`\E`|an escape character|
+|`\f`|form feed|
+|`\n`|new line|
+|`\r`|carriage return|
+|`\t`|horizontal tab|
+|`\v`|vertical tab|
+|`\\`|backslash|
+|`\0nnn`|the eight-bit character whose value is the octal value nnn (zero to three octal digits)|
+|`\xHH`|the eight-bit character whose value is the hexadecimal value HH (one or two hex digits)|
+|`\uHHHH`|the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHH (one to four hex digits)|
+|`\UHHHHHHHH`|the Unicode (ISO/IEC 10646) character whose value is the hexadecimal value HHHHHHHH (one to eight hex digits)|
 
 ## Examples
 

@@ -322,10 +322,10 @@ will try to remove the shortest text matching the pattern, while
 following examples to get the idea (matched text ~~marked striked~~,
 remember it will be removed!):
 
-  Syntax               Result
-  -------------------- ----------------------------------------------------------------------
-  `${MYSTRING#*in}`    ~~Be liberal in~~ what you accept, and conservative in what you send
-  `${MYSTRING##*in}`   ~~Be liberal in what you accept, and conservative in~~ what you send
+|Syntax|Result|
+|------|------|
+|`${MYSTRING#*in}`|~~Be liberal in~~ what you accept, and conservative in what you send|
+|`${MYSTRING##*in}`|~~Be liberal in what you accept, and conservative in~~ what you send|
 
 ### From the end
 
@@ -334,10 +334,10 @@ remember it will be removed!):
 In the second form everything will be the same, except that Bash now
 tries to match the pattern from the end of the string:
 
-  Syntax               Result
-  -------------------- ----------------------------------------------------------------------
-  `${MYSTRING%in*}`    Be liberal in what you accept, and conservative ~~in what you send~~
-  `${MYSTRING%%in*}`   Be liberal ~~in what you accept, and conservative in what you send~~
+|Syntax|Result|
+|------|------|
+|`${MYSTRING%in*}`|Be liberal in what you accept, and conservative ~~in what you send~~|
+|`${MYSTRING%%in*}`|Be liberal ~~in what you accept, and conservative in what you send~~|
 
 The second form nullifies variables that begin with `in`, by working
 from the end.

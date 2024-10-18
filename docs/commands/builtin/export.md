@@ -14,21 +14,21 @@ it.
 
 ### Options
 
-  Option   Description
-  -------- ------------------------------------------------------------------------------------------------------------
-  `-f`     refer to shell functions
-  `-n`     remove the export property from any referenced `NAME`
-  `-p`     print all exported variables, with `-f`, print all exported functions - all in a format re-usable as input
+|Option|Description|
+|------|-----------|
+|`-f`|refer to shell functions|
+|`-n`|remove the export property from any referenced `NAME`|
+|`-p`|print all exported variables, with `-f`, print all exported functions - all in a format re-usable as input|
 
 An argument of `--` disables further option processing.
 
 ### Return status
 
-  Status   Reason
-  -------- ---------------------------
-  0        no error
-  !=0      invalid option
-  !=0      a given `NAME` is invalid
+|Status|Reason|
+|------|------|
+|0|no error|
+|!=0|invalid option|
+|!=0|a given `NAME` is invalid|
 
 ## Examples
 

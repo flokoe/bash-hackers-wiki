@@ -30,54 +30,36 @@ tagged as obsolete.
 Below, `[-+]X` indicates an attribute, use `-X` to set the attribute,
 `+X` to remove it.
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Option    Description
-  --------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `[-+]a`   make NAMEs indexed arrays (removing with `+a` is valid syntax, but leads to an error message)
-
-  `[-+]A`   make NAMEs associative arrays
-
-  `[-+]c`   **Undocumented** convert NAMEs to "capcase" on assignment (makes the first letter upper-case and the rest lower). Requires Bash built with `-DCASEMOD_CAPCASE`
-
-  `-f`      restrict action or display to function names and definitions (removing with `+f` is valid syntax, but leads to an error message)
-
-  `-F`      restrict display to function names only (plus line number and source file when debugging)
-
-  `-g`      create global variables when used in a shell function; otherwise ignored (by default, `declare` declares local scope variables when used in shell functions)
-
-  `[-+]i`   make NAMEs have the "integer" attribute
-
-  `[-+]l`   convert NAMEs to lower case on assignment (makes sure the variable contains only lower case letters)
-
-  `[-+]n`   make NAME a reference to the variable named by its value. Introduced in Bash 4.3-alpha.
-            ''`${!NAME}`'' reveals the reference variable name, VALUE.
-            Use `unset -n NAME` to unset the variable. (`unset -v NAME` unsets the VALUE variable.)
-            Use `[[ -R NAME ]]` to test if NAME has been set to a VALUE, another variable's name.
-
-  `-p`      display the attributes and value of each NAME
-
-  `[-+]r`   make NAMEs readonly (removing with `+r` is valid syntax, but not possible)
-
-  `[-+]t`   make NAMEs have the "trace" attribute (effective only for functions)
-
-  `[-+]u`   convert NAMEs to upper case on assignment (makes sure the variable contains only upper case letters)
-
-  `[-+]x`   make NAMEs exported
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Option|Description|
+|------|-----------|
+|`[-+]a`|make NAMEs indexed arrays (removing with `+a` is valid syntax, but leads to an error message)|
+|`[-+]A`|make NAMEs associative arrays|
+|`[-+]c`|**Undocumented** convert NAMEs to "capcase" on assignment (makes the first letter upper-case and the rest lower). Requires Bash built with `-DCASEMOD_CAPCASE`|
+|`-f`|restrict action or display to function names and definitions (removing with `+f` is valid syntax, but leads to an error message)|
+|`-F`|restrict display to function names only (plus line number and source file when debugging)|
+|`-g`|create global variables when used in a shell function; otherwise ignored (by default, `declare` declares local scope variables when used in shell functions)|
+|`[-+]i`|make NAMEs have the "integer" attribute|
+|`[-+]l`|convert NAMEs to lower case on assignment (makes sure the variable contains only lower case letters)|
+|`[-+]n`|make NAME a reference to the variable named by its value. Introduced in Bash 4.3-alpha. ''`${!NAME}`'' reveals the reference variable name, VALUE. Use `unset -n NAME` to unset the variable. (`unset -v NAME` unsets the VALUE variable.) Use `[[ -R NAME ]]` to test if NAME has been set to a VALUE, another variable's name.|
+|`-p`|display the attributes and value of each NAME|
+|`[-+]r`|make NAMEs readonly (removing with `+r` is valid syntax, but not possible)|
+|`[-+]t`|make NAMEs have the "trace" attribute (effective only for functions)|
+|`[-+]u`|convert NAMEs to upper case on assignment (makes sure the variable contains only upper case letters)|
+|`[-+]x`|make NAMEs exported|
 
 ### Return status
 
-  Status   Reason
-  -------- ----------------------------------------------------------------------------------------
-  0        no error
-  != 0     invalid option
-  != 0     invalid variable name given
-  != 0     attempt to **define** a function using `-f`
-  != 0     assignment to a readonly variable
-  != 0     removing the readonly-attribute from a readonly variable
-  != 0     assignment to an array variable without the compound assignment syntax (`array=(...)`)
-  != 0     attempt to use `+a` to "destroy" an array
-  != 0     attemt to display a non-existent function with `-f`
+|Status|Reason|
+|------|------|
+|0|no error|
+|!= 0|invalid option|
+|!= 0|invalid variable name given|
+|!= 0|attempt to **define** a function using `-f`|
+|!= 0|assignment to a readonly variable|
+|!= 0|removing the readonly-attribute from a readonly variable|
+|!= 0|assignment to an array variable without the compound assignment syntax (`array=(...)`)|
+|!= 0|attempt to use `+a` to "destroy" an array|
+|!= 0|attemt to display a non-existent function with `-f`|
 
 ## Notes
 

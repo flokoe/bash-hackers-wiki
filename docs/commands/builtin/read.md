@@ -39,19 +39,19 @@ line is read). That means the timeout can occur during input, too.
 
 ### Options
 
-  Option           Description
-  ---------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `-a <ARRAY>`     read the data word-wise into the specified array `<ARRAY>` instead of normal variables
-  `-d <DELIM>`     recognize `<DELIM>` as data-end, rather than `<newline>`
-  `-e`             on interactive shells: use Bash's readline interface to read the data. Since version 5.1-alpha, this can also be used on specified file descriptors using `-u`
-  `-i <STRING>`    preloads the input buffer with text from `<STRING>`, only works when Readline (`-e`) is used
-  `-n <NCHARS>`    reads `<NCHARS>` characters of input, then quits
-  `-N <NCHARS>`    reads `<NCHARS>` characters of input, *ignoring any delimiter*, then quits
-  `-p <PROMPT>`    the prompt string `<PROMPT>` is output (without a trailing automatic newline) before the read is performed
-  `-r`             raw input - **disables** interpretion of **backslash escapes** and **line-continuation** in the read data
-  `-s`             secure input - don't echo input if on a terminal (passwords!)
-  `-t <TIMEOUT>`   wait for data `<TIMEOUT>` seconds, then quit (exit code 1). Fractional seconds ("5.33") are allowed since Bash 4. A value of 0 immediately returns and indicates if data is waiting in the exit code. Timeout is indicated by an exit code greater than 128. If timeout arrives before data is read completely (before end-of-line), the partial data is saved.
-  `-u <FD>`        use the filedescriptor number `<FD>` rather than `stdin` (0)
+|Option|Description|
+|------|-----------|
+|`-a <ARRAY>`|read the data word-wise into the specified array `<ARRAY>` instead of normal variables|
+|`-d <DELIM>`|recognize `<DELIM>` as data-end, rather than `<newline>`|
+|`-e`|on interactive shells: use Bash's readline interface to read the data. Since version 5.1-alpha, this can also be used on specified file descriptors using `-u`|
+|`-i <STRING>`|preloads the input buffer with text from `<STRING>`, only works when Readline (`-e`) is used|
+|`-n <NCHARS>`|reads `<NCHARS>` characters of input, then quits|
+|`-N <NCHARS>`|reads `<NCHARS>` characters of input, *ignoring any delimiter*, then quits|
+|`-p <PROMPT>`|the prompt string `<PROMPT>` is output (without a trailing automatic newline) before the read is performed|
+|`-r`|raw input - **disables** interpretion of **backslash escapes** and **line-continuation** in the read data|
+|`-s`|secure input - don't echo input if on a terminal (passwords!)|
+|`-t <TIMEOUT>`|wait for data `<TIMEOUT>` seconds, then quit (exit code 1). Fractional seconds ("5.33") are allowed since Bash 4. A value of 0 immediately returns and indicates if data is waiting in the exit code. Timeout is indicated by an exit code greater than 128. If timeout arrives before data is read completely (before end-of-line), the partial data is saved.|
+|`-u <FD>`|use the filedescriptor number `<FD>` rather than `stdin` (0)|
 
 When both, `-a <ARRAY>` and a variable name `<NAME>` is given, then the
 array is set, but not the variable.
@@ -61,38 +61,35 @@ Of course it's valid to set individual array elements without using
 
     read MYARRAY[5]
 
-<WRAP center round important 90%>
+!!! WARNING
+    Reading into array elements using the syntax above **may cause [pathname
+    expansion](../../syntax/expansion/globs.md) to occur**.
 
-Reading into array elements using the syntax above **may cause [pathname
-expansion](../../syntax/expansion/globs.md) to occur**.
+    Example: You are in a directory with a file named `x1`, and you want to
+    read into an array `x`, index `1` with
 
-Example: You are in a directory with a file named `x1`, and you want to
-read into an array `x`, index `1` with
+        read x[1]
 
-    read x[1]
+    then pathname expansion will expand to the filename `x1` and break your
+    processing!
 
-then pathname expansion will expand to the filename `x1` and break your
-processing!
+    Even worse, if `nullglob` is set, your array/index will disappear.
 
-Even worse, if `nullglob` is set, your array/index will disappear.
+    To avoid this, either **disable pathname expansion** or **quote** the
+    array name and index:
 
-To avoid this, either **disable pathname expansion** or **quote** the
-array name and index:
-
-    read 'x[1]'
-
-</WRAP>
+        read 'x[1]'
 
 ### Return status
 
-  Status   Reason
-  -------- ---------------------------------------------------
-  0        no error
-  0        error when assigning to a read-only variable [^1]
-  2        invalid option
-  >128    timeout (see `-t`)
-  !=0      invalid filedescriptor supplied to `-u`
-  !=0      end-of-file reached
+|Status|Reason|
+|------|------|
+|0|no error|
+|0|error when assigning to a read-only variable [^1]|
+|2|invalid option|
+|>128|timeout (see `-t`)|
+|!=0|invalid filedescriptor supplied to `-u`|
+|!=0|end-of-file reached|
 
 ### read without -r
 

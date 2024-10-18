@@ -17,11 +17,11 @@ shell without executing any program.
 
 ### Options
 
-  Option      Description
-  ----------- ----------------------------------------------------------------------------------------------------------------------
-  `-a NAME`   Passes `NAME` as zeroth argument for the program to be executed
-  `-c`        Execute the program with an empty (cleared) environment
-  `-l`        Prepends a dash (`-`) to the zeroth argument of the program to be executed, similar to what the `login` program does
+|Option|Description|
+|------|-----------|
+|`-a NAME`|Passes `NAME` as zeroth argument for the program to be executed|
+|`-c`|Execute the program with an empty (cleared) environment|
+|`-l`|Prepends a dash (`-`) to the zeroth argument of the program to be executed, similar to what the `login` program does|
 
 ### Exit status
 

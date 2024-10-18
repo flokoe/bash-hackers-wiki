@@ -89,37 +89,23 @@ terminals.
 
 ### Cursor handling
 
-  -------------------------------------------------------------------------------------------------------------------------------
-  ANSI                                      terminfo equivalent   Description
-  ----------------------------------------- --------------------- ---------------------------------------------------------------
-  `[ <X> ; <Y> H`\                          `cup <X> <Y>`         Home-positioning to `X` and `Y` coordinates\
-  `[ <X> ; <Y> f`                                                 :!: it seems that ANSI uses 1-1 as home while `tput` uses 0-0
-
-  `[ H`                                     `home`                Move cursor to home position (0-0)
-
-  `7`                                       `sc`                  Save current cursor position
-
-  `8`                                       `rc`                  Restore saved cursor position
-
-  :?: most likely a normal code like `\b`   `cub1`                move left one space (backspace)
-
-  VT100 `[ ? 25 l`                          `civis`               make cursor invisible
-
-  VT100 `[ ? 25 h`                          `cvvis`               make cursor visible
-  -------------------------------------------------------------------------------------------------------------------------------
+|ANSI                                    | terminfo equivalent | Description |
+|----------------------------------------|---------------------|-------------|
+|`[ <X> ; <Y> H`<br>`[ <X> ; <Y> f`|`cup <X> <Y>`|Home-positioning to `X` and `Y` coordinates<br>:!: it seems that ANSI uses 1-1 as home while `tput` uses 0-0|
+|`[ H`|`home`|Move cursor to home position (0-0)|
+|`7`|`sc`|Save current cursor position|
+|`8`|`rc`|Restore saved cursor position|
+|:?: most likely a normal code like `\b`|`cub1`|move left one space (backspace)|
+|VT100 `[ ? 25 l`|`civis`|make cursor invisible|
+|VT100 `[ ? 25 h`|`cvvis`|make cursor visible|
 
 ### Erasing text
 
-  ------------------------------------------------------------------------------------------------
-  ANSI      terminfo equivalent   Description
-  --------- --------------------- ----------------------------------------------------------------
-  `[ K`\    `el`                  **Clear line** from current cursor position **to end** of line
-  `[ 0 K`
-
-  `[ 1 K`   `el1`                 **Clear line from beginning** to current cursor position
-
-  `[ 2 K`   `el2`:?:              **Clear whole line** (cursor position unchanged)
-  ------------------------------------------------------------------------------------------------
+|ANSI     |terminfo equivalent  |Description|
+|---------|---------------------|-----------|
+|`[ K`<br>`[ 0 K`|`el`|**Clear line** from current cursor position **to end** of line|
+|`[ 1 K`|`el1`|**Clear line from beginning** to current cursor position|
+|`[ 2 K`|`el2` :?:|**Clear whole line** (cursor position unchanged)|
 
 ### General text attributes
 
@@ -133,6 +119,7 @@ terminals.
 |`[ 5 m`|`blink`|Set "blink" attribute|
 |`[ 7 m`|`rev`|Set "reverse" attribute|
 |`[ 8 m`|`invis`|Set "hidden" attribute|
+
 ### Foreground coloring
 
 |ANSI|terminfo equivalent|Description|

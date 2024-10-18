@@ -32,22 +32,22 @@ external `kill` command of the operating system to
 
 ### Options
 
-  Option              Description
-  ------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `-s SIGNAL`         specifies the signal to send
-  `-n SIGNALNUMBER`   specifies the signal to send
-  `-SIGNAL`           specifies the signal to send
-  `-l [SIGNAL...]`    Lists supported/known signal numbers and their symbolic name. If `SIGNAL` is given, only list this signal, translated (if a number is given the symbolic name is printed, and vice versa)
-  `-L [SIGNAL...]`    Same as `-l [SIGNAL]` (compatiblity option)
+|Option|Description|
+|------|-----------|
+|`-s SIGNAL`|specifies the signal to send|
+|`-n SIGNALNUMBER`|specifies the signal to send|
+|`-SIGNAL`|specifies the signal to send|
+|`-l [SIGNAL...]`|Lists supported/known signal numbers and their symbolic name. If `SIGNAL` is given, only list this signal, translated (if a number is given the symbolic name is printed, and vice versa)|
+|`-L [SIGNAL...]`|Same as `-l [SIGNAL]` (compatiblity option)|
 
 ### Return status
 
-  Status   Reason
-  -------- -----------------------------------------------------------------------------------------------------
-  0        no error/success
-  !=0      invalid option
-  !=0      invalid signal specification
-  !=0      error returned by the system function (e.g. insufficient permissions to send to a specific process)
+|Status|Reason|
+|------|------|
+|0|no error/success|
+|!=0|invalid option|
+|!=0|invalid signal specification|
+|!=0|error returned by the system function (e.g. insufficient permissions to send to a specific process)|
 
 ## Examples
 

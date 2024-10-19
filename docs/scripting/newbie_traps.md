@@ -116,7 +116,7 @@ for example
 When you need the **content** of a variable, you prefix its name with
 **a dollar-sign**, like
 
--   echo \"The used picture is: \$picture\"
+    echo "The used picture is: $picture"
 
 #### Whitespace
 

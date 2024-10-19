@@ -61,8 +61,9 @@ they are succesfully locked, and can operate without colliding. Setting
 the timestamp is similar: One step to check the timespamp, a second step
 to set the timestamp.
 
-<WRAP center round tip 60%> <u>**Conclusion:**</u> We need an
-operation that does the check and the locking in one step. </WRAP>
+!!! NOTE ""
+    <u>**Conclusion:**</u> We need an
+    operation that does the check and the locking in one step.
 
 A simple way to get that is to create a **lock directory** - with the
 mkdir command. It will:

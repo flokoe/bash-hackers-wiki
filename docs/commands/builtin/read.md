@@ -20,17 +20,16 @@ If `<NAME...>` is given, the line is word-split using
 `<NAME>`. The remaining words are all assigned to the last `<NAME>` if
 more words than variable names are present.
 
-<WRAP center round info 90%> If no `<NAME>` is given, the whole line
-read (without performing word-splitting!) is assigned to the shell
-variable [REPLY](../../syntax/shellvars.md#REPLY). Then, `REPLY` really contains
-the line as it was read, without stripping pre- and postfix spaces and
-other things!
+!!! INFO
+    If no `<NAME>` is given, the whole line
+    read (without performing word-splitting!) is assigned to the shell
+    variable [REPLY](../../syntax/shellvars.md#REPLY). Then, `REPLY` really contains
+    the line as it was read, without stripping pre- and postfix spaces and
+    other things!
 
-    while read -r; do
-      printf '"%s"\n' "$REPLY"
-    done <<<"  a line with prefix and postfix space  "
-
-</WRAP>
+        while read -r; do
+          printf '"%s"\n' "$REPLY"
+        done <<<"  a line with prefix and postfix space  "
 
 If a timeout is given, or if the shell variable
 [TMOUT](../../syntax/shellvars.md#TMOUT) is set, it is counted from initially

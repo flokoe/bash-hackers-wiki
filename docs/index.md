@@ -85,7 +85,7 @@ Doing specific tasks: concepts, methods, ideas:
 | ------------------------------------------------ | ---------------------------------------------------------------- |
 | **Grouping**                                     |                                                                  |
 | `{ ...; }`                                       | [command grouping](syntax/ccmd/grouping_plain.md)                  |
-| `( ... .md)`                                        | [command grouping in a subshell](syntax/ccmd/grouping_subshell.md) |
+| `( ... )`                                        | [command grouping in a subshell](syntax/ccmd/grouping_subshell.md) |
 | **Conditionals**                                 |                                                                  |
 | `[[ ... ]]`                                      | [conditional expression](syntax/ccmd/conditional_expression.md)    |
 | `if ...; then ...; fi`                           | [conditional branching](syntax/ccmd/if_clause.md)                  |

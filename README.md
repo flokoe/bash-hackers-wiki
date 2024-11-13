@@ -11,7 +11,7 @@ To edit and develop locally install the following packages and run the built in 
 ```bash
 python3 -m venv env
 source env/bin/activate
-pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-awesome-pages-plugin mkdocs-minify-plugin
+pip install -r requirements.txt
 mkdocs serve
 ```
 

@@ -116,7 +116,7 @@ for example
 When you need the **content** of a variable, you prefix its name with
 **a dollar-sign**, like
 
--   echo \"The used picture is: \$picture\"
+    echo "The used picture is: $picture"
 
 #### Whitespace
 
@@ -154,12 +154,12 @@ Let's define an example variable containing text with spaces:
 
     example="Hello world"
 
-  Used form      result          number of words
-  -------------- --------------- -----------------
-  `$example`     `Hello world`   2
-  `"$example"`   `Hello world`   1
-  `\$example`    `$example`      1
-  `'$example'`   `$example`      1
+|Used form|result|number of words|
+|---------|------|---------------|
+|`$example`|`Hello world`|2|
+|`"$example"`|`Hello world`|1|
+|`\$example`|`$example`|1|
+|`'$example'`|`$example`|1|
 
 If you use parameter expansion, you **must** use the **name** (`PATH`)
 of the referenced variables/parameters. i.e. **not** (`$PATH`):

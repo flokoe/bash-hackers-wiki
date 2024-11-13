@@ -26,11 +26,11 @@ is given or the shell is configured to do so (see the `-P` option of
 
 ### Options
 
-  Option   Description
-  -------- ----------------------------------------------------
-  `-L`     Follow symbolic links (default)
-  `-P`     Do not follow symbolic links
-  `-@`     Browse a file's extended attributed, if supported
+|Option|Description|
+|------|-----------|
+|`-L`|Follow symbolic links (default)|
+|`-P`|Do not follow symbolic links|
+|`-@`|Browse a file's extended attributed, if supported|
 
 ### Exit status
 

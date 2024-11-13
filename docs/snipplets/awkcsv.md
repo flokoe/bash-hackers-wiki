@@ -1,9 +1,10 @@
+---
+tags:
+  - awk
+  - csv
+---
+
 # Using `awk` to deal with CSV that uses quoted/unquoted delimiters
-
----- dataentry snipplet ---- snipplet_tags : awk, csv
-LastUpdate_dt : 2010-07-31 Contributors : SiegX (IRC) type : snipplet
-
-------------------------------------------------------------------------
 
 CSV files are a mess, yes.
 
@@ -21,11 +22,11 @@ Solution: Use the field separator `", "|^"|"$` for `awk`.
 
 This is an OR-ed list of 3 possible separators:
 
-  -------- -----------------------------------------------
-  `", "`   matches the area between the datafields
-  `^"`     matches the area left of the first datafield
-  `"$`     matches the area right of the last data field
-  -------- -----------------------------------------------
+|        |                                              |
+|--------|----------------------------------------------|
+|`", "`  | matches the area between the datafields|
+|`^"`    | matches the area left of the first datafield|
+|`"$`    | matches the area right of the last data field|
 
 You can tune these delimiters if you have other needs (for example if
 you don't have a space after the commas).

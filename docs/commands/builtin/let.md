@@ -41,12 +41,13 @@ command](../../syntax/ccmd/arithmetic_eval.md):
     $ echo "$a - $b - $?"
     4 - 2 - 0
 
-<WRAP info> Remember that inside arithmetic evaluation contexts, all
-other expansions are processed as usual (from left-to-right), and the
-resulting text is evaluated as an arithmetic expression. Arithmetic
-already has a way to control precedence using parentheses, so it's very
-rare to need to nest arithmetic expansions within one another. It's
-used above only to illustrate how this precedence works. </WRAP>
+!!! INFO ""
+    Remember that inside arithmetic evaluation contexts, all
+    other expansions are processed as usual (from left-to-right), and the
+    resulting text is evaluated as an arithmetic expression. Arithmetic
+    already has a way to control precedence using parentheses, so it's very
+    rare to need to nest arithmetic expansions within one another. It's
+    used above only to illustrate how this precedence works.
 
 Unlike `((`, being a simple command `let` has its own environment. In
 Bash, built-ins that can set variables process any arithmetic under

@@ -52,47 +52,47 @@ For a more technical view what a parameter is and which types exist,
 
 Looking for a specific syntax you saw, without knowing the name?
 
--   [Simple usage](#simple_usage)
+-   [Simple usage](#simple-usage)
     -   `$PARAMETER`
     -   `${PARAMETER}`
 -   [Indirection](#indirection)
     -   `${!PARAMETER}`
--   [Case modification](#case_modification)
+-   [Case modification](#case-modification)
     -   `${PARAMETER^}`
     -   `${PARAMETER^^}`
     -   `${PARAMETER,}`
     -   `${PARAMETER,,}`
     -   `${PARAMETER~}`
     -   `${PARAMETER~~}`
--   [Variable name expansion](#variable_name_expansion)
+-   [Variable name expansion](#variable-name-expansion)
     -   `${!PREFIX*}`
     -   `${!PREFIX@}`
--   [Substring removal](#substring_removal) (also for **filename
+-   [Substring removal](#substring-removal) (also for **filename
     manipulation**!)
     -   `${PARAMETER#PATTERN}`
     -   `${PARAMETER##PATTERN}`
     -   `${PARAMETER%PATTERN}`
     -   `${PARAMETER%%PATTERN}`
--   [Search and replace](#search_and_replace)
+-   [Search and replace](#search-and-replace)
     -   `${PARAMETER/PATTERN/STRING}`
     -   `${PARAMETER//PATTERN/STRING}`
     -   `${PARAMETER/PATTERN}`
     -   `${PARAMETER//PATTERN}`
--   [String length](#string_length)
+-   [String length](#string-length)
     -   `${#PARAMETER}`
--   [Substring expansion](#substring_expansion)
+-   [Substring expansion](#substring-expansion)
     -   `${PARAMETER:OFFSET}`
     -   `${PARAMETER:OFFSET:LENGTH}`
--   [Use a default value](#use_a_default_value)
+-   [Use a default value](#use-a-default-value)
     -   `${PARAMETER:-WORD}`
     -   `${PARAMETER-WORD}`
--   [Assign a default value](#assign_a_default_value)
+-   [Assign a default value](#assign-a-default-value)
     -   `${PARAMETER:=WORD}`
     -   `${PARAMETER=WORD}`
--   [Use an alternate value](#use_an_alternate_value)
+-   [Use an alternate value](#use-an-alternate-value)
     -   `${PARAMETER:+WORD}`
     -   `${PARAMETER+WORD}`
--   [Display error if null or unset](#display_error_if_null_or_unset)
+-   [Display error if null or unset](#display-error-if-null-or-unset)
     -   `${PARAMETER:?WORD}`
     -   `${PARAMETER?WORD}`
 
@@ -226,14 +226,11 @@ The `^` operator modifies the first character to uppercase, the `,`
 operator to lowercase. When using the double-form (`^^` and `,,`), all
 characters are converted.
 
-<wrap center round info 60%>
-
-The (**currently undocumented**) operators `~` and `~~` reverse the case
-of the given text (in `PARAMETER`).`~` reverses the case of first letter
-of words in the variable while `~~` reverses case for all. Thanks to
-`Bushmills` and `geirha` on the Freenode IRC channel for this finding.
-
-</wrap>
+!!! INFO
+    The (**currently undocumented**) operators `~` and `~~` reverse the case
+    of the given text (in `PARAMETER`).`~` reverses the case of first letter
+    of words in the variable while `~~` reverses case for all. Thanks to
+    `Bushmills` and `geirha` on the Freenode IRC channel for this finding.
 
 <u>**Example: Rename all `*.txt` filenames to lowercase**</u>
 
@@ -270,9 +267,8 @@ Assume: `array=(This is some Text)`
     -   => `This Is Some Text`
 -   `echo "${array[@]^^}"`
     -   => `THIS IS SOME TEXT`
-
-     * ''echo "${array[2]^^}"''
-       * => ''SOME''
+-   `echo "${array[2]^^}"`
+    -   => `SOME`
 
 ## Variable name expansion
 
@@ -322,10 +318,10 @@ will try to remove the shortest text matching the pattern, while
 following examples to get the idea (matched text ~~marked striked~~,
 remember it will be removed!):
 
-  Syntax               Result
-  -------------------- ----------------------------------------------------------------------
-  `${MYSTRING#*in}`    ~~Be liberal in~~ what you accept, and conservative in what you send
-  `${MYSTRING##*in}`   ~~Be liberal in what you accept, and conservative in~~ what you send
+|Syntax|Result|
+|------|------|
+|`${MYSTRING#*in}`|~~Be liberal in~~ what you accept, and conservative in what you send|
+|`${MYSTRING##*in}`|~~Be liberal in what you accept, and conservative in~~ what you send|
 
 ### From the end
 
@@ -334,10 +330,10 @@ remember it will be removed!):
 In the second form everything will be the same, except that Bash now
 tries to match the pattern from the end of the string:
 
-  Syntax               Result
-  -------------------- ----------------------------------------------------------------------
-  `${MYSTRING%in*}`    Be liberal in what you accept, and conservative ~~in what you send~~
-  `${MYSTRING%%in*}`   Be liberal ~~in what you accept, and conservative in what you send~~
+|Syntax|Result|
+|------|------|
+|`${MYSTRING%in*}`|Be liberal in what you accept, and conservative ~~in what you send~~|
+|`${MYSTRING%%in*}`|Be liberal ~~in what you accept, and conservative in what you send~~|
 
 The second form nullifies variables that begin with `in`, by working
 from the end.
@@ -351,16 +347,16 @@ filename**. Just look at the following list with examples:
 
 -   **Get name without extension**
     -   `${FILENAME%.*}`
-    -   => `bash_hackers.txt`
+    -   => <code>bash_hackers<del>.txt</del></code>
 -   **Get extension**
     -   `${FILENAME##*.}`
-    -   => `bash_hackers.txt`
+    -   => <code><del>bash_hackers.</del>txt</code>
 -   **Get directory name**
     -   `${PATHNAME%/*}`
-    -   => `/home/bash/bash_hackers.txt`
+    -   => <code>/home/bash<del>/bash_hackers.txt</del></code>
 -   **Get filename**
     -   `${PATHNAME##*/}`
-    -   => `/home/bash/bash_hackers.txt`
+    -   => <code><del>/home/bash/</del>bash_hackers.txt</code>
 
 These are the syntaxes for filenames with a single extension. Depending
 on your needs, you might need to adjust shortest/longest match.
@@ -413,7 +409,7 @@ example string:
     ${MYSTRING//conservative/happy}
 
 =>
-`Be liberal in what you accept, and conservativehappy in what you send`
+<code>Be liberal in what you accept, and <del>conservative</del>happy in what you send</code>
 
 Since there is only one "conservative" in that example, it really
 doesn't matter which of the two forms we use.
@@ -425,14 +421,14 @@ but let's substitute it with "by".
 
     ${MYSTRING/in/by}
 
-=> `Be liberal inby what you accept, and conservative in what you send`
+<code>Be liberal <del>in</del>by what you accept, and conservative by what you send</code>
 
 <u>**Second form: Substitute all occurrences**</u>
 
     ${MYSTRING//in/by}
 
 =>
-`Be liberal inby what you accept, and conservative inby what you send`
+<code>Be liberal <del>in</del>by what you accept, and conservative <del>in</del>by what you send</code>
 
 <u>**Anchoring**</u> Additionally you can "anchor" an
 expression: A `#` (hashmark) will indicate that your expression is
@@ -536,7 +532,7 @@ that the offset 0 is the first character:
     echo ${MYSTRING:35}
 
 =>
-`<del>Be liberal in what you accept, and </del>conservative in what you send`
+<code><del>Be liberal in what you accept, and </del>conservative in what you send</code>
 
 ### Using Offset and Length
 
@@ -545,7 +541,7 @@ In the second form we also give a length value:
     echo ${MYSTRING:35:12}
 
 =>
-`<del>Be liberal in what you accept, and </del>conservative<del> in what you send</del>`
+<code><del>Be liberal in what you accept, and </del>conservative<del> in what you send</del></code>
 
 ### Negative Offset Value
 
@@ -570,7 +566,7 @@ then:
     echo "${MYSTRING:11:-17}"
 
 =>
-`<del>Be liberal </del>in what you accept, and conservative<del> in what you send</del>`
+<code><del>Be liberal </del>in what you accept, and conservative<del> in what you send</del></code>
 
 This works since Bash 4.2-alpha, see also
 [bashchanges](../scripting/bashchanges.md).
@@ -823,9 +819,11 @@ Removing the first 6 characters from a text string:
     parameters plus the adjacent expansion are concatenated into a
     single argument. As a workaround, each expansion needs to be quoted
     separately. Unfortunately, this bug took a very long time to
-    notice.`~ $ set -- a b c; x=foo; printf '<%s> ' "$@$x" "$*""$x" "$@""$x"
+    notice.
+   ```
+   ~ $ set -- a b c; x=foo; printf '<%s> ' "$@$x" "$*""$x" "$@""$x"
     <a b cfoo> <a b cfoo> <a> <b> <cfoo>
-    `
+    ```
 
 -   Almost all shells disagree about the treatment of an unquoted `$@`,
     `${arr[@]}`, `$*`, and `${arr[*]}` when
@@ -836,7 +834,9 @@ Removing the first 6 characters from a text string:
     are few good reasons to leave `IFS` set to null for more than the
     duration of a command or two, and even fewer to expand `$@` and `$*`
     unquoted, this should be a rare issue. **Always quote
-    them**!`touch x 'y z'
+    them**!
+    ```
+    touch x 'y z'
     for sh in bb {{d,b}a,{m,}k,z}sh; do
         echo "$sh"
         "$sh" -s a 'b c' d \* </dev/fd/0
@@ -848,7 +848,9 @@ Removing the first 6 characters from a text string:
     printf "<%s> " $@
     echo
     EOF
-    ``bb
+    ```
+    ```
+    bb
     <ab cd*>
     <ab cd*>
     dash
@@ -866,7 +868,8 @@ Removing the first 6 characters from a text string:
     zsh
     <a> <b c> <d> <x> <y z>
     <a> <b c> <d> <x> <y z>
-    `When `IFS` is set to a non-null value, or unset, all shells behave
+    ```
+    When `IFS` is set to a non-null value, or unset, all shells behave
     the same - first expanding into separate args, then applying
     pathname expansion and word-splitting to the results, except for
     zsh, which doesn't do pathname expansion in its default mode.
@@ -875,7 +878,9 @@ Removing the first 6 characters from a text string:
     the behavior of inserting delimiter characters from IFS in `$*`, and
     the way adjacent arguments are concatenated, when IFS is modified in
     the middle of expansion through
-    side-effects.`for sh in bb {{d,b}a,po,{m,}k,z}sh; do
+    side-effects.
+    ```
+    for sh in bb {{d,b}a,po,{m,}k,z}sh; do
         printf '%-4s: ' "$sh"
         "$sh" </dev/fd/0
     done <<\EOF
@@ -885,14 +890,17 @@ Removing the first 6 characters from a text string:
     printf '<%s> ' ${*}${IFS=}${*}${IFS:=-}"${*}"
     echo
     EOF
-    ``bb  : <a b cabc> <a-b-c>
+    ```
+    ```
+    bb  : <a b cabc> <a-b-c>
     dash: <a b cabc> <a-b-c>
     bash: <a> <b> <ca> <b> <c-a b c>
     posh: <a> <b> <ca b c> <a-b-c>
     mksh: <a> <b> <ca b c> <a-b-c>
     ksh : <a> <b> <ca> <b> <c> <a b c>
     zsh : <a> <b> <ca> <b> <c> <a-b-c>
-    `ksh93 and mksh can additionally achieve this side effect (and
+    ```
+    ksh93 and mksh can additionally achieve this side effect (and
     others) via the `${ cmds;}` expansion. I haven't yet tested every
     possible side-effect that can affect expansion halfway through
     expansion that way.
@@ -920,7 +928,8 @@ Removing the first 6 characters from a text string:
     if the first part is out of range, the second won't be evaluated.
     ksh93 and mksh always evaluate the subscript parts even if the
     parameter is unset.
-    ` $ bash -c 'n="y[\$(printf yo >&2)1]" m="y[\$(printf jo >&2)1]"; x=(); echo "${x[@]:n,6:m}"' # No output
+    ```
+    $ bash -c 'n="y[\$(printf yo >&2)1]" m="y[\$(printf jo >&2)1]"; x=(); echo "${x[@]:n,6:m}"' # No output
      $ bash -c 'n="y[\$(printf yo >&2)1]" m="y[\$(printf jo >&2)1]"; x=([5]=hi); echo "${x[@]:n,6:m}"'
     yo
      $ bash -c 'n="y[\$(printf yo >&2)1]" m="y[\$(printf jo >&2)1]"; x=([6]=hi); echo "${x[@]:n,6:m}"'
@@ -929,7 +938,7 @@ Removing the first 6 characters from a text string:
     yojo
      $ bash -c 'n="y[\$(printf yo >&2)1]" m="y[\$(printf jo >&2)1]"; x=12345; echo "${x:n,6:m}"'
     yo
-    `
+    ```
 
 ### Quote Nesting
 
@@ -937,26 +946,30 @@ Removing the first 6 characters from a text string:
     expansion that expands to multiple words, and nesting such
     expansions, not all combinations of nested quoting are possible.
 
-    # Bash
-     $ typeset -a a=(meh bleh blerg) b
-     $ IFS=e
-     $ printf "<%s> " "${b[@]-"${a[@]}" "${a[@]}"}"; echo # The entire PE is quoted so Bash considers the inner quotes redundant.
-    <meh> <bleh> <blerg meh> <bleh> <blerg>
-     $ printf "<%s> " "${b[@]-${a[@]} ${a[@]}}"; echo # The outer quotes cause the inner expansions to be considered quoted.
-    <meh> <bleh> <blerg meh> <bleh> <blerg>
-     $ b=(meep beep)
-     $ printf "<%s> " "${b[@]-"${a[@]}" "${a[@]}"}" "${b[@]-${a[@]} ${a[@]}}"; echo # Again no surprises. Outer quotes quote everything recursively.
-    <meep> <beep> <meep> <beep>
+```
+# Bash
+ $ typeset -a a=(meh bleh blerg) b
+ $ IFS=e
+ $ printf "<%s> " "${b[@]-"${a[@]}" "${a[@]}"}"; echo # The entire PE is quoted so Bash considers the inner quotes redundant.
+<meh> <bleh> <blerg meh> <bleh> <blerg>
+ $ printf "<%s> " "${b[@]-${a[@]} ${a[@]}}"; echo # The outer quotes cause the inner expansions to be considered quoted.
+<meh> <bleh> <blerg meh> <bleh> <blerg>
+ $ b=(meep beep)
+ $ printf "<%s> " "${b[@]-"${a[@]}" "${a[@]}"}" "${b[@]-${a[@]} ${a[@]}}"; echo # Again no surprises. Outer quotes quote everything recursively.
+<meep> <beep> <meep> <beep>
+```
 
 Now lets see what can happen if we leave the outside unquoted.
 
-    # Bash
-     $ typeset -a a=(meh bleh blerg) b
-     $ IFS=e
-     $ printf "<%s> " ${b[@]-"${a[@]}" "${a[@]}"}; echo # Inner quotes make inner expansions quoted.
-    <meh> <bleh> <blerg meh> <bleh> <blerg>
-     $ printf "<%s> " ${b[@]-${a[@]} ${a[@]}}; echo' # No quotes at all wordsplits / globs, like you'd expect.
-    <m> <h> <bl> <h> <bl> <rg m> <h> <bl> <h> <bl> <rg>
+```
+# Bash
+ $ typeset -a a=(meh bleh blerg) b
+ $ IFS=e
+ $ printf "<%s> " ${b[@]-"${a[@]}" "${a[@]}"}; echo # Inner quotes make inner expansions quoted.
+<meh> <bleh> <blerg meh> <bleh> <blerg>
+ $ printf "<%s> " ${b[@]-${a[@]} ${a[@]}}; echo' # No quotes at all wordsplits / globs, like you'd expect.
+<m> <h> <bl> <h> <bl> <rg m> <h> <bl> <h> <bl> <rg>
+```
 
 This all might be intuitive, and is the most common implementation, but
 this design sucks for a number of reasons. For one, it means Bash makes

@@ -38,12 +38,12 @@ There are four basic operation modes to *list*, *read*, *write* and
 *copy* archives. They're switched with combinations of `-r` and `-w`
 command line options:
 
-  Mode    RW-Options
-  ------- -----------------
-  List    *no RW-options*
-  Read    `-r`
-  Write   `-w`
-  Copy    `-r -w`
+|Mode|RW-Options|
+|----|----------|
+|List|*no RW-options*|
+|Read|`-r`|
+|Write|`-w`|
+|Copy|`-r -w`|
 
 #### List
 
@@ -99,14 +99,14 @@ creates `ustar` if no options are specified).
 
 The following archive formats are supported (Berkeley implementation):
 
-  --------- ----------------------------
-  ustar     POSIX TAR format (default)
-  cpio      POSIX CPIO format
-  tar       classic BSD TAR format
-  bcpio     old binary CPIO format
-  sv4cpio   SVR4 CPIO format
-  sv4crc    SVR4 CPIO format with CRC
-  --------- ----------------------------
+|  |  |
+|--|--|
+|ustar|POSIX TAR format (default)|
+|cpio|POSIX CPIO format|
+|tar|classic BSD TAR format|
+|bcpio|old binary CPIO format|
+|sv4cpio|SVR4 CPIO format|
+|sv4crc|SVR4 CPIO format with CRC|
 
 Berkeley `pax` supports options `-z` and `-j`, similar to GNU `tar`, to
 filter archive files through GZIP/BZIP2.
@@ -337,13 +337,13 @@ in your `~/.bashrc` can be useful :-D.
 Here is a quick table comparing (GNU) `tar` and `pax` to help you to
 make the switch:
 
-  TAR                                   PAX                                        Notes
-  ------------------------------------- ------------------------------------------ -----------------------------------------------------------------------
-  `tar xzvf file.tar.gz`                `pax -rvz -f file.tar.gz`                  `-z` is an extension, POSIXly: `gunzip <file.tar.gz | pax -rv`
-  `tar czvf archive.tar.gz path ...`    `pax -wvz -f archive.tar.gz path ...`      `-z` is an extension, POSIXly: `pax -wv path | gzip > archive.tar.gz`
-  `tar xjvf file.tar.bz2`               `bunzip2 <file.tar.bz2 | pax -rv`
-  `tar cjvf archive.tar.bz2 path ...`   `pax -wv path | bzip2 > archive.tar.bz2`
-  `tar tzvf file.tar.gz`                `pax -vz -f file.tar.gz`                   `-z` is an extension, POSIXly: `gunzip <file.tar.gz | pax -v`
+|TAR|PAX|Notes|
+|---|---|-----|
+|`tar xzvf file.tar.gz`|`pax -rvz -f file.tar.gz`|`-z` is an extension, POSIXly: `gunzip <file.tar.gz | pax -rv`|
+|`tar czvf archive.tar.gz path ...`|`pax -wvz -f archive.tar.gz path ...`|`-z` is an extension, POSIXly: `pax -wv path | gzip > archive.tar.gz`|
+|`tar xjvf file.tar.bz2`|`bunzip2 <file.tar.bz2 | pax -rv`|
+|`tar cjvf archive.tar.bz2 path ...`|`pax -wv path | bzip2 > archive.tar.bz2`|
+|`tar tzvf file.tar.gz`|`pax -vz -f file.tar.gz`|`-z` is an extension, POSIXly: `gunzip <file.tar.gz | pax -v`|
 
 `pax` might not create ustar (`tar`) archives by default but its own pax
 format, add `-x ustar` if you want to ensure pax creates tar archives!

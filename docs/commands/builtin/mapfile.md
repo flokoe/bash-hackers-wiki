@@ -19,15 +19,15 @@ target array must be a "normal" integer indexed array.
 `mapfile` returns success (0) unless an invalid option is given or the
 given array `ARRAY` is set readonly.
 
-  Option          Description
-  --------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `-c QUANTUM`    Specifies the number of lines that have to be read between every call to the callback specified with `-C`. The default QUANTUM is 5000
-  `-C CALLBACK`   Specifies a callback. The string `CALLBACK` can be any shell code, the index of the array that will be assigned, and the line is appended at evaluation time.
-  `-n COUNT`      Reads at most `COUNT` lines, then terminates. If `COUNT` is 0, then all lines are read (default).
-  `-O ORIGIN`     Starts populating the given array `ARRAY` at the index `ORIGIN` rather than clearing it and starting at index 0.
-  `-s COUNT`      Discards the first `COUNT` lines read.
-  `-t`            Remove any trailing newline from a line read, before it is assigned to an array element.
-  `-u FD`         Read from filedescriptor `FD` rather than standard input.
+|Option|Description|
+|------|-----------|
+|`-c QUANTUM`|Specifies the number of lines that have to be read between every call to the callback specified with `-C`. The default QUANTUM is 5000|
+|`-C CALLBACK`|Specifies a callback. The string `CALLBACK` can be any shell code, the index of the array that will be assigned, and the line is appended at evaluation time.|
+|`-n COUNT`|Reads at most `COUNT` lines, then terminates. If `COUNT` is 0, then all lines are read (default).|
+|`-O ORIGIN`|Starts populating the given array `ARRAY` at the index `ORIGIN` rather than clearing it and starting at index 0.|
+|`-s COUNT`|Discards the first `COUNT` lines read.|
+|`-t`|Remove any trailing newline from a line read, before it is assigned to an array element.|
+|`-u FD`|Read from filedescriptor `FD` rather than standard input.|
 
 While `mapfile` isn't a common or portable shell feature, it's
 functionality will be familiar to many programmers. Almost all

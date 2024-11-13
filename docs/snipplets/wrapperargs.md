@@ -1,14 +1,14 @@
+---
+tags:
+  - arguments
+  - quoting
+  - escape
+  - quote
+  - wrapper
+  - generate
+---
+
 # Generate code with own arguments properly quoted
-
----- dataentry snipplet ---- snipplet_tags: arguments, quoting,
-escaping, wrapper LastUpdate_dt: 2010-07-31 Contributors: Jan Schampera
-type: snipplet
-
-------------------------------------------------------------------------
-
-  Keywords:      arguments,escape,quote,wrapper,generate
-  -------------- -----------------------------------------
-  Contributor:   self
 
 There are situations where Bash code needs to generate Bash code. A
 script that writes out another script the user or cron may start, for
